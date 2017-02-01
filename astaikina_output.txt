@@ -1,0 +1,322 @@
+<document>
+<meta>
+RMTP (Russian Movie Theater Project)
+College of WIlliam and Mary Interview with Ekaterina Lebedeva https://vimeo.com/180984724
+Interview conducted in St. Petersburg, Russia in July, 2016 by Margaret Swift (interviewer) and Bailey Orr (camera and sound).
+Transcribed and translated by Bailey Orr, Maggie Swift, Gabriella Carney, and Molly Charles in Fall 2016.
+<\meta>
+
+<text>
+<body>
+
+<u xml:id="sp1" who="interviewer">Сегодня 29ое июля 2016ого года. Мы находимся в Санкт-Петербурге, в России. Меня зовут Бэйли Орр. Моя коллега Маргарита Свифт и я берём интервью у Taтьяны Астайкиной. Мы берём у Вас интервью для кино-проекта, который изучает историю России через фильмы. Мы хотели бы, чтобы Вы рассказали нам о Ваших воспоминаниях от посещения кино; нас особенно интересуют детали. На основании Ваших ответов мы напишем эссе, в котором мы проанализируем результаты опроса и напишем о посещении кинотеатров в России. Цель этого интервью для нас – узнать как можно больше о конкретных людях и месте кино в их жизни. Большое спасибо за Вашу готовность поделиться вашими воспоминаниями и за Вашу помощь нам. Это интервью будет доступно для прослушивания на интернет-сайте кинопроекта. Если вы не против, давайте начнём.</u>
+
+<u xml:id="sp2" who="interviewee">Ну, конечно.</u>
+
+<u xml:id="sp3" who="interviewer">Расскажите нам, пожалуйста, когда и где вы выросли?</u>
+
+<u xml:id="sp4" who="interviewee">Это было вам многих местах, но родилась <rstype="pron"subtype=“persSing”>я</rs> во <rstype="place"key=“vladivostok”>Владивостоке.</rs> Если вы знаете где это--очень далеко. Поскольку <rstype="pron"subtype=“possSing”>мои</rs> родители там работали. Но жили <rstype="pron"subtype=“persPlur">мы</rs> очень недолго. Потому, что <rstype="pron"subtype=“possSing”>мои</rs> родители переехали новую работу и вобщем <rstype="pron"subtype=“persSing”>я</rs> в итоге четыре школы сменила в своей жизни. Поэтому <rstype="pron"subtype=“persSing”>я</rs> росла, можно сказать, во многих городах. Нет такого города в котором <rstype="pron"subtype=“persSing”>я</rs> могла бы сказать, <rstype="pron"subtype=“persSing”>я</rs> выросла. Дольше всего <rstype="pron"subtype=“persSing”>я</rs> живу в <rstype="place"key=“stPetersburg”>Петербурге.</rs></u>
+
+<u xml:id="sp5" who="interviewer">А какое у вас образование?</u>
+
+<u xml:id="sp6" who="interviewee"><rstype="pron"subtype=“persSing”>Я</rs> окончила этот университет, филологический факултет, соответственно</u>
+
+<u xml:id="sp7" who="interviewer">В каких городах вы жили?</u>
+
+<u xml:id="sp8" who="interviewee">Очень много, <rstype="pron"subtype=“persSing”>я</rs> не знаю. Всё перечислять, но очень много, во <rstype="place"key=“vladivostok”>Владивостоке</rs> в томже, в <rstype="place"key=“magadan”>Магадане,</rs> на <rstype="place"key=“amderma”>Амдерме</rs> (это на севере), не знаю, в <rstype="place"key=“riga”>Риге,</rs> в <rstype="place"key=“donetsk”>Донецке,</rs> в <rstype="place"key=“kiev”>Киеве,</rs> очень много городов. Много, да. Да, то есть не один город.</u>
+
+<u xml:id="sp9" who="interviewer">А когда вы переехали в Петербург?</u>
+
+<u xml:id="sp10" who="interviewee">В <rstype="place"key=“stPetersburg”>Петербург</rs> переехала когда <rstype="pron"subtype=“persSing”>мне</rs> было 18 лет.</u>
+
+<u xml:id="sp11" who="interviewer">Вы помните первый раз, когда вы ходили в кино?</u>
+
+<u xml:id="sp12" who="interviewee">Да, очень хорошо помню потому что <rstype="pron"subtype=“persSing”>я</rs> была совсем маленькая, <rstype="pron"subtype=“persSing”>мне</rs> было пять лет. <rstype="pron"subtype=“persSing”>Я</rs> думаю, пять лет, и <rstype="pron"subtype=“persSing”>я</rs> пошла с родителями. Очень хорошо помню потому что <rstype="pron"subtype=“persSing”>меня</rs> в <rstype="place"key="movieTheater">кинотеатр</rs> не пускали. Потому что считалось, что этот фильм для взрослых. Видимо, родителям некуда было <rstype="pron"subtype=“persSing”>меня</rs> деть. Они <rstype="pron"subtype=“persSing”>меня</rs> взяли с собой и очень такая злая тётенька на входе не хотела пускать в общем. <rstype="pron"subtype=“persSing”>Я</rs> там рыдала, очень хотела, даже помню название фильма, фильм был французский, «Королева Шантеклера.» <rstype="pron"subtype=“persSing”>Я</rs> его потом больше не видела и совсем не давно был, были какие-то там... повторы ретро-кино и был этот фильм, очень хотела пойти, но не сложилось. Вот, также даже помню. В итоге <rstype="pron"subtype=“persPlur">мы</rs> не пошли, ни мама ни папа ни <rstype="pron"subtype=“persSing”>я</rs> не пошли. Это был такой первый поход. Ужасный совершенно.</u>
+
+<u xml:id="sp13" who="interviewer">Вы помните сколько стоил билет?</u>
+
+<u xml:id="sp14" who="interviewee">Ну, когда училась в школе, в школе, <rstype="pron"subtype=“persSing”>мне</rs> кажется, <rstype="pron"subtype=“persSing”>я</rs> не помню, конечно. Но не знаю там какие-то копейки он стоил. То что был Советский <rstype="place"key="sovietUnion">Союз,</rs> там, ну это было совсем ничего. То есть сейчас допустим пойти в кино--это, ну достаточно накладно (??), да? Если идешь в <rstype="place"key="kino">кино,</rs> ты думаешь «во, триста рублей.» Тогда <rstype="pron"subtype=“persPlur">мы</rs> не думали, просто покупали билет и шли. Это было ничего.</u>
+
+<u xml:id="sp15" who="interviewer">Как назывался кинотеатр?</u>
+
+<u xml:id="sp16" who="interviewee">Вот, самый первый?</u>
+
+<u xml:id="sp17" who="interviewer">Да</u>
+
+<u xml:id="sp18" who="interviewee"><rstype="place"key="kinoteatrRodina">«Родина»</rs> -- <rstype="pron"subtype=“persSing”>Я</rs> же помню город, в котором это был, это был в Белгороде. Какой маленький город Тоже родители там работали, вот, <rstype="pron"subtype=“persPlur">мы</rs> уходили там.</u>
+
+<u xml:id="sp19" who="interviewer">Вы ходили пешком или ездили?</u>
+
+<u xml:id="sp20" who="interviewee">Куда?</u>
+
+<u xml:id="sp21" who="interviewer">В театр.</u>
+
+<u xml:id="sp22" who="interviewee">Ах, пешком, конечно.</u>
+
+<u xml:id="sp23" who="interviewer">Пешком?</u>
+
+<u xml:id="sp24" who="interviewee">Да</u>
+
+<u xml:id="sp25" who="interviewer">У вас был один кинотеатр или больше около дома?</u>
+
+<u xml:id="sp26" who="interviewee">Около дома два. Около дома два. Ну, по крайней мере, когда <rstype="pron"subtype=“persSing”>я</rs> была маленькой, два. Момент когда <rstype="pron"subtype=“persSing”>я</rs> была маленькой, два.</u>
+
+<u xml:id="sp27" who="interviewer">Что вы чувствовали, когда вы ходили в кинотеатр?</u>
+
+<u xml:id="sp28" who="interviewee">Ой, <rstype="pron"subtype=“persSing”>мне</rs> очень нравилось. <rstype="pron"subtype=“persSing”>Мне,</rs> <rstype="pron"subtype=“persSing”>я</rs> всегда с удовольствием ходила в <rstype="place"key="kino">кино,</rs> <rstype="pron"subtype=“persSing”>я</rs> не при помню своей жизни фильма. Вернее, <rstype="pron"subtype=“persSing”>я</rs> помню один или два фильма, которые <rstype="pron"subtype=“persSing”>мне</rs> не нравились совсем совсем совсем, и чтобы <rstype="pron"subtype=“persSing”>я</rs> там ушла с сеанса, такого не было. В начале, <rstype="pron"subtype=“persSing”>я</rs> выбирала фильма из-за актёра или режиссёра или сюжета, <rstype="pron"subtype=“persSing”>я</rs> не знаю, <rstype="pron"subtype=“persSing”>мне</rs> всегда нравилось.</u>
+
+<u xml:id="sp29" who="interviewer">А когда вы начали ходить в кинотеатр одна?</u>
+
+<u xml:id="sp30" who="interviewee">Одна, ну, не знаю, наверное в этом году первый раз пошла одна. В этом году <rstype="pron"subtype=“possSing”>мой</rs> первый раз. <rstype="pron"subtype=“persSing”>Я</rs> всегда, ну, с друзьями, как ты идёшь.</u>
+
+<u xml:id="sp31" who="interviewer">Ну, конечно. А как часто вы ходили в кино?</u>
+
+<u xml:id="sp32" who="interviewee">Ой, не знаю. Очень часто. <rstype="pron"subtype=“persSing”>Я</rs> не могу сказать сколько раз в неделю, но это часто было (совсем) точно.</u>
+
+<u xml:id="sp33" who="interviewer">На какие сеансы: утренние, дневные, вечерние?</u>
+
+<u xml:id="sp34" who="interviewee">Самые разные. Не было такого выбора, чтобы только на утренние там только… Ну, ладно, когда <rstype="pron"subtype=“persPlur">мы</rs> были студентами, да, <rstype="pron"subtype=“persPlur">мы</rs> часто бегали на утренний сеанс, потому что студентам были дешевле, во-первых, а вот, а во-вторых … ну, не знаю, если у <rstype="pron"subtype=“persSing”>меня</rs> нет занятия.</u>
+
+<u xml:id="sp35" who="interviewer">Как посещение кино изменилось когда вы выросли, закончили школу…?</u>
+
+<u xml:id="sp36" who="interviewee">Понятно, что изменилось, потому что изменилась страна, во-первых, изменились цены… всё изменилось, всё изменилось. <rstype="pron"subtype=“persSing”>Я</rs> говорю, и <rstype="pron"subtype=“persSing”>я</rs> уже сказала, что сейчас несколько раз подумаешь прежде чем платить деньги. Но <rstype="pron"subtype=“persSing”>я</rs> говорю не о себе в данном случае, а скорее о молодых людях, для которых сейчас <rstype="pron"subtype=“persSing”>я</rs> думаю достаточно проблематично. Когда <rstype="pron"subtype=“persPlur">мы</rs> были молодыми, <rstype="pron"subtype=“persPlur">мы</rs> не думали о деньгах, то есть, это было ничего, билет в <rstype="place"key="kino">кино.</rs> Сейчас, <rstype="pron"subtype=“persSing”>я</rs> думаю что для многих это ощутимый поход, если идти всей семьёй это накладно получается.</u>
+
+<u xml:id="sp37" who="interviewer">А какие были ваши самые любимые жанры в детстве?</u>
+
+<u xml:id="sp38" who="interviewee">В детстве, ну понятно, было детские фильмы. Детские, конечно, <rstype="pron"subtype=“persPlur">мы</rs> на детские фильмы ходили поскольку было не так уж много, это комедий, конечно. Конечно, комедий.</u>
+
+<u xml:id="sp39" who="interviewer">А когда вы были студентами?</u>
+
+<u xml:id="sp40" who="interviewee">Ну, <genre xml:id="comedy"/>комедия,</genres> опять же, да, и а <rstype="pron"subtype=“persSing”>я</rs> тоже <genre xml:id="comedy"/>комедия</genres> потом, <rstype="pron"subtype=“persSing”>я</rs> не знаю, ну, на криминальные какие-то, там, допустим, «Крёстный Отец», тоже ваш американский, да? <rstype="pron"subtype=“persSing”>Я</rs> его смотрела ну, не знаю, миллион, наверное, раз.</u>
+
+<u xml:id="sp41" who="interviewer">Причем, мы там с друзьями. Все.</u>
+
+<u xml:id="sp42" who="interviewee">На Первый <rstype="pron"subtype=“persPlur">мы</rs> ходили, <rstype="pron"subtype=“persSing”>я</rs> не знаю, Несколько раз. И на Второго, и на Третьего. Ну такие, какие-то, ну… <genre xml:id="detective"/>Детективные.</genres> Ну <genre xml:id="comedy"/>комедия,</genres> <genre xml:id="detective"/>детективные,</genres> романтичные. Какой-нибудь там «Крокодил Данди» (в российском прокате тоже «Крокодил по прозвищу Данди») <rstype="pron"subtype=“persPlur">мы</rs> тоже миллион раз смотрели.</u>
+
+<u xml:id="sp43" who="interviewer">У вас есть любимый фильм?</u>
+
+<u xml:id="sp44" who="interviewee">Он не один, это точно. Прям, вот сейчас навскидку <rstype="pron"subtype=“persSing”>я</rs> сейчас не скажу, ну...Не один. Ну вот «Крёстный Отец» один из них <rstype="pron"subtype=“persSing”>я</rs> уже упомянула. «Из Африки», в какой-то степени нравится. «Август», достаточно новый фильм с Мэрил Стрип. <rstype="pron"subtype=“persSing”>Я</rs> не знаю как по-английски «August: County Osage», ммм? Вот. <rstype="pron"subtype=“persSing”>Мне</rs> очень понравился. Это как бы не <genre xml:id="comedy"/>комедия</genres> и не, там, не <genre xml:id="drama"/>драма,</genres> но, ну, <genre xml:id="drama"/>драма,</genres> не знаю. Ну, <genre xml:id="drama"/>драма,</genres> наверное. <rstype="pron"subtype=“persSing”>Мне</rs> очень нравится. Вот из таких да.</u>
+
+<u xml:id="sp45" who="interviewer">У вас были любимые актёры, актрисы…?</u>
+
+<u xml:id="sp46" who="interviewee">Да, конечно, всегда! Всегда. Ну, Аль <rstype="person"key="pacino">Пачино,</rs> качество <rstype="pron"subtype=“persSing”>мне</rs> нравится, Марлон Брандо всем нравился, и там, <rstype="pron"subtype=“persSing”>я</rs> не знаю, из современных… Леонардо ди Каприо <rstype="pron"subtype=“persSing”>мне</rs> нравился, когда он был молодой. Сейчас он <rstype="pron"subtype=“persSing”>мне</rs> совсем не нравится. Вот… <rstype="pron"subtype=“persSing”>мне</rs> нравится исландец Кормакур [Baltasar Kormákur]--он режиссёр и он актёр--очень хороший. Ммм, не знаю. Много.</u>
+
+<u xml:id="sp47" who="interviewer">Вы помните какой-нибудь фильмы или посещение кино особенно? Расскажите об этом посещении.</u>
+
+<u xml:id="sp48" who="interviewee">Особенное...не знаю. Вот, тот же «Август». Ну который, вот, не так значит не так давно <rstype="pron"subtype=“persSing”>я</rs> смотрела. <rstype="pron"subtype=“persSing”>Я</rs> готовилась к чему-то, <rstype="pron"subtype=“persSing”>я</rs> не знаю, ужасному, какой-то <genre xml:id="drama"/>драме,</genres> <genre xml:id="drama"/>драме.</genres> Там ведь у нее рак, у главной героини. Она умирает, все семейство созывает. Там Джулия <rstype="person"key="robertsJ">Робертс,</rs> там Бенедикт Камбербатч даже есть.</u>
+
+<u xml:id="sp49" who="interviewer">Вот она их собирает. Там эти семейные драмы они все вспоминают. Всё плохо. А в итоге она заканчивается так светло. Я помню, мы вышли. Мы с коллегами ходили. Вот. Все тоже ждали. Все приготовились к такому ужасу, ужасу. А мы вышли, такой светлый финал получился. Но вроде как как она умирает, с другой стороны, не тяжёлый.</u>
+
+<u xml:id="sp50" who="interviewee">Кажется, вот <rstype="pron"subtype=“persSing”>я</rs> не знаю, <rstype="pron"subtype=“persSing”>я</rs> до сих пор помню это ощущение. Если вы не смотрели, то посмотрите обязательно, потому что фильм очень интересный. Более того, <rstype="pron"subtype=“persSing”>я</rs> после этого фильма, через несколько лет, вот в этом году <rstype="pron"subtype=“persSing”>я</rs> только скачала пьесу, по которой фильм поставлен. Более того, <rstype="pron"subtype=“persSing”>я</rs> в театр еще пошла. То есть, это такое впечатление производит! В <rstype="place"key=“stPetersburg”>Петербурге</rs> даже по этой пьесе ставят спектакль. <rstype="pron"subtype=“persSing”>Я</rs> никогда не смотрела. А после этого. Вот.</u>
+
+<u xml:id="sp51" who="interviewer">Как вы проводили свободное время кроме посещения кино?</u>
+
+<u xml:id="sp52" who="interviewee">Всё что угодно. <rstype="pron"subtype=“persSing”>Я</rs> всегда была занята, в детстве <rstype="pron"subtype=“persSing”>я</rs> ходила в театральную студию, занималась лёгкой атлетикой. Ну не знаю, все было. Там, не знаю, в баре ходим, всё что угодно, как и все нормальные люди -- <rstype="pron"subtype=“persSing”>Я</rs> ничем не отличаюсь.</u>
+
+<u xml:id="sp53" who="interviewer">А вы с друзьями ходили в кино, да?</u>
+
+<u xml:id="sp54" who="interviewee">Обычно да. Более того, <rstype="pron"subtype=“persSing”>я</rs> когда работала в <rstype="place"key="kino">кино--</rs> <rstype="pron"subtype=“persSing”>я</rs> еще в <rstype="place"key="kino">кино</rs> успела поработать-- <rstype="pron"subtype=“persSing”>я</rs> на двух проектах поработала. <rstype="pron"subtype=“persSing”>Я</rs> с киношными друзьями ходила. Ну это уже по-другому смотришь, когда в <rstype="place"key="kino">кино</rs> поработаешь, уже знаешь - как все это снимается. Какие там камеры? Что это? Как? И <rstype="pron"subtype=“persSing”>я</rs> с ними ходила. Здесь есть <rstype="place"key="movieTheater">кинотеатр</rs> такой <rstype="place"key="hotelAngleter">«Англетер».</rs> Может быть, знаете, в «Астории <rstype="place"key="hotelAngleter">Англетер».</rs> Там показывают фильмы на языке оригинала и русские субтитры. <rstype="pron"subtype=“persPlur">Мы</rs> ходили, <rstype="pron"subtype=“persSing”>я</rs> уж не помню какой-то французский фильм по Борису Виану. Как он называется по-русски даже не помню. Книга. Борис Виан. Есть писатель такой французский. И <rstype="pron"subtype=“persPlur">мы</rs> ходили, и они там все обсуждали с киношной точки зрения. Так что даже очень такой интересный опыт.</u>
+
+<u xml:id="sp55" who="interviewer">Сколько лет было средним людям которые ходили в кино?</u>
+
+<u xml:id="sp56" who="interviewee">Ну, не знаю - <rstype="pron"subtype=“persSing”>я</rs> думаю что от двадцати до сорока, наверное. Большой конечно такой отрезок. <rstype="pron"subtype=“persSing”>Мне</rs> кажется, так можно.</u>
+
+<u xml:id="sp57" who="interviewer">A больше мужчин или женщин?</u>
+
+<u xml:id="sp58" who="interviewee">Женщин, конечно. В <rstype="place"key="russia">России,</rs> по определению, женщин больше. Если вы пройдетесь по улицам, посмотрите в кафе, там мужчин нет. Просто нет мужчин, там одни женщины. У <rstype="pron"subtype=“persPlur">нас</rs> женщин больше чем мужчин. И везде в общественных местах, везде женщины, женщины, женщины. Так что.</u>
+
+<u xml:id="sp59" who="interviewer">В кинотеатр были очереди?</u>
+
+<u xml:id="sp60" who="interviewee">В моём детстве да - были всегда очереди потому что - ну, <rstype="pron"subtype=“persSing”>я</rs> не знаю, <rstype="place"key="kino">кино</rs> было доступно. Это же не как сейчас. Сейчас есть люди работают где то там фриланс, как угодно. Люди свободны. В том же советском моем детстве у людей была работа, условно говоря, там с девяти до шести. И днем в <rstype="place"key="kino">кино</rs> мало кто ходил, кроме <rstype="pron"subtype=“persPlur">нас</rs> школьников. Да, а сейчас вот в любое время, пожалуйста, можно как-то свой день разграничить. Поэтому <rstype="pron"subtype=“persSing”>я</rs> думаю очередей нет. Плюс, это стоит дороже. Ну, и как факт меньше пожилых людей в <rstype="place"key="kino">кино.</rs> Если раньше мог себе позволить каждый, то сейчас <rstype="pron"subtype=“persSing”>я</rs> не вижу, откровенно говоря, пожилых. Нет.</u>
+
+<u xml:id="sp61" who="interviewer">А люди шумели или вели себя тихо во время сеанса?</u>
+
+<u xml:id="sp62" who="interviewee">Всегда тихо - <rstype="pron"subtype=“persSing”>Я</rs> думаю, это Советский <rstype="place"key="sovietUnion">Союз,</rs> и <rstype="place"key="russia">Россия</rs> обычно никто не шумит. У <rstype="pron"subtype=“persPlur">нас</rs> как-то не принято. Но <rstype="pron"subtype=“persSing”>я</rs> знаю, что в <rstype="place"key="america">Америке</rs> и разговаривают там, и поп-корн едят. И все такое прочее. У <rstype="pron"subtype=“persPlur">нас</rs> нет такой культуры. <rstype="pron"subtype=“persSing”>Я</rs> думаю.</u>
+
+<u xml:id="sp63" who="interviewer">А вы знали людей, которые работали в кинотеатре?</u>
+
+<u xml:id="sp64" who="interviewee">Да, один раз в одном городе у <rstype="pron"subtype=“persPlur">нас</rs> был знакомый и <rstype="pron"subtype=“persPlur">мы</rs> бесплатно ходили тоже. То есть, <rstype="pron"subtype=“persPlur">нас</rs> просто пропускали и все. Было такое. И даже в <rstype="place"key=“stPetersburg”>Петербурге</rs> у <rstype="pron"subtype=“persSing”>меня</rs> подруга работала. Не в <rstype="place"key="movieTheater">кинотеатре.</rs> Это был ситимолл такой. Она была директором ситимолла. И <rstype="pron"subtype=“persPlur">мы</rs> соответственно по каким-то контрамаркам ходили. Бесплатно.</u>
+
+<u xml:id="sp65" who="interviewer">А какая была атмосфера в кинотеатре?</u>
+
+<u xml:id="sp66" who="interviewee">Хммм - не знаю как эту атмосферу определить. Обычно очень мало времени до начала сеанса. Все там заходят за пять минут. Все сидят поговорили. Сейчас, в <rstype="pron"subtype="possPlur"">наше</rs> время все там в телефоны это (показывает как люди посылают эсэмэски). Выключили. Вот и все. И вся атмосфера. Не знаю.</u>
+
+<u xml:id="sp67" who="interviewer">Опишите звуки, запахи, которые вы вспоминаете, когда вы думаете о кинотеатрах.</u>
+
+<u xml:id="sp68" who="interviewee">Не -- это сложно - ну да, <rstype="pron"subtype=“persSing”>я</rs> говорю, у <rstype="pron"subtype=“persPlur">нас</rs> нет попкорна. Сейчас он есть, но у <rstype="pron"subtype=“persSing”>меня</rs> нет этого воспоминания. только попкорна или что-то. Студентами <rstype="pron"subtype=“persPlur">мы</rs> были, <rstype="pron"subtype=“persPlur">мы</rs> всегда ходили с коньяком или еще с чем-то. Понятно, что <rstype="pron"subtype=“persPlur">мы</rs> там сидели и пили. Не знаю такого определённого. Это не как цирк. Знаете в цирк вы приходите. Там запах этих опилок, да, или животных. В <rstype="place"key="kino">кино</rs> <rstype="pron"subtype=“persSing”>я</rs> такого не припомню. Либо у <rstype="pron"subtype=“persSing”>меня</rs> обоняние не очень хорошее. <rstype="pron"subtype=“persSing”>Я</rs> точно не могу сказать.</u>
+
+<u xml:id="sp69" who="interviewer">Кресла были удобные?</u>
+
+<u xml:id="sp70" who="interviewee">Конечно, нет. Нет. В детстве моем точно нет, потому что если был какой-то долгий фильм <rstype="pron"subtype=“persSing”>я</rs> помню, уже ёрзали(??). Вот. Потому что были такие, ну, обычные, как деревянные натянута, какая-нибудь клеёнка. Вот. Сейчас да, намного удобнее. Не знаю, сейчас удобнее, но всё равно.</u>
+
+<u xml:id="sp71" who="interviewer">А в кино было холодно, тепло, жарко?</u>
+
+<u xml:id="sp72" who="interviewee">Тоже ничего не могу сказать. <rstype="pron"subtype=“persSing”>Я</rs> никогда дискомфорта особенного не ощущала. Единственный <rstype="place"key="movieTheater">кинотеатр,</rs> о котором <rstype="pron"subtype=“persSing”>я</rs> могу сказать, что <rstype="pron"subtype=“persSing”>я</rs> помню ощущение, вот это температурное, это вот этот же <rstype="place"key="hotelAngleter">Англетер,</rs> опять же, о котором <rstype="pron"subtype=“persSing”>я</rs> говорила, в котором фильмы на языке оригинала-- там холодно. Там очень сильная вот эта вентиляция, не знаю, как он называется, очень холодно во время сеанса всегда. Они, <rstype="pron"subtype=“persSing”>я</rs> не знаю... И зимой, и летом, но, все равно, <rstype="pron"subtype=“persPlur">мы</rs> уже знаем. <rstype="pron"subtype=“persPlur">Мы</rs> ходим подготовлены.</u>
+
+<u xml:id="sp73" who="interviewer">А кинотеатр был большой?</u>
+
+<u xml:id="sp74" who="interviewee">Разные. Поскольку <rstype="pron"subtype=“persSing”>я</rs> ходила в разных городах, часто многое, много кинотеатров, кинотеатры разные.</u>
+
+<u xml:id="sp75" who="interviewer">Кинотеатр был только для кино, или для других мероприятий?</u>
+
+<u xml:id="sp76" who="interviewee"><rstype="place"key="movieTheater">Кинотеатр</rs> в <rstype="place"key="russia">России</rs> обычно для <rstype="place"key="kino">кино.</rs> В <rstype="place"key="russia">России</rs> обычно для <rstype="place"key="kino">кино,</rs> но вот в <rstype="place"key="hotelAngleter">Англетере</rs> о котором <rstype="pron"subtype=“persSing”>я</rs> говорила, это исключение, это же отель. Соответственно, это бывший конференц-зал, они его переделали в кинозал. А обычно если в <rstype="place"key="russia">России</rs> <rstype="place"key="movieTheater">кинотеатр--</rs> это <rstype="place"key="movieTheater">кинотеатр.</rs></u>
+
+<u xml:id="sp77" who="interviewer">А был буфет?</u>
+
+<u xml:id="sp78" who="interviewee">Нет. В <rstype="place"key="russia">России</rs> обычно буфета нет, единственное исключение <rstype="pron"subtype=“persSing”>я</rs> помню, в детстве, при <rstype="place"key="movieTheater">кинотеатре</rs> продавали мороженое. А что буфет-буфет, в обычном понимании, то нет.</u>
+
+<u xml:id="sp79" who="interviewer">A были в кинотеатре билетеры?</u>
+
+<u xml:id="sp80" who="interviewee">Да, конечно.</u>
+
+<u xml:id="sp81" who="interviewer">А сколько их обычно было?</u>
+
+<u xml:id="sp82" who="interviewee">Ну, бабушки, обычно, конечно. Обычно бабушки.</u>
+
+<u xml:id="sp83" who="interviewer">Где вы любили сидеть? Почему?</u>
+
+<u xml:id="sp84" who="interviewee">У <rstype="pron"subtype=“persSing”>меня</rs> нет любимого места. <rstype="pron"subtype=“persSing”>Я</rs> точно не любила на первом ряду сидеть, совершенно точно, потому что всегда голова вверх неудобно, а так, нет определенного места. <rstype="pron"subtype=“persSing”>Мне</rs> все равно.</u>
+
+<u xml:id="sp85" who="interviewer">Фильмы были немые или звуковые?</u>
+
+<u xml:id="sp86" who="interviewee">Ну, конечно, звуковые. <genre xml:id="silent"/>Немые</genres> были там, <rstype="pron"subtype=“persSing”>я</rs> не знаю, до революции, или когда, не знаю.</u>
+
+<u xml:id="sp87" who="interviewer">А черно-белые или цветные?</u>
+
+<u xml:id="sp88" who="interviewee">Конечно, цветные. Черно-белые-- это скорее… ну, по телевизору <rstype="pron"subtype=“persPlur">мы</rs> смотрели старые фильмы, а в <rstype="place"key="kino">кино,</rs> нет. Уже в моём… в моём детстве все уже цветное было.</u>
+
+<u xml:id="sp89" who="interviewer">Какие фильмы были самыми популярными у зрителей и почему?</u>
+
+<u xml:id="sp90" who="interviewee">Вы имеете в виду жанр или название?</u>
+
+<u xml:id="sp91" who="interviewer">Жанр.</u>
+
+<u xml:id="sp92" who="interviewee">Ну, <genre xml:id="comedy"/>комедии,</genres> наверное, конечно. Конечно, <genre xml:id="comedy"/>комедии.</genres> Люди больше шли на <genre xml:id="comedy"/>комедии,</genres> ну, как и сейчас, <rstype="pron"subtype=“persSing”>я</rs> думаю.</u>
+
+<u xml:id="sp93" who="interviewer">А были очень популярные фильмы?</u>
+
+<u xml:id="sp94" who="interviewee">Да… ну, вот, в моем детстве, и сейчас он очень хороший фильм-- «Белый бим, черное ухо», например. Он по книге. Вот. Там драма-драма, но при этом все его любят. Ну, и <genre xml:id="comedy"/>комедия,</genres> опять же, там «Служебный роман», который, там, студенты <rstype="pron"subtype="possPlur"">наши</rs> изучают, «Покровские ворота»… не знаю. <genre xml:id="comedy"/>Комедии,</genres> в первую очередь.</u>
+
+<u xml:id="sp95" who="interviewer">А в кинотеатре часто показывали иностранные фильмы?</u>
+
+<u xml:id="sp96" who="interviewee">Думаю, довольно часто. <rstype="pron"subtype=“persSing”>Я</rs> уже не могу эту статистику привести, но <rstype="pron"subtype=“persSing”>я</rs> думаю довольно часто.</u>
+
+<u xml:id="sp97" who="interviewer">Фильмы каких стран?</u>
+
+<u xml:id="sp98" who="interviewee">В первую очередь <rstype="place"key="france">Франция,</rs> <rstype="place"key="france">Франция</rs> всегда была, <rstype="pron"subtype=“persSing”>я</rs> не знаю, тут с ними дружба была какая-то, но <rstype="place"key="france">Франция</rs> всегда была. Вот. Американские, <rstype="pron"subtype=“persSing”>мне</rs> кажется американские часто были. Ну, французские и американские, но это две такие кинодержавы, с которыми...</u>
+
+<u xml:id="sp99" who="interviewer">Какие фильмы вам нравились больше всего? Иностранные фильмы?</u>
+
+<u xml:id="sp100" who="interviewee">Страна? Или жанр?</u>
+
+<u xml:id="sp101" who="interviewer">Иностранные фильмы, да. Какие вам нравились больше всего?</u>
+
+<u xml:id="sp102" who="interviewee"><rstype="pron"subtype=“persSing”>Я</rs> понимаю, но вы имеете ввиду из какой страны, или жанр, или…?</u>
+
+<u xml:id="sp103" who="interviewer">Из какой страны.</u>
+
+<u xml:id="sp104" who="interviewee">Ну, не знаю. Наверное <rstype="pron"subtype=“persSing”>я</rs> больше французских фильмов смотрела, скорее всего. Хотя, вот, американские, <rstype="pron"subtype=“persSing”>я</rs> тоже говорю, <rstype="pron"subtype=“persSing”>мне</rs> очень нравились. Приключенческие всякие, там, <genre xml:id="comedy"/>комедии.</genres></u>
+
+<u xml:id="sp105" who="interviewer">Были ли фильмы, на которые нельзя было ходить с детям?</u>
+
+<u xml:id="sp106" who="interviewee">С детьми?</u>
+
+<u xml:id="sp107" who="interviewer">С детьми, да.</u>
+
+<u xml:id="sp108" who="interviewee">Да, конечно, конечно, конечно. Ну <rstype="pron"subtype=“persSing”>я</rs> говорю всегда ставили какую-то, как сказать, такую ремарочку, что там детям до тороро там нельзя.</u>
+
+<u xml:id="sp109" who="interviewer">Вам не разрешали ваши родители или администраций кинотеатра?</u>
+
+<u xml:id="sp110" who="interviewee">Администрация, конечно, родители не могли <rstype="pron"subtype=“persSing”>меня</rs> контролировать в силу того, что <rstype="pron"subtype=“persSing”>я</rs> говорю, вот. У <rstype="pron"subtype=“persPlur">нас</rs> был … <rstype="pron"subtype=“persPlur">мы</rs> же раньше заканчивали занятия. <rstype="pron"subtype=“persPlur">Мы</rs> могли и днём ходить в <rstype="place"key="kino">кино.</rs> Родители не могли знать. Они на работе были. Администрация. Они просто могли не пустить, и все.</u>
+
+<u xml:id="sp111" who="interviewer">Вы пробовали пройти на фильм, на который вам нельзя было пройти?</u>
+
+<u xml:id="sp112" who="interviewee">Конечно, конечно. <rstype="pron"subtype=“persSing”>Я</rs> думаю все дети, русские, советские, пробовали.</u>
+
+<u xml:id="sp113" who="interviewer">Расскажите нам об этом.</u>
+
+<u xml:id="sp114" who="interviewee">Ну, там не было сложно, <rstype="pron"subtype=“persSing”>я</rs> говорю, в силу того, что вы проходили к в том случае, когда у <rstype="pron"subtype=“persPlur">нас</rs> знакомые были в <rstype="place"key="movieTheater">кинотеатре.</rs> <rstype="pron"subtype=“persPlur">Нас</rs> просто пропускали. Просто самый смешное, что в этих фильмах ничего такого не было, чего детям нельзя смотреть. Почему то была цензура, что детям до шестнадцати нельзя. На самом деле, там ничего такого не было в этом фильме. <rstype="pron"subtype=“persSing”>Я</rs> не знаю, из-за чего такие ограничения были.</u>
+
+<u xml:id="sp115" who="interviewer">Вы помните, какой-нибудь фильм, у которого были проблемы с выходом на экран?</u>
+
+<u xml:id="sp116" who="interviewee">Да, да, много таких фильмов, много. Вот «Проверка на дорогах», военный фильм. Точно совершенно знаю, Его сняли в восьмидесятом, а показали там, только через двадцать лет. Такой фильм не один раз в <rstype="place"key="russia">России</rs> на самом деле. <rstype="pron"subtype=“persSing”>Я</rs> вот навскидку сейчас вспомнила «Проверку на дорогах». Были были ещё другие фильмы. Их просто сейчас ... Сейчас, «Мастер и Маргарита», старый, его сняли тоже в девяностых, а выпустили только сейчас. А сейчас он уже после других фильмов не … ну, не такой интересный. Не знаю почему, но … <rstype="pron"subtype=“persSing”>Я</rs> думаю, не один такой фильм, конечно.</u>
+
+<u xml:id="sp117" who="interviewer">Как вы узнавали о репертуаре кинотеатров? О качестве фильмов? О том, что стоит посмотреть?</u>
+
+<u xml:id="sp118" who="interviewee">Обычно, обычно, всегда была афиша в газете. Тогда интернета не было. Сейчас есть интернет, понятно. Но обычно это были газеты или журналы. Там всегда писали какой-нибудь синопсис, вот это …. да и актёров. Ну, <rstype="pron"subtype=“persSing”>я</rs> не знаю, интере… <rstype="pron"subtype=“persSing”>я</rs> интересуюсь всегда на актёров и режиссёров, обычно. Если <rstype="pron"subtype=“persSing”>мне</rs> кто-то нравится, <rstype="pron"subtype=“persSing”>я</rs> хочу пойти. Бывает так, что <rstype="pron"subtype=“persSing”>я</rs> люблю режиссера, актера, а фильм <rstype="pron"subtype=“persSing”>мне</rs> не понравится. И такое бывает. Там, допустим, <rstype="pron"subtype=“persSing”>я</rs> не люблю Вуди Аллена. Но вот <rstype="pron"subtype=“persSing”>меня</rs> друзья позвали на «Mатч-пойнт». <rstype="pron"subtype=“persSing”>Мне</rs> очень, очень понравился. И <rstype="pron"subtype=“persSing”>я</rs> вот как-то залюбила Вуди Аллена. До этого <rstype="pron"subtype=“persSing”>я</rs> его не любила. Так что <rstype="pron"subtype=“persSing”>я</rs> говорю. Можно ориентироваться так. Может быть, что <rstype="pron"subtype=“persSing”>я</rs> не люблю, а потом полюблю. Может быть, что <rstype="pron"subtype=“persSing”>я</rs> люблю, а фильм окажется.</u>
+
+<u xml:id="sp119" who="interviewer">А вы читали о фильмах в журналах?</u>
+
+<u xml:id="sp120" who="interviewee">Да, конечно.</u>
+
+<u xml:id="sp121" who="interviewer">А в газетах?</u>
+
+<u xml:id="sp122" who="interviewee">Да, да; это есть то, что <rstype="pron"subtype=“persPlur">мы</rs> пытались узнавать, да, сейчас <rstype="pron"subtype=“persPlur">мы</rs> сайты в интернете используем.</u>
+
+<u xml:id="sp123" who="interviewer">А какие газеты, или журналы?</u>
+
+<u xml:id="sp124" who="interviewee">Это обычные, какие-то, эти газеты были какие-то ежедневные в которых печатали… а журналы, тоже. Обычные, какие-нибудь. <rstype="pron"subtype=“persSing”>Я</rs> не знаю. Глянцевые журналы всегда кто-то какой-нибудь критик своё видение там отражает.</u>
+
+<u xml:id="sp125" who="interviewer">Как реклама кино изменилась с советского времени?</u>
+
+<u xml:id="sp126" who="interviewee">Ну, как. Сейчас, есть телевидение, интернет, понятно, что видеоролики везде. Понятно, что в советское время были только газеты и журналы и всё. Сейчас больше средств, чтобы рекламировать фильмы, опять же все эти флаеры. Всё это. Актёры участвуют в рекламе.</u>
+
+<u xml:id="sp127" who="interviewer">А ваши родители ходили в кино?</u>
+
+<u xml:id="sp128" who="interviewee">Конечно.</u>
+
+<u xml:id="sp129" who="interviewer">А что они смотрели?</u>
+
+<u xml:id="sp130" who="interviewee">Не знаю, что они смотрели, <rstype="pron"subtype=“persPlur">мы</rs> вместе ходили- <rstype="pron"subtype=“persSing”>я</rs> говорю последний раз, <rstype="pron"subtype=“persSing”>я</rs> помню, вот это, в детстве, когда <rstype="pron"subtype=“persSing”>меня</rs> не пустили больше… мама, с мамой <rstype="pron"subtype=“persSing”>я</rs> как-то ходила, <rstype="pron"subtype=“persSing”>я</rs> помню. Тоже давно, очень. В школе <rstype="pron"subtype=“persSing”>я</rs> была, на какую-то тоже премьеру, не помню. А так, они без <rstype="pron"subtype=“persSing”>меня</rs> ходили.</u>
+
+<u xml:id="sp131" who="interviewer">Вы ходили в кино …. у вас есть дети?</u>
+
+<u xml:id="sp132" who="interviewee">Нет, нет.</u>
+
+<u xml:id="sp133" who="interviewer">Нет? У вас был телевизор?</u>
+
+<u xml:id="sp134" who="interviewee">Да, конечно.</u>
+
+<u xml:id="sp135" who="interviewer">Да. Когда вы купили его, вы ходили в кино больше или меньше?</u>
+
+<u xml:id="sp136" who="interviewee">Нет, <rstype="place"key="kino">кино…</rs> телевизор <rstype="place"key="kino">кино</rs> не заменяет. Телевизор <rstype="place"key="kino">кино</rs> не отменяет. Поход в <rstype="place"key="kino">кино</rs> абсолютно. Телевизор--телевизор, кино--кино. Но, <rstype="pron"subtype=“persSing”>я</rs> больше сказала, у <rstype="pron"subtype=“persSing”>меня</rs> сейчас нет телевизора вообще. Сейчас есть компьютеры и там интернет. Хотя в компьютере <rstype="pron"subtype=“persSing”>я</rs> могу посмотреть, ну, многие фильмы, но <rstype="pron"subtype=“persSing”>я</rs> предпочитаю большой экран, поэтому <rstype="pron"subtype=“persSing”>я</rs> стараюсь идти в <rstype="place"key="kino">кино.</rs> Потому что в ... на экране телевизора совсем не то, что в <rstype="place"key="kino">кино.</rs></u>
+
+<u xml:id="sp137" who="interviewer">Вы знаете когда звуковые фильмы пришли на экраны?</u>
+
+<u xml:id="sp138" who="interviewee">Не знаю, <rstype="pron"subtype=“persSing”>я</rs> думаю это начало века. Но точно, <rstype="pron"subtype=“persSing”>я</rs> не могу сказать.</u>
+
+<u xml:id="sp139" who="interviewer">А что люди думали об этом?</u>
+
+<u xml:id="sp140" who="interviewee">Понятия не имею, но <rstype="pron"subtype=“persSing”>я</rs> думаю все были счастливы. Потому что, если раньше было немое <rstype="place"key="kino">кино,</rs> <rstype="pron"subtype=“persSing”>я</rs> думаю, <rstype="pron"subtype=“persSing”>я</rs> была бы рада. Если бы <rstype="pron"subtype=“persSing”>я</rs> жила в то время. Потом появился звук. <rstype="pron"subtype=“persSing”>Я</rs> думаю, это прекрасно.</u>
+
+<u xml:id="sp141" who="interviewer">А вы помните фильмы в семидесятые годы?</u>
+
+<u xml:id="sp142" who="interviewee">Да конечно. <rstype="pron"subtype=“persSing”>Я</rs> была маленькая, но хорошо помню. Служебный роман в моем детстве вышел. <rstype="pron"subtype=“persSing”>Я</rs> его прекрасно помню. Хотя <rstype="pron"subtype=“persSing”>меня</rs> не пускали на этот фильм, <rstype="pron"subtype=“persSing”>я</rs> хорошо помню. Все рассказывали. Коллеги родителей рассказывали. А потом где то <rstype="pron"subtype=“persSing”>я</rs> летом просочилась с детьми и <rstype="pron"subtype=“persPlur">мы</rs> его посмотрели. Конечно, помню. Помню.</u>
+
+<u xml:id="sp143" who="interviewer">А во время перестройки?</u>
+
+<u xml:id="sp144" who="interviewee">Да, конечно. Во время перестройки тоже много фильмов сняли. Понятно, что все ходили смотреть, потому что было очень интересно. Там Маленькая Вера, которая символ перестройки. Все посмотрели, по-моему.</u>
+
+<u xml:id="sp145" who="interviewer">Как ваши посещения кинотеатров изменились со временем?</u>
+
+<u xml:id="sp146" who="interviewee">Да никак. <rstype="pron"subtype=“persSing”>Я</rs> как ходила в <rstype="place"key="kino">кино,</rs> так и хожу. Что хотела смотреть, то и смотрю. <rstype="pron"subtype=“persSing”>Я</rs> говорю, единственное, что сейчас, с появлением интернета у многих. Многие люди сейчас стараются деньги не тратить. Они говорят: “А в интернете посмотрю.” Для <rstype="pron"subtype=“persSing”>меня</rs> все таки это важно. В интернете не то ощущение. Для <rstype="pron"subtype=“persSing”>меня</rs> вот <rstype="place"key="movieTheater">кинотеатр.</rs> <rstype="pron"subtype=“persSing”>Я</rs> совсем по другому смотрю фильм. Просто себя уже проверяла. Если на экране смотрю фильм, потом <rstype="pron"subtype=“persSing”>я</rs> дома смотрю фильм в интернете. Нет такого ощущения прекрасного. Для <rstype="pron"subtype=“persSing”>меня</rs> это немного разные вещи, и объяснить это <rstype="pron"subtype=“persSing”>я</rs> не могу. Но на экране <rstype="pron"subtype=“persSing”>я</rs> по другому это все ощущаю.</u>
+
+<u xml:id="sp147" who="interviewer">Вы сейчас ходите в кино?</u>
+
+<u xml:id="sp148" who="interviewee">Конечно. <rstype="pron"subtype=“persSing”>Я</rs> собираюсь вот на Вудиаленовскую Светскую жизнь. На следующей неделе в понедельник <rstype="pron"subtype=“persSing”>я</rs> иду. Причем <rstype="pron"subtype=“persSing”>я</rs> предпочитаю сейчас поскольку появилась возможность смотреть фильмы в оригинале, <rstype="pron"subtype=“persSing”>я</rs> предпочитаю ходить на английские, на французские фильмы, на китайские фильмы со студентами со своими ходила. <rstype="pron"subtype=“persSing”>Я</rs> понимаю, что <rstype="pron"subtype=“persSing”>я</rs> китайский когда то давно изучала, <rstype="pron"subtype=“persSing”>я</rs> его не знаю. Но все равно <rstype="pron"subtype=“persSing”>я</rs> иду на оригинальный фильм. Читаю субтитры--я предпочитаю. Сейчас есть такая возможность. <rstype="pron"subtype=“persSing”>Я</rs> так делаю.</u>
+
+<u xml:id="sp149" who="interviewer">Что вам нравится в фильмах, которые вы смотрите сейчас?</u>
+
+<u xml:id="sp150" who="interviewee">Спецэффекты, конечно. Потому что то, что было невозможно раньше, там, допустим, Алиса в стране чудес. Вот, тимбёртоновский. Многие его ругают, что угодно. Если взять возможности киноинустрии прошлого времени, невозможно было бы снять Алису в стране чудес. Просто потому что у киношников не было возможностей таких. А сейчас есть спецэффекты, они могут все создать. Например, Алиса в стране чудес, только сейчас можно создать. Раньше это просто невозможно было. Поэтому, конечно, все изменилось.</u>
+
+<u xml:id="sp151" who="interviewer">У кого вы бы посоветовали нам взять интервью на эту же тему в будущем?</u>
+
+<u xml:id="sp152" who="interviewee">У <rstype="pron"subtype=“persSing”>меня</rs> есть одна коллега, она тоже очень интересуется <rstype="place"key="kino">кино.</rs> Более того, она пишет лекции о <rstype="place"key="kino">кино.</rs> Тоже на <rstype="pron"subtype="possPlur"">нашей</rs> кафедре работает, Наташа Семенова. Если хотите могу вас познакомить. И есть Любовь Дмитриевна Бугаева. Тоже <rstype="pron"subtype="possPlur"">наш</rs> преподаватель. Лекции читает о <rstype="place"key="kino">кино.</rs> Она в <rstype="place"key="america">Америке</rs> преподавала. Достаточно профессиональный человек. <rstype="pron"subtype=“persSing”>Меня</rs> выбрали потому что в <rstype="place"key="kino">кино</rs> работала. <rstype="pron"subtype=“persSing”>Я</rs> говорю, если хотите, можно с Натальей Семеновной поговорить.</u>
+
+<u xml:id="sp153" who="interviewer">Большое спасибо за интервью!</u>
+
+<u xml:id="sp154" who="interviewee">Спасибо.</u>
+
+</body>
+</text>
+</document>
