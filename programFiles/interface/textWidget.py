@@ -30,7 +30,7 @@ stuff = 'Four score and seven years ago'
 
 root = Tk()
 
-text = Text(root, height=300, width=200)
+text = Text(root, height=50, width=200)
 text.tag_configure('nice', font=('Arial', 20))
 text.tag_configure('found', font=('Arial', 20, 'bold'))
 text.insert(INSERT, stuff, 'nice')
@@ -55,5 +55,5 @@ other_tag.pack()
 
 
 
-root.geometry("700x2000")
+root.geometry("700x700")
 root.mainloop()
