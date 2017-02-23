@@ -3,7 +3,7 @@
 #
 # Description: Class for controlling input and output from the file.
 
-class Text:
+class IOFile:
     def __init__(self, path):
         self._path = path
         self._string = self._read(path)
@@ -32,6 +32,6 @@ class Text:
 
 if __name__ == "__main__":
     # Debug Testing
-    fle = Text("../input/astaikina.txt")
+    fle = IOFile("../input/astaikina.txt")
     print(fle.string())
     fle.copyToFile("test.txt")

@@ -19,7 +19,7 @@ class WordStruct:
     def setTag(self, tagTup):
         self._tags = tagTup
 
-class framedText:
+class FramedText:
     def __init__(self, Frame):
         # tkinter settings
         self.text = Text(Frame)
@@ -69,28 +69,28 @@ class framedText:
         """ Uses appropiate settings to fill its parent frame."""
         self.text.pack(expand = 1, fill = BOTH)
         
+if __name__ == "__main__":
+    root = Tk()
+    textFrame = Frame(root, height = 500, width = 500, bg = 'red')
+    tt = FramedText(textFrame)
 
-root = Tk()
-textFrame = Frame(root, height = 500, width = 500, bg = 'red')
-tt = framedText(textFrame)
+    textFrame.pack_propagate(0)
+    textFrame.pack()
 
-textFrame.pack_propagate(0)
-textFrame.pack()
+    tt.loadText('../../input/astaikina.txt')
+    tt.pack()
 
-tt.loadText('../../input/astaikina.txt')
-tt.pack()
+    a = Button( root, text="<pronoun>Мы<Pronoun>", command = lambda: tt.tag(1, 5, ('<pronoun>', '</pronoun>')) )
+    b = Button(root, text="<otherTag>Мы<otherTag>", command = lambda: tt.tag(1, 5, ('<otherTag>', '</otherTag>')))
+    c = Button(root, text="<Theater>Мы<Theater>", command = lambda: tt.tag(1, 5, ('<Theater>', '</Theater>')))
+    d = Button(root, text="Мы", command = lambda: tt.tag(1, 5, ('', '')))
 
-a = Button( root, text="<pronoun>Мы<Pronoun>", command = lambda: tt.tag(1, 5, ('<pronoun>', '</pronoun>')) )
-b = Button(root, text="<otherTag>Мы<otherTag>", command = lambda: tt.tag(1, 5, ('<otherTag>', '</otherTag>')))
-c = Button(root, text="<Theater>Мы<Theater>", command = lambda: tt.tag(1, 5, ('<Theater>', '</Theater>')))
-d = Button(root, text="Мы", command = lambda: tt.tag(1, 5, ('', '')))
+    a.pack()
+    b.pack()
+    c.pack()
+    d.pack()
 
-a.pack()
-b.pack()
-c.pack()
-d.pack()
-
-mainloop()
+    mainloop()
         
         
         
