@@ -104,6 +104,9 @@ class FramedText:
 
     def bind(self, button, function):
         self.text.bind(button, function)
+
+    def insert(self, index, string):
+        self.text.insert(index, string)
         
 if __name__ == "__main__":
     root = Tk()
