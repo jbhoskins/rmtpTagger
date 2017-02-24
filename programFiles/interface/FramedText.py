@@ -19,6 +19,12 @@ class WordStruct:
     def setTag(self, tagTup):
         self._tags = tagTup
 
+    def __len__(self):
+        if self._tags == None:
+            return len(self._clean)
+        else:
+            return len(self.tagged())
+
 class FramedText:
     def __init__(self, Frame):
         # tkinter settings
@@ -28,15 +34,21 @@ class FramedText:
         self.tokenized = []
         
         # Tag setup
-        self.text.tag_configure('found', font=('Arial', 20, 'bold'))
+        self.text.tag_configure('found', background = 'yellow')
            
     def loadText(self, path):
+        """ Inserts text from a file into the widget."""
         f = open(path)
-        string = ""
         for line in f:
-            string += line
             self.tokenized.append([WordStruct(word) for word in line.split()])
         f.close()
+
+        string = ''
+        for line in self.tokenized:
+            for word in line:
+                string += word.clean() + ' '
+
+            string += '\n' 
         
         self.text.insert(0.0, string)
     
@@ -59,15 +71,39 @@ class FramedText:
             
         self.text.insert(str(lineNumber) + '.0', string)
     
-    def highlight(self, wordNumber):
-        # do in three parts, beginning string with normal style, insert next with 
-        # special, and then the rest as normal again.
-        pass
+    def highlight(self, lineNumber, wordNumber):
         
-        
+        # Delete the line
+        self.text.delete(str(lineNumber) + '.0', str(lineNumber) + '.end')        
+
+        # Rebuild and insert the line up the word to be highlighted.
+        preString = ''
+        for word in self.tokenized[lineNumber - 1][:wordNumber]:
+            if word._tags == None:
+                preString += word.clean() + ' '
+            else:
+                preString += word.tagged() + ' '
+        self.text.insert(str(lineNumber) + '.0', preString)
+
+        # Insert the word with the tag.
+        word = self.tokenized[lineNumber - 1][wordNumber]
+        self.text.insert(str(lineNumber) + '.end', word.clean(), "found")
+
+        # Rebuid insert the rest of the line.
+        postString = ' '
+        for word in self.tokenized[lineNumber - 1][wordNumber + 1:]:
+            if word._tags == None:
+                postString += word.clean() + ' '
+            else:
+                postString += word.tagged() + ' '
+        self.text.insert(str(lineNumber) + '.end', postString)
+
     def pack(self):
         """ Uses appropiate settings to fill its parent frame."""
         self.text.pack(expand = 1, fill = BOTH)
+
+    def bind(self, button, function):
+        self.text.bind(button, function)
         
 if __name__ == "__main__":
     root = Tk()
@@ -82,7 +118,7 @@ if __name__ == "__main__":
 
     a = Button( root, text="<pronoun>Мы<Pronoun>", command = lambda: tt.tag(1, 5, ('<pronoun>', '</pronoun>')) )
     b = Button(root, text="<otherTag>Мы<otherTag>", command = lambda: tt.tag(1, 5, ('<otherTag>', '</otherTag>')))
-    c = Button(root, text="<Theater>Мы<Theater>", command = lambda: tt.tag(1, 5, ('<Theater>', '</Theater>')))
+    c = Button(root, text="Highlight", command = lambda: tt.highlight(1, 5))
     d = Button(root, text="Мы", command = lambda: tt.tag(1, 5, ('', '')))
 
     a.pack()
