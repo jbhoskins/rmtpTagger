@@ -6,6 +6,7 @@
 from tkinter import *
 
 class WordStruct:
+    
     def __init__(self, word):
         self._clean = word
         self._tags = None
@@ -19,28 +20,24 @@ class WordStruct:
     def setTag(self, tagTup):
         self._tags = tagTup
 
-    def __len__(self):
-        if self._tags == None:
-            return len(self._clean)
-        else:
-            return len(self.tagged())
+    def __str__(self):
+        return str(self._clean)
 
 class FramedText:
     def __init__(self, Frame):
-        # tkinter settings
+        # tkinter things
         self.text = Text(Frame)
+        self.text.tag_configure('highlighted', background = 'yellow')
          
-        # Other
+        # List of lists of individual words.
         self.tokenized = []
         
-        # Tag setup
-        self.text.tag_configure('found', background = 'yellow')
-           
     def loadText(self, path):
         """ Inserts text from a file into the widget."""
         f = open(path)
         for line in f:
-            self.tokenized.append([WordStruct(word) for word in line.split()])
+            line = line.split()
+            self.tokenized.append([WordStruct(word) for word in line])
         f.close()
 
         string = ''
@@ -50,56 +47,69 @@ class FramedText:
 
             string += '\n' 
         
+        # Insert the string into the widget.
         self.text.insert(0.0, string)
     
     def tag(self, lineNumber, wordNumber, tagTuple):
-        """ Redraws the line on which the word to be tagged is located. """
+        """ Tags a word on a line with the tags in the tuple "tagTuple". """
         
+        # Delete the entire line.
         self.text.delete(str(lineNumber) + '.0', str(lineNumber) + '.end')
         
-        # pulls out the word from the list of tokens and assigns it tag values.
-        token = self.tokenized[lineNumber - 1][wordNumber]
-        token.setTag(tagTuple)  
-        self.tokenized[lineNumber - 1][wordNumber] = token
+        # set the tags in the WordStruct of the word.
+        token = self.tokenized[lineNumber - 1][wordNumber].setTag(tagTuple)
         
-        string = ""
-        for word in self.tokenized[lineNumber - 1]:
+        # Draw the entire line again. Needs to affect the entire line, since it is not
+        # possible to delete from a word on, only insert from a word on. draw()
+        # automatically draws words with tags that are not NONE.
+        self.draw(lineNumber)
+    
+    def draw(self, lineNumber, tokenStart = 0, tokenEnd = None):
+        # If no end specified, then draw to the end of the line. tokenStart could be
+        # specified in the constructor, but tokenEnd could not due to it calling len()
+        if tokenEnd == None:
+            tokenEnd = len(self.tokenized[lineNumber - 1])
+
+        # Create a string from self.tokenized containing all words seperated by a space
+        string = ''
+        for word in self.tokenized[lineNumber - 1][tokenStart:tokenEnd]:
             if word._tags == None:
                 string += word.clean() + ' '
             else:
                 string += word.tagged() + ' '
-            
-        self.text.insert(str(lineNumber) + '.0', string)
-    
+
+        # Always inserts at the end of the line. To edit a line, you need to delete the
+        # line first, outside of this function.
+        self.text.insert(str(lineNumber) + '.end', string)
+
+    def reDraw(self, lineNumber):
+        """ Redraws an entire line. Used to clear highlighting from a line. Will not
+        affect tags."""
+        
+        self.text.delete(str(lineNumber) + '.0', str(lineNumber) + '.end')
+        self.draw(lineNumber)
+
     def highlight(self, lineNumber, wordNumber):
+        """ Highlights a word in the text. Uses the same index conventions as a Text
+        object: Line numbers start at 1, and word numbers start at 0."""
         
         # Delete the line
         self.text.delete(str(lineNumber) + '.0', str(lineNumber) + '.end')        
 
-        # Rebuild and insert the line up the word to be highlighted.
-        preString = ''
-        for word in self.tokenized[lineNumber - 1][:wordNumber]:
-            if word._tags == None:
-                preString += word.clean() + ' '
-            else:
-                preString += word.tagged() + ' '
-        self.text.insert(str(lineNumber) + '.0', preString)
+        # draw up the word being highlighted
+        self.draw(lineNumber, tokenEnd = wordNumber)
 
-        # Insert the word with the tag.
+        # draw the highlighted word with a ' ' after it.
         word = self.tokenized[lineNumber - 1][wordNumber]
-        self.text.insert(str(lineNumber) + '.end', word.clean(), "found")
+        self.text.insert(str(lineNumber) + '.end', word.clean(), "highlighted")
+        self.text.insert(str(lineNumber) + '.end', ' ')
 
-        # Rebuid insert the rest of the line.
-        postString = ' '
-        for word in self.tokenized[lineNumber - 1][wordNumber + 1:]:
-            if word._tags == None:
-                postString += word.clean() + ' '
-            else:
-                postString += word.tagged() + ' '
-        self.text.insert(str(lineNumber) + '.end', postString)
+        # draw until the end of the line.
+        self.draw(lineNumber, tokenStart = wordNumber + 1)
 
     def pack(self):
-        """ Uses appropiate settings to fill its parent frame."""
+        """ Uses appropiate settings to fill its parent frame. It is important to run
+        Frame.pack_propegate(0) on the parent of this widget for it to fill the frame."""
         self.text.pack(expand = 1, fill = BOTH)
 
     def bind(self, button, function):
@@ -107,7 +117,17 @@ class FramedText:
 
     def insert(self, index, string):
         self.text.insert(index, string)
-        
+     
+    def iterTest(self):
+        """ For demonstration purposes, iterates through the FramedText object and
+        highlights each word after an enter press."""
+        for i in range(0, len(self.tokenized)):
+            for j in range(0, len(self.tokenized[i])):
+                self.highlight(i + 1, j)
+                input()
+                self.reDraw(i + 1)
+
+
 if __name__ == "__main__":
     root = Tk()
     textFrame = Frame(root, height = 500, width = 500, bg = 'red')
@@ -123,13 +143,12 @@ if __name__ == "__main__":
     b = Button(root, text="<otherTag>Мы<otherTag>", command = lambda: tt.tag(1, 5, ('<otherTag>', '</otherTag>')))
     c = Button(root, text="Highlight", command = lambda: tt.highlight(1, 5))
     d = Button(root, text="Мы", command = lambda: tt.tag(1, 5, ('', '')))
+    e = Button(root, text="Iter", command = lambda: tt.iterTest())
 
     a.pack()
     b.pack()
     c.pack()
     d.pack()
+    e.pack()
 
-    mainloop()
-        
-        
-        
+    mainloop()    
