@@ -72,6 +72,9 @@ class Index:
         def values(self):
             return [tup[1] for tup in self._info]
 
+        def xmlID(self):
+            return self._info[0][1]
+
         def __str__(self):
             string = ''
             for tup in self._info:
@@ -126,18 +129,36 @@ class Index:
 
 
 if __name__ == '__main__':
-    ndx = Index('index.xml')
-    print(ndx._index.keys())
+    ndx = Index('../META/index.xml')
+#    print(ndx._index.keys())
     print(ndx.multiKeys())
+
+    c = ['a', 'b', 'c', 'd', 'e', 'f']
     
+    keys = ndx.multiKeys()
+    
+    length = len(c)
+    i = 0
+    while i < length:
+        if c[i] == 'b':
+            c[i] =c[i] + ' ' + c[i + 1]
+            del c[i + 1]
+            length -= 1
+        i = i + 1
+    
+    print(c)
+            
+
+
+
 #    print('keys', ndx.lookup('test')[0].keys(),
 #    ndx.lookup('test')[0].values())
-    print()
-    print(ndx.lookup('test'))
-    print()
+#    print()
+#    print(ndx.lookup('test'))
+#    print()
 
 #    print('keys', ndx.lookup('blahblah')[0].keys(),
 #    ndx.lookup('blahblah')[0].values())
-    print()
-    print(ndx.lookup('blahblah'))
-    print()
+#    print()
+#    print(ndx.lookup('blahblahwertwert'))
+#    print()

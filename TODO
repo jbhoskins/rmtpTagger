@@ -1,0 +1,63 @@
+When you run tag, automatically give tags to words that are green. if yellow, give them the first, default tag (learning???)
+
+when the user clicks confirm, put out a sequence of symbols #<tag># or something, parse the line for that thing, then assimiliate it into the thing and turn it green.
+	- Should be implmented in FramedTest probably...
+	- upon initial loading, if this charector sequence is found, either throw an error, or make it a feature.
+
+do an export
+
+if not everything is green, ask, are you sure you want to export?
+
+dump the finished file...
+
+
+2) changes to wordInfo()
+	- make names for this feature chain more specific
+	- make it go forwards or back until it hits ANY KIND of whitespace, not only space chars
+	- eliminate the INSERT dude, create a new one based on CURSOR and use that.
+	- Handle the clicked at the end, insert after bug.
+
+3) Maybe have another window, listing all possible tags on the side? or have an option to have that window open? 
+
+4) Make pronouns highlight with a very unobtrusive color. maybe a light grey?
+
+5) have a "stat" option, that counts occurences, number of tags, types of tags, etc. Ideally, this should be extensible, so new tools can easily be added on. Maybe nltk stuff?
+
+6) Do not allow free edits. Maybe have an option under tools, to open an "unlocked window" this seems like it could cause issues though.
+
+7) icon bar? may make it look more professional, but tbh I think ours is a little bit more intuitive.
+
+8) color, font, etc settings under an "options" tab
+
+9) subtly color the background of the interviewer text.
+
+10) This may already be implemented, but upon parsing, FORCE the format of interviewer, \n response \n
+
+11) save meta information?
+
+12) Have a left sidebar that shows name of interviewer and interviewee pointing to their responses, etc?
+
+13) Include index validation before each run.
+	- Need to be very careful when adding things to it, if you could display it as a tree, like a window folder picker, that might be cool...
+
+14) "save session" find an efficient way to save tag information, highlighting information, etc.
+
+15) Handle resizing gracefully
+
+16) Handle е vs ё 
+
+17) Give suggestions, based on words that are capitalized, but not in the index.
+
+18) Create an icon, and put the name of the file being edited in the program title attribute
+
+19) have an export as TSI option, which will open a prompt in which to fill in things that will send the file out as a TSI complient thing. Then, validate it against a schema.
+
+20) FramedText currently slips words up at the end of lines, make them wrap neatly instead.
+
+21) Flag certain words as problematic? e.g. Bruce Lee's last name, and the grammatical particle ли
+
+22) Have an option to dim all but one type of tag, to better see and focus in on something.
+
+23) Make odd numbered lines unclickable...
+
+**AS A PARADIGM, Tag tags. it is not merely highlighting, it tags in a redable way, and then asks you for review.
