@@ -41,7 +41,7 @@ from StemTree import *
 class FramedText:
     def __init__(self, Frame):
         # tkinter things
-        self.text = Text(Frame)
+        self.text = Text(Frame, wrap=WORD)
         self.text.tag_configure('yellow', background = 'yellow')
         self.text.tag_configure('green', background = '#7CFC00')
         self.text.tag_configure('cyan', background = 'cyan')
