@@ -42,8 +42,9 @@ class Sidebar:
         self.indexResults.config(title_font = self.font1, text_font = self.font2, fg = self.color1, bg = self.color2)
 
     def updateTags(self, event):
-        self.text.cacheWord()
-        word = self.text.getCache()
+        self.text.cacheWord(event)
+        word = self.text.getCache()[0]
+        print(word)
         self.tagResults.populateTags(str(word).lower(), self.index)
         self.updateInfo(0) # Zero passes as event
         

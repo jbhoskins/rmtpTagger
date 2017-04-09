@@ -15,6 +15,7 @@ class Application:
     def __init__(self):
         self.root = tk.Tk()
         self.root.attributes('-topmost', 1)
+        self.root.wm_title("William and Mary Index Tagger")
         
         self.dim = self._getDim()
         self.index = Index("../../META/index.xml")
@@ -24,9 +25,6 @@ class Application:
         self._createWidgets()
         self._bindKeys()
         self._style()
-
-        self.fText.consolidateMultiKeys(self.index)
-                
 
     def _getDim(self):
         """Gets the dimensions of the screen."""
@@ -55,8 +53,8 @@ class Application:
     def _createWidgets(self):
         """Fills text box, creates sidebar and menu, binds keys"""
         self.fText = FramedText(self.textFrame)
-        self.fText.loadText("../../input/astaikina.txt")
-        self.fText.pack()
+        self.fText.loadText("../../input/astaikina.txt", self.index)
+        self.fText.pack(expand = True, fill = BOTH)
         self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
         self._makeMenu()
         self._makeTagMenu()
@@ -71,7 +69,7 @@ class Application:
     def _style(self):
         """Styles the application"""
         self.root.config(bg = self.color1)
-        self.fText.text.config(bg = self.color1, highlightbackground = self.color1, font = self.font2)
+        self.fText.config(bg = self.color1, highlightbackground = self.color1, font = self.font2)
         self.sidebarFrame.config(bg = self.color2)
 
     def _makeMenu(self):
