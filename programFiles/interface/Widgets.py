@@ -42,7 +42,10 @@ class TitledListBox:
 
     def getXmlId(self):
         """Returns the string that is selected in the listbox."""
-        return self.results.get(self.results.curselection())
+        try:
+            return self.results.get(self.results.curselection())
+        except:
+            return ""
     
     def getSelection(self):
         """Returns a string of information about the current selection, pulled from the index."""

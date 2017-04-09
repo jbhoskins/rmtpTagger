@@ -60,7 +60,7 @@ class Application:
         self._makeTagMenu()
 
     def _bindKeys(self):
-        self.fText.bind("<Button-1>", self.sidebar.updateTags)
+        self.fText.tag_bind("foundWord", "<Button-1>", self.sidebar.updateTags)
         self.sidebar.tagResults.bind("<ButtonRelease-1>", self.sidebar.updateInfo)
         self.fText.bind("<ButtonRelease-3>", self._showTagMenu)
         self.fText.bind("<ButtonRelease-2>", self._showTagMenu)
