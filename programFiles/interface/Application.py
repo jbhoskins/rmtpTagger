@@ -54,17 +54,18 @@ class Application:
         """Fills text box, creates sidebar and menu, binds keys"""
         self.fText = FramedText(self.textFrame, self.index)
         self.fText.loadText("../../input/astaikina.txt")
-        self.fText.pack(expand = True, fill = BOTH)
+        self.fText.pack(expand = True, fill = tk.BOTH)
         self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
         self._makeMenu()
         self._makeTagMenu()
 
     def _bindKeys(self):
-        self.fText.tag_bind("foundWord", "<Button-1>", self.sidebar.updateTags)
-        self.sidebar.tagResults.bind("<ButtonRelease-1>", self.sidebar.updateInfo)
+        self.fText.tag_bind("foundWord", "<Button-1>", self.fText.cacheWord)
+        self.fText.tag_bind("foundWord", "<Button-1>", self.sidebar.showTagResults)
+        self.sidebar.tagResults.bind("<ButtonRelease-1>", self.sidebar.showSelectionInfo)
         self.fText.bind("<ButtonRelease-3>", self._showTagMenu)
         self.fText.bind("<ButtonRelease-2>", self._showTagMenu)
-        self.sidebar.tagResults.populateTags("", self.index)
+        self.sidebar.tagResults.populateTags([])
 
     def _style(self):
         """Styles the application"""
@@ -73,16 +74,16 @@ class Application:
         self.sidebarFrame.config(bg = self.color2)
 
     def _makeMenu(self):
-        menubar = Menu(self.root)
+        menubar = tk.Menu(self.root)
         
-        filemenu = Menu(menubar, tearoff=0)
+        filemenu = tk.Menu(menubar, tearoff=0)
         filemenu.add_command(label="Open")
         filemenu.add_command(label="Save")
         filemenu.add_separator()
         filemenu.add_command(label="Export")
         menubar.add_cascade(label="File", menu=filemenu)
         
-        toolsmenu = Menu(menubar, tearoff=0)
+        toolsmenu = tk.Menu(menubar, tearoff=0)
         toolsmenu.add_command(label="Hide Greens")
         toolsmenu.add_command(label="Hide Interviewer Text")
         toolsmenu.add_command(label="Iterate")
@@ -98,8 +99,8 @@ class Application:
 
     def _makeTagMenu(self):
         """Makes the menu when you right-click."""
-        self.menuFrame = Frame(self.root)
-        self.tagMenu = Menu(self.menuFrame, tearoff = 0)
+        self.menuFrame = tk.Frame(self.root)
+        self.tagMenu = tk.Menu(self.menuFrame, tearoff = 0)
         self.tagMenu.add_command(label="Add Tag", command = self._showTagScreen)
 
     def _showTagMenu(self, event):

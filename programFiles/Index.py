@@ -93,7 +93,7 @@ class Index:
         """ Creates a Dictionary of keys and entries upon initialization. """ 
 
         # Creates the soup object for easy parsing.
-        f = open(path)
+        f = open(path, encoding="UTF-8")
         self._soup = BeautifulSoup(f, 'xml')
         f.close()
 

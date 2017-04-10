@@ -5,6 +5,7 @@
 
 import tkinter as tk
 import re
+from WordCache import *
 
 import sys
 sys.path.insert(0, '../')
@@ -15,9 +16,8 @@ class FramedText(tk.Text):
         # tkinter things
         tk.Text.__init__(self, Frame)
         self._createTags()
-
-        
-        self.cachedWord = []
+ 
+        self.wordCache = Cache()
         self.indexObject = indexObject # Needs "object" name so as not to overwrite 
                                        # Text methods
 
@@ -70,35 +70,38 @@ class FramedText(tk.Text):
                 # Need to remove any preexisting tag here before applying the new one
                 self._applyTag(word, self.indexObject.lookup(word.group().lower()))
  
-    def getWord(self, event):
-        # Currently O(n) where n is the number of words found.
+    def cacheWord(self, event):
+        # Currently O(n) where n is the number of words found. Technically constant time
         location = self.index("@%s,%s" % (event.x, event.y))
         ranges = self.tag_ranges("foundWord")
         for i in range(0, len(ranges), 2):
             start = ranges[i]
             stop = ranges[i + 1]
             if self.compare(location, ">=", start) and self.compare(location, "<=", stop):
-                word = self.get(start, stop)
-                self.cachedWord = (word, start, stop)
-                return word
+                word = self.get(start, stop).lower()
+                # This next line should never throw an error... Theoretically
+                self.wordCache.update(word, start, stop, self.indexObject.lookup(word))
+                
+
+    def getCache(self):
+        print(self.wordCache.string())
+        return self.wordCache
 
     def insertAroundCache(self, index):
-        try:
-            entry = self.indexObject.lookup(self.cachedWord[0].lower())[index]
-        except KeyError:
+        if self.wordCache.entries() == []:
             return
+            
+        entry = self.wordCache.entries()[index]
         
         print(entry)
         
-        start = self.cachedWord[1]
-        stop  = self.cachedWord[2]
+        start = self.wordCache.start()
+        stop  = self.wordCache.stop()
         
         self.insert(stop, "</rs>")
         self.insert(start, "<rstype=\"%s\" key=\"%s\">" % (entry.name(), entry.xmlId()))
 
             
-
-
 if __name__ == "__main__":
     root = tk.Tk()
 
