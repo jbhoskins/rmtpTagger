@@ -52,8 +52,8 @@ class Application:
 
     def _createWidgets(self):
         """Fills text box, creates sidebar and menu, binds keys"""
-        self.fText = FramedText(self.textFrame)
-        self.fText.loadText("../../input/astaikina.txt", self.index)
+        self.fText = FramedText(self.textFrame, self.index)
+        self.fText.loadText("../../input/astaikina.txt")
         self.fText.pack(expand = True, fill = BOTH)
         self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
         self._makeMenu()

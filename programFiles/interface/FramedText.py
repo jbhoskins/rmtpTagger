@@ -11,17 +11,24 @@ sys.path.insert(0, '../')
 from Index import *
 
 class FramedText(tk.Text):
-    def __init__(self, Frame):
+    def __init__(self, Frame, indexObject):
         # tkinter things
         tk.Text.__init__(self, Frame)
+        self._createTags()
+
+        
+        self.cachedWord = []
+        self.indexObject = indexObject # Needs "object" name so as not to overwrite 
+                                       # Text methods
+
+    def _createTags(self):
         self.tag_configure("foundWord")
         self.tag_configure('yellow', background = 'yellow')
         self.tag_configure('green', background = '#7CFC00')
         self.tag_configure('cyan', background = 'cyan')
         self.tag_configure("interviewer", background= "white")
-
-        self.cachedWord = [0,0,0]
-
+        
+    
     def _applyTag(self, word, results):
         """Word is a reMatch object, not a string."""
             
@@ -36,7 +43,7 @@ class FramedText(tk.Text):
         self.tag_add("foundWord", wordStart, wordEnd)
         
  
-    def loadText(self, path, index):
+    def loadText(self, path):
         """ Inserts text from a file into the widget, and highlights keywords."""
         f = open(path)
         string = f.read()
@@ -44,7 +51,7 @@ class FramedText(tk.Text):
 
         for word in re.finditer("\w+", string):
             try:
-                results = index.lookup(word.group().lower())
+                results = self.indexObject.lookup(word.group().lower())
                 # Ignore interviewer text
                 if  int(self.index("1.0+%sc" % word.start()).split(".")[0]) % 4 - 1 == 0:
                     continue
@@ -56,12 +63,12 @@ class FramedText(tk.Text):
         # Location of the most recent match...
         # Maybe implement both, and then time them?
 
-        for multiKey in index.multiKeys():
+        for multiKey in self.indexObject.multiKeys():
             print("MultiKey:", multiKey)
             for word in re.finditer(multiKey, string, re.IGNORECASE):
                 print("found:", word.group())
                 # Need to remove any preexisting tag here before applying the new one
-                self._applyTag(word, index.lookup(word.group().lower()))
+                self._applyTag(word, self.indexObject.lookup(word.group().lower()))
  
     def getWord(self, event):
         # Currently O(n) where n is the number of words found.
@@ -75,15 +82,19 @@ class FramedText(tk.Text):
                 self.cachedWord = (word, start, stop)
                 return word
 
-    def insertAround(self, string):
-        if string == "":
+    def insertAroundCache(self, index):
+        try:
+            entry = self.indexObject.lookup(self.cachedWord[0].lower())[index]
+        except KeyError:
             return
+        
+        print(entry)
         
         start = self.cachedWord[1]
         stop  = self.cachedWord[2]
-
-        self.insert(stop, "</%s>" % string)
-        self.insert(start, "<%s>" % string)
+        
+        self.insert(stop, "</rs>")
+        self.insert(start, "<rstype=\"%s\" key=\"%s\">" % (entry.name(), entry.xmlId()))
 
             
 

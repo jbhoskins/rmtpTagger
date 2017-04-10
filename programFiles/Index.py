@@ -60,11 +60,18 @@ class Index:
         
         def __init__(self, bs4_object):
             self._info = []
-            self._info.append(('xml:id', bs4_object['xml:id']))
+            self._name = bs4_object.name
+            self._xmlId = bs4_object['xml:id']
             
             for info in bs4_object:
                 if info.name != 'keys' and info.name is not None:
                     self._info.append((info.name, info.string))
+
+        def name(self):
+            return self._name
+
+        def xmlId(self):
+            return self._xmlId
 
         def keys(self):
             return [tup[0] for tup in self._info]
@@ -110,7 +117,7 @@ class Index:
             
             multi = key.string.strip().split()
             if len(multi) > 1:
-                self._multi_words.append(multi)
+                self._multi_words.append(key.string.strip())
 
         return index
 
