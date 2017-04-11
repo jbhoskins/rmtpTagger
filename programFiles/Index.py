@@ -110,8 +110,9 @@ class Index:
             except KeyError:
                 index[key.string] = [self._Entry(key.parent.parent)]
             
-            if key.string != None:
+            if key.string != None: # Unclear why this line is sometimes needed
                 multi = key.string.strip().split()
+            
             if len(multi) > 1:
                 self._multi_words.append(key.string.strip())
 
