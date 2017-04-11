@@ -39,6 +39,7 @@ class FramedText(tk.Text):
             tag = "multi"
         else:
             tag = "single"
+            
 
         wordStart = "1.0+%sc" % word.start()
         wordEnd   = "1.0+%sc" % word.end()
@@ -54,6 +55,7 @@ class FramedText(tk.Text):
         self.insert(0.0, string, "bigger")
 
         for word in re.finditer("\w+", string):
+            # Saves indices of word as you go; grabs words without punctuation
             try:
                 results = self.indexObject.lookup(word.group().lower())
                 # Ignore interviewer text
@@ -63,6 +65,7 @@ class FramedText(tk.Text):
                 continue
 
             self._applyTag(word, results)
+            
         # Using stem tree, you may be able to optimize here using next() and saving the 
         # Location of the most recent match...
         # Maybe implement both, and then time them?
@@ -73,10 +76,11 @@ class FramedText(tk.Text):
                 print("found:", word.group())
                 # Need to remove any preexisting tag here before applying the new one
                 self._applyTag(word, self.indexObject.lookup(word.group().lower()))
+        
  
     def cacheWord(self, event):
         """ Caches the word that has been clicked on. """        
-        # Currently O(n) where n is the number of words found. Technically constant time
+        # Currently O(n) where n is the number of words found. Technically constant time.
         location = self.index("@%s,%s" % (event.x, event.y))
         ranges = self.tag_ranges("foundWord")
         for i in range(0, len(ranges), 2):
@@ -93,6 +97,7 @@ class FramedText(tk.Text):
         print(self.wordCache.string())
         return self.wordCache
 
+
     def insertAroundCache(self, index):
         """ Based on the index of the selection in the tagResults listbox, applies the
             appropiate tags around the word. """
@@ -108,8 +113,24 @@ class FramedText(tk.Text):
         
         self.insert(stop, "</rs>")
         self.insert(start, "<rstype=\"%s\" key=\"%s\">" % (entry.type(), entry.xmlId()))
-
             
+            
+    def getString(self):
+        current = self.index(tk.CURRENT)
+        
+        count = 1
+        expr = ''
+        
+        while self.get(current + expr) != ' ' and self.get(current + expr) != '\n' and count <100: 
+            count += 1
+            expr = '- ' + str(count - 1) + ' c'
+            
+        wordStart = current + expr
+        string = self.get(wordStart, current + ' wordend')
+            
+        return string
+          
+          
 if __name__ == "__main__":
     root = tk.Tk()
 
