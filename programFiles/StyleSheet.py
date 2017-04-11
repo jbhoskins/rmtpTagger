@@ -42,8 +42,8 @@ class StyleSheet:
             self.c_2 = "#AFC0AA"  
             self.c_3 = "white"
             
-            self.h_good = "green"
-            self.h_problem = "yellow"
+            self.h_single = "green"
+            self.h_multi = "yellow"
             self.h_current = "red"      
             
       def _Sasha(self):
@@ -51,6 +51,6 @@ class StyleSheet:
             self.c_2 = "white"  
             self.c_3 = "blue"
             
-            self.h_good = "red"
-            self.h_problem = "white"
+            self.h_single = "red"
+            self.h_multi = "white"
             self.h_current = "blue"    
