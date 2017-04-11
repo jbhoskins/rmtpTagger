@@ -46,7 +46,7 @@ class Sidebar:
 
     def styleWidgets(self):
         """ Apply the styles from styleSheet() to the widgets. """
-        self.confirmButton.config(font = self.font2, bg = self.color2)
+        self.confirmButton.config(font = self.font2, bg = self.color2, highlightbackground = self.color2)
         self.tagResults.config(font = self.font2, bg = self.color2)
         self.tagInfoField.config(font = self.font2, bg = self.color2)
 
