@@ -13,9 +13,11 @@ from Index import *
 
 class FramedText(tk.Text):
     """ Extends tk.Text, handles the finding and tagging of keywords. """
-    def __init__(self, Frame, indexObject):
+    def __init__(self, Frame, indexObject, styles):
         tk.Text.__init__(self, Frame)
+        self.styles = styles
         self._createTags()
+        
  
         self.wordCache = Cache()
         self.indexObject = indexObject # Needs "object" name so as not to overwrite 
@@ -24,9 +26,9 @@ class FramedText(tk.Text):
     def _createTags(self):
         """ Create the tags that will be applied to word in the text. """
         self.tag_configure("foundWord") # All words that are keys
-        self.tag_configure('yellow', background = 'yellow') # Keys with multiple options
-        self.tag_configure('green', background = '#7CFC00') # Kets with one option
-        self.tag_configure('cyan', background = 'cyan') # Not yet in use
+        self.tag_configure('multi', background = self.styles.h_multi) # Keys with multiple options
+        self.tag_configure('single', background = self.styles.h_single) # Kets with one option
+        self.tag_configure('cur', background = self.styles.h_current) # Not yet in use, could be for current click
         self.tag_configure("interviewer") # Interviewer text (not yet in use)
         
     
@@ -34,9 +36,9 @@ class FramedText(tk.Text):
         """ Applies tags to words that have been found, so that they can be referenced 
             later. """            
         if len(results) > 1:
-            tag = "yellow"
+            tag = "multi"
         else:
-            tag = "green"
+            tag = "single"
 
         wordStart = "1.0+%sc" % word.start()
         wordEnd   = "1.0+%sc" % word.end()
