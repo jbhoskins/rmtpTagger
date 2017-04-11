@@ -7,12 +7,12 @@ import tkinter as tk
 from WordCache import *
 
 class TagResults(tk.Listbox):
-    """ The box of results pulled from the index"""
+    """ The ListBox of results pulled from the index. """
     def __init__(self, sidebar):
         tk.Listbox.__init__(self, sidebar, selectmode = tk.SINGLE)        
 
     def populateTags(self, listOfXmlIds):
-        """ Populate the ListBox with every element in a list."""
+        """ Populate the ListBox with every element in a list. """
         self.delete(0, tk.END)
         
         for item in listOfXmlIds:
@@ -29,6 +29,7 @@ class TagResults(tk.Listbox):
             return 0
 
 class TagInformationField(tk.Text):
+    """ Displays information about the current selection in TagResults. """
     def __init__(self, sidebar):
         tk.Text.__init__(self, sidebar)        
         self.cache = Cache()
@@ -36,10 +37,11 @@ class TagInformationField(tk.Text):
         self.config(state = tk.DISABLED)
 
     def updateCache(self, cache):
+        """ Put a new list of entries in the cache. """
         self.cache = cache
 
     def updateInformation(self, selectionIndex):
-        """Insert the given string into the textbox."""
+        """ Display information about the item selected in TagResults. """
         
         self.config(state = tk.NORMAL)
         self.delete(0.0, tk.END)

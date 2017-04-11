@@ -4,9 +4,8 @@
 # Description: A Cache for FramedText that saves the latest lookup, and important 
 # information about it.
 
-from Index import *
-
 class Cache:
+    """ Cache to save information about a word in FramedText """
     def __init__(self):
         self._string = ""
         self._start = "1.0"

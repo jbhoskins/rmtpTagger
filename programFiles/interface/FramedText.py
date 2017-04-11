@@ -12,26 +12,27 @@ sys.path.insert(0, '../')
 from Index import *
 
 class FramedText(tk.Text):
+    """ Extends tk.Text, handles the finding and tagging of keywords. """
     def __init__(self, Frame, indexObject):
-        # tkinter things
         tk.Text.__init__(self, Frame)
         self._createTags()
  
         self.wordCache = Cache()
         self.indexObject = indexObject # Needs "object" name so as not to overwrite 
-                                       # Text methods
+                                       # Text method "Text.index()"
 
     def _createTags(self):
-        self.tag_configure("foundWord")
-        self.tag_configure('yellow', background = 'yellow')
-        self.tag_configure('green', background = '#7CFC00')
-        self.tag_configure('cyan', background = 'cyan')
-        self.tag_configure("interviewer", background= "white")
+        """ Create the tags that will be applied to word in the text. """
+        self.tag_configure("foundWord") # All words that are keys
+        self.tag_configure('yellow', background = 'yellow') # Keys with multiple options
+        self.tag_configure('green', background = '#7CFC00') # Kets with one option
+        self.tag_configure('cyan', background = 'cyan') # Not yet in use
+        self.tag_configure("interviewer") # Interviewer text (not yet in use)
         
     
     def _applyTag(self, word, results):
-        """Word is a reMatch object, not a string."""
-            
+        """ Applies tags to words that have been found, so that they can be referenced 
+            later. """            
         if len(results) > 1:
             tag = "yellow"
         else:
@@ -39,13 +40,14 @@ class FramedText(tk.Text):
 
         wordStart = "1.0+%sc" % word.start()
         wordEnd   = "1.0+%sc" % word.end()
-        self.tag_add(tag, wordStart, wordEnd)
+        self.tag_add(tag, wordStart, wordEnd) # Tag the relevant region of text
         self.tag_add("foundWord", wordStart, wordEnd)
         
  
     def loadText(self, path):
-        """ Inserts text from a file into the widget, and highlights keywords."""
-        f = open(path)
+        """ Inserts text from a file into the widget, and highlights keywords upon
+            initialization. """
+        f = open(path, encoding="UTF-8")
         string = f.read()
         self.insert(0.0, string, "bigger")
 
@@ -71,6 +73,7 @@ class FramedText(tk.Text):
                 self._applyTag(word, self.indexObject.lookup(word.group().lower()))
  
     def cacheWord(self, event):
+        """ Caches the word that has been clicked on. """        
         # Currently O(n) where n is the number of words found. Technically constant time
         location = self.index("@%s,%s" % (event.x, event.y))
         ranges = self.tag_ranges("foundWord")
@@ -84,10 +87,13 @@ class FramedText(tk.Text):
                 
 
     def getCache(self):
+        """ Returns the cache. """
         print(self.wordCache.string())
         return self.wordCache
 
     def insertAroundCache(self, index):
+        """ Based on the index of the selection in the tagResults listbox, applies the
+            appropiate tags around the word. """
         if self.wordCache.entries() == []:
             return
             
@@ -99,7 +105,7 @@ class FramedText(tk.Text):
         stop  = self.wordCache.stop()
         
         self.insert(stop, "</rs>")
-        self.insert(start, "<rstype=\"%s\" key=\"%s\">" % (entry.name(), entry.xmlId()))
+        self.insert(start, "<rstype=\"%s\" key=\"%s\">" % (entry.type(), entry.xmlId()))
 
             
 if __name__ == "__main__":
