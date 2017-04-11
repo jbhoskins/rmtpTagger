@@ -42,9 +42,11 @@ class StyleSheet:
             self.c_2 = "#AFC0AA"  
             self.c_3 = "white"
             
-            self.h_single = "green"
+            self.h_single = "yellow"
             self.h_multi = "yellow"
-            self.h_current = "red"      
+            self.h_current = "yellow"      
+            
+            self.h_interviewer = "#666699"
             
       def _Sasha(self):
             self.c_1 = "red"
