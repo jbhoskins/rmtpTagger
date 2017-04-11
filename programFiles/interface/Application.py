@@ -8,8 +8,8 @@ sys.path.insert(0, '../')
 from FramedText import *
 from Sidebar import *
 from EntryWindow import *
+from StyleSheet import *
 import tkinter as tk
-
 
 class Application:
     """ Main program """
@@ -34,11 +34,8 @@ class Application:
 
     def _setStyles(self):
         """ Set the formatting of the application. """
-        self.font1 = "Verdana", 24
-        self.font2 = "Verdana", 18
-        self.color1 = "#D5CDFF"
-        self.color2 = "#AFC0AA"
-        self.styles = [self.font1, self.font2, self.color1, self.color2]
+        self.styles = StyleSheet(name = "bella")
+        
 
     def _placeFrames(self):
         """ Places the sext and sidebar frames within the application. """
@@ -71,9 +68,9 @@ class Application:
 
     def _style(self):
         """ Styles the application """
-        self.root.config(bg = self.color1)
-        self.fText.config(bg = self.color1, highlightbackground = self.color1, font = self.font2)
-        self.sidebarFrame.config(bg = self.color2)
+        self.root.config(bg = self.styles.c_1)
+        self.fText.config(bg = self.styles.c_1, highlightbackground = self.styles.c_1, font = self.styles.f_text)
+        self.sidebarFrame.config(bg = self.styles.c_2)
 
     def _makeMenu(self):
         """ Defines the system menu. """
@@ -115,7 +112,7 @@ class Application:
         """ Displays the New Tag Window. """
         word = self.fText.getCache()
         self.root.attributes('-topmost', 0)
-        self.add_tag = EntryWindow(self.root, word, self.color1, self.font1, self.font2)
+        self.add_tag = EntryWindow(self.root, word, self.styles)
 
     def launch(self):
         """ Launched the program. """
