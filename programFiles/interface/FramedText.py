@@ -6,6 +6,7 @@
 import tkinter as tk
 import re
 from WordCache import *
+import math
 
 import sys
 sys.path.insert(0, '../')
@@ -22,14 +23,14 @@ class FramedText(tk.Text):
         self.wordCache = Cache()
         self.indexObject = indexObject # Needs "object" name so as not to overwrite 
                                        # Text method "Text.index()"
-
+        
     def _createTags(self):
         """ Create the tags that will be applied to word in the text. """
         self.tag_configure("foundWord") # All words that are keys
         self.tag_configure('multi', background = self.styles.h_multi) # Keys with multiple options
         self.tag_configure('single', background = self.styles.h_single) # Kets with one option
         self.tag_configure('cur', background = self.styles.h_current) # Not yet in use, could be for current click
-        self.tag_configure("interviewer") # Interviewer text (not yet in use)
+        self.tag_configure("interviewer", foreground = self.styles.h_interviewer) # Interviewer text (not yet in use)
         
     
     def _applyTag(self, word, results):
@@ -40,7 +41,6 @@ class FramedText(tk.Text):
         else:
             tag = "single"
             
-
         wordStart = "1.0+%sc" % word.start()
         wordEnd   = "1.0+%sc" % word.end()
         self.tag_add(tag, wordStart, wordEnd) # Tag the relevant region of text
@@ -56,11 +56,13 @@ class FramedText(tk.Text):
 
         for word in re.finditer("\w+", string):
             # Saves indices of word as you go; grabs words without punctuation
+            
+            if  int(self.index("1.0+%sc" % word.start()).split(".")[0]) % 4 - 1 == 0:
+                # If interviewee, continue
+                continue   
+            
             try:
-                results = self.indexObject.lookup(word.group().lower())
-                # Ignore interviewer text
-                if  int(self.index("1.0+%sc" % word.start()).split(".")[0]) % 4 - 1 == 0:
-                    continue
+                results = self.indexObject.lookup(word.group().lower())             
             except:
                 continue
 
@@ -77,6 +79,18 @@ class FramedText(tk.Text):
                 # Need to remove any preexisting tag here before applying the new one
                 self._applyTag(word, self.indexObject.lookup(word.group().lower()))
         
+        self._grayInterviewer()
+        self.config(state = tk.DISABLED)
+        
+        
+    def _grayInterviewer(self):
+        text_length = math.floor(float(self.index(tk.END)))
+        para_range = range(1, text_length, 4)
+        
+        for i in para_range:       
+            inx = float(i)
+            self.tag_add("interviewer", inx, inx+1) 
+                        
  
     def cacheWord(self, event):
         """ Caches the word that has been clicked on. """        
@@ -101,6 +115,8 @@ class FramedText(tk.Text):
     def insertAroundCache(self, index):
         """ Based on the index of the selection in the tagResults listbox, applies the
             appropiate tags around the word. """
+        
+        self.config(state = tk.NORMAL)
         if self.wordCache.entries() == []:
             return
             
@@ -114,6 +130,7 @@ class FramedText(tk.Text):
         self.insert(stop, "</rs>")
         self.insert(start, "<rstype=\"%s\" key=\"%s\">" % (entry.type(), entry.xmlId()))
             
+        self.config(state = tk.DISABLED)
             
     def getString(self):
         current = self.index(tk.CURRENT)
