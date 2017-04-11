@@ -18,21 +18,43 @@ class Sidebar:
         self.fText = fText
         self.styles = styles
 
+        self.setFrames()
         self.createWidgets()
         self.styleWidgets()
+
+    def setFrames(self):
+        """ Set the frames to be the right size, based on the screen height."""
+        # Should be a part of the stylesheet
+
         
+        screenHeight = self.styles.dimensions[1]
+        print(screenHeight)
+
+        tagResultsHeight = screenHeight // 3 + 20
+        infoHeight = screenHeight // 3
+
+        self.tagFrame = tk.Frame(self.parent, height=tagResultsHeight)
+        self.infoFrame = tk.Frame(self.parent, height=infoHeight)
+
 
     def createWidgets(self):
         """ Declare and pack all the widgets used in the sidebar. """
-        self.tagResults = TagResults(self.parent)
+        self.tagResults = TagResults(self.tagFrame)
         self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.fText.insertAroundCache(self.tagResults.curSelection()))
-        self.tagInfoField = TagInformationField(self.parent)
+        self.tagInfoField = TagInformationField(self.infoFrame)
         self.tagLabel = tk.Label(self.parent, text="Tag Results")
         
         self.tagLabel.pack()
-        self.tagResults.pack()
+        
+        self.tagFrame.pack_propagate(0) 
+        self.tagFrame.pack(side=tk.TOP, fill = tk.X)
+        self.tagResults.pack(fill = tk.BOTH, expand=True)
+        
         self.confirmButton.pack()
-        self.tagInfoField.pack()
+        
+        self.infoFrame.pack_propagate(0) 
+        self.infoFrame.pack(side=tk.TOP, fill = tk.X)
+        self.tagInfoField.pack(fill = tk.BOTH, expand=True)
         
         # Initialize to empty fields
         self.tagResults.populateTags([])

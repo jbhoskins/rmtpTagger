@@ -34,7 +34,7 @@ class Application:
 
     def _setStyles(self):
         """ Set the formatting of the application. """
-        self.styles = StyleSheet(name = "sasha")
+        self.styles = StyleSheet(name = "sasha", dim=self.dim)
         
 
     def _placeFrames(self):
