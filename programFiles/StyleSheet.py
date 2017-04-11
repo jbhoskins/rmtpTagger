@@ -14,13 +14,16 @@ class StyleSheet:
       def __init__(self, name = 'bella'):
             '''Default fonts, Bella is default style'''
             
-            #Fonts
+            # Default fonts
             self.f_title = "Verdana", 24
             self.f_subtitle = "Verdana", 20      
             self.f_text = "Verdana", 18   
             self.f_button = "Verdana", 18 
             
-            # Here we can choose the style.
+            # Default style
+            self._Bella()
+            
+            # Here we can choose the style based on the name.
             if name.lower() == "bella":
                   self._Bella()
             elif name.lower() == "sasha":
@@ -33,7 +36,6 @@ class StyleSheet:
                   self._Fred()
             else:
                   print("Error, invalid name!")
-                  self._Bella()
             
       def _Bella(self):
             self.c_1 = "#D5CDFF"
