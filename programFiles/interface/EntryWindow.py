@@ -13,8 +13,8 @@ class EntryWindow:
 
     class Title:
         def __init__(self, root, titleString, descripString):
-            self.title = Label(root, text = titleString)
-            self.descrip = Label(root, text = descripString)
+            self.title = tk.Label(root, text = titleString)
+            self.descrip = tk.Label(root, text = descripString)
             self.title.pack()
             self.descrip.pack()
 
@@ -25,8 +25,8 @@ class EntryWindow:
 
     class LabeledEntry:
         def __init__(self, root, labelString, fillString):
-            self.label = Label(root, text = labelString)
-            self.entry = Entry(root)
+            self.label = tk.Label(root, text = labelString)
+            self.entry = tk.Entry(root)
             self.entry.insert(0, fillString)
             self.label.pack()
             self.entry.pack()
@@ -45,7 +45,7 @@ class EntryWindow:
     def __init__(self, parent, key_word, bg, font1, font2):
 
         self.parent = parent
-        self.root = Toplevel(self.parent)
+        self.root = tk.Toplevel(self.parent)
         self.bg = bg
         self.font1 = font1
         self.font2 = font2
@@ -69,9 +69,9 @@ class EntryWindow:
         self.Entries3 = EntryWindow.LabeledEntry(self.root, "Declensions", 'Separate, by, commas')
 
         # Buttons
-        self.b_ok = Button(self.root, text="Add tag to index", command = self.saveAnswers)
+        self.b_ok = tk.Button(self.root, text="Add tag to index", command = self.saveAnswers)
         self.b_ok.pack()
-        self.b_nvm = Button(self.root, text="Never mind", command = self.quitWindow)
+        self.b_nvm = tk.Button(self.root, text="Never mind", command = self.quitWindow)
         self.b_nvm.pack()
 
 
