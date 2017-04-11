@@ -12,28 +12,31 @@ class EntryWindow:
 #-------------------------------------------------------------
 
     class Title:
-        def __init__(self, root, titleString, descripString):
+        def __init__(self, root, titleString, descripString, styles):
             self.title = tk.Label(root, text = titleString)
             self.descrip = tk.Label(root, text = descripString)
+            self.styles = styles
+            
             self.title.pack()
             self.descrip.pack()
-
-        def config(self, font1 = "Verdana", font2 = "Verdana", bg = "white"):
-            self.title.config(font = font1, bg = bg)
-            self.descrip.config(font = font2, bg = bg)
+            
+            self.title.config(font = self.styles.f_title, bg = self.styles.c_1)
+            self.descrip.config(font = self.styles.f_subtitle, bg = self.styles.c_1)
 
 
     class LabeledEntry:
-        def __init__(self, root, labelString, fillString):
+        def __init__(self, root, labelString, fillString, styles):
             self.label = tk.Label(root, text = labelString)
             self.entry = tk.Entry(root)
+            self.styles = styles
+            
             self.entry.insert(0, fillString)
+    
             self.label.pack()
             self.entry.pack()
 
-        def config(self, font = "Verdana", bg = "white"):
-            self.label.config(font = font, bg = bg)
-            self.entry.config(font = font)
+            self.label.config(font = self.styles.f_subtitle, bg = self.styles.c_1)
+            self.entry.config(font = self.styles.f_text)
 
         def get(self):
             return(self.entry.get())
@@ -42,13 +45,11 @@ class EntryWindow:
 # Main window
 #---------------------------------------------------------------------------
 
-    def __init__(self, parent, key_word, bg, font1, font2):
+    def __init__(self, parent, key_word, styles):
 
         self.parent = parent
         self.root = tk.Toplevel(self.parent)
-        self.bg = bg
-        self.font1 = font1
-        self.font2 = font2
+        self.styles = styles
 
         self.key_word = key_word.string().lower()
         self.createWindow()
@@ -63,10 +64,10 @@ class EntryWindow:
         self.descrip = "If a keyword does not already have an \nassociated tag, create one here.\n"
 
         # Entries
-        self.EntriesTitle = EntryWindow.Title(self.root, self.title, self.descrip)
-        self.Entries1 = EntryWindow.LabeledEntry(self.root, "Word to Tag", self.key_word)
-        self.Entries2 = EntryWindow.LabeledEntry(self.root, "XML type:", 'place, person, etc.')
-        self.Entries3 = EntryWindow.LabeledEntry(self.root, "Declensions", 'Separate, by, commas')
+        self.EntriesTitle = EntryWindow.Title(self.root, self.title, self.descrip, self.styles)
+        self.Entries1 = EntryWindow.LabeledEntry(self.root, "Word to Tag", self.key_word, self.styles)
+        self.Entries2 = EntryWindow.LabeledEntry(self.root, "XML type:", 'place, person, etc.', self.styles)
+        self.Entries3 = EntryWindow.LabeledEntry(self.root, "Declensions", 'Separate, by, commas', self.styles)
 
         # Buttons
         self.b_ok = tk.Button(self.root, text="Add tag to index", command = self.saveAnswers)
@@ -94,10 +95,8 @@ class EntryWindow:
 
 
     def styleWindow(self):
-        self.root.config(bg = self.bg)
-        self.b_ok.config(font=self.font2, bg=self.bg, highlightbackground=self.bg, pady=25)
-        self.b_nvm.config(font = self.font2, bg=self.bg, highlightbackground=self.bg)
-        self.EntriesTitle.config(font1 = self.font1, font2 = self.font2, bg = self.bg)
-        self.Entries1.config(font = self.font2, bg = self.bg)
-        self.Entries2.config(font = self.font2, bg = self.bg)
-        self.Entries3.config(font = self.font2, bg = self.bg)
+        self.root.config(bg = self.styles.c_1)
+        self.b_ok.config(font=self.styles.f_button, bg=self.styles.c_1, highlightbackground=self.styles.c_1, pady=25)
+        self.b_nvm.config(font = self.styles.f_button, bg=self.styles.c_1, highlightbackground=self.styles.c_1)
+
+

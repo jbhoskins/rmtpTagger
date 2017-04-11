@@ -18,25 +18,18 @@ class Sidebar:
         self.fText = fText
         self.styles = styles
 
-        self.styleSheet()
         self.createWidgets()
         self.styleWidgets()
-
-    def styleSheet(self):
-        """ Assigns the style variables that will be used in the sidebar. Will be replaced
-            by a style class in the future. """
-        self.font1 = self.styles[0]
-        self.font2 = self.styles[1]
-        self.color1 = self.styles[2]
-        self.color2 = self.styles[3]
+        
 
     def createWidgets(self):
         """ Declare and pack all the widgets used in the sidebar. """
         self.tagResults = TagResults(self.parent)
         self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.fText.insertAroundCache(self.tagResults.curSelection()))
         self.tagInfoField = TagInformationField(self.parent)
+        self.tagLabel = tk.Label(self.parent, text="Tag Results")
         
-        tk.Label(self.parent, text="Tag Results", font=self.font1, bg=self.color2).pack()
+        self.tagLabel.pack()
         self.tagResults.pack()
         self.confirmButton.pack()
         self.tagInfoField.pack()
@@ -46,9 +39,11 @@ class Sidebar:
 
     def styleWidgets(self):
         """ Apply the styles from styleSheet() to the widgets. """
-        self.confirmButton.config(font = self.font2, bg = self.color2, highlightbackground = self.color2)
-        self.tagResults.config(font = self.font2, bg = self.color2)
-        self.tagInfoField.config(font = self.font2, bg = self.color2)
+        self.parent.config(bg = self.styles.c_2, highlightbackground = self.styles.c_2)
+        self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
+        self.confirmButton.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
+        self.tagResults.config(font = self.styles.f_button, bg = self.styles.c_2)
+        self.tagInfoField.config(font = self.styles.f_text, bg = self.styles.c_2)
 
     def showTagResults(self, event):
         """ Update the tagResults widget (inherits from ListBox) with the word in the

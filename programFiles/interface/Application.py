@@ -34,7 +34,7 @@ class Application:
 
     def _setStyles(self):
         """ Set the formatting of the application. """
-        self.styles = StyleSheet(name = "bella")
+        self.styles = StyleSheet(name = "sasha")
         
 
     def _placeFrames(self):
@@ -50,7 +50,7 @@ class Application:
 
     def _createWidgets(self):
         """ Fills text box, creates sidebar and menu. """
-        self.fText = FramedText(self.textFrame, self.index)
+        self.fText = FramedText(self.textFrame, self.index, self.styles)
         self.fText.loadText("../../input/astaikina.txt")
         self.fText.pack(expand = True, fill = tk.BOTH)
         self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
