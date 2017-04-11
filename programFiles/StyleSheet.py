@@ -4,6 +4,10 @@ Use in Application might look like:
 
 self.styles = StyleSheet(name = "bella")
 
+Let's say you want a button to have the button font; just call 
+
+self.whatever_button.config(font = self.styles.f_button)
+
 '''
 class StyleSheet:
       
@@ -30,13 +34,6 @@ class StyleSheet:
             else:
                   print("Error, invalid name!")
                   self._Bella()
-                  
-            self.fonts = self.f_title, self.f_subtitle, self.f_text, self.f_button
-            self.colors = self.c_1, self.c_2, self.c_3
-            self.highlights = self.h_good, self.h_problem, self.h_current
-            
-            self.styles = self.fonts, self.colors, self.highlights
-            print(self.styles)
             
       def _Bella(self):
             self.c_1 = "#D5CDFF"
@@ -55,7 +52,3 @@ class StyleSheet:
             self.h_good = "red"
             self.h_problem = "white"
             self.h_current = "blue"    
-
-
-style = StyleSheet(name = "sasha")
-print(style.f_button)
