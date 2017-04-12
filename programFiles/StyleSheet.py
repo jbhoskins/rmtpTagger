@@ -33,15 +33,65 @@ class StyleSheet:
                   self._Sasha()
             elif name.lower() == "elena":
                   self._Elena()        
-            elif name.lower() == "robert":
-                  self._Robert()
-            elif name.lower() == "fred":
-                  self._Fred()
+            elif name.lower() == "maggie":
+                  self._Maggie()
+            elif name.lower() == "john":
+                  self._John()
             else:
                   print("Error, invalid name!")
             
             
+      # Style options
+      
       def _Bella(self):
+            self.c_1 = "#e0e0eb"
+            self.c_2 = "#ffffcc"  
+            self.c_3 = "white"
+            
+            self.h_single = "#8585ad"
+            self.h_multi = "#ffff80"
+            self.h_current = "yellow"      
+            
+            self.h_interviewer = "#666699"            
+            
+            
+      def _Sasha(self):
+            self.c_1 = "#c3c388"
+            self.c_2 = "#608000" 
+            self.c_3 = "#66ff99"
+            
+            self.h_single = "#99994d"
+            self.h_multi = "#ff794d"
+            self.h_current = "blue"    
+
+            self.h_interviewer = "#e5e5cc"
+
+
+      def _Elena(self):
+            self.c_1 = "#ffcce6"
+            self.c_2 = "#ccffe4"  
+            self.c_3 = "white"
+            
+            self.h_single = "#ff80b3"
+            self.h_multi = "#80ffbb"
+            self.h_current = "yellow"      
+            
+            self.h_interviewer = "#ff80b3"
+            
+            
+      def _Maggie(self):
+            self.c_1 = "#ffcccc"
+            self.c_2 = "#ff8080"  
+            self.c_3 = "white"
+            
+            self.h_single = "#ff8080"
+            self.h_multi = "#99ff99"
+            self.h_current = "yellow"      
+            
+            self.h_interviewer = "#ff8080"
+            
+            
+      def _John(self):
             self.c_1 = "#e0e0eb"
             self.c_2 = "#ffffcc"  
             self.c_3 = "white"
@@ -53,13 +103,13 @@ class StyleSheet:
             self.h_interviewer = "#666699"
             
             
-      def _Sasha(self):
-            self.c_1 = "#D5CDFF"
-            self.c_2 = "#AFC0AA" 
-            self.c_3 = "blue"
+      def _Helena(self):
+            self.c_1 = "#e0e0eb"
+            self.c_2 = "#ffffcc"  
+            self.c_3 = "white"
             
-            self.h_single = "red"
-            self.h_multi = "white"
-            self.h_current = "blue"    
-
+            self.h_single = "#8585ad"
+            self.h_multi = "#ffff80"
+            self.h_current = "yellow"      
+            
             self.h_interviewer = "#666699"
