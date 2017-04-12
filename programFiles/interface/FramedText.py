@@ -36,6 +36,7 @@ class FramedText(tk.Text):
         self.tag_configure('cur', background = self.styles.h_current) # Not yet in use, could be for current click
         self.tag_configure('reg', background = self.styles.c_1)
         self.tag_configure("interviewer", foreground = self.styles.h_interviewer) # Interviewer text (not yet in use)
+        self.tag_configure("interviewee")
         
     
     def _applyTag(self, word, results):
@@ -161,11 +162,17 @@ class FramedText(tk.Text):
         for i in para_range:       
             inx = float(i)
             self.tag_add("interviewer", inx, inx+1)     
+            self.tag_add("interviewee", inx + 2, inx+3)
+
+        print(self.tag_ranges("interviewee"))
+        print(self.tag_ranges("interviewer"))
     
     def configStyles(self, styles):
         self.styles = styles
         self._createTags()
         self._styleWidget()
+
+
         
     #-------------------------------------------------------------------
   
