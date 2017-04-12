@@ -58,11 +58,15 @@ class TagInformationField(tk.Text):
         """ Display information about the item selected in TagResults. """
        
         # Account for NO TAG
-        selectionIndex += 1
+        if selectionIndex != 0:
+            selectionIndex -= 1
+            string = str(self.cache.entries()[selectionIndex])
+        else:
+            string = ""
 
         self.config(state = tk.NORMAL)
         self.delete(0.0, tk.END)
-        self.insert(tk.END, str(self.cache.entries()[selectionIndex]))
+        self.insert(tk.END, string)
         self.config(state = tk.DISABLED)
 
 class CurrentTagField(tk.Label):
