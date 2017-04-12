@@ -37,7 +37,7 @@ class Application:
         print(self.root.winfo_screenwidth(), self.root.winfo_screenheight())
         return (self.root.winfo_screenwidth(), self.root.winfo_screenheight())
 
-    def _setStyles(self, name = "bella"):
+    def _setStyles(self, name = "sasha"):
         """ Set the formatting of the application. """
         self.styles = StyleSheet(name, dim=self.dim)
         
@@ -102,6 +102,10 @@ class Application:
         editmenu = tk.Menu(menubar, tearoff=0)
         editmenu.add_command(label="Bella", command=lambda: self._changeTheme(name = "bella"))
         editmenu.add_command(label="Sasha", command=lambda: self._changeTheme(name = "sasha"))
+        editmenu.add_command(label="Elena", command=lambda: self._changeTheme(name = "elena"))
+        editmenu.add_command(label="Maggie", command=lambda: self._changeTheme(name = "maggie"))
+        editmenu.add_command(label="John", command=lambda: self._changeTheme(name = "john"))
+        editmenu.add_command(label="Helena", command=lambda: self._changeTheme(name = "helena"))
         menubar.add_cascade(label="Theme", menu=editmenu)
         
         # Tools
