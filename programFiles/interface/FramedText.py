@@ -143,7 +143,7 @@ class FramedText(tk.Text):
             count += 1
             expr = '- ' + str(count - 1) + ' c'
             
-        wordStart = current + expr
+        wordStart = current + expr + '+1c'
         string = self.get(wordStart, current + ' wordend')
             
         return string
