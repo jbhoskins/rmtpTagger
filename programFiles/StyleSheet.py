@@ -15,7 +15,7 @@ class StyleSheet:
             '''Default fonts, Bella is default style'''
             
             # Set dimension
-            dim = self.dim
+            self.dimensions = dim
             
             # Default fonts
             self.f_title = "Verdana", 24
