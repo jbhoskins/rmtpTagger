@@ -9,6 +9,8 @@ from FramedText import *
 from Sidebar import *
 from EntryWindow import *
 from StyleSheet import *
+from Legend import *
+
 import tkinter as tk
 
 #---------------------------------------------------------------------------
@@ -37,14 +39,19 @@ class Application:
         print(self.root.winfo_screenwidth(), self.root.winfo_screenheight())
         return (self.root.winfo_screenwidth(), self.root.winfo_screenheight())
 
-    def _setStyles(self, name = "sasha"):
+    def _setStyles(self, name = "bella"):
         """ Set the formatting of the application. """
         self.styles = StyleSheet(name, dim=self.dim)
         
     def _styleApp(self):
         """ Styles the application """
         self.root.config(bg = self.styles.c_1)
+        
+        self.legend.configStyles(styles = self.styles)
+        self.legendFrame.config(bg = self.styles.c_2)
+        
         self.fText.configStyles(styles = self.styles)
+        
         self.sidebar.configStyles(styles = self.styles)    
         self.sidebarFrame.config(bg = self.styles.c_2)
         
@@ -59,6 +66,10 @@ class Application:
     def _placeFrames(self):
         """ Places the sext and sidebar frames within the application. """
 
+        self.legendFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] / 8)
+        self.legendFrame.pack_propagate(0) 
+        self.legendFrame.pack(side = tk.LEFT)
+        
         self.textFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] / 2)
         self.textFrame.pack_propagate(0) # Stops frames from shrinking to fit contents.    
         self.textFrame.pack(expand = True, side = tk.LEFT)
@@ -73,6 +84,8 @@ class Application:
         self.fText.loadText("../../input/astaikina.txt")
         self.fText.pack(expand = True, fill = tk.BOTH)
         self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
+        self.legend = Legend(self.legendFrame, self.styles)
+        
         self._makeMenu()
         self._makeTagMenu()
 
