@@ -11,11 +11,13 @@ from EntryWindow import *
 from StyleSheet import *
 import tkinter as tk
 
+#---------------------------------------------------------------------------
 class Application:
     """ Main program """
     def __init__(self):
         self.root = tk.Tk()
         self.root.attributes('-topmost', 1)
+        
         self.root.wm_title("William and Mary Index Tagger")
         
         self.dim = self._getDim()
@@ -25,18 +27,35 @@ class Application:
         self._placeFrames()
         self._createWidgets()
         self._bindKeys()
-        self._style()
+        self._styleApp()
+
+#---------------------------------------------------------------------------
+# Styling
 
     def _getDim(self):
         """ Gets the dimensions of the screen. """
         print(self.root.winfo_screenwidth(), self.root.winfo_screenheight())
         return (self.root.winfo_screenwidth(), self.root.winfo_screenheight())
 
-    def _setStyles(self):
+    def _setStyles(self, name = "bella"):
         """ Set the formatting of the application. """
-        self.styles = StyleSheet(name = "bella", dim=self.dim)
+        self.styles = StyleSheet(name, dim=self.dim)
         
+    def _styleApp(self):
+        """ Styles the application """
+        self.root.config(bg = self.styles.c_1)
+        self.fText.configStyles(styles = self.styles)
+        self.sidebar.configStyles(styles = self.styles)    
+        self.sidebarFrame.config(bg = self.styles.c_2)
+        
+    def _changeTheme(self, name):
+        """ Changes the theme of the app. """
+        self._setStyles(name)
+        self._styleApp()    
 
+#----------------------------------------------------------------
+# Creating and placing frames, widgets, and menus
+        
     def _placeFrames(self):
         """ Places the sext and sidebar frames within the application. """
 
@@ -64,18 +83,14 @@ class Application:
         self.sidebar.tagResults.bind("<ButtonRelease-1>", self.sidebar.showSelectionInfo)
         self.fText.bind("<ButtonRelease-3>", self._showTagMenu)
         self.fText.bind("<ButtonRelease-2>", self._showTagMenu)
+            
         self.sidebar.tagResults.populateTags([])
-
-    def _style(self):
-        """ Styles the application """
-        self.root.config(bg = self.styles.c_1)
-        self.fText.config(bg = self.styles.c_1, highlightbackground = self.styles.c_1, font = self.styles.f_text)
-        self.sidebarFrame.config(bg = self.styles.c_2)
 
     def _makeMenu(self):
         """ Defines the system menu. """
         menubar = tk.Menu(self.root)
         
+        # File
         filemenu = tk.Menu(menubar, tearoff=0)
         filemenu.add_command(label="Open")
         filemenu.add_command(label="Save")
@@ -83,6 +98,13 @@ class Application:
         filemenu.add_command(label="Export")
         menubar.add_cascade(label="File", menu=filemenu)
         
+        # Theme
+        editmenu = tk.Menu(menubar, tearoff=0)
+        editmenu.add_command(label="Bella", command=lambda: self._changeTheme(name = "bella"))
+        editmenu.add_command(label="Sasha", command=lambda: self._changeTheme(name = "sasha"))
+        menubar.add_cascade(label="Theme", menu=editmenu)
+        
+        # Tools
         toolsmenu = tk.Menu(menubar, tearoff=0)
         toolsmenu.add_command(label="Hide Greens")
         toolsmenu.add_command(label="Hide Interviewer Text")
@@ -93,33 +115,44 @@ class Application:
         
         self.root.config(menu=menubar)
         
+#----------------------------------------------------------------------
+# Hover stuff (in progress)
+
+    def on_enter(self, event):
+        self.fText.tag_add("cur", self.cur_line, self.cur_line+1) 
+
+    def on_leave(self, enter):
+        self.fText.tag_add("reg", self.cur_line, self.cur_line+1)
+
 
 #--------------------------------------------------------------------
-# Right click stuff
+# Right click menu
 
     def _makeTagMenu(self):
         """ Defines the menu that will show when you right-click. """
         self.menuFrame = tk.Frame(self.root)
         self.tagMenu = tk.Menu(self.menuFrame, tearoff = 0)
+        self.tagMenu.add_command(label = "tag here", command = print("tag"))
         self.tagMenu.add_command(label="Add Tag", command = self._showTagScreen)
 
     def _showTagMenu(self, event):
         """ Shows the Menu pop up when you right click. """
         self.tagMenu.post(event.x_root, event.y_root)
-
+    
     def _showTagScreen(self):
         """ Displays the New Tag Window. """
         word = self.fText.getString()
         self.root.attributes('-topmost', 0)
         self.add_tag = EntryWindow(self.root, word, self.styles)
 
+#---------------------------------------------------------------------------        
+# make root, launch app
+
     def launch(self):
-        """ Launched the program. """
+        """ Launches the program. """
         self.root.mainloop()
 
-
-        
-# make root, 
-app = Application()
-app.launch()
+if __name__ == "__main__":
+    app = Application()
+    app.launch()
 

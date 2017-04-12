@@ -18,11 +18,11 @@ class Sidebar:
         self.fText = fText
         self.styles = styles
 
-        self.setFrames()
-        self.createWidgets()
-        self.styleWidgets()
+        self._setFrames()
+        self._createWidgets()
+        self._styleWidgets()
 
-    def setFrames(self):
+    def _setFrames(self):
         """ Set the frames to be the right size, based on the screen height."""
         # Should be a part of the stylesheet
 
@@ -37,7 +37,7 @@ class Sidebar:
         self.infoFrame = tk.Frame(self.parent, height=infoHeight)
 
 
-    def createWidgets(self):
+    def _createWidgets(self):
         """ Declare and pack all the widgets used in the sidebar. """
         self.tagResults = TagResults(self.tagFrame)
         self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.fText.insertAroundCache(self.tagResults.curSelection()))
@@ -59,14 +59,6 @@ class Sidebar:
         # Initialize to empty fields
         self.tagResults.populateTags([])
 
-    def styleWidgets(self):
-        """ Apply the styles from styleSheet() to the widgets. """
-        self.parent.config(bg = self.styles.c_2, highlightbackground = self.styles.c_2)
-        self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
-        self.confirmButton.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
-        self.tagResults.config(font = self.styles.f_button, bg = self.styles.c_2)
-        self.tagInfoField.config(font = self.styles.f_text, bg = self.styles.c_2)
-
     def showTagResults(self, event):
         """ Update the tagResults widget (inherits from ListBox) with the word in the
             FramedText cache. Automatically fills the tagInfoField with first tag. """
@@ -83,6 +75,20 @@ class Sidebar:
         selectionIndex = self.tagResults.curSelection()
         
         self.tagInfoField.updateInformation(selectionIndex)
-        
+    
+    #------------------------------------------------------------------
+    # Styling
+    
+    def _styleWidgets(self):
+        """ Apply the styles from styleSheet() to the widgets. """
+        self.parent.config(bg = self.styles.c_2, highlightbackground = self.styles.c_2)
+        self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
+        self.confirmButton.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
+        self.tagResults.config(font = self.styles.f_button, bg = self.styles.c_2)
+        self.tagInfoField.config(font = self.styles.f_text, bg = self.styles.c_2)        
 
+    def configStyles(self, styles):
+        self.styles = styles
+        self._styleWidgets()
 
+    #-------------------------------------------------------------------

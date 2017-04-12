@@ -21,9 +21,9 @@ class FramedText(tk.Text):
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
         self.styles = styles
+        self._styleWidget()
         self._createTags()
         
- 
         self.wordCache = Cache()
         self.indexObject = indexObject # Needs "object" name so as not to overwrite 
                                        # Text method "Text.index()"
@@ -34,6 +34,7 @@ class FramedText(tk.Text):
         self.tag_configure('multi', background = self.styles.h_multi) # Keys with multiple options
         self.tag_configure('single', background = self.styles.h_single) # Kets with one option
         self.tag_configure('cur', background = self.styles.h_current) # Not yet in use, could be for current click
+        self.tag_configure('reg', background = self.styles.c_1)
         self.tag_configure("interviewer", foreground = self.styles.h_interviewer) # Interviewer text (not yet in use)
         
     
@@ -85,15 +86,6 @@ class FramedText(tk.Text):
         
         self._grayInterviewer()
         self.config(state = tk.DISABLED, wrap=tk.WORD)
-        
-        
-    def _grayInterviewer(self):
-        text_length = math.floor(float(self.index(tk.END)))
-        para_range = range(1, text_length, 4)
-        
-        for i in para_range:       
-            inx = float(i)
-            self.tag_add("interviewer", inx, inx+1) 
                         
  
     def cacheWord(self, event):
@@ -150,7 +142,28 @@ class FramedText(tk.Text):
         string = self.get(wordStart, current + ' wordend')
             
         return string
-          
+
+    #-------------------------------------------------------------------
+    # Styling
+    
+    def _styleWidget(self):
+        self.config(bg = self.styles.c_1, highlightbackground = self.styles.c_1, font = self.styles.f_text)
+        
+    def _grayInterviewer(self):
+        self.text_length = math.floor(float(self.index(tk.END)))
+        para_range = range(1, self.text_length, 4)
+        
+        for i in para_range:       
+            inx = float(i)
+            self.tag_add("interviewer", inx, inx+1)     
+    
+    def configStyles(self, styles):
+        self.styles = styles
+        self._styleWidget()
+        
+    #-------------------------------------------------------------------
+  
+         
           
 if __name__ == "__main__":
     root = tk.Tk()
