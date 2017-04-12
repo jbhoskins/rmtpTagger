@@ -56,7 +56,10 @@ class TagInformationField(tk.Text):
 
     def updateInformation(self, selectionIndex):
         """ Display information about the item selected in TagResults. """
-        
+       
+        # Account for NO TAG
+        selectionIndex += 1
+
         self.config(state = tk.NORMAL)
         self.delete(0.0, tk.END)
         self.insert(tk.END, str(self.cache.entries()[selectionIndex]))
