@@ -99,7 +99,12 @@ class FramedText(tk.Text):
             if self.compare(location, ">=", start) and self.compare(location, "<=", stop):
                 word = self.get(start, stop).lower()
                 # This next line should never throw an error... Theoretically
+                
+                
+                self.tag_remove("cur", self.wordCache.start(), self.wordCache.stop())   
                 self.wordCache.update(word, start, stop, self.indexObject.lookup(word))
+                self.tag_add("cur", self.wordCache.start(), self.wordCache.stop())   
+
                 
 
     def getCache(self):
