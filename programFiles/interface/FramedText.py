@@ -15,7 +15,11 @@ from Index import *
 class FramedText(tk.Text):
     """ Extends tk.Text, handles the finding and tagging of keywords. """
     def __init__(self, Frame, indexObject, styles):
-        tk.Text.__init__(self, Frame)
+        scrollbar = tk.Scrollbar(Frame)
+        tk.Text.__init__(self, Frame, yscrollcommand=scrollbar.set)
+        scrollbar.config(command=self.yview)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
         self.styles = styles
         self._createTags()
         
@@ -80,7 +84,7 @@ class FramedText(tk.Text):
                 self._applyTag(word, self.indexObject.lookup(word.group().lower()))
         
         self._grayInterviewer()
-        self.config(state = tk.DISABLED)
+        self.config(state = tk.DISABLED, wrap=tk.WORD)
         
         
     def _grayInterviewer(self):
