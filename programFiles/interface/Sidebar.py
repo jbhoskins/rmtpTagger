@@ -36,11 +36,15 @@ class Sidebar:
         self.tagFrame = tk.Frame(self.parent, height=tagResultsHeight)
         self.infoFrame = tk.Frame(self.parent, height=infoHeight)
 
+        self.currentTagFrame = tk.Frame(self.parent)
+
 
     def _createWidgets(self):
         """ Declare and pack all the widgets used in the sidebar. """
         self.tagResults = TagResults(self.tagFrame)
-        self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.fText.insertAroundCache(self.tagResults.curSelection()))
+        self.currentTag = CurrentTagField(self.currentTagFrame)
+#        self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.fText.insertAroundCache(self.tagResults.curSelection()))
+        self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.currentTag.update(self.tagResults.xmlIdSelection()))
         self.tagInfoField = TagInformationField(self.infoFrame)
         self.tagLabel = tk.Label(self.parent, text="Tag Results")
         
@@ -55,6 +59,9 @@ class Sidebar:
         self.infoFrame.pack_propagate(0) 
         self.infoFrame.pack(side=tk.TOP, fill = tk.X)
         self.tagInfoField.pack(fill = tk.BOTH, expand=True)
+        
+        self.currentTagFrame.pack(fill = tk.X)
+        self.currentTag.pack(side=tk.LEFT, padx = 30)
         
         # Initialize to empty fields
         self.tagResults.populateTags([])
@@ -84,6 +91,8 @@ class Sidebar:
         self.parent.config(bg = self.styles.c_2, highlightbackground = self.styles.c_2)
         self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
         
+        self.currentTagFrame.config(bg = self.styles.c_2, highlightbackground = self.styles.c_2)
+        self.currentTag.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
         self.confirmButton.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
         
         self.tagResults.config(font = self.styles.f_button, bg = self.styles.c_2)

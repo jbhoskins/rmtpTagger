@@ -31,6 +31,14 @@ class TagResults(tk.Listbox):
         else:
             return 0
 
+    def xmlIdSelection(self):
+        selection = self.curselection()
+        if selection != (): # When empty, return ()
+            return self.get(self.curselection()[0]) # Returned as a tuple, only want the 1st value.
+        else:
+            return ""
+        
+
 class TagInformationField(tk.Text):
     """ Displays information about the current selection in TagResults. """
     def __init__(self, sidebar):
@@ -50,4 +58,17 @@ class TagInformationField(tk.Text):
         self.delete(0.0, tk.END)
         self.insert(tk.END, str(self.cache.entries()[selectionIndex]))
         self.config(state = tk.DISABLED)
+
+class CurrentTagField(tk.Label):
+    def __init__(self, sidebar):
+        tk.Label.__init__(self, sidebar, text="Current:")
+
+
+    def update(self, string):
+        string = "Current:  " + string
+        self.config(text=string)
+
+
+
+
 
