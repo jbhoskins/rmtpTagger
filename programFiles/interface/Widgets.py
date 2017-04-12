@@ -18,10 +18,13 @@ class TagResults(tk.Listbox):
         """ Populate the ListBox with every element in a list. """
         self.delete(0, tk.END)
         
+        if listOfXmlIds != []:
+            self.insert(tk.END, "NO TAG")
+        
         for item in listOfXmlIds:
             self.insert(tk.END, item)
 
-        self.selection_set(0)
+        self.selection_set(1)
 
     def curSelection(self):
         """ Returns an integer corrosponding to the value is selected in the listbox. """
