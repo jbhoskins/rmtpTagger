@@ -83,9 +83,11 @@ class Sidebar:
         """ Apply the styles from styleSheet() to the widgets. """
         self.parent.config(bg = self.styles.c_2, highlightbackground = self.styles.c_2)
         self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
+        
         self.confirmButton.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
+        
         self.tagResults.config(font = self.styles.f_button, bg = self.styles.c_2)
-        self.tagInfoField.config(font = self.styles.f_text, bg = self.styles.c_2)        
+        self.tagInfoField.config(font = self.styles.f_text, bg = self.styles.c_2, highlightbackground = self.styles.c_2)        
 
     def configStyles(self, styles):
         self.styles = styles

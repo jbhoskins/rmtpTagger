@@ -159,6 +159,7 @@ class FramedText(tk.Text):
     
     def configStyles(self, styles):
         self.styles = styles
+        self._createTags()
         self._styleWidget()
         
     #-------------------------------------------------------------------
