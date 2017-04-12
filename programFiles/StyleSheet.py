@@ -11,11 +11,8 @@ self.whatever_button.config(font = self.styles.f_button)
 '''
 class StyleSheet:
       
-      def __init__(self, name = 'bella', dim = (700, 700)):
+      def __init__(self, name = 'bella'):
             '''Default fonts, Bella is default style'''
-
-            # Dimensions
-            self.dimensions = dim
             
             # Default fonts
             self.f_title = "Verdana", 24
@@ -40,22 +37,26 @@ class StyleSheet:
             else:
                   print("Error, invalid name!")
             
+            
       def _Bella(self):
-            self.c_1 = "#D5CDFF"
-            self.c_2 = "#AFC0AA"  
+            self.c_1 = "#e0e0eb"
+            self.c_2 = "#ffffcc"  
             self.c_3 = "white"
             
-            self.h_single = "yellow"
-            self.h_multi = "yellow"
+            self.h_single = "#8585ad"
+            self.h_multi = "#ffff80"
             self.h_current = "yellow"      
             
             self.h_interviewer = "#666699"
             
+            
       def _Sasha(self):
-            self.c_1 = "red"
-            self.c_2 = "white"  
+            self.c_1 = "#D5CDFF"
+            self.c_2 = "#AFC0AA" 
             self.c_3 = "blue"
             
             self.h_single = "red"
             self.h_multi = "white"
             self.h_current = "blue"    
+
+            self.h_interviewer = "#666699"
