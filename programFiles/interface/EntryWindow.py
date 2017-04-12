@@ -50,8 +50,8 @@ class EntryWindow:
         self.parent = parent
         self.root = tk.Toplevel(self.parent)
         self.styles = styles
-
-        self.key_word = key_word.string().lower()
+        self.key_word = key_word.lower()
+            
         self.createWindow()
         self.styleWindow()
 
@@ -80,7 +80,6 @@ class EntryWindow:
         # This is where we would eventually save the keyword to the xml index
         self.getAnswers()
         new_string = self.key_word + ', ' + self.key_type + ', ' + self.key_decl
-        print(new_string)
         self.root.destroy()
 
 

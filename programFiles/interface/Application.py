@@ -34,7 +34,7 @@ class Application:
 
     def _setStyles(self):
         """ Set the formatting of the application. """
-        self.styles = StyleSheet(name = "sasha", dim=self.dim)
+        self.styles = StyleSheet(name = "bella", dim=self.dim)
         
 
     def _placeFrames(self):
@@ -95,7 +95,7 @@ class Application:
         
 
 #--------------------------------------------------------------------
-# Right clock stuff
+# Right click stuff
 
     def _makeTagMenu(self):
         """ Defines the menu that will show when you right-click. """
@@ -107,10 +107,9 @@ class Application:
         """ Shows the Menu pop up when you right click. """
         self.tagMenu.post(event.x_root, event.y_root)
 
-
     def _showTagScreen(self):
         """ Displays the New Tag Window. """
-        word = self.fText.getCache()
+        word = self.fText.getString()
         self.root.attributes('-topmost', 0)
         self.add_tag = EntryWindow(self.root, word, self.styles)
 

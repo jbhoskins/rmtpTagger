@@ -90,7 +90,7 @@ class Index:
 
         # Creates the soup object for easy parsing.
         f = open(path, encoding="UTF-8") # This line has been problematic in the past.
-        self._soup = BeautifulSoup(f, 'xml')
+        self._soup = BeautifulSoup(f, 'html')
         f.close()
 
         self._multi_words = []
@@ -110,8 +110,7 @@ class Index:
             except KeyError:
                 index[key.string] = [self._Entry(key.parent.parent)]
             
-            if key.string != None: # Unclear why this line is sometimes needed
-                multi = key.string.strip().split()
+            multi = key.string.strip().split()
             
             if len(multi) > 1:
                 self._multi_words.append(key.string.strip())
