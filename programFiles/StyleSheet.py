@@ -11,8 +11,11 @@ self.whatever_button.config(font = self.styles.f_button)
 '''
 class StyleSheet:
       
-      def __init__(self, name = 'bella'):
+      def __init__(self, name = 'bella', dim = (700, 700)):
             '''Default fonts, Bella is default style'''
+            
+            # Set dimension
+            dim = self.dim
             
             # Default fonts
             self.f_title = "Verdana", 24
