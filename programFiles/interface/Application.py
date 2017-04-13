@@ -91,8 +91,8 @@ class Application:
 
     def _bindKeys(self):
         """ Binds all clicks and key presses to commands. """
-        self.fText.tag_bind("_foundWord", "<Button-1>", self.fText.cacheWord)
-        self.fText.tag_bind("_foundWord", "<Button-1>", self.sidebar.showTagResults)
+        self.fText.tag_bind("foundWord", "<Button-1>", self.fText.cacheWord)
+        self.fText.tag_bind("foundWord", "<Button-1>", self.sidebar.showTagResults)
         self.sidebar.tagResults.bind("<ButtonRelease-1>", self.sidebar.showSelectionInfo)
         self.fText.tag_bind("interviewee", "<ButtonRelease-3>", self._showTagMenu)
         self.fText.tag_bind("interviewee", "<ButtonRelease-2>", self._showTagMenu)
@@ -103,19 +103,24 @@ class Application:
         """ Confirms, and exports the changes to a file. """
         savedString = self.fText.get("1.0", tk.END)
         
+        # FIND A BETTER WAY TO DO THIS DO NOT USE FLOAT FOR THIS
+        print("pre", [(x.string(), x.start()) for x in self.sidebar.exportTags])
+        self.sidebar.exportTags.sort(key=lambda x: float(x.start()), reverse=True)
+        print("post", [(x.string(), x.start()) for x in self.sidebar.exportTags])
+
+        self.fText.config(state=tk.NORMAL)
         for item in self.sidebar.exportTags:
-            
+           
             if item.selected() >= 0:
                 entry = item.entries()[item.selected()]
             
-                self.fText.config(state=tk.NORMAL)
                 self.fText.insert(self.fText.index(item.stop()), "</rs>")
-                print(item.start())
-                print(item.stop())
+                print("Start", item.start())
+                print(item.start() < item.stop())
+                print("Stop", item.stop())
                 self.fText.insert(self.fText.index(item.start()), "<rs type=\"%s\" key=\"%s\">" % (entry.type(), entry.xmlId()))
-            else:
-                continue
-            self.fText.config(state=tk.DISABLED)
+        
+        self.fText.config(state=tk.DISABLED)
 
         string = self.fText.get("1.0", tk.END)
         outputFile = open("../../output/OUTPUT.txt", 'w')

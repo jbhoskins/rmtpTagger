@@ -4,6 +4,8 @@
 # Description: A Cache for FramedText that saves the latest lookup, and important 
 # information about it.
 
+import tkinter as tk
+
 class Cache:
     """ Cache to save information about a word in FramedText """
     def __init__(self):
@@ -26,10 +28,7 @@ class Cache:
         return self._selectedEntry
 
     def __eq__(self, other):
-        if other._start == self._start:
-            return True
-        else:
-            return False
+        return other._start == self._start
 
     def string(self):
         return self._string
@@ -42,7 +41,4 @@ class Cache:
 
     def entries(self):
         return self._entries
-
-
-
 

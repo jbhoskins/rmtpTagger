@@ -30,27 +30,27 @@ class FramedText(tk.Text):
         
     def _createTags(self):
         """ Create the tags that will be applied to word in the text. """
-        self.tag_configure("_foundWord") # All words that are keys
-        self.tag_configure('_multi', background = self.styles.h_multi) # Keys with multiple options
-        self.tag_configure('_single', background = self.styles.h_single) # Kets with one option
-        self.tag_configure('_cur', background = self.styles.h_current) # Not yet in use, could be for current click
-        self.tag_configure('_reg', background = self.styles.c_1)
-        self.tag_configure("_interviewer", foreground = self.styles.h_interviewer) # Interviewer text (not yet in use)
-        self.tag_configure("_interviewee")
+        self.tag_configure("foundWord") # All words that are keys
+        self.tag_configure('multi', background = self.styles.h_multi) # Keys with multiple options
+        self.tag_configure('single', background = self.styles.h_single) # Kets with one option
+        self.tag_configure('cur', background = self.styles.h_current) # Not yet in use, could be for current click
+        self.tag_configure('reg', background = self.styles.c_1)
+        self.tag_configure("interviewer", foreground = self.styles.h_interviewer) # Interviewer text (not yet in use)
+        self.tag_configure("interviewee")
         
     
     def _applyTag(self, word, results):
         """ Applies tags to words that have been found, so that they can be referenced 
             later. """            
         if len(results) > 1:
-            tag = "_multi"
+            tag = "multi"
         else:
-            tag = "_single"
+            tag = "single"
             
         wordStart = "1.0+%sc" % word.start()
         wordEnd   = "1.0+%sc" % word.end()
         self.tag_add(tag, wordStart, wordEnd) # Tag the relevant region of text
-        self.tag_add("_foundWord", wordStart, wordEnd)
+        self.tag_add("foundWord", wordStart, wordEnd)
         
  
     def loadText(self, path):
@@ -93,18 +93,18 @@ class FramedText(tk.Text):
         """ Caches the word that has been clicked on. """        
         # Currently O(n) where n is the number of words found. Technically constant time.
         location = self.index("@%s,%s" % (event.x, event.y))
-        ranges = self.tag_ranges("_foundWord")
+        ranges = self.tag_ranges("foundWord")
         for i in range(0, len(ranges), 2):
-            start = ranges[i]
-            stop = ranges[i + 1]
+            start = self.index(ranges[i])
+            stop = self.index(ranges[i + 1])
             if self.compare(location, ">=", start) and self.compare(location, "<=", stop):
                 word = self.get(start, stop).lower()
                 # This next line should never throw an error... Theoretically
                 
                 
-                self.tag_remove("_cur", self.wordCache.start(), self.wordCache.stop())   
+                self.tag_remove("cur", self.wordCache.start(), self.wordCache.stop())   
                 self.wordCache.update(word, start, stop, self.indexObject.lookup(word))
-                self.tag_add("_cur", self.wordCache.start(), self.wordCache.stop())
+                self.tag_add("cur", self.wordCache.start(), self.wordCache.stop())
 
     def getCache(self):
         """ Returns the cache. """
@@ -140,11 +140,9 @@ class FramedText(tk.Text):
         
         for i in para_range:       
             inx = float(i)
-            self.tag_add("_interviewer", inx, inx+1)     
-            self.tag_add("_interviewee", inx + 2, inx+3)
+            self.tag_add("interviewer", inx, inx+1)     
+            self.tag_add("interviewee", inx + 2, inx+3)
 
-        print(self.tag_ranges("_interviewee"))
-        print(self.tag_ranges("_interviewer"))
     
     def configStyles(self, styles):
         self.styles = styles
