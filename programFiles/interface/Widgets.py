@@ -73,12 +73,7 @@ class CurrentTagField(tk.Label):
     def __init__(self, sidebar):
         tk.Label.__init__(self, sidebar, text="Current:")
 
-
     def update(self, string):
         string = "Current:  " + string
         self.config(text=string)
-
-
-
-
 

@@ -18,6 +18,9 @@ class Sidebar:
         self.fText = fText
         self.styles = styles
 
+        # Not super slever implementation, but gets the job done
+        self.exportTags = []
+        
         self._setFrames()
         self._createWidgets()
         self._styleWidgets()
@@ -44,7 +47,8 @@ class Sidebar:
         self.tagResults = TagResults(self.tagFrame)
         self.currentTag = CurrentTagField(self.currentTagFrame)
 #        self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.fText.insertAroundCache(self.tagResults.curSelection()))
-        self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.currentTag.update(self.tagResults.xmlIdSelection()))
+#        self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.currentTag.update(self.tagResults.xmlIdSelection()))
+        self.confirmButton = tk.Button(self.parent, text="Confirm", command=self.saveTag)
         self.tagInfoField = TagInformationField(self.infoFrame)
         self.tagLabel = tk.Label(self.parent, text="Tag Results")
         
@@ -66,6 +70,27 @@ class Sidebar:
         # Initialize to empty fields
         self.tagResults.populateTags([])
 
+    def saveTag(self):
+        """ Saves the selected tag when you hit confirm. Should be done automatically, 
+        and needs some serious optimization. Needs to be combined with other functionality"""
+        word = self.fText.getCache()
+        selection = self.tagResults.curSelection()
+        
+        # Update text field
+        self.currentTag.update(self.tagResults.xmlIdSelection())
+                
+        i = 0
+        while i < len(self.exportTags) and self.exportTags[i] != word:
+            i += 1
+        
+        if i == len(self.exportTags):
+            # Need to declare a whole new object to deep copy
+            self.exportTags.append(Cache())
+            self.exportTags[-1].update("", word.start(), word.stop(), word.entries())
+            self.exportTags[-1].select(selection - 1)
+        else:
+            self.exportTags[i].select(selection - 1)
+        
     def showTagResults(self, event):
         """ Update the tagResults widget (inherits from ListBox) with the word in the
             FramedText cache. Automatically fills the tagInfoField with first tag. """
@@ -75,6 +100,23 @@ class Sidebar:
                     
         self.tagResults.populateTags([entry.xmlId() for entry in cache.entries()])
         self.showSelectionInfo(0) # Zero passes as event
+
+        # Update the selection cursor, and the current field, if anything already selected
+        i = 0
+        while i < len(self.exportTags) and self.exportTags[i] != cache:
+            i += 1
+
+        if i != len(self.exportTags):
+            selectedEntry = self.exportTags[i].selected()
+            
+            # Wuold help a lot if we had a NO TAG _Entry object
+            self.tagResults.selection_clear(0, tk.END)
+            self.tagResults.selection_set(selectedEntry + 1)
+            if selectedEntry >= 0:
+                self.currentTag.update(self.exportTags[i].entries()[selectedEntry].xmlId())
+            else:
+                self.currentTag.update("NO TAG")
+                
         
     def showSelectionInfo(self, event):
         """ Get the selection from the tagResults box and display its information in

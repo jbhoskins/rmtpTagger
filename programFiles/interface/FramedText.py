@@ -104,9 +104,7 @@ class FramedText(tk.Text):
                 
                 self.tag_remove("cur", self.wordCache.start(), self.wordCache.stop())   
                 self.wordCache.update(word, start, stop, self.indexObject.lookup(word))
-                self.tag_add("cur", self.wordCache.start(), self.wordCache.stop())   
-
-                
+                self.tag_add("cur", self.wordCache.start(), self.wordCache.stop())
 
     def getCache(self):
         """ Returns the cache. """

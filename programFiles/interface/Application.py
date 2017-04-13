@@ -99,6 +99,36 @@ class Application:
             
         self.sidebar.tagResults.populateTags([])
 
+    def export(self):
+        """ Confirms, and exports the changes to a file. """
+        savedString = self.fText.get("1.0", tk.END)
+        
+        for item in self.sidebar.exportTags:
+            
+            if item.selected() >= 0:
+                entry = item.entries()[item.selected()]
+            
+                self.fText.config(state=tk.NORMAL)
+                self.fText.insert(self.fText.index(item.stop()), "</rs>")
+                print(item.start())
+                print(item.stop())
+                self.fText.insert(self.fText.index(item.start()), "<rs type=\"%s\" key=\"%s\">" % (entry.type(), entry.xmlId()))
+            else:
+                continue
+            self.fText.config(state=tk.DISABLED)
+
+        string = self.fText.get("1.0", tk.END)
+        outputFile = open("../../output/OUTPUT.txt", 'w')
+        outputFile.write(string)
+        outputFile.close()
+
+        self.fText.config(state=tk.NORMAL)
+        # No need to read from disk again, should just copy back in from memory and retag
+        self.fText.delete("1.0", tk.END)
+        self.fText.loadText("../../input/astaikina.txt")
+        self.fText.tag_add("cur", self.fText.wordCache.start(), self.fText.wordCache.stop())
+        self.fText.config(state=tk.DISABLED)
+
     def _makeMenu(self):
         """ Defines the system menu. """
         menubar = tk.Menu(self.root)
@@ -108,7 +138,7 @@ class Application:
         filemenu.add_command(label="Open")
         filemenu.add_command(label="Save")
         filemenu.add_separator()
-        filemenu.add_command(label="Export")
+        filemenu.add_command(label="Export", command=self.export)
         menubar.add_cascade(label="File", menu=filemenu)
         
         # Theme
