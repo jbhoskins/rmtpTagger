@@ -91,8 +91,8 @@ class Application:
 
     def _bindKeys(self):
         """ Binds all clicks and key presses to commands. """
-        self.fText.tag_bind("foundWord", "<Button-1>", self.fText.cacheWord)
-        self.fText.tag_bind("foundWord", "<Button-1>", self.sidebar.showTagResults)
+        self.fText.tag_bind("_foundWord", "<Button-1>", self.fText.cacheWord)
+        self.fText.tag_bind("_foundWord", "<Button-1>", self.sidebar.showTagResults)
         self.sidebar.tagResults.bind("<ButtonRelease-1>", self.sidebar.showSelectionInfo)
         self.fText.tag_bind("interviewee", "<ButtonRelease-3>", self._showTagMenu)
         self.fText.tag_bind("interviewee", "<ButtonRelease-2>", self._showTagMenu)

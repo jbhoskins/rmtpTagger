@@ -50,20 +50,9 @@ class TagInformationField(tk.Text):
         
         self.config(state = tk.DISABLED)
 
-    def updateCache(self, cache):
-        """ Put a new list of entries in the cache. """
-        self.cache = cache
-
-    def updateInformation(self, selectionIndex):
+    def updateInformation(self, string):
         """ Display information about the item selected in TagResults. """
        
-        # Account for NO TAG
-        if selectionIndex != 0:
-            selectionIndex -= 1
-            string = str(self.cache.entries()[selectionIndex])
-        else:
-            string = ""
-
         self.config(state = tk.NORMAL)
         self.delete(0.0, tk.END)
         self.insert(tk.END, string)

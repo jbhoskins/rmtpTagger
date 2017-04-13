@@ -94,9 +94,13 @@ class Sidebar:
     def showTagResults(self, event):
         """ Update the tagResults widget (inherits from ListBox) with the word in the
             FramedText cache. Automatically fills the tagInfoField with first tag. """
+        
+        # Empty the current field
+        self.currentTag.update("")
+
+        # Update the cache
         self.fText.cacheWord(event)
         cache = self.fText.getCache()
-        self.tagInfoField.updateCache(cache)
                     
         self.tagResults.populateTags([entry.xmlId() for entry in cache.entries()])
         self.showSelectionInfo(0) # Zero passes as event
@@ -123,7 +127,12 @@ class Sidebar:
             tagInfoField. """
         selectionIndex = self.tagResults.curSelection()
         
-        self.tagInfoField.updateInformation(selectionIndex)
+        if selectionIndex != 0:
+            string = self.fText.getCache().entries()[selectionIndex - 1]
+        else:
+            string = ""
+                
+        self.tagInfoField.updateInformation(string)
     
     #------------------------------------------------------------------
     # Styling
