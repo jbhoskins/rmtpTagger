@@ -92,15 +92,15 @@ class StyleSheet:
             
             
       def _John(self):
-            self.c_1 = "#e0e0eb"
-            self.c_2 = "#ffffcc"  
-            self.c_3 = "white"
+            self.c_1 = "#fffaf0"
+            self.c_2 = "#cccccc"  
+            self.c_3 = "#cccccc"
             
-            self.h_single = "#8585ad"
-            self.h_multi = "#ffff80"
-            self.h_current = "yellow"      
+            self.h_single = "#96ceb4"
+            self.h_multi = "#f0e68c"
+            self.h_current = "#7bb3ff"      
             
-            self.h_interviewer = "#666699"
+            self.h_interviewer = "#a3a3a3"
             
             
       def _Helena(self):
