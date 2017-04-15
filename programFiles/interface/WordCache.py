@@ -6,20 +6,16 @@
 
 import tkinter as tk
 
-class Cache:
+class Cache(dict):
     """ Cache to save information about a word in FramedText """
     def __init__(self):
-        self._string = ""
-        self._start = "1.0"
-        self._stop = "1.0"
-        self._entries = []
-        self._selectedEntry = None
-
-    def update(self, word, start, stop, indexEntryList):
-        self._string = word
-        self._start = start
-        self._stop = stop
-        self._entries = indexEntryList
+        dict.__init__(self)
+        
+        self["string"] = ""
+        self["start"] = "1.0"
+        self["stop"] = "1.0"
+        self["entries"] = []
+        self["selectedEntry"] = None
 
     def select(self, index):
         self._selectedEntry = index
@@ -28,17 +24,22 @@ class Cache:
         return self._selectedEntry
 
     def __eq__(self, other):
-        return other._start == self._start
+        return other["start"] == self["start"]
 
     def string(self):
-        return self._string
+        return self["string"]
 
     def start(self):
-        return self._start
+        return self["start"]
 
     def stop(self):
-        return self._stop
+        return self["stop"]
 
     def entries(self):
-        return self._entries
+        return self["entries"]
 
+if __name__ == "__main__":
+    cce = Cache()
+
+    cce["string"] = "Hey"
+    print(cce["string"])

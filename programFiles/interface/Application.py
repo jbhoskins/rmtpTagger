@@ -81,7 +81,7 @@ class Application:
     def _createWidgets(self):
         """ Fills text box, creates sidebar and menu. """
         self.fText = FramedText(self.textFrame, self.index, self.styles)
-        self.fText.loadText("../../input/astaikina.txt")
+        self.fText.loadText("../../input/astaikina.txt", makeTable = True)
         self.fText.pack(expand = True, fill = tk.BOTH)
         self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
         self.legend = Legend(self.legendFrame, self.styles)
@@ -124,7 +124,7 @@ class Application:
 
         string = self.fText.get("1.0", tk.END)
         outputFile = open("../../output/OUTPUT.txt", 'w')
-        outputFile.write(string)
+        outputFile.write(string, encode="UTF-8")
         outputFile.close()
 
         self.fText.config(state=tk.NORMAL)

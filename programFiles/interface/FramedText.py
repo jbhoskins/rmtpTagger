@@ -24,7 +24,7 @@ class FramedText(tk.Text):
         self._styleWidget()
         self._createTags()
         
-        self.wordCache = Cache()
+        self.keywordTable = []
         self.indexObject = indexObject # Needs "object" name so as not to overwrite 
                                        # Text method "Text.index()"
         
@@ -48,42 +48,79 @@ class FramedText(tk.Text):
             tag = "single"
             
         wordStart = "1.0+%sc" % word.start()
-        wordEnd   = "1.0+%sc" % word.end()
+        wordEnd   = "1.0+%sc" % word.stop()
         self.tag_add(tag, wordStart, wordEnd) # Tag the relevant region of text
         self.tag_add("foundWord", wordStart, wordEnd)
+
+    def tagAllElementsInTable(self):
+        for word in self.keywordTable:
+            results = self.indexObject.lookup(word.string().lower())
+            self._applyTag(word, results)
+
+    def _makeTable(self):
+        string = self.get("1.0", tk.END)
+        iterator = re.finditer("\w+", string) # Ideally, make a generator for each relevant
+                                             # line.
+        keyword = ""
+        cacheItem = Cache()
+        foundMatch = False
         
- 
-    def loadText(self, path):
+        word = next(iterator)
+        try:
+            while True:
+                if  int(self.index("1.0+%sc" % word.start()).split(".")[0]) % 4 - 1 != 0:
+                    # If interviewee, continue. Can be optimized, should only get strings 
+                    # from the interviewee text.
+                    
+            
+                    # 2 = match found, 1 = potential match, 0 = no match
+                    testCode = self.indexObject.multiTest(word.group().lower())
+    
+                    if testCode == 0:
+                        if foundMatch:
+                            cacheItem["string"] = keyword
+                            self.keywordTable.append(cacheItem)        
+                            # Reset the saved values
+                            keyword = ""
+                            cacheItem = Cache()
+                            foundMatch = False
+                            continue
+
+                        # Needed for if you hit a 1, but never a two.
+                        keyword = ""
+                        cacheItem = Cache()
+                    
+                    elif testCode == 1:
+                        if keyword != "":
+                            keyword += " "
+                        else:
+                            cacheItem["start"] = word.start()
+                        keyword += word.group()
+                    else:
+                        if keyword != "":
+                            keyword += " "
+                        else:
+                            cacheItem["start"] = word.start()
+        
+                        keyword += word.group()
+                        cacheItem["stop"] = word.end()
+                        foundMatch = True
+
+                word = next(iterator)
+        except StopIteration:
+            pass
+        self.tagAllElementsInTable()
+            
+    def loadText(self, path, makeTable = False):
         """ Inserts text from a file into the widget, and highlights keywords upon
             initialization. """
         f = open(path, encoding="UTF-8")
         string = f.read()
         self.insert(0.0, string, "bigger")
 
-        for word in re.finditer("\w+", string):
-            # Saves indices of word as you go; grabs words without punctuation
-            
-            if  int(self.index("1.0+%sc" % word.start()).split(".")[0]) % 4 - 1 == 0:
-                # If interviewee, continue
-                continue   
-            
-            try:
-                results = self.indexObject.lookup(word.group().lower())             
-            except:
-                continue
-
-            self._applyTag(word, results)
-            
-        # Using stem tree, you may be able to optimize here using next() and saving the 
-        # Location of the most recent match...
-        # Maybe implement both, and then time them?
-
-        for multiKey in self.indexObject.multiKeys():
-            print("MultiKey:", multiKey)
-            for word in re.finditer(multiKey, string, re.IGNORECASE):
-                print("found:", word.group())
-                # Need to remove any preexisting tag here before applying the new one
-                self._applyTag(word, self.indexObject.lookup(word.group().lower()))
+        # Not sure the utility of making this optional tbh
+        if makeTable is True:
+            self._makeTable()
         
         self._grayInterviewer()
         self.config(state = tk.DISABLED, wrap=tk.WORD)
