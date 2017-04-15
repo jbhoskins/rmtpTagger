@@ -93,11 +93,16 @@ class Index:
         self._soup = BeautifulSoup(f, 'html')
         f.close()
 
-        self._multi_words = []
+        self._multiWords = []
 
-        self._index = self._build(self._soup)
+        self._index = self._buildIndex(self._soup)
+        
+        # Needed for multiWord validation
+        self._multiValidator = dict()
+        self._activeDict = self._multiValidator
+        self._buildValidator(self._multiWords)
 
-    def _build(self, soup, opts = []):
+    def _buildIndex(self, soup, opts = []):
         """ Creates a dictionary with keys (declined forms, etc) as it's keys, and 
             lists of Entry objects as its values. """
         index = {}
@@ -112,11 +117,46 @@ class Index:
             
             multi = key.string.strip().split()
             
-            if len(multi) > 1:
-                self._multi_words.append(key.string.strip())
+            self._multiWords.append(multi)
 
         return index
 
+    def _buildValidator(self, wordList):
+        for sentence in wordList:
+            activeDict = self._multiValidator
+
+            i = 0
+            for i in range(len(sentence) - 1):
+                if sentence[i] not in activeDict.keys():
+                    activeDict[sentence[i]] = dict()
+
+                activeDict = activeDict[sentence[i]]
+            
+            i = i + 1
+            
+            if len(sentence) > 1:
+                activeDict[sentence[i]] = {None : None}
+            else:
+                activeDict[sentence[i - 1]] = {None : None}
+                
+
+    def print_(self):
+        for key in self._multiValidator.keys():
+            print(key)
+            print('  ', self._multiValidator[key])
+    
+    def multiTest(self, word):
+        if word in self._activeDict.keys():
+            self._activeDict = self._activeDict[word]
+            if None in self._activeDict.keys():
+                return 2 
+            return 1
+        
+        self.reset()
+        return 0
+
+    def reset(self):
+        self._activeDict = self._multiValidator
     
     def lookup(self, string):
         """ Returns a LIST of entry objects that is tied to each key. """
@@ -128,7 +168,7 @@ class Index:
 
     def multiKeys(self):
         """ Return a list of all keys that have more than one word. """
-        return self._multi_words
+        return self._multiWords
         
 
 
@@ -137,18 +177,11 @@ if __name__ == '__main__':
     ndx = Index('../META/index.xml')
 #    print(ndx._index.keys())
     print(ndx.multiKeys())
+    ndx.print_()
 
-    c = ['a', 'b', 'c', 'd', 'e', 'f']
-    
-    keys = ndx.multiKeys()
-    
-    length = len(c)
-    i = 0
-    while i < length:
-        if c[i] == 'b':
-            c[i] =c[i] + ' ' + c[i + 1]
-            del c[i + 1]
-            length -= 1
-        i = i + 1
-    
-    print(c)
+    print(ndx._activeDict.keys())
+    print("test", ndx.multiTest("фон"))
+    print("test", ndx.multiTest("триеру"))
+    print("test", ndx.multiTest("триеру"))
+    ndx.reset()
+    print("test", ndx.multiTest("фон"))
