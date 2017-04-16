@@ -65,3 +65,25 @@ class CurrentTagField(tk.Label):
         string = "Current:  " + string
         self.config(text=string)
 
+class Table(tk.Text):
+    def __init__(self, frame):
+        tk.Text.__init__(self, frame)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

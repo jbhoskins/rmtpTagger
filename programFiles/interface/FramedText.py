@@ -63,6 +63,7 @@ class FramedText(tk.Text):
         print(self.keywordTable)
 
     def _makeTable(self):
+        """ Build a sorted table with all the tags and their start and stop points. """
         string = self.get("1.0", tk.END)
         iterator = re.finditer("\w+", string) # Ideally, make a generator for each relevant
                                              # line.
@@ -72,16 +73,21 @@ class FramedText(tk.Text):
         
         word = next(iterator)
         try:
+            # Gods of CS, forgive this infinite loop.
             while True:
                 if  int(self.index("1.0+%sc" % word.start()).split(".")[0]) % 4 - 1 != 0:
                     # If interviewee, continue. Can be optimized, should only get strings 
                     # from the interviewee text.
-                    
-            
+                                
                     # 2 = match found, 1 = potential match, 0 = no match
                     testCode = self.indexObject.multiTest(word.group().lower())
     
+                    # Using the testCode, save object imformation accordingly
                     if testCode == 0:
+                        # This is the point when an entry is actually saved. when it finds
+                        # a match, it waits until it hits a zero to save it, in case you
+                        # have a couple keys like so: "фон" "фон триер". You want the 
+                        # second, longer tag, not the shorter one.
                         if foundMatch:
                             cacheItem["string"] = keyword
                             self.keywordTable.append(cacheItem)        
@@ -89,6 +95,9 @@ class FramedText(tk.Text):
                             keyword = ""
                             cacheItem = Cache()
                             foundMatch = False
+                            # Continue does not move to the next word. rechecks the same
+                            # word with a resetted multiTest. needed for 
+                            # the case of two keywords next to each other.
                             continue
 
                         # Needed for if you hit a 1, but never a two.
@@ -97,11 +106,14 @@ class FramedText(tk.Text):
                     
                     elif testCode == 1:
                         if keyword != "":
+                            # if there is a word, then add a space before the next one
                             keyword += " "
                         else:
                             cacheItem["start"] = word.start()
+                        
                         keyword += word.group()
                     else:
+                        # when testCode == 2
                         if keyword != "":
                             keyword += " "
                         else:
@@ -112,10 +124,12 @@ class FramedText(tk.Text):
                         foundMatch = True
 
                 word = next(iterator)
+        # Weird, but this was the best solution I could find for moving through an 
+        # iterator with more control than a for loop.
         except StopIteration:
+            # May need to save the last information, in case the final word is a keyword
             pass
         self.tagAllElementsInTable()
-        print(self.keywordTable)
             
     def loadText(self, path, makeTable = False):
         """ Inserts text from a file into the widget, and highlights keywords upon

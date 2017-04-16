@@ -85,7 +85,7 @@ class Application:
         self.fText.pack(expand = True, fill = tk.BOTH)
         self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
         self.legend = Legend(self.legendFrame, self.styles)
-        
+
         self._makeMenu()
         self._makeTagMenu()
 

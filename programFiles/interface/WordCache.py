@@ -12,8 +12,8 @@ class Cache(dict):
         dict.__init__(self)
         
         self["string"] = ""
-        self["start"] = "1.0"
-        self["stop"] = "1.0"
+        self["start"] = None
+        self["stop"] = None
         self["entries"] = []
         self["selectedEntry"] = None
 
