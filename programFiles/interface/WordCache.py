@@ -17,11 +17,12 @@ class Cache(dict):
         self["entries"] = []
         self["selectedEntry"] = None
 
-    def select(self, index):
-        self._selectedEntry = index
+    def selectionIndex(self):
+        print("returning", self["selectedEntry"])
+        return self["selectedEntry"]
 
-    def selected(self):
-        return self._selectedEntry
+    def selection(self):
+        return self["entries"][self["selectedEntry"]]
 
     def __eq__(self, other):
         return other["start"] == self["start"]
@@ -39,7 +40,10 @@ class Cache(dict):
         return self["entries"]
 
 if __name__ == "__main__":
-    cce = Cache()
+    cce = [Cache()]
 
-    cce["string"] = "Hey"
-    print(cce["string"])
+    cce[0]["string"] = "Hey"
+    print(cce[0]["string"])
+    print("before", cce[0]["selectedEntry"])
+    cce[0].select(5)
+    print("after", cce[0]["selectedEntry"])

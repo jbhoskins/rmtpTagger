@@ -6,6 +6,7 @@
 import tkinter as tk
 import re
 from WordCache import *
+from KeywordTable import *
 import math
 
 import sys
@@ -23,8 +24,8 @@ class FramedText(tk.Text):
         self.styles = styles
         self._styleWidget()
         self._createTags()
-        
-        self.keywordTable = []
+                
+        self.keywordTable = KeywordTable()
         self.indexObject = indexObject # Needs "object" name so as not to overwrite 
                                        # Text method "Text.index()"
         
@@ -56,6 +57,10 @@ class FramedText(tk.Text):
         for word in self.keywordTable:
             results = self.indexObject.lookup(word.string().lower())
             self._applyTag(word, results)
+
+        cur = self.index("1.0+%sc" % 20163)
+        print("value:", self.keywordTable.lookup(self.count("1.0", cur)[0]))
+        print(self.keywordTable)
 
     def _makeTable(self):
         string = self.get("1.0", tk.END)
@@ -110,6 +115,7 @@ class FramedText(tk.Text):
         except StopIteration:
             pass
         self.tagAllElementsInTable()
+        print(self.keywordTable)
             
     def loadText(self, path, makeTable = False):
         """ Inserts text from a file into the widget, and highlights keywords upon
@@ -128,25 +134,19 @@ class FramedText(tk.Text):
  
     def cacheWord(self, event):
         """ Caches the word that has been clicked on. """        
-        # Currently O(n) where n is the number of words found. Technically constant time.
-        location = self.index("@%s,%s" % (event.x, event.y))
-        ranges = self.tag_ranges("foundWord")
-        for i in range(0, len(ranges), 2):
-            start = self.index(ranges[i])
-            stop = self.index(ranges[i + 1])
-            if self.compare(location, ">=", start) and self.compare(location, "<=", stop):
-                word = self.get(start, stop).lower()
-                # This next line should never throw an error... Theoretically
-                
-                
-                self.tag_remove("cur", self.wordCache.start(), self.wordCache.stop())   
-                self.wordCache.update(word, start, stop, self.indexObject.lookup(word))
-                self.tag_add("cur", self.wordCache.start(), self.wordCache.stop())
+        location = self.index("@%s,%s" % (event.x, event.y))        
+        current = self.keywordTable.currentVal()
+        self.tag_remove("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())   
+
+        charCount = self.count("1.0", location)[0]
+        current = self.keywordTable.lookup(charCount)
+        self.keywordTable.saveEntries(self.indexObject.lookup(current.string().lower()))
+        self.tag_add("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
+
 
     def getCache(self):
         """ Returns the cache. """
-        print(self.wordCache.string())
-        return self.wordCache
+        return self.keywordTable.currentVal()
 
 
     def getString(self):

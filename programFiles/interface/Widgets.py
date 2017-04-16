@@ -28,11 +28,12 @@ class TagResults(tk.Listbox):
 
     def curSelection(self):
         """ Returns an integer corrosponding to the value is selected in the listbox. """
-        selection = self.curselection()
-        if selection != (): # When empty, return ()
+        userSelection = self.curselection()
+        print(">>>>>>>>>>>>>>>>>>>>>", userSelection)
+        if userSelection != (): # When empty, return ()
             return self.curselection()[0] # Returned as a tuple, only want the 1st value.
         else:
-            return 0
+            return 5
 
     def xmlIdSelection(self):
         selection = self.curselection()
