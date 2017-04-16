@@ -79,13 +79,6 @@ class Sidebar:
 
         cache = self.fText.getCache()                    
         self.tagResults.populateTags([entry.xmlId() for entry in cache.entries()])
-        print(cache["selectedEntry"])
-        print("AFTER THAT FUNCTION")
-
-        # Update the selection cursor, and the current field, if anything already selected
-        self.tagResults.selection_clear(0, tk.END)
-        print("selIndex", cache.selectionIndex())
-
 
         if cache.selectionIndex() is not None:
             self.tagResults.selection_set(cache.selectionIndex() + 1)

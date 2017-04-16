@@ -24,8 +24,6 @@ class TagResults(tk.Listbox):
         for item in listOfXmlIds:
             self.insert(tk.END, item)
 
-        self.selection_set(1)
-
     def curSelection(self):
         """ Returns an integer corrosponding to the value is selected in the listbox. """
         userSelection = self.curselection()
