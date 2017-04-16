@@ -140,7 +140,8 @@ class FramedText(tk.Text):
 
         charCount = self.count("1.0", location)[0]
         current = self.keywordTable.lookup(charCount)
-        self.keywordTable.saveEntries(self.indexObject.lookup(current.string().lower()))
+        if self.keywordTable.currentVal().entries() == []:
+            self.keywordTable.saveEntries(self.indexObject.lookup(current.string().lower()))
         self.tag_add("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
 
 
