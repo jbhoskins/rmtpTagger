@@ -64,6 +64,9 @@ class FramedText(tk.Text):
 
     def _makeTable(self):
         """ Build a sorted table with all the tags and their start and stop points. """
+        
+        self.keywordTable[:] = []
+        
         string = self.get("1.0", tk.END)
         iterator = re.finditer("\w+", string) # Ideally, make a generator for each relevant
                                              # line.
@@ -131,12 +134,15 @@ class FramedText(tk.Text):
             pass
         self.tagAllElementsInTable()
             
-    def loadText(self, path, makeTable = False):
+    def loadText(self, path, makeTable = True):
         """ Inserts text from a file into the widget, and highlights keywords upon
             initialization. """
         f = open(path, encoding="UTF-8")
         string = f.read()
-        self.insert(0.0, string, "bigger")
+        f.close()
+        self.config(state = tk.NORMAL)
+        self.delete("1.0", tk.END)
+        self.insert("1.0", string, "bigger")
 
         # Not sure the utility of making this optional tbh
         if makeTable is True:
