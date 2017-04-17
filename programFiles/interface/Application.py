@@ -103,34 +103,17 @@ class Application:
         """ Confirms, and exports the changes to a file. """
         string = self.fText.get("1.0", tk.END)
 
-#        for entry in reversed(self.fText.keywordTable):
- #           if entry["selectedEntry"] is not None:
- #               string[:entry.stop()] + "<rs class>"
+        for entry in reversed(self.fText.keywordTable):
+            if entry["selectedEntry"] is not None:
+                sel = entry.selection()
+                frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
+                string = string[:entry.stop()] + "</rs>" + string[entry.stop():]
+                string = string[:entry.start()] + frontTag + string[entry.start():]
         
-        for item in self.sidebar.exportTags:
-           
-            if item.selected() >= 0:
-                entry = item.entries()[item.selected()]
-            
-                self.fText.insert(self.fText.index(item.stop()), "</rs>")
-                print("Start", item.start())
-                print(item.start() < item.stop())
-                print("Stop", item.stop())
-                self.fText.insert(self.fText.index(item.start()), "<rs type=\"%s\" key=\"%s\">" % (entry.type(), entry.xmlId()))
-        
-        self.fText.config(state=tk.DISABLED)
-
-        string = self.fText.get("1.0", tk.END)
         outputFile = open("../../output/OUTPUT.txt", 'w')
-        outputFile.write(string, encode="UTF-8")
+        outputFile.write(string)
         outputFile.close()
-
-        self.fText.config(state=tk.NORMAL)
-        # No need to read from disk again, should just copy back in from memory and retag
-        self.fText.delete("1.0", tk.END)
-        self.fText.loadText("../../input/astaikina.txt")
-        self.fText.tag_add("cur", self.fText.wordCache.start(), self.fText.wordCache.stop())
-        self.fText.config(state=tk.DISABLED)
+        print("Export successful! Wrote /rmtp/output/OUTPUT.txt")
 
     def _makeMenu(self):
         """ Defines the system menu. """
