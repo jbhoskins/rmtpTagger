@@ -184,6 +184,11 @@ class Application:
         self.add_tag = EntryWindow(self.root, word, self.styles)
 
 #---------------------------------------------------------------------------        
+# Are you sure you want to leave prompt
+
+
+
+#---------------------------------------------------------------------------        
 # make root, launch app
 
     def launch(self):

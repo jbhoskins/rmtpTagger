@@ -21,6 +21,9 @@ class FramedText(tk.Text):
         scrollbar.config(command=self.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
+        self.insert("1.0", "Load some text from the menubar!")
+        self.config(state = tk.DISABLED, wrap=tk.WORD)
+
         self.styles = styles
         self._styleWidget()
         self._createTags()
@@ -149,7 +152,7 @@ class FramedText(tk.Text):
             self._makeTable()
         
         self._grayInterviewer()
-        self.config(state = tk.DISABLED, wrap=tk.WORD)
+        self.config(state = tk.DISABLED)
                         
  
     def cacheWord(self, event):

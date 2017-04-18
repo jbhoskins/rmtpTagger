@@ -2062,6 +2062,10 @@
             <genre>romantic comedy</genre>
             <year>1976</year>
             <imdb>http://www.imdb.com/title/tt0073179/</imdb>
+            <keys>
+                <key>ирония судьбы или с легким паром</key>
+                <key>иронию судьбы или с легким паром</key>
+            </keys>
         </title>
 
         <title xml:id="piratesOfTheTwentiethCentury">
@@ -2821,6 +2825,11 @@
                 <key>петербургу</key>
                 <key>петербургом</key>
                 <key>петербурге</key>
+                <key>санкт петербург</key>
+                <key>санкт петербурга</key>
+                <key>санкт петербургу</key>
+                <key>санкт петербургом</key>
+                <key>санкт петербурге</key>
             </keys>
         </place>
         
