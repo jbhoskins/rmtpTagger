@@ -167,6 +167,22 @@ class FramedText(tk.Text):
             self.keywordTable.saveEntries(self.indexObject.lookup(current.string().lower()))
         self.tag_add("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
 
+    def move(self, offset):
+        """ Set the currently selected word to be the one offset by an integer value."""
+        try:
+            current = self.keywordTable.currentVal()
+        except:
+            # Catches first run issue
+            return
+        
+        self.tag_remove("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())   
+        self.keywordTable.setCurrent((self.keywordTable.getVal() + offset) % len(self.keywordTable))
+        current = self.keywordTable.currentVal()
+
+        if self.keywordTable.currentVal().entries() == []:
+            self.keywordTable.saveEntries(self.indexObject.lookup(current.string().lower()))
+        self.tag_add("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
+        
 
     def getCache(self):
         """ Returns the cache. """

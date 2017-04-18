@@ -28,6 +28,12 @@ class KeywordTable(list):
     def currentVal(self):
         return self[self._current]
 
+    def getVal(self):
+        return self._current
+
+    def setCurrent(self, value):
+        self._current = value
+
     def printTable(self):
         for line in self:
             print(line)

@@ -70,14 +70,18 @@ class Sidebar:
         # Initialize to empty fields
         self.tagResults.populateTags([])
 
-    def showTagResults(self, event):
+    def showTagResultsOnClick(self, event):
+        # Update the cache
+        self.fText.cacheWord(event)
+        # zero passes as event
+        self.showTagResults()
+
+    def showTagResults(self):
         """ Update the tagResults widget (inherits from ListBox) with the word in the
             FramedText cache. Automatically fills the tagInfoField with first tag. """
         
-        # Update the cache
-        self.fText.cacheWord(event)
-
-        cache = self.fText.getCache()                    
+        cache = self.fText.getCache()
+        print("cce", cache)
         self.tagResults.populateTags([entry.xmlId() for entry in cache.entries()])
 
         if cache.selectionIndex() is not None:

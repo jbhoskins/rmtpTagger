@@ -91,14 +91,31 @@ class Application:
 
     def _bindKeys(self):
         """ Binds all clicks and key presses to commands. """
-        self.fText.tag_bind("foundWord", "<Button-1>", self.sidebar.showTagResults)
+        self.fText.tag_bind("foundWord", "<Button-1>", self.sidebar.showTagResultsOnClick)
         self.sidebar.tagResults.bind("<ButtonRelease-1>", self.sidebar.showSelectionInfo)
+        
+        self.root.bind("<Right>", self.moveRight)
+        self.root.bind("<Left>", self.moveLeft)
 
         self.fText.tag_bind("interviewee", "<ButtonRelease-3>", self._showTagMenu)
         self.fText.tag_bind("interviewee", "<ButtonRelease-2>", self._showTagMenu)
             
         self.sidebar.tagResults.populateTags([])
 
+    def moveRight(self, event):
+        # Should be in framed text, but here for testing purposes.
+        self.fText.move(1)
+        self.fText.see("1.0+%sc" % self.fText.getCache().start())
+        self.sidebar.showTagResults()
+        self.sidebar.showSelectionInfo(0)
+
+    def moveLeft(self, event):
+        # Should be in framed text, but here for testing purposes.
+        self.fText.move(-1)
+        self.fText.see("1.0+%sc" % self.fText.getCache().start())
+        self.sidebar.showTagResults()
+        self.sidebar.showSelectionInfo(0)
+    
     def export(self):
         """ Confirms, and exports the changes to a file. """
         string = self.fText.get("1.0", tk.END)
