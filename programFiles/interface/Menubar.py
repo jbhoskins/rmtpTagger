@@ -4,6 +4,7 @@
 # Description: Menubar class. Not sure if each menu should be an object, or a function.
 
 import tkinter as tk
+import codecs 
 
 class Menubar(tk.Menu):
     def __init__(self, app):
@@ -43,9 +44,44 @@ class FileMenu(DropdownMenu):
             string = string[:entry.stop()] + "</rs>" + string[entry.stop():]
             string = string[:entry.start()] + frontTag + string[entry.start():]
         
-        outputFile = tk.filedialog.asksaveasfile(defaultextension=".txt", initialdir="../../output/")
+        outputFile = tk.filedialog.asksaveasfilename(defaultextension=".txt", initialdir="../../output/")
+        
         if outputFile:
-            outputFile.write(string)
+    
+            with codecs.open(outputFile, 'w', 'utf-8') as outputFile:
+                lines = string.splitlines()
+                j = 1
+                
+                
+                metadata = "<meta> metadata here </meta>\n\n"
+                outputFile.write(metadata)
+                outputFile.write("<body>\n\n")
+                for i in range(len(lines)):
+                    line = lines[i]
+                    
+                    if i%4 == 2:
+                        # Interviewee
+                        name = "name1"
+                        start_tag = '<u xml:id="sp' + str(j) + '" who="' + name + '">'
+                        end_tag = '</u>\n'
+                        line = start_tag + line + end_tag
+                        j += 1
+                    
+                    elif i%4 == 0:
+                        # Interviewer
+                        name = "name2"
+                        start_tag = '<u xml:id="sp' + str(j) + '" who="' + name + '">'
+                        end_tag = '</u>\n'
+                        line = start_tag + line + end_tag
+                        j += 1
+                        
+                    else:
+                        line = "\n"
+                    
+                    outputFile.write(line)
+                        
+                outputFile.write("</body>")    
+                
             outputFile.close()
             print("Export successful! Wrote %s" % outputFile.name)
 
