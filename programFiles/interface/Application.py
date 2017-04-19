@@ -68,15 +68,16 @@ class Application:
     def _placeFrames(self):
         """ Places the sext and sidebar frames within the application. """
 
-        self.legendFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] / 8)
+        self.legendFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] // 8)
         self.legendFrame.pack_propagate(0) 
         self.legendFrame.pack(side = tk.LEFT)
         
-        self.textFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] / 2)
+        self.textFrame = tk.Frame(self.root, width = self.dim[0] // 2)
+#        self.textFrame = tk.Frame(self.root)
         self.textFrame.pack_propagate(0) # Stops frames from shrinking to fit contents.    
-        self.textFrame.pack(expand = True, side = tk.LEFT)
+        self.textFrame.pack(expand = True, side = tk.LEFT, fill = tk.BOTH)
         
-        self.sidebarFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] / 4)
+        self.sidebarFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] // 4)
         self.sidebarFrame.pack_propagate(0) 
         self.sidebarFrame.pack(side = tk.LEFT)
 
