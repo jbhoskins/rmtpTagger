@@ -10,6 +10,7 @@ from Sidebar import *
 from EntryWindow import *
 from StyleSheet import *
 from Legend import *
+from Menubar import *
 
 import tkinter as tk
 from tkinter import filedialog
@@ -85,8 +86,8 @@ class Application:
         self.fText.pack(expand = True, fill = tk.BOTH)
         self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
         self.legend = Legend(self.legendFrame, self.styles)
+        self.menubar = Menubar(self)
 
-        self._makeMenu()
         self._makeTagMenu()
 
     def _bindKeys(self):
@@ -137,39 +138,6 @@ class Application:
         filePath = tk.filedialog.askopenfilename(initialdir="../../input/")
         self.fText.loadText(filePath)
 
-    def _makeMenu(self):
-        """ Defines the system menu. """
-        menubar = tk.Menu(self.root)
-        
-        # File
-        filemenu = tk.Menu(menubar, tearoff=0)
-        filemenu.add_command(label="Open", command = self.openFile)
-        filemenu.add_command(label="Save")
-        filemenu.add_separator()
-        filemenu.add_command(label="Export", command=self.export)
-        menubar.add_cascade(label="File", menu=filemenu)
-        
-        # Theme
-        editmenu = tk.Menu(menubar, tearoff=0)
-        editmenu.add_command(label="Bella", command=lambda: self._changeTheme(name = "bella"))
-        editmenu.add_command(label="Sasha", command=lambda: self._changeTheme(name = "sasha"))
-        editmenu.add_command(label="Elena", command=lambda: self._changeTheme(name = "elena"))
-        editmenu.add_command(label="Maggie", command=lambda: self._changeTheme(name = "maggie"))
-        editmenu.add_command(label="John", command=lambda: self._changeTheme(name = "john"))
-        editmenu.add_command(label="Helena", command=lambda: self._changeTheme(name = "helena"))
-        menubar.add_cascade(label="Theme", menu=editmenu)
-        
-        # Tools
-        toolsmenu = tk.Menu(menubar, tearoff=0)
-        toolsmenu.add_command(label="Hide Greens")
-        toolsmenu.add_command(label="Hide Interviewer Text")
-        toolsmenu.add_command(label="Iterate")
-        toolsmenu.add_separator()
-        toolsmenu.add_command(label="Edit index...")
-        menubar.add_cascade(label="Tools", menu=toolsmenu)
-        
-        self.root.config(menu=menubar)
-        
 #----------------------------------------------------------------------
 # Hover stuff (in progress)
 
