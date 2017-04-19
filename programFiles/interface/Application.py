@@ -121,7 +121,6 @@ class Application:
         self.sidebar.showSelectionInfo(0)
 
 #----------------------------------------------------------------------
-#----------------------------------------------------------------------
 # Hover stuff (in progress)
 
     def on_enter(self, event):
@@ -150,11 +149,6 @@ class Application:
         word = self.fText.getString()
         self.root.attributes('-topmost', 0)
         self.add_tag = EntryWindow(self.root, word, self.styles)
-
-#---------------------------------------------------------------------------        
-# Are you sure you want to leave prompt
-
-
 
 #---------------------------------------------------------------------------        
 # make root, launch app

@@ -161,7 +161,7 @@ class FramedText(tk.Text):
         current = self.keywordTable.currentVal()
         self.tag_remove("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())   
 
-        charCount = self.count("1.0", location)[0]
+        charCount = self.count("1.0", location)[0] # is this linear time?
         current = self.keywordTable.lookup(charCount)
         if self.keywordTable.currentVal().entries() == []:
             self.keywordTable.saveEntries(self.indexObject.lookup(current.string().lower()))

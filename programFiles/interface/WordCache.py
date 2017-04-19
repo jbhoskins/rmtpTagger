@@ -15,7 +15,7 @@ class Cache(dict):
         self["start"] = None
         self["stop"] = None
         self["entries"] = []
-        self["selectedEntry"] = None
+        self["selectedEntry"] = 0
 
     def selectionIndex(self):
         print("returning", self["selectedEntry"])
