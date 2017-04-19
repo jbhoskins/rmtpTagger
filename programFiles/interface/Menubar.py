@@ -38,11 +38,10 @@ class FileMenu(DropdownMenu):
         string = self.app.fText.get("1.0", tk.END)
 
         for entry in reversed(self.app.fText.keywordTable):
-            if entry["selectedEntry"] is not None:
-                sel = entry.selection()
-                frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
-                string = string[:entry.stop()] + "</rs>" + string[entry.stop():]
-                string = string[:entry.start()] + frontTag + string[entry.start():]
+            sel = self.app.index.lookup(entry.string().lower())[entry.selectionIndex()]
+            frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
+            string = string[:entry.stop()] + "</rs>" + string[entry.stop():]
+            string = string[:entry.start()] + frontTag + string[entry.start():]
         
         outputFile = tk.filedialog.asksaveasfile(defaultextension=".txt", initialdir="../../output/")
         if outputFile:
