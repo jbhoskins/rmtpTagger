@@ -103,6 +103,9 @@ class Application:
             
         self.sidebar.tagResults.populateTags([])
 
+#-------------------------------------------------------------------------
+# Functions bound to keypresses
+
     def moveRight(self, event):
         # Should be in framed text, but here for testing purposes.
         self.fText.move(1)
@@ -116,28 +119,8 @@ class Application:
         self.fText.see("1.0+%sc" % self.fText.getCache().start())
         self.sidebar.showTagResults()
         self.sidebar.showSelectionInfo(0)
-    
-    def export(self):
-        """ Confirms, and exports the changes to a file. """
-        string = self.fText.get("1.0", tk.END)
 
-        for entry in reversed(self.fText.keywordTable):
-            if entry["selectedEntry"] is not None:
-                sel = entry.selection()
-                frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
-                string = string[:entry.stop()] + "</rs>" + string[entry.stop():]
-                string = string[:entry.start()] + frontTag + string[entry.start():]
-        
-        outputFile = tk.filedialog.asksaveasfile(defaultextension=".txt", initialdir="../../output/")
-        if outputFile:
-            outputFile.write(string)
-            outputFile.close()
-        print("Export successful! Wrote %s" % outputFile.name)
-
-    def openFile(self):
-        filePath = tk.filedialog.askopenfilename(initialdir="../../input/")
-        self.fText.loadText(filePath)
-
+#----------------------------------------------------------------------
 #----------------------------------------------------------------------
 # Hover stuff (in progress)
 
