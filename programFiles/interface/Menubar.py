@@ -41,7 +41,8 @@ class FileMenu(DropdownMenu):
         for entry in reversed(self.app.fText.keywordTable):
             sel = self.app.index.lookup(entry.string().lower())[entry.selectionIndex()]
             frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
-            string = string[:entry.stop()] + "</rs>" + string[entry.stop():]
+            backTag = "</rs>"
+            string = string[:entry.stop()] + backTag + string[entry.stop():]
             string = string[:entry.start()] + frontTag + string[entry.start():]
         
         outputFile = tk.filedialog.asksaveasfilename(defaultextension=".txt", initialdir="../../output/")
@@ -52,31 +53,20 @@ class FileMenu(DropdownMenu):
                 lines = string.splitlines()
                 j = 1
                 
-                
                 metadata = "<meta> metadata here </meta>\n\n"
                 outputFile.write(metadata)
                 outputFile.write("<body>\n\n")
                 for i in range(len(lines)):
                     line = lines[i]
+                    names = ["bailey", "astaikina"]
                     
-                    if i%4 == 2:
-                        # Interviewee
-                        name = "name1"
-                        start_tag = '<u xml:id="sp' + str(j) + '" who="' + name + '">'
-                        end_tag = '</u>\n'
-                        line = start_tag + line + end_tag
-                        j += 1
+                    name = names[ i%4 // 2]
                     
-                    elif i%4 == 0:
-                        # Interviewer
-                        name = "name2"
-                        start_tag = '<u xml:id="sp' + str(j) + '" who="' + name + '">'
-                        end_tag = '</u>\n'
-                        line = start_tag + line + end_tag
+                    if i % 2 == 0:
+                        frontTag = '<u xml:id="sp' + str(j) + '" who="' + name + '">'
+                        backTag = '</u>\n\n'
+                        line = frontTag + line + backTag
                         j += 1
-                        
-                    else:
-                        line = "\n"
                     
                     outputFile.write(line)
                         
