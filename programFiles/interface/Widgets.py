@@ -8,12 +8,8 @@ from WordCache import *
 
 class TagResults(tk.Listbox):
     """ The ListBox of results pulled from the index. """
-    def __init__(self, sidebar):
-        scrollbar = tk.Scrollbar(sidebar)
+    def __init__(self, sidebar, scrollbar):
         tk.Listbox.__init__(self, sidebar, selectmode = tk.SINGLE, yscrollcommand=scrollbar.set)
-        scrollbar.config(command=self.yview)
-        scrollbar.pack(side=tk.RIGHT)
-
     def populateTags(self, listOfXmlIds):
         """ Populate the ListBox with every element in a list. """
         self.delete(0, tk.END)

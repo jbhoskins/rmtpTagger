@@ -27,16 +27,25 @@ class Sidebar(tk.PanedWindow):
 
     def addWidgets(self):
         """ Declare and pack all the widgets used in the sidebar. """
-        self.tagResults = TagResults(self)
         self.currentTag = CurrentTagField(self)
         self.tagInfoField = TagInformationField(self)
         self.tagLabel = tk.Label(self, text="Tag Results")
 
+        
+        # Frame needed to keep scrollbar next to text, that's why tagResults treated spcl
+        frame = tk.Frame(self)
+        scrollbar = tk.Scrollbar(frame)
+        self.tagResults = TagResults(frame, scrollbar)
+        scrollbar.config(command=self.tagResults.yview)
+        scrollbar.pack(side = tk.RIGHT, fill=tk.Y)
+        self.tagResults.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
+
         screenHeight = self.styles.dimensions[1]
         self.add(self.tagLabel)
-        self.add(self.tagResults, height = screenHeight // 3)
+        self.add(frame, height = screenHeight // 3)
         self.add(self.tagInfoField, height = screenHeight // 3)
         self.add(self.currentTag, sticky=tk.N)
+        
 
         # Initialize to empty fields
         self.tagResults.populateTags([])

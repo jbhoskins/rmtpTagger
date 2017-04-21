@@ -72,8 +72,17 @@ class Application:
 
         self.legend = Legend(self.mainFrame, self.styles)
         self.mainFrame.add(self.legend, width=screenWidth//8, stretch="never")
-        self.fText = FramedText(self.mainFrame, self.index, self.styles)
-        self.mainFrame.add(self.fText, width=screenWidth//2, stretch="always")
+
+        # Frame needed to keep scrollbar next to text
+        frame = tk.Frame(self.mainFrame)
+        scrollbar = tk.Scrollbar(frame)
+        self.fText = FramedText(frame, self.index, self.styles, scrollbar)
+        scrollbar.config(command=self.fText.yview)
+        scrollbar.pack(side = tk.RIGHT, fill=tk.Y)
+        self.fText.pack(side=tk.LEFT, fill=tk.BOTH)
+
+        self.mainFrame.add(frame, width=screenWidth//2, stretch="always")
+
         self.sidebar = Sidebar(self.mainFrame, self.fText, self.index, self.styles)
         self.mainFrame.add(self.sidebar, width = screenWidth// 4, stretch="never")
         self.menubar = Menubar(self)

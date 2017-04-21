@@ -15,11 +15,8 @@ from Index import *
 
 class FramedText(tk.Text):
     """ Extends tk.Text, handles the finding and tagging of keywords. """
-    def __init__(self, Frame, indexObject, styles):
-        scrollbar = tk.Scrollbar(Frame)
+    def __init__(self, Frame, indexObject, styles, scrollbar):
         tk.Text.__init__(self, Frame, yscrollcommand=scrollbar.set)
-        scrollbar.config(command=self.yview)
-        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
         self.insert("1.0", "Load some text from the menubar!")
         self.config(state = tk.DISABLED, wrap=tk.WORD)
