@@ -22,6 +22,8 @@ class Application:
         self.root = tk.Tk()
 #        self.root.attributes('-topmost', 1)
         self.root.wm_title("William and Mary Index Tagger")
+        # Start maximized. Not sure how this will scale with other screens
+        self.root.attributes('-zoomed', True)
         
         self.dim = self._getDim()
         self.mainFrame = tk.PanedWindow(self.root, orient = tk.HORIZONTAL, sashrelief=tk.GROOVE, height = self.dim[1])
