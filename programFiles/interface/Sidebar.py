@@ -10,10 +10,11 @@ from FramedText import *
 from Widgets import *
 import tkinter as tk
 
-class Sidebar:
+class Sidebar(tk.PanedWindow):
     """ Container to hold all the widgets that are active in the sidebar. """
     def __init__(self, parentFrame, fText, index, styles):
-        self.parent = parentFrame
+        tk.PanedWindow.__init__(self, parentFrame, orient = tk.VERTICAL)
+        self.parent = self        
         self.index = index
         self.fText = fText
         self.styles = styles
@@ -21,52 +22,22 @@ class Sidebar:
         # Not super slever implementation, but gets the job done
         self.exportTags = []
         
-        self._setFrames()
-        self._createWidgets()
+        self.addWidgets()
         self._styleWidgets()
 
-    def _setFrames(self):
-        """ Set the frames to be the right size, based on the screen height."""
-        # Should be a part of the stylesheet
-
-        
-        screenHeight = self.styles.dimensions[1]
-        print(screenHeight)
-
-        tagResultsHeight = screenHeight // 3 + 20
-        infoHeight = screenHeight // 3
-
-        self.tagFrame = tk.Frame(self.parent, height=tagResultsHeight)
-        self.infoFrame = tk.Frame(self.parent, height=infoHeight)
-
-        self.currentTagFrame = tk.Frame(self.parent)
-
-
-    def _createWidgets(self):
+    def addWidgets(self):
         """ Declare and pack all the widgets used in the sidebar. """
-        self.tagResults = TagResults(self.tagFrame)
-        self.currentTag = CurrentTagField(self.currentTagFrame)
-#        self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.fText.insertAroundCache(self.tagResults.curSelection()))
-#        self.confirmButton = tk.Button(self.parent, text="Confirm", command=lambda: self.currentTag.update(self.tagResults.xmlIdSelection()))
-#        self.confirmButton = tk.Button(self.parent, text="Confirm", command=self.fText.keywordTable.printTable)
-        self.tagInfoField = TagInformationField(self.infoFrame)
-        self.tagLabel = tk.Label(self.parent, text="Tag Results")
-        
-        self.tagLabel.pack()
-        
-        self.tagFrame.pack_propagate(0) 
-        self.tagFrame.pack(side=tk.TOP, fill = tk.X)
-        self.tagResults.pack(fill = tk.BOTH, expand=True)
-        
-#        self.confirmButton.pack()
-        
-        self.infoFrame.pack_propagate(0) 
-        self.infoFrame.pack(side=tk.TOP, fill = tk.X)
-        self.tagInfoField.pack(fill = tk.BOTH, expand=True)
-        
-        self.currentTagFrame.pack(fill = tk.X)
-        self.currentTag.pack(side=tk.LEFT, padx = 30)
-        
+        self.tagResults = TagResults(self)
+        self.currentTag = CurrentTagField(self)
+        self.tagInfoField = TagInformationField(self)
+        self.tagLabel = tk.Label(self, text="Tag Results")
+
+        screenHeight = self.styles.dimensions[1]
+        self.add(self.tagLabel)
+        self.add(self.tagResults, height = screenHeight // 3)
+        self.add(self.tagInfoField, height = screenHeight // 3)
+        self.add(self.currentTag, sticky=tk.N)
+
         # Initialize to empty fields
         self.tagResults.populateTags([])
 
@@ -122,10 +93,9 @@ class Sidebar:
     
     def _styleWidgets(self):
         """ Apply the styles from styleSheet() to the widgets. """
-        self.parent.config(bg = self.styles.c_2, highlightbackground = self.styles.c_2)
+        self.parent.config(bg = self.styles.c_2)
         self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
         
-        self.currentTagFrame.config(bg = self.styles.c_2, highlightbackground = self.styles.c_2)
         self.currentTag.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
 #        self.confirmButton.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
         

@@ -20,18 +20,19 @@ class Application:
     """ Main program """
     def __init__(self):
         self.root = tk.Tk()
-        self.root.attributes('-topmost', 1)
-        
+#        self.root.attributes('-topmost', 1)
         self.root.wm_title("William and Mary Index Tagger")
         
         self.dim = self._getDim()
+        self.mainFrame = tk.PanedWindow(self.root, orient = tk.HORIZONTAL, sashrelief=tk.GROOVE, height = self.dim[1])
+        
         self.index = Index("../../META/index.xml")
         
         self._setStyles()
-        self._placeFrames()
-        self._createWidgets()
+        self.addWidgets()
+        self.mainFrame.pack_propagate(0)
+        self.mainFrame.pack(fill = tk.BOTH, expand = True)
         self._bindKeys()
-        self._styleApp()
 
 #---------------------------------------------------------------------------
 # Styling
@@ -50,7 +51,7 @@ class Application:
         self.root.config(bg = self.styles.c_1)
         
         self.legend.configStyles(styles = self.styles)
-        self.legendFrame.config(bg = self.styles.c_2)
+        self.legend.config(bg = self.styles.c_2)
         
         self.fText.configStyles(styles = self.styles)
         
@@ -65,28 +66,16 @@ class Application:
 #----------------------------------------------------------------
 # Creating and placing frames, widgets, and menus
         
-    def _placeFrames(self):
-        """ Places the sext and sidebar frames within the application. """
-
-        self.legendFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] // 8)
-        self.legendFrame.pack_propagate(0) 
-        self.legendFrame.pack(side = tk.LEFT)
-        
-        self.textFrame = tk.Frame(self.root, width = self.dim[0] // 2)
-#        self.textFrame = tk.Frame(self.root)
-        self.textFrame.pack_propagate(0) # Stops frames from shrinking to fit contents.    
-        self.textFrame.pack(expand = True, side = tk.LEFT, fill = tk.BOTH)
-        
-        self.sidebarFrame = tk.Frame(self.root, height = self.dim[1], width = self.dim[0] // 4)
-        self.sidebarFrame.pack_propagate(0) 
-        self.sidebarFrame.pack(side = tk.LEFT)
-
-    def _createWidgets(self):
+    def addWidgets(self):
         """ Fills text box, creates sidebar and menu. """
-        self.fText = FramedText(self.textFrame, self.index, self.styles)
-        self.fText.pack(expand = True, fill = tk.BOTH)
-        self.sidebar = Sidebar(self.sidebarFrame, self.fText, self.index, self.styles)
-        self.legend = Legend(self.legendFrame, self.styles)
+        screenWidth = self.styles.dimensions[0]
+
+        self.legend = Legend(self.mainFrame, self.styles)
+        self.mainFrame.add(self.legend, width=screenWidth//8, stretch="never")
+        self.fText = FramedText(self.mainFrame, self.index, self.styles)
+        self.mainFrame.add(self.fText, width=screenWidth//2, stretch="always")
+        self.sidebar = Sidebar(self.mainFrame, self.fText, self.index, self.styles)
+        self.mainFrame.add(self.sidebar, width = screenWidth// 4, stretch="never")
         self.menubar = Menubar(self)
 
         self._makeTagMenu()

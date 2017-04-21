@@ -8,30 +8,29 @@ sys.path.insert(0, '../')
 import tkinter as tk
 
 #---------------------------------------------------------------------------
-class Legend:
+class Legend(tk.Frame):
     """ Container to hold the legend """
 
     def __init__(self, parentFrame, styles):
+        tk.Frame.__init__(self, parentFrame, height = 500)
+        
         self.parent = parentFrame
         self.styles = styles
 
-        self._setFrame()
+        self.title = tk.Label(self, text = "Legend", pady = 10)        
+        
         self._createLegend()
         self._styleLegend()
         self._packLegend()
         
         
-    def _setFrame(self):
-        self.title = tk.Label(self.parent, text = "Legend", pady = 10)        
-        self.legendFrame = tk.Frame(self.parent, height = 500)
-        
     def _createLegend(self):
         """ Declare and pack all the widgets used in the sidebar. """
         
-        self.l1 = tk.Label(self.legendFrame, text = "Interviewer text")
-        self.l2 = tk.Label(self.legendFrame, text = "Interviewee text")
-        self.l3 = tk.Label(self.legendFrame, text = "Single key")
-        self.l4 = tk.Label(self.legendFrame, text = "Multiple Keys")       
+        self.l1 = tk.Label(self, text = "Interviewer text")
+        self.l2 = tk.Label(self, text = "Interviewee text")
+        self.l3 = tk.Label(self, text = "Single key")
+        self.l4 = tk.Label(self, text = "Multiple Keys")       
 
     #------------------------------------------------------------------
     # Styling
@@ -39,7 +38,7 @@ class Legend:
     def _styleLegend(self):
         """ Apply the styles from styleSheet() to the widgets. """        
         self.title.config(font = self.styles.f_title, bg = self.styles.c_2, pady = 10)
-        self.legendFrame.config(bg = self.styles.c_1, highlightbackground = self.styles.h_single, pady = 10)
+        self.config(bg = self.styles.c_1, highlightbackground = self.styles.h_single, pady = 10)
         
         self.l1.config(font = self.styles.f_text, bg = self.styles.c_1, fg = self.styles.h_interviewer, pady = 5)
         self.l2.config(font = self.styles.f_text, bg = self.styles.c_1, fg = "black", pady = 5)
@@ -53,8 +52,7 @@ class Legend:
         self._packLegend()
 
     def _packLegend(self):        
-        self.title.pack()        
-        self.legendFrame.pack()
+        self.title.pack() 
         
         self.l1.pack()
         self.l2.pack()
