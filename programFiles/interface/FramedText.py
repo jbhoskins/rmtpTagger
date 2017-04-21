@@ -142,6 +142,7 @@ class FramedText(tk.Text):
             initialization. """
         f = open(path, encoding="UTF-8")
         string = f.read()
+        string = string.replace("ё", "е")
         f.close()
         self.config(state = tk.NORMAL)
         self.delete("1.0", tk.END)

@@ -4,6 +4,7 @@
 # Description: Menubar class. Not sure if each menu should be an object, or a function.
 
 import tkinter as tk
+import codecs 
 
 class Menubar(tk.Menu):
     def __init__(self, app):
@@ -40,12 +41,37 @@ class FileMenu(DropdownMenu):
         for entry in reversed(self.app.fText.keywordTable):
             sel = self.app.index.lookup(entry.string().lower())[entry.selectionIndex()]
             frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
-            string = string[:entry.stop()] + "</rs>" + string[entry.stop():]
+            backTag = "</rs>"
+            string = string[:entry.stop()] + backTag + string[entry.stop():]
             string = string[:entry.start()] + frontTag + string[entry.start():]
         
-        outputFile = tk.filedialog.asksaveasfile(defaultextension=".txt", initialdir="../../output/")
+        outputFile = tk.filedialog.asksaveasfilename(defaultextension=".txt", initialdir="../../output/")
+        
         if outputFile:
-            outputFile.write(string)
+    
+            with codecs.open(outputFile, 'w', 'utf-8') as outputFile:
+                lines = string.splitlines()
+                j = 1
+                
+                metadata = "<meta> metadata here </meta>\n\n"
+                outputFile.write(metadata)
+                outputFile.write("<body>\n\n")
+                for i in range(len(lines)):
+                    line = lines[i]
+                    names = ["bailey", "astaikina"]
+                    
+                    name = names[ i%4 // 2]
+                    
+                    if i % 2 == 0:
+                        frontTag = '<u xml:id="sp' + str(j) + '" who="' + name + '">'
+                        backTag = '</u>\n\n'
+                        line = frontTag + line + backTag
+                        j += 1
+                    
+                    outputFile.write(line)
+                        
+                outputFile.write("</body>")    
+                
             outputFile.close()
             print("Export successful! Wrote %s" % outputFile.name)
 
