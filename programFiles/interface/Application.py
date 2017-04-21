@@ -96,6 +96,8 @@ class Application:
         
         self.root.bind("<Right>", self.moveRight)
         self.root.bind("<Left>", self.moveLeft)
+        self.root.bind("<Up>", self.prevTag)
+        self.root.bind("<Down>", self.nextTag)
 
         self.fText.tag_bind("interviewee", "<ButtonRelease-3>", self._showTagMenu)
         self.fText.tag_bind("interviewee", "<ButtonRelease-2>", self._showTagMenu)
@@ -117,6 +119,16 @@ class Application:
         self.fText.move(-1)
         self.fText.see("1.0+%sc" % self.fText.getCache().start())
         self.sidebar.showTagResults()
+        self.sidebar.showSelectionInfo(0)
+
+    def nextTag(self, event):
+        newSel = self.sidebar.tagResults.move(1)
+        self.sidebar.tagResults.see(newSel)
+        self.sidebar.showSelectionInfo(0)
+
+    def prevTag(self, event):
+        newSel = self.sidebar.tagResults.move(-1)
+        self.sidebar.tagResults.see(newSel)
         self.sidebar.showSelectionInfo(0)
 
 #----------------------------------------------------------------------

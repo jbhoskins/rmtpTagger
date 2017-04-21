@@ -34,6 +34,13 @@ class TagResults(tk.Listbox):
             return self.get(self.curselection()[0]) # Returned as a tuple, only want the 1st value.
         else:
             return ""
+
+    def move(self, offset):
+        sel = self.curSelection()
+        self.selection_clear(0, tk.END)
+        newSel = (sel + offset) % self.size()
+        self.selection_set(newSel)
+        return newSel
         
 
 class TagInformationField(tk.Text):
