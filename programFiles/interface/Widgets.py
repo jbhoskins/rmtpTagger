@@ -12,7 +12,7 @@ class TagResults(tk.Listbox):
         scrollbar = tk.Scrollbar(sidebar)
         tk.Listbox.__init__(self, sidebar, selectmode = tk.SINGLE, yscrollcommand=scrollbar.set)
         scrollbar.config(command=self.yview)
-        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        scrollbar.pack(side=tk.RIGHT)
 
     def populateTags(self, listOfXmlIds):
         """ Populate the ListBox with every element in a list. """
