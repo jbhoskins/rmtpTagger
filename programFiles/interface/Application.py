@@ -79,7 +79,7 @@ class Application:
         self.fText = FramedText(frame, self.index, self.styles, scrollbar)
         scrollbar.config(command=self.fText.yview)
         scrollbar.pack(side = tk.RIGHT, fill=tk.Y)
-        self.fText.pack(side=tk.LEFT, fill=tk.BOTH)
+        self.fText.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
 
         self.mainFrame.add(frame, width=screenWidth//2, stretch="always")
 
