@@ -20,7 +20,10 @@ class Application:
     """ Main program """
     def __init__(self):
         self.root = tk.Tk()
-#        self.root.attributes('-topmost', 1)
+        self.root.lift()
+        self.root.call('wm', 'attributes', '.', '-topmost', True)
+        self.root.after_idle(self.root.call, 'wm', 'attributes', '.', '-topmost', False)
+
         self.root.wm_title("William and Mary Index Tagger")
         
         self.dim = self._getDim()
