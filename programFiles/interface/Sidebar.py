@@ -1,68 +1,89 @@
-# Title: Main.py
-# Description: Main Interface proof on concept.
+# Sidebar.py 
 
-# Allows importing from another folder
+# Created as part of the William and Mary Russian Movie Theater Project, 
+# this is the work of John Hoskins and Margaret Swift, under the
+# direction of Sasha and Elena Prokhorov.
+# https://rmtp.wm.edu
+
+# Authored by John Hoskins: jbhoskins@email.wm.edu
+# Co-authored by Margaret Swift: meswift@email.wm.edu
+# Last edit 4/22/17 by Margaret.
+
+
+"""A sidebar for the main application.  This holds the current tags 
+available for the selected word in a list box and allows the user to 
+choose theappropriate tag, based on context.  It shows the current tag 
+selected for the current word.
+
+
+LAST EDIT:
+
+Margaret, 4/22/17
+
+Changed style of code to conform to the PEP8 styleguide. 
+"""
+
 import sys
 sys.path.insert(0, '../')
 
-from Index import *
-from FramedText import *
-from Widgets import *
 import tkinter as tk
 
+from FramedText import *
+from Index import *
+from Widgets import *
+
+
 class Sidebar(tk.PanedWindow):
-    """ Container to hold all the widgets that are active in the sidebar. """
     def __init__(self, parentFrame, fText, index, styles):
-        tk.PanedWindow.__init__(self, parentFrame, orient = tk.VERTICAL)
+        tk.PanedWindow.__init__(self, parentFrame, orient=tk.VERTICAL)
+        
         self.parent = self        
         self.index = index
         self.fText = fText
         self.styles = styles
-
-        # Not super slever implementation, but gets the job done
         self.exportTags = []
         
         self.addWidgets()
         self._styleWidgets()
 
     def addWidgets(self):
-        """ Declare and pack all the widgets used in the sidebar. """
+        """Declare and pack all the widgets used in the sidebar."""
         self.currentTag = CurrentTagField(self)
         self.tagInfoField = TagInformationField(self)
         self.tagLabel = tk.Label(self, text="Tag Results")
-
         
-        # Frame needed to keep scrollbar next to text, that's why tagResults treated spcl
+        # Frame is to keep scrollbar next to text.
         frame = tk.Frame(self)
         scrollbar = tk.Scrollbar(frame)
         self.tagResults = TagResults(frame, scrollbar)
         scrollbar.config(command=self.tagResults.yview)
-        scrollbar.pack(side = tk.RIGHT, fill=tk.Y)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.tagResults.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
 
         screenHeight = self.styles.dimensions[1]
         self.add(self.tagLabel)
-        self.add(frame, height = screenHeight // 3)
-        self.add(self.tagInfoField, height = screenHeight // 3)
         self.add(self.currentTag, sticky=tk.N)
+        self.add(frame, height=screenHeight // 3)
+        self.add(self.tagInfoField, height=screenHeight // 3)        
         
-
-        # Initialize to empty fields
+        # Initialize to empty fields.
         self.tagResults.populateTags([])
 
     def showTagResultsOnClick(self, event):
-        # Update the cache
+        # Update the cache.
         self.fText.cacheWord(event)
-        # zero passes as event
+        # Zero passes as event.
         self.showTagResults()
 
     def showTagResults(self):
-        """ Update the tagResults widget (inherits from ListBox) with the word in the
-            FramedText cache. Automatically fills the tagInfoField with first tag. """
-        
+        """Update the tagResults widget (inherits from ListBox) with the 
+        word in the FramedText cache. Automatically fills the 
+        tagInfoField with first tag.
+        """
         cache = self.fText.getCache()
         print("cce", cache)
-        self.tagResults.populateTags([entry.xmlId() for entry in cache.entries()])
+        self.tagResults.populateTags(
+            [entry.xmlId() for entry in cache.entries()])
 
         if cache.selectionIndex() is not None:
             self.tagResults.selection_set(cache.selectionIndex() + 1)
@@ -70,11 +91,11 @@ class Sidebar(tk.PanedWindow):
         else:
             self.currentTag.update("NO TAG")
             self.tagResults.selection_set(0)
-
-                            
+   
     def showSelectionInfo(self, event):
-        """ Get the selection from the tagResults box and display its information in
-            tagInfoField. """
+        """Get the selection from the tagResults box and display its 
+        information in tagInfoField.
+        """
         selectionIndex = self.tagResults.curSelection()
         cache = self.fText.keywordTable.currentVal()
         
@@ -97,22 +118,28 @@ class Sidebar(tk.PanedWindow):
             string = "NO TAG"
 
         self.currentTag.update(string)
-    #------------------------------------------------------------------
-    # Styling
+        
+        
+    #--------------------------------------
+    # Styling.
     
     def _styleWidgets(self):
-        """ Apply the styles from styleSheet() to the widgets. """
-        self.parent.config(bg = self.styles.c_2)
+        """Apply the styles from styleSheet() to the 
+        widgets.
+        """
+        self.parent.config(bg=self.styles.c_2)
         self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
         
-        self.currentTag.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
-#        self.confirmButton.config(font = self.styles.f_button, bg = self.styles.c_2, highlightbackground = self.styles.c_2)
-        
-        self.tagResults.config(font = self.styles.f_button, bg = self.styles.c_2)
-        self.tagInfoField.config(font = self.styles.f_text, bg = self.styles.c_2, highlightbackground = self.styles.c_2)        
+        self.currentTag.config(
+            font=self.styles.f_button, bg=self.styles.c_2, 
+            highlightbackground=self.styles.c_2)
+
+        self.tagResults.config(font=self.styles.f_button, bg=self.styles.c_2)
+        self.tagInfoField.config(
+            font=self.styles.f_text, bg=self.styles.c_2, 
+            highlightbackground=self.styles.c_2)        
 
     def configStyles(self, styles):
+        """Change the desired stylesheet."""
         self.styles = styles
         self._styleWidgets()
-
-    #-------------------------------------------------------------------

@@ -2912,16 +2912,16 @@
             <placeType>geo</placeType>
             <keys>
                 <key>питер</key>
-                <key>петербург</key>
+                <key>хонг конг</key>
             </keys>
         </place>
         
         <place xml:id="urals">
-            <fullName>CThe Urals</fullName>
+            <fullName>The Urals</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>уралы</key>
+                <key>уралах</key>
             </keys>
         </place>
         

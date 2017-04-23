@@ -1,10 +1,22 @@
-"""
-Reads and handles lookups from the Index.xml file, created by Sasha and Lena Prokhorov.
+# KeywordTable.py 
 
-Since xml is structured in a machine readable format, I imported a module called 'beautiful
-soup' which can be used to easily parse an xml document. Upon initialization, the Index 
-object reads the index.xml file passed to it, and creates a python Dictionary object 
-that is of the following structure:
+# Created as part of the William and Mary Russian Movie Theater Project, 
+# this is the work of John Hoskins and Margaret Swift, under the
+# direction of Sasha and Elena Prokhorov.
+# https://rmtp.wm.edu
+
+# Authored by John Hoskins: jbhoskins@email.wm.edu
+# Last edit 4/22/17 by Margaret.
+
+"""
+Reads and handles lookups from the Index.xml file, created by Sasha and 
+Lena Prokhorov.
+
+Since xml is structured in a machine readable format, I imported a 
+module called 'beautiful soup' which can be used to easily parse an 
+xml document. Upon initialization, the Index object reads the index.xml 
+file passed to it, and creates a Python Dictionary object that is of the 
+following structure:
 
 Given a document with a number of index entries like the following:
 
@@ -21,13 +33,12 @@ Given a document with a number of index entries like the following:
         <key>андрея</key>
     </keys>
 
-The Dictionary will have an entry for each 'key' specified (in this case, тарковский,
-тарковского, андрей, and андрея, with an '_Entry' object as it's value. The Entry object
-is just a list of tuples of all the information given in the Index entry, with two 
-exceptions. Continuing with the example entry given above, this list would look 
-like this: 
-
-note that all words are string types.
+The Dictionary will have an entry for each 'key' specified (in this case, 
+тарковский, тарковского, андрей, and андрея) with an '_Entry' object as 
+its value. The _Entry object is just a list of tuples of all the infor-
+mation given in the Index entry, with two exceptions. Continuing with 
+the example entry given above, this list would look like this (note that 
+all words are string types):
 
 [ ("type", "person"),
   ("xmlId", "andreiTerkovskii"),
@@ -37,26 +48,36 @@ note that all words are string types.
   ("gender", "m"),
   ("nationality","Russia") ]
 
-From this list of tuples, only the first two entries can be returned through a method:
+From this list of tuples, only the first two entries can be returned 
+through a method:
 
 type() returns "person"
 xmlId() returns "andreiTerkovskii"
 
-These are treated specially because their values are needed to generate the xml tags.
+These are treated specially because their values are needed to generate 
+the xml tags. So, after the creation of the Index object, you can easily 
+find information on an individual by entering any of the keys. This was 
+done so that each key could be a declension, or generally any key that 
+may want to be tagged with specific information.
 
-So, after the creation of the Index object, you can easily find information on an
-individual by entering any of the keys. 
 
-This was done so that each key could be a declension, or generally any key that may want
-to be tagged with specific information.
+LAST EDIT:
+
+Margaret, 4/22/17
+
+Changed style of code to conform to the PEP8 styleguide.
 
 """
 
+
 from bs4 import BeautifulSoup
 
+
 class Index:
+    
     class _Entry:
-        """ Data Structure to store the information of each index entry. """
+        """Data Structure to store the information of each index entry."""
+        
         def __init__(self, bs4_object):
             self._info = []
             self._info.append(("type", bs4_object.name))
@@ -67,34 +88,34 @@ class Index:
                     self._info.append((info.name, info.string))
 
         def type(self):
-            """ Returns the type of the _Entry, e.g. person.
-                Treated specially because it is needed for the xml tags. """
+            """ Return the TYPE of the _Entry, e.g. person."""
             return self._info[0][1]
 
         def xmlId(self):
-            """ Returns the value of the _Entry's xmlId, e.g. andreiTarkovskii.
-                Treated specially because it is needed for the xml tags. """
+            """Return the VALUE of the _Entry's xmlId, e.g. 
+            andreiTarkovskii.
+            """
             return self._info[1][1]
 
         def __str__(self):
-            """ Returns a string representation of _Entry with one tuple per line, 
-                seperate by a colon. """
+            """Return the STRING REPRESENTATION of the _Entry with one 
+            tuple per line, seperate by a colon.
+            """
             string = ''
             for tup in self._info:
                 string = string + tup[0] + ': ' + tup[1] + '\n'
-
             return string
 
     def __init__(self, path):
-        """ Creates a Dictionary of keys and entries upon initialization. """ 
+        """Create a Dictionary of keys and entries upon initialization.""" 
 
-        # Creates the soup object for easy parsing.
-        f = open(path, encoding="UTF-8") # This line has been problematic in the past.
+        # Creates the soup object for easy parsing. This line has been 
+        # problematic in the past (Might need codecs).
+        f = open(path, encoding="UTF-8")
         self._soup = BeautifulSoup(f, 'html')
         f.close()
 
         self._multiWords = []
-
         self._index = self._buildIndex(self._soup)
         
         # Needed for multiWord validation
@@ -103,22 +124,22 @@ class Index:
         self._buildValidator(self._multiWords)
 
     def _buildIndex(self, soup, opts = []):
-        """ Creates a dictionary with keys (declined forms, etc) as it's keys, and 
-            lists of Entry objects as its values. """
+        """Create a dictionary with <keys> (declined forms) as its 
+        dictionary keys and lists of _Entry objects as its dictionary
+        values.
+        """
         index = {}
 
-        # Handles keys with multiple entries by creating a list of Entry objects for a key
-        # if there are more than one tied to a specific key.
+        # Handles keys with multiple entries by creating a list of 
+        # _Entry objects for a key if there are more than one tied to a 
+        # specific key.
         for key in soup.find_all('key'):
             try:
                 index[key.string].append(self._Entry(key.parent.parent))
             except KeyError:
                 index[key.string] = [self._Entry(key.parent.parent)]
-            
             multi = key.string.strip().split()
-            
             self._multiWords.append(multi)
-
         return index
 
     def _buildValidator(self, wordList):
@@ -129,17 +150,14 @@ class Index:
             for i in range(len(sentence) - 1):
                 if sentence[i] not in activeDict.keys():
                     activeDict[sentence[i]] = dict()
-
                 activeDict = activeDict[sentence[i]]
-            
-            i = i + 1
+            i += 1
             
             if len(sentence) > 1:
                 activeDict[sentence[i]] = {None : None}
             else:
                 activeDict[sentence[i - 1]] = {None : None}
                 
-
     def print_(self):
         for key in self._multiValidator.keys():
             print(key)
@@ -159,15 +177,15 @@ class Index:
         self._activeDict = self._multiValidator
     
     def lookup(self, string):
-        """ Returns a LIST of entry objects that is tied to each key. """
+        """Return a LIST of entry objects that is tied to each key."""
         return self._index[string]
    
     def keys(self):
-        """ Return all the keys of the index. """
+        """Return all the keys of the index."""
         return self._index.keys()
 
     def multiKeys(self):
-        """ Return a list of all keys that have more than one word. """
+        """Return a LIST of all keys that have more than one word."""
         return self._multiWords
         
 
@@ -175,8 +193,6 @@ class Index:
 
 if __name__ == '__main__':
     ndx = Index('../META/index.xml')
-#    print(ndx._index.keys())
-    print(ndx.multiKeys())
     ndx.print_()
 
     print(ndx._activeDict.keys())

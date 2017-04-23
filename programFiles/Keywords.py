@@ -1,10 +1,28 @@
-# StringUtilities
+# Keywords.py 
 
-# String Utilities that are useful in the manipulation of our invertiew data.
-# Is not Technically optimal, some stuff could be cached, but for now, I like this
-# solution better. It seems more straightforwards than initializing a word object,
-# handling cleanses, etc. Here things are called only when they are needed, and never
-# otherwise.
+# Created as part of the William and Mary Russian Movie Theater Project, 
+# this is the work of John Hoskins and Margaret Swift, under the
+# direction of Sasha and Elena Prokhorov.
+# https://rmtp.wm.edu
+
+# Authored by John Hoskins: jbhoskins@email.wm.edu
+# Last edit 4/22/17 by Margaret.
+
+"""String Utilities that are useful in the manipulation of our invertiew 
+data.  Is not technically optimal, some stuff could be cached, but for 
+now, I like this solution better. It seems more straightforwards than 
+initializing a word object, handling cleanses, etc. Here things are 
+called only when they are needed, and never otherwise.
+
+LAST EDIT:
+
+Margaret, 4/22/17
+
+Changed style of code to be more like the PEP8 styleguide.  Rearranged 
+things so that like functions would be in same block of code.  Rewrote 
+some comments and code to make it more readable.
+"""
+
 
 class Keyword:
  
@@ -15,62 +33,59 @@ class Keyword:
         self._declensions = []
     
     def _get_indices(self, string):
-        """ Gets the front and back indices of the punctuation in a phrase."""
-        
+        """Gets the front and back indices of the punctuation in a
+        phrase.
+        """
         ndx_f = 0
         ndx_b = 0
-
-        # This try block catches the case when a word is all punctuation, such as an emdash '-'
-        # in this case, it changes nothing, and just returns itself.
         i = 0
+
+        # This try block catches the case when a word is all punctuation, 
+        # such as an emdash '-'.  In this case, it changes nothing, and 
+        # just returns itself.
         try:
-            # Iterate from the fron to first alpha car
-            while not string[i].isalnum(): #isalpha() returns True when a char is a-z/0-9
+            # Iterate from the front to first alpha character. isalpha() 
+            # returns True when a char is a-z/0-9.
+            while not string[i].isalnum():
                 i += 1
             ndx_f = i
     
-            # Iterate from the back to the last alpha charector
+            # Iterate from the back to the last alpha character.
             i = len(string) - 1
             while not string[i].isalnum():
                 i -= 1
             ndx_b = i
         except IndexError:
             return (0, len(string) + 1)
-    
         return ndx_f, ndx_b
     
     def clean(self):
-        """ Goes backwards and forwards through a string with punctuation until
-        it hits an alphanumeric charector, and returns the inner word."""
-   
+        """Moove backwards and forwards through a string with punctuation 
+        until an alphanumeric charector is hit; return the inner word.
+        """
         return self._clean
 
     def replace(self, replacement):
-        """Given a string, places that string within the punctuation of another word.
+        """Given a string, place that string within the punctuation of 
+        another word.
     
         test = Word(',,Hats...')
         test.replace('Shoes') # This will return: ,,Shoes...
         """
-    
         return self._string[:self._ndx_f] + replacement + self._string[self._ndx_b + 1:]
 
     def set_declensions(self, lst):
-        """ Stores the declined forms of the word as the list passed to it. """
-
+        """ Store the declined forms of the word as the list passed."""
         self._declensions = lst
 
     def get_entries(self, soup):
-        """ Returns a list of all the relevant... will be replaced by a lookup function"""
-
+        """Return a list of all the relevant... will be replaced by a 
+        lookup function.
+        """
         entries = []
         for entry in soup.find_all('person'):
             entries.append(entry)
-
         return entries
-
-    def 
-
-
 
     
     # place, key, word to be tagged as both place and key
@@ -89,13 +104,11 @@ class Keyword:
  
     
 def tag_user(string, name, sp):
-    """Tags string (a line, in this case) with the proper tag."""
-
+    """Tag string (a line, in this case) with the proper tag."""
     return '<u xml:id="sp%i" who="%s">' % (sp, name) + string + '</u>'
 
 def tag_type(string, typ):
-    """Tags string (a line, in this case) with the proper tag."""
-
+    """Tag string (a line, in this case) with the proper tag."""
     return '<rs type="%s" subtype="%s">' % (typ[0], typ[1]) + string + '</rs>'
     
     
