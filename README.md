@@ -6,6 +6,13 @@ Software to match keywords in a given textfile to keys and information stored in
 
 ## Installation and Running
 
+### Dependencies
+
+* Beautiful Soup 4 (package name bs4)
+* Some kind of native xml/html parser
+
+### Instructions
+
 Clone or download the repository, navigate to /rmtptagger/programFiles/interface/ and run
 
 ``` python
