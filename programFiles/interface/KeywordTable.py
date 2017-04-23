@@ -1,7 +1,22 @@
-# Created by: John Hoskins
-# Email: jbhoskins@email.wm.edu
-# 
-# Description: A table.
+# KeywordTable.py 
+
+# Created as part of the William and Mary Russian Movie Theater Project, 
+# this is the work of John Hoskins and Margaret Swift, under the
+# direction of Sasha and Elena Prokhorov.
+# https://rmtp.wm.edu
+
+# Authored by John Hoskins: jbhoskins@email.wm.edu
+# Last edit 4/22/17 by Margaret.
+
+"""A table to hold keywords and their current tags in the text.
+
+LAST EDIT:
+
+Margaret, 4/22/17
+
+Changed style of code to conform to the PEP8 styleguide.
+"""
+
 
 class KeywordTable(list):
     def __init__(self):
@@ -10,10 +25,11 @@ class KeywordTable(list):
 
 
     def lookup(self, startIndex):        
-        # This needs optinization. For now, it just iterates to keep functionality.
+        # This needs optinization. For now, it just iterates to keep 
+        # functionality.
 
         i = 0
-        while i < len(self) and (self[i].start() <= startIndex <= self[i].stop()) is False:
+        while i < len(self) and not (self[i].start() <= startIndex <= self[i].stop()):
             i += 1
 
         if i == len(self):
@@ -37,4 +53,3 @@ class KeywordTable(list):
     def printTable(self):
         for line in self:
             print(line)
-

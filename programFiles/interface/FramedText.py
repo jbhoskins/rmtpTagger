@@ -1,48 +1,130 @@
-# Created by: John Hoskins
-# Email: jbhoskins@email.wm.edu
-#
-# Description: Text object, inherits frame.
+# FramedText.py 
 
-import tkinter as tk
-import re
-from WordCache import *
-from KeywordTable import *
-import math
+# Created as part of the William and Mary Russian Movie Theater Project, 
+# this is the work of John Hoskins and Margaret Swift, under the
+# direction of Sasha and Elena Prokhorov.
+# https://rmtp.wm.edu
+
+# Authored by John Hoskins: jbhoskins@email.wm.edu
+# Co-authored by Margaret Swift: meswift@email.wm.edu
+# Last edit 4/22/17 by Margaret.
+
+"""An extension of tk.Text, this class handles finding and tagging of 
+keywords and displays the text to the user in real time.
+
+LAST EDIT:
+
+Margaret, 4/22/17
+
+Changed style of code to be more like the PEP8 styleguide.  Rearranged 
+things so that like functions would be in same block of code.  Rewrote 
+some comments and code to make it more readable.
+"""
+
+## We need to distinguish between our tags and
+## Python's tags, like self.tag_configure, to help
+## improve readability.
+
 
 import sys
 sys.path.insert(0, '../')
+
+import math
+import re
+import tkinter as tk
+
 from Index import *
+from KeywordTable import *
+from WordCache import *
+
 
 class FramedText(tk.Text):
-    """ Extends tk.Text, handles the finding and tagging of keywords. """
     def __init__(self, Frame, indexObject, styles, scrollbar):
+        """Initialize the text, keyword table, index, styles, variable 
+        tags, and widgets.
+        """
         tk.Text.__init__(self, Frame, yscrollcommand=scrollbar.set)
         
-        self.insert("1.0", "Load some text from the menubar!")
-        self.config(state = tk.DISABLED, wrap=tk.WORD)
-
+        # The following needs "object" name so as not to overwrite the 
+        # Text method Text.index()
+        self.indexObject = indexObject         
+        self.keywordTable = KeywordTable()
+        self.styles = styles
+        
+        self._styleFrame()
+        self._styleWidget()
+        self._createTags()        
+    
+        
+    #-------------------------------------------------------------------
+    # Styling.    
+    
+    def loadText(self, path, makeTable = True):
+        """Insert text from desired file into the widget, then highlight 
+        keywords upon initialization. 
+        """
+        f = open(path, encoding="UTF-8")
+        string = f.read()
+        string = string.replace("ё", "е")
+        f.close()
+        
+        self.config(state=tk.NORMAL)
+        self.delete("1.0", tk.END)
+        self.insert("1.0", string, "bigger")
+    
+        # Not sure the utility of making this optional 
+        if makeTable is True:
+            self._makeTable()
+        
+        self._tagPersons()
+        self.config(state=tk.DISABLED)    
+    
+    def _styleFrame(self):
+        """Style the whole frame."""
+        self.insert(
+            "1.0", "Load some text from the menubar!")
+        self.config(state=tk.DISABLED, wrap=tk.WORD)        
+        
+    def _styleWidget(self):
+        """Style the widget."""
+        self.config(
+            bg=self.styles.c_1, font=self.styles.f_text,
+            highlightbackground=self.styles.c_1)
+        
+    def configStyles(self, styles):
+        """Change the desired stylesheet."""
         self.styles = styles
         self._styleWidget()
-        self._createTags()
-                
-        self.keywordTable = KeywordTable()
-        self.indexObject = indexObject # Needs "object" name so as not to overwrite 
-                                       # Text method "Text.index()"
+        self._createTags()    
+    
         
+    #-------------------------------------------------------------------       
+    # Configuring and applying tags.
+    
     def _createTags(self):
-        """ Create the tags that will be applied to word in the text. """
-        self.tag_configure("foundWord") # All words that are keys
-        self.tag_configure('multi', background = self.styles.h_multi) # Keys with multiple options
-        self.tag_configure('single', background = self.styles.h_single) # Kets with one option
-        self.tag_configure('cur', background = self.styles.h_current) # Not yet in use, could be for current click
-        self.tag_configure('reg', background = self.styles.c_1)
-        self.tag_configure("interviewer", foreground = self.styles.h_interviewer) # Interviewer text (not yet in use)
+        """Create the tags that will be applied to a word in the text."""
+        self.tag_configure("foundWord")
+        self.tag_configure('multi', background=self.styles.h_multi)
+        self.tag_configure('single', background=self.styles.h_single) 
+        self.tag_configure('cur', background=self.styles.h_current)
+        self.tag_configure('reg', background=self.styles.c_1)
+        self.tag_configure("interviewer", foreground=self.styles.h_interviewer)
         self.tag_configure("interviewee")
         
-    
+    def _tagPersons(self):
+        """Mute the interviewer text to make it less obtrusive."""
+        length = math.floor(float(self.index(tk.END)))
+        para_range = range(1, length, 4)
+        
+        for i in para_range:       
+            inx = float(i)
+            self.tag_add("interviewer", inx, inx + 1)     
+            self.tag_add("interviewee", inx + 2, inx + 3)    
+            
     def _applyTag(self, word, results):
-        """ Applies tags to words that have been found, so that they can be referenced 
-            later. """            
+        """Apply tags to words that have been found, so that they can be 
+        referenced later. 
+        """            
         if len(results) > 1:
             tag = "multi"
         else:
@@ -50,73 +132,76 @@ class FramedText(tk.Text):
             
         wordStart = "1.0+%sc" % word.start()
         wordEnd   = "1.0+%sc" % word.stop()
-        self.tag_add(tag, wordStart, wordEnd) # Tag the relevant region of text
+        
+        # Tag the relevant region of text.
+        self.tag_add(tag, wordStart, wordEnd)
         self.tag_add("foundWord", wordStart, wordEnd)
 
-    def tagAllElementsInTable(self):
-        for word in self.keywordTable:
-            results = self.indexObject.lookup(word.string().lower())
-            self._applyTag(word, results)
 
-        cur = self.index("1.0+%sc" % 20163)
-        print("value:", self.keywordTable.lookup(self.count("1.0", cur)[0]))
-        print(self.keywordTable)
+    #-------------------------------------------------------------------
+    # Making and tagging from table.
 
     def _makeTable(self):
-        """ Build a sorted table with all the tags and their start and stop points. """
-        
+        """Build a sorted table of all non-pronoun tags along with their 
+        start and stop indices. 
+        """
         self.keywordTable[:] = []
-        
         string = self.get("1.0", tk.END)
-        iterator = re.finditer("\w+", string) # Ideally, make a generator for each relevant
-                                             # line.
+        
+        # Ideally, make a generator for each relevant line
+        iterator = re.finditer("\w+", string) 
         keyword = ""
         cacheItem = Cache()
         foundMatch = False
-        
         word = next(iterator)
+        
         try:
-            # Gods of CS, forgive this infinite loop.
-            while True:
-                if  int(self.index("1.0+%sc" % word.start()).split(".")[0]) % 4 - 1 != 0:
-                    # If interviewee, continue. Can be optimized, should only get strings 
-                    # from the interviewee text.
-                                
-                    # 2 = match found, 1 = potential match, 0 = no match
+            while True: # Gods of CS, forgive this infinite loop.
+                inx = int(self.index("1.0+%sc" % word.start()).split(".")[0])
+                
+                # Only run the next bit if it's an interviewee.
+                if  (inx % 4 - 1) != 0:
                     testCode = self.indexObject.multiTest(word.group().lower())
     
-                    # Using the testCode, save object imformation accordingly
+                    # For this next block of if, elif, else:
+                    # Using the testCode, save object information:
+                    # 2 = unique match found, 
+                    # 1 = potential match,
+                    # 0 = no match.                     
                     if testCode == 0:
-                        # This is the point when an entry is actually saved. when it finds
-                        # a match, it waits until it hits a zero to save it, in case you
-                        # have a couple keys like so: "фон" "фон триер". You want the 
-                        # second, longer tag, not the shorter one.
+                        
+                        # This is the point when an entry is actually 
+                        # saved. When it finds a match, it waits until 
+                        # it hits a zero to save it, in case there are a
+                        # couple keys like so: "фон", "фон триер". We  
+                        # want the second, longer tag, not the shorter.
                         if foundMatch:
                             cacheItem["string"] = keyword
-                            self.keywordTable.append(cacheItem)        
-                            # Reset the saved values
+                            self.keywordTable.append(cacheItem)  
+                            
+                            # Reset the saved values.
                             keyword = ""
                             cacheItem = Cache()
                             foundMatch = False
-                            # Continue does not move to the next word. rechecks the same
-                            # word with a resetted multiTest. needed for 
-                            # the case of two keywords next to each other.
+                            
+                            # Continue rechecks the same word with a re-
+                            # set multiTest, in case two keywords are 
+                            # next to each other.
                             continue
 
-                        # Needed for if you hit a 1, but never a two.
                         keyword = ""
                         cacheItem = Cache()
                     
                     elif testCode == 1:
+                        # If there is a word, add a space before the
+                        # next one.                       
                         if keyword != "":
-                            # if there is a word, then add a space before the next one
                             keyword += " "
                         else:
                             cacheItem["start"] = word.start()
-                        
                         keyword += word.group()
+                        
                     else:
-                        # when testCode == 2
                         if keyword != "":
                             keyword += " "
                         else:
@@ -125,111 +210,91 @@ class FramedText(tk.Text):
                         keyword += word.group()
                         cacheItem["stop"] = word.end()
                         foundMatch = True
-
-                word = next(iterator)
-        # Weird, but this was the best solution I could find for moving through an 
-        # iterator with more control than a for loop.
-        except StopIteration:
-            # May need to save the last information, in case the final word is a keyword
-            pass
-        self.tagAllElementsInTable()
-            
-    def loadText(self, path, makeTable = True):
-        """ Inserts text from a file into the widget, and highlights keywords upon
-            initialization. """
-        f = open(path, encoding="UTF-8")
-        string = f.read()
-        string = string.replace("ё", "е")
-        f.close()
-        self.config(state = tk.NORMAL)
-        self.delete("1.0", tk.END)
-        self.insert("1.0", string, "bigger")
-
-        # Not sure the utility of making this optional tbh
-        if makeTable is True:
-            self._makeTable()
-        
-        self._grayInterviewer()
-        self.config(state = tk.DISABLED)
                         
- 
+                word = next(iterator)
+
+        except StopIteration:
+            # May need to save the last information, in case the final 
+            # word is a keyword
+            pass
+        self.tagAllElementsInTable()                     
+        
+    def tagAllElementsInTable(self):
+        """Function description here."""
+        for word in self.keywordTable:
+            results = self.indexObject.lookup(word.string().lower())
+            self._applyTag(word, results)
+
+        cur = self.index("1.0+%sc" % 20163) # hardcoding?
+        print("value:", self.keywordTable.lookup(self.count("1.0", cur)[0]))
+        print(self.keywordTable)
+        
+        
+    #-------------------------------------------------------------------
+    # Extra functions.
+    
     def cacheWord(self, event):
-        """ Caches the word that has been clicked on. """        
+        """Cache the word that has been clicked on."""        
         location = self.index("@%s,%s" % (event.x, event.y))        
         current = self.keywordTable.currentVal()
-        self.tag_remove("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())   
+        self.tag_remove(
+            "cur", "1.0+%sc" % current.start(),"1.0+%sc" % current.stop())   
 
-        charCount = self.count("1.0", location)[0] # is this linear time?
+        charCount = self.count("1.0", location)[0] # O(n)?
         current = self.keywordTable.lookup(charCount)
         if self.keywordTable.currentVal().entries() == []:
-            self.keywordTable.saveEntries(self.indexObject.lookup(current.string().lower()))
-        self.tag_add("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
+            word = current.string().lower()
+            self.keywordTable.saveEntries(self.indexObject.lookup(word))
+        self.tag_add(
+            "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
 
     def move(self, offset):
-        """ Set the currently selected word to be the one offset by an integer value."""
+        """Set the currently selected word to be the one offset by an 
+        integer value.
+        """
         try:
             current = self.keywordTable.currentVal()
         except:
             # Catches first run issue
             return
         
-        self.tag_remove("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())   
-        self.keywordTable.setCurrent((self.keywordTable.getVal() + offset) % len(self.keywordTable))
+        self.tag_remove(
+            "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())   
+        self.keywordTable.setCurrent(
+            (self.keywordTable.getVal() + offset) % len(self.keywordTable))
         current = self.keywordTable.currentVal()
 
         if self.keywordTable.currentVal().entries() == []:
-            self.keywordTable.saveEntries(self.indexObject.lookup(current.string().lower()))
-        self.tag_add("cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
-        
+            word = current.string().lower()
+            self.keywordTable.saveEntries(self.indexObject.lookup(word))
+        self.tag_add(
+            "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
 
     def getCache(self):
-        """ Returns the cache. """
+        """Return the cache."""
         return self.keywordTable.currentVal()
 
-
     def getString(self):
+        """Return a string of the current selection."""
         current = self.index(tk.CURRENT)
-        
+        cur_word = self.get(current + expr)
+        omits = ['\n', '']
         count = 1
         expr = ''
-        
-        while self.get(current + expr) != ' ' and self.get(current + expr) != '\n' and\
-        count <100:
+        while cur_word not in omits and count < 100:
             count += 1
             expr = '- ' + str(count - 1) + ' c'
+            cur_word = self.get(current + expr)
             
         wordStart = current + expr + '+1c'
         string = self.get(wordStart, current + ' wordend')
             
         return string
-
-    #-------------------------------------------------------------------
-    # Styling
+        
     
-    def _styleWidget(self):
-        self.config(bg = self.styles.c_1, highlightbackground = self.styles.c_1, font = self.styles.f_text)
-        
-    def _grayInterviewer(self):
-        self.text_length = math.floor(float(self.index(tk.END)))
-        para_range = range(1, self.text_length, 4)
-        
-        for i in para_range:       
-            inx = float(i)
-            self.tag_add("interviewer", inx, inx+1)     
-            self.tag_add("interviewee", inx + 2, inx+3)
+#-----------------------------------------------------------------------
+# Main.
 
-    
-    def configStyles(self, styles):
-        self.styles = styles
-        self._createTags()
-        self._styleWidget()
-
-
-        
-    #-------------------------------------------------------------------
-  
-         
-          
 if __name__ == "__main__":
     root = tk.Tk()
 
