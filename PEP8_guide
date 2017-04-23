@@ -1,0 +1,107 @@
+Project Style Guide
+
+Created as part of the William and Mary Russian Movie Theater Project, 
+this is the work of John Hoskins and Margaret Swift, under the
+direction of Sasha and Elena Prokhorov.
+https://rmtp.wm.edu
+
+Authored by Margaret Swift: meswift@email.wm.edu
+Last Edit 04/23/17 by Margaret Swift.
+
+------------------------------------------------------------------------
+(1) Documentation
+The header should have the following format (just copy and paste, then
+replace with the information needed):
+
+# FileName.py
+
+# Created as part of the William and Mary Russian Movie Theater Project, 
+# this is the work of John Hoskins and Margaret Swift, under the
+# direction of Sasha and Elena Prokhorov.
+# https://rmtp.wm.edu
+
+# Authored by Author: authorname@email.wm.edu
+# Co-authored by Co-Author: coauthorname@email.wm.edu
+# Last edit DD/MM/YY by Editor.
+
+All documentation should be full sentences, with punctuation and correct
+capitalization.  All periods should be followed by a space.  Docstrings
+should be written as commands, not descriptions, and surrounded by double
+quotes.  There should be no spaces between docstring text and quotes.
+
+YES:
+def foo(bar):
+"""Do this, then that."""
+
+NO:
+def foo(bar):
+"""Does this, then does that."""
+
+All documentation should be no wider than 72 characters.  If a docstring
+fits all on one line without the final quotes, then put the quotes on that
+line even if it goes over the breakline.  If a docstring is multi-line, 
+the closing set of quotes should have their own line.  
+
+------------------------------------------------------------------------
+(2) Width of Code
+PEP-8 styles require code to be no wider than 79 characters, and
+again, comments/docstrings should be no wider than 72. 
+
+------------------------------------------------------------------------
+(3) Arguments
+If arguments all fit on one line, that's fine.  If any would go over the 
+break line, then we must move all to a new line, indented by 4 more 
+spaces than the previous. Ending delimiters stay on the last line, ie ")" 
+wouldn't get its own line.
+
+------------------------------------------------------------------------
+(4) Function Definitions
+An exception to the above, no matter how long the list of arguments is,
+keep as many on the first line as you can, then put the remaining 
+arguments on the next line, lined up with the opening delimiter:
+
+def this_is_a_long_function(argument_1, argument_2, argument_3,
+                            argument_4)
+                            
+If a single argument would still run over the breakline, then the 
+hanging indent should be moved to the left four spaces until there is 
+enough room to encompass the single longest argument.
+
+------------------------------------------------------------------------
+(5) Operators and Assignment
+There should be one space around operators, but no space around argument
+or parameter value assignments.  Examples:
+
+DO:                 DON'T:
+i = i + 1           i=i+1
+a.pack(side=left)   a.pack(side = left)
+a = 4               a=4
+
+------------------------------------------------------------------------
+(6) Imports
+Imports should be grouped in the following order:
+
+standard library imports
+related third party imports
+local application/library specific imports
+
+and then in alphabetical order. Groups should have a blank line between
+them.  Example:
+
+import sys
+sys.path.insert(0, '../')
+
+import tkinter as tk
+from tkinter import filedialog # do we need this?
+
+from EntryWindow import *
+from FramedText import *
+from Legend import *
+from Menubar import *
+from Sidebar import *
+from StyleSheet import *
+
+------------------------------------------------------------------------
+(7) Blank Lines
+Put two empty lines between classes, one between functions, two between 
+logical groups of functions.
