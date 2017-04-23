@@ -6,7 +6,6 @@
 # https://rmtp.wm.edu
 
 # Authored by John Hoskins: jbhoskins@email.wm.edu
-# Co-authored by Margaret Swift: meswift@email.wm.edu
 # Last edit 4/22/17 by Margaret.
 
 """String Utilities that are useful in the manipulation of our invertiew 
