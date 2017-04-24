@@ -119,6 +119,7 @@ class Application:
         self.root.call('wm', 'attributes', '.', '-topmost', True)
         self.root.after_idle(
             self.root.call, 'wm', 'attributes', '.', '-topmost', False)
+        self.root.focus_set()
         
         # Set title, dim, index, & paned window.
         self.root.wm_title("William & Mary Index Tagger")

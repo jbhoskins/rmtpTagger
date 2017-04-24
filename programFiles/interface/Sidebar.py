@@ -42,6 +42,7 @@ class Sidebar(tk.PanedWindow):
         self.fText = fText
         self.styles = styles
         self.exportTags = []
+        self.bg = self.styles.c_2
         
         self.addWidgets()
         self._styleWidgets()
@@ -120,24 +121,24 @@ class Sidebar(tk.PanedWindow):
         self.currentTag.update(string)
         
         
-    #--------------------------------------
+    #-----------------------------------------------
     # Styling.
     
     def _styleWidgets(self):
         """Apply the styles from styleSheet() to the 
         widgets.
         """
-        self.config(bg=self.styles.c_2)
-        self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
+        self.config(bg=self.bg)
+        self.tagLabel.config(font=self.styles.f_subtitle, bg=self.bg)
         
         self.currentTag.config(
-            font=self.styles.f_button, bg=self.styles.c_2, 
-            highlightbackground=self.styles.c_2)
+            font=self.styles.f_button, bg=self.bg, 
+            highlightbackground=self.bg)
 
-        self.tagResults.config(font=self.styles.f_button, bg=self.styles.c_2)
+        self.tagResults.config(font=self.styles.f_button, bg=self.bg)
         self.tagInfoField.config(
-            font=self.styles.f_text, bg=self.styles.c_2, 
-            highlightbackground=self.styles.c_2)        
+            font=self.styles.f_text, bg=self.bg, 
+            highlightbackground=self.bg)        
 
     def configStyles(self, styles):
         """Change the desired stylesheet."""

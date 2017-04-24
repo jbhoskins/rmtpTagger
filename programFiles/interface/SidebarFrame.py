@@ -28,42 +28,15 @@ import tkinter as tk
 
 
 class SidebarFrame(tk.PanedWindow):
-    
-    class Blank():
-        def __init__(self, parentFrame):
-            tk.Label.__init__(self, parentFrame)
-            
-    
-    
+
     def __init__(self, parentFrame=None, title='TITLE', styles=None):
         
         tk.PanedWindow.__init__(self, parentFrame, orient=tk.VERTICAL)
         self.title = tk.Label(title)
         self.parent = parentFrame
-        self.widget1 = None
-        self.widget2 = None
-        self.widget3 = None
-        self.widget4 = None
-        
         self.styles = styles
         self.bg = self.styles.c_2
-        
-        self._createBlanks()
-        self._packWidgets()
         self._styleWidgets()
-        
-    
-    def _createBlanks(self):
-        """Create blank spaces to stand for empty widgets."""
-        
-        
-
-    def _packWidgets(self):
-        """Pack all the widgets used in the sidebar."""
-        self.title.pack()
-        self.widget1.pack()
-        self.widget2.pack()
-        self.widget3.pack()
     
     def _styleWidgets(self):
         """Apply the styles from stylesheet to the widgets."""
@@ -71,32 +44,19 @@ class SidebarFrame(tk.PanedWindow):
         self.title.config(
             font=self.f_title, bg=self.bg, highlightbackground=self.bg)
         
-        self.widget1.config(
-            font=self.f_text, bg=self.bg, highlightbackground=self.bg)
-        self.widget2.config(
-            font=self.f_text, bg=self.bg, highlightbackground=self.bg)        
-        self.widget3.config(
-            font=self.f_text, bg=self.bg, highlightbackground=self.bg)    
-        self.widget4.config(
-            font=self.f_text, bg=self.bg, highlightbackground=self.bg)
-        
-        
+        for widget in self.panes():
+            widget.config(bg=self.bg)
+            
     # ------------------------------------------------------------------
     # Public methods
     
-    def addWidget(self, widget):
+    def add(self, widget):
         """Add widgets to the sidebar publicly."""
-        if self.widget1 == None:
-            self.widget1 = widget
-        elif self.widget2 == None:
-            self.widget2 = widget   
-        elif self.widget3 == None:
-            self.widget3 = widget 
-        else:
-            # Will this work? If so, change this public method so that
-            # this is the only bit.
-            widget.pack() 
-
+        self.add(widget)
+        widget.config(
+            bg=self.bg, highlightbackground=self.bg, 
+            font=self.styles.f_text)
+        
     def configStyles(self, styles):
         """Change the desired stylesheet publicly."""
         self.styles = styles
