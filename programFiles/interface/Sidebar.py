@@ -37,7 +37,7 @@ class Sidebar(tk.PanedWindow):
     def __init__(self, parentFrame, fText, index, styles):
         tk.PanedWindow.__init__(self, parentFrame, orient=tk.VERTICAL)
         
-        self.parent = self        
+        self.parent = parentFrame       
         self.index = index
         self.fText = fText
         self.styles = styles
@@ -127,7 +127,7 @@ class Sidebar(tk.PanedWindow):
         """Apply the styles from styleSheet() to the 
         widgets.
         """
-        self.parent.config(bg=self.styles.c_2)
+        self.config(bg=self.styles.c_2)
         self.tagLabel.config(font=self.styles.f_subtitle, bg=self.styles.c_2)
         
         self.currentTag.config(

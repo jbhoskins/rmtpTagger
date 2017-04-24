@@ -101,7 +101,7 @@ from tkinter import filedialog # do we need this?
 
 from EntryWindow import *
 from FramedText import *
-from Legend import *
+from LeftSidebar import *
 from Menubar import *
 from Sidebar import *
 from StyleSheet import *
@@ -134,6 +134,7 @@ class Application:
         self.mainFrame.pack_propagate(0)
         self.mainFrame.pack(fill=tk.BOTH, expand=True)
         self._bindKeys()
+        self._styleApp()
 
 
     #-------------------------------------------------------------------
@@ -143,7 +144,7 @@ class Application:
         """Return dimensions of the screen."""
         return (self.root.winfo_screenwidth(), self.root.winfo_screenheight())
 
-    def _setStyles(self, name = "bella"):
+    def _setStyles(self, name="bella"):
         """Set the formatting of the application."""
         self.styles = StyleSheet(name, dim=self.dim)
         
@@ -157,7 +158,7 @@ class Application:
         self.fText.configStyles(styles=self.styles)
         
         self.sidebar.configStyles(styles=self.styles)    
-        self.sidebarFrame.config(bg=self.styles.c_2)
+        #self.sidebarFrame.config(bg=self.styles.c_2)
         
     def _changeTheme(self, name):
         """Change the theme of the app."""
@@ -171,7 +172,7 @@ class Application:
     def _addWidgets(self):
         """Create and fill the text box, sidebar and menu."""
         screenWidth = self.styles.dimensions[0]
-        self.legend = Legend(self.mainFrame, self.styles)
+        self.legend = LeftSidebar(self.mainFrame, self.styles)
         self.mainFrame.add(
             self.legend, width=(screenWidth // 8), stretch="never")
 

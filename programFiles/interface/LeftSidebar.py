@@ -1,4 +1,4 @@
-# Legend.py 
+# LeftSidebar.py 
 
 # Created as part of the William and Mary Russian Movie Theater Project, 
 # this is the work of John Hoskins and Margaret Swift, under the
@@ -27,7 +27,7 @@ sys.path.insert(0, '../')
 import tkinter as tk
 
 
-class Legend(tk.Frame):
+class LeftSidebar(tk.Frame):
     def __init__(self, parentFrame, styles):
         tk.Frame.__init__(self, parentFrame, height=500)
         
