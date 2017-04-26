@@ -151,12 +151,17 @@ class Index:
                 if sentence[i] not in activeDict.keys():
                     activeDict[sentence[i]] = dict()
                 activeDict = activeDict[sentence[i]]
-            i += 1
             
             if len(sentence) > 1:
-                activeDict[sentence[i]] = {None : None}
-            else:
-                activeDict[sentence[i - 1]] = {None : None}
+                i += 1
+             
+            try:
+                activeDict = activeDict[sentence[i]]
+            except:
+                activeDict[sentence[i]] = dict()
+                activeDict = activeDict[sentence[i]]
+                
+            activeDict[None] = None
                 
     def print_(self):
         for key in self._multiValidator.keys():
@@ -195,7 +200,6 @@ if __name__ == '__main__':
     ndx = Index('../META/index.xml')
     ndx.print_()
 
-    print(ndx._activeDict.keys())
     print("test", ndx.multiTest("ирония"))
     print("test", ndx.multiTest("судьбы"))
     print("test", ndx.multiTest("или"))
