@@ -126,7 +126,7 @@ class Application:
         self.dim = self._getDim()
         self.mainFrame = tk.PanedWindow(
             self.root, orient=tk.HORIZONTAL, sashrelief=tk.GROOVE, 
-            height=self.dim[1])
+            height=self.dim[1], opaqueresize=False)
         self.index = Index("../../META/index.xml")
         
         # Set styles, widgets, frame, and bind keys.
