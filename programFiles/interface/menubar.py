@@ -23,7 +23,6 @@ Changed style of code to conform to the PEP8 styleguide.
 import codecs 
 import tkinter as tk
 
-
 class Menubar(tk.Menu):
     def __init__(self, app):
         tk.Menu.__init__(self, app.root)

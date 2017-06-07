@@ -17,11 +17,10 @@ Margaret, 4/22/17
 Changed style of code to conform to the PEP8 styleguide.
 """
 
-
 class KeywordTable(list):
     def __init__(self):
         list.__init__(self)
-        self._current = int()
+        self._current = 0
 
 
     def lookup(self, startIndex):        
@@ -49,6 +48,10 @@ class KeywordTable(list):
 
     def setCurrent(self, value):
         self._current = value
+
+    def reset(self):
+        self[:] = []
+        self._current = 0
 
     def printTable(self):
         for line in self:

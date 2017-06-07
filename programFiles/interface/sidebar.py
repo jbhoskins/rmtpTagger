@@ -27,11 +27,7 @@ import sys
 sys.path.insert(0, '../')
 
 import tkinter as tk
-
-from FramedText import *
-from Index import *
-from Widgets import *
-
+import widgets
 
 class Sidebar(tk.PanedWindow):
     def __init__(self, parentFrame, fText, index, styles):
@@ -44,19 +40,19 @@ class Sidebar(tk.PanedWindow):
         self.exportTags = []
         self.bg = self.styles.c_2
         
-        self.addWidgets()
+        self._addWidgets()
         self._styleWidgets()
 
-    def addWidgets(self):
+    def _addWidgets(self):
         """Declare and pack all the widgets used in the sidebar."""
-        self.currentTag = CurrentTagField(self)
-        self.tagInfoField = TagInformationField(self)
+        self.currentTag = widgets.CurrentTagField(self)
+        self.tagInfoField = widgets.TagInformationField(self)
         self.tagLabel = tk.Label(self, text="Tag Results")
         
         # Frame is to keep scrollbar next to text.
         frame = tk.Frame(self)
         scrollbar = tk.Scrollbar(frame)
-        self.tagResults = TagResults(frame, scrollbar)
+        self.tagResults = widgets.TagResults(frame, scrollbar)
         scrollbar.config(command=self.tagResults.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.tagResults.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)

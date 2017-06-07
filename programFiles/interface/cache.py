@@ -19,10 +19,6 @@ Margaret, 4/22/17
 Changed style of code to conform to the PEP8 styleguide.
 """
 
-
-import tkinter as tk
-
-
 class Cache(dict):
     """ Cache to save information about a word in FramedText """
     
@@ -34,6 +30,7 @@ class Cache(dict):
         self["stop"] = None
         self["entries"] = []
         self["selectedEntry"] = 0
+        self["skip"] = False
 
     def selectionIndex(self):
         print("returning", self["selectedEntry"])

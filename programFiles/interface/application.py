@@ -99,12 +99,13 @@ sys.path.insert(0, '../')
 import tkinter as tk
 from tkinter import filedialog # do we need this?
 
-from EntryWindow import *
-from FramedText import *
-from LeftSidebar import *
-from Menubar import *
-from Sidebar import *
-from StyleSheet import *
+from index import Index
+from entry_window import EntryWindow
+from text_view import TextView
+from left_sidebar import LeftSidebar
+from menubar import Menubar
+from sidebar import Sidebar
+from stylesheet import StyleSheet
 
 
 class Application:
@@ -123,7 +124,8 @@ class Application:
         
         # Set title, dim, index, & paned window.
         self.root.wm_title("William & Mary Index Tagger")
-        self.dim = self._getDim()
+        self.dim = ( self.root.winfo_screenwidth(), 
+                     self.root.winfo_screenheight() )
         self.mainFrame = tk.PanedWindow(
             self.root, orient=tk.HORIZONTAL, sashrelief=tk.GROOVE, 
             height=self.dim[1], opaqueresize=False)
@@ -143,7 +145,6 @@ class Application:
 
     def _getDim(self):
         """Return dimensions of the screen."""
-        return (self.root.winfo_screenwidth(), self.root.winfo_screenheight())
 
     def _setStyles(self, name="bella"):
         """Set the formatting of the application."""
@@ -179,7 +180,7 @@ class Application:
 
         tframe = tk.Frame(self.mainFrame)
         scrollbar = tk.Scrollbar(tframe)
-        self.fText = FramedText(tframe, self.index, self.styles, scrollbar)
+        self.fText = TextView(tframe, self.index, self.styles, scrollbar)
         scrollbar.config(command=self.fText.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.fText.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)

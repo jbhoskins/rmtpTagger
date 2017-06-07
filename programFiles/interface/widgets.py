@@ -25,7 +25,7 @@ Changed style of code to conform to the PEP8 styleguide.
 
 import tkinter as tk
 
-from WordCache import *
+from cache import Cache
 
 
 class TagResults(tk.Listbox):
@@ -93,27 +93,4 @@ class CurrentTagField(tk.Label):
     def update(self, string):
         string = "Current:  " + string
         self.config(text=string)
-
-
-class Table(tk.Text):
-    def __init__(self, frame):
-        tk.Text.__init__(self, frame)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

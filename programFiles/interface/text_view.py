@@ -33,12 +33,11 @@ import math
 import re
 import tkinter as tk
 
-from Index import *
-from KeywordTable import *
-from WordCache import *
+from keyword_table import KeywordTable
+from cache import Cache
 
 
-class FramedText(tk.Text):
+class TextView(tk.Text):
     def __init__(self, Frame, indexObject, styles, scrollbar):
         """Initialize the text, keyword table, index, styles, variable 
         tags, and widgets.
@@ -145,7 +144,7 @@ class FramedText(tk.Text):
         """Build a sorted table of all non-pronoun tags along with their 
         start and stop indices. 
         """
-        self.keywordTable[:] = []
+        self.keywordTable.reset()
         string = self.get("1.0", tk.END)
         
         # Ideally, make a generator for each relevant line
