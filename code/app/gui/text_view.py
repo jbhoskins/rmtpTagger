@@ -33,12 +33,13 @@ import math
 import re
 import tkinter as tk
 
-from app.backend.keyword_table import KeywordTable
-from app.backend.cache import Cache
+from app.backend.keyword_instance_table import KeywordInstanceTable
+from app.backend.keyword_instance import KeywordInstance
+import app.gui.view_controller as view
 
 
-class TextView(tk.Text):
-    def __init__(self, Frame, indexObject, styles, scrollbar):
+class TextView(tk.Text, view.Viewer):
+    def __init__(self, Frame, keywordInstanceTable, styles, scrollbar):
         """Initialize the text, keyword table, index, styles, variable 
         tags, and widgets.
         """
@@ -46,8 +47,7 @@ class TextView(tk.Text):
         
         # The following needs "object" name so as not to overwrite the 
         # Text method Text.index()
-        self.indexObject = indexObject         
-        self.keywordTable = KeywordTable()
+        self._keywordTable = keywordInstanceTable
         self.styles = styles
         
         self._styleFrame()
@@ -66,17 +66,16 @@ class TextView(tk.Text):
         string = f.read()
         string = string.replace("ё", "е")
         f.close()
+
+        self._keywordTable.fillTable(string)
         
         self.config(state=tk.NORMAL)
         self.delete("1.0", tk.END)
         self.insert("1.0", string, "bigger")
-    
-        # Not sure the utility of making this optional 
-        if makeTable is True:
-            self._makeTable()
-        
+            
         self._tagPersons()
-        self.config(state=tk.DISABLED)    
+        self.tagAllElementsInTable()
+        self.config(state=tk.DISABLED) 
     
     def _styleFrame(self):
         """Style the whole frame."""
@@ -140,88 +139,10 @@ class TextView(tk.Text):
     #-------------------------------------------------------------------
     # Making and tagging from table.
 
-    def _makeTable(self):
-        """Build a sorted table of all non-pronoun tags along with their 
-        start and stop indices. 
-        """
-        self.keywordTable.reset()
-        string = self.get("1.0", tk.END)
-        
-        # Ideally, make a generator for each relevant line
-        iterator = re.finditer("\w+", string) 
-        keyword = ""
-        cacheItem = Cache()
-        foundMatch = False
-        word = next(iterator)
-        
-        try:
-            while True: # Gods of CS, forgive this infinite loop.
-                inx = int(self.index("1.0+%sc" % word.start()).split(".")[0])
-                
-                # Only run the next bit if it's an interviewee.
-                if  (inx % 4 - 1) != 0:
-                    testCode = self.indexObject.multiTest(word.group().lower())
-    
-                    # For this next block of if, elif, else:
-                    # Using the testCode, save object information:
-                    # 2 = unique match found, 
-                    # 1 = potential match,
-                    # 0 = no match.                     
-                    if testCode == 0:
-                        
-                        # This is the point when an entry is actually 
-                        # saved. When it finds a match, it waits until 
-                        # it hits a zero to save it, in case there are a
-                        # couple keys like so: "фон", "фон триер". We  
-                        # want the second, longer tag, not the shorter.
-                        if foundMatch:
-                            cacheItem["string"] = keyword
-                            self.keywordTable.append(cacheItem)  
-                            
-                            # Reset the saved values.
-                            keyword = ""
-                            cacheItem = Cache()
-                            foundMatch = False
-                            
-                            # Continue rechecks the same word with a re-
-                            # set multiTest, in case two keywords are 
-                            # next to each other.
-                            continue
-
-                        keyword = ""
-                        cacheItem = Cache()
-                    
-                    elif testCode == 1:
-                        # If there is a word, add a space before the
-                        # next one.                       
-                        if keyword != "":
-                            keyword += " "
-                        else:
-                            cacheItem["start"] = word.start()
-                        keyword += word.group()
-                        
-                    else:
-                        if keyword != "":
-                            keyword += " "
-                        else:
-                            cacheItem["start"] = word.start()
-        
-                        keyword += word.group()
-                        cacheItem["stop"] = word.end()
-                        foundMatch = True
-                        
-                word = next(iterator)
-
-        except StopIteration:
-            # May need to save the last information, in case the final 
-            # word is a keyword
-            pass
-        self.tagAllElementsInTable()                     
-        
     def tagAllElementsInTable(self):
         """Function description here."""
-        for word in self.keywordTable:
-            results = self.indexObject.lookup(word.string().lower())
+        for word in self._keywordTable:
+            results = word.entries()
             self._applyTag(word, results)
 
         #cur = self.index("1.0+%sc" % 20163) # hardcoding?
@@ -232,20 +153,25 @@ class TextView(tk.Text):
     #-------------------------------------------------------------------
     # Extra functions.
     
-    def cacheWord(self, event):
+    def onClick(self, event):
         """Cache the word that has been clicked on."""        
-        location = self.index("@%s,%s" % (event.x, event.y))        
-        current = self.keywordTable.currentVal()
-        self.tag_remove(
-            "cur", "1.0+%sc" % current.start(),"1.0+%sc" % current.stop())   
+        location = self.index("@%s,%s" % (event.x, event.y))
+
+#        current = self.keywordTable.currentVal()
+#        self.tag_remove(
+#            "cur", "1.0+%sc" % current.start(),"1.0+%sc" % current.stop())   
 
         charCount = self.count("1.0", location)[0] # O(n)?
-        current = self.keywordTable.lookup(charCount)
-        if self.keywordTable.currentVal().entries() == []:
-            word = current.string().lower()
-            self.keywordTable.saveEntries(self.indexObject.lookup(word))
-        self.tag_add(
-            "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
+        self._keywordTable.lookup(charCount)
+        print("REDRAWING")
+        self._keywordTable.notifyViewersRedraw()
+        
+#        current = self.keywordTable.lookup(charCount)
+#        if self.keywordTable.currentVal().entries() == []:
+#            word = current.string().lower()
+#            self.keywordTable.saveEntries(self.indexObject.lookup(word))
+#        self.tag_add(
+#            "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
 
     def move(self, offset):
         """Set the currently selected word to be the one offset by an 
@@ -269,10 +195,6 @@ class TextView(tk.Text):
         self.tag_add(
             "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
 
-    def getCache(self):
-        """Return the cache."""
-        return self.keywordTable.currentVal()
-
     def getString(self):
         """Return a string of the current selection."""
         current = self.index(tk.CURRENT)
@@ -289,6 +211,19 @@ class TextView(tk.Text):
         string = self.get(wordStart, current + ' wordend')
             
         return string
+
+
+    def update(self):
+        currentEntry = self._keywordTable.getCurrentEntry()
+
+        self.tag_remove("cur", "1.0", tk.END)        
+        self.tag_add(
+            "cur", "1.0+%sc" % currentEntry.start(), 
+            "1.0+%sc" % currentEntry.stop())
+
+
+
+
         
     
 #-----------------------------------------------------------------------

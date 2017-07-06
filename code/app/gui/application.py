@@ -101,7 +101,7 @@ sys.path.insert(0, '../')
 import tkinter as tk
 from tkinter import filedialog # do we need this?
 
-from app.backend.index import Index
+from app.backend.keyword_instance_table import KeywordInstanceTable
 from app.gui.entry_window import EntryWindow
 from app.gui.text_view import TextView
 from app.gui.left_sidebar import LeftSidebar
@@ -109,6 +109,7 @@ from app.gui.menubar import Menubar
 from app.gui.sidebar import Sidebar
 from app.gui.stylesheet import StyleSheet
 
+from app.backend.keyword_instance_table import KeywordInstanceTable
 
 class Application:
     def __init__(self):
@@ -131,16 +132,18 @@ class Application:
         self.mainFrame = tk.PanedWindow(
             self.root, orient=tk.HORIZONTAL, sashrelief=tk.GROOVE, 
             height=self.dim[1], opaqueresize=False)
-        self.index = Index("../../META/index.xml")
+
+        # Initialize the table used by the program
+        self._keywordTable = KeywordInstanceTable()
         
         # Set styles, widgets, frame, and bind keys.
         self._setStyles()
         self._addWidgets()
+        self._registerViewers()
         self.mainFrame.pack_propagate(0)
         self.mainFrame.pack(fill=tk.BOTH, expand=True)
         self._bindKeys()
         self._styleApp()
-
 
     #-------------------------------------------------------------------
     # Styling.
@@ -182,14 +185,14 @@ class Application:
 
         tframe = tk.Frame(self.mainFrame)
         scrollbar = tk.Scrollbar(tframe)
-        self.fText = TextView(tframe, self.index, self.styles, scrollbar)
+        self.fText = TextView(tframe, self._keywordTable, self.styles, scrollbar)
         scrollbar.config(command=self.fText.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.fText.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
         self.mainFrame.add(tframe, width=(screenWidth // 2), stretch="always")
 
         self.sidebar = Sidebar(
-            self.mainFrame, self.fText, self.index, self.styles)
+            self.mainFrame, self.fText, self.styles, self._keywordTable)
         self.mainFrame.add(
             self.sidebar, width=(screenWidth // 4), stretch="never")
         
@@ -199,21 +202,21 @@ class Application:
     def _bindKeys(self):
         """Bind all clicks and key presses to commands."""
         self.fText.tag_bind(
-            "foundWord", "<Button-1>", self.sidebar.showTagResultsOnClick)
+            "foundWord", "<Button-1>", self.fText.onClick)
         self.sidebar.tagResults.bind(
-            "<ButtonRelease-1>", self.sidebar.showSelectionInfo)
+            "<ButtonRelease-1>", self.sidebar.tagResults.onClick)
         
-        self.root.bind("<Right>", self.moveRight)
-        self.root.bind("<Left>", self.moveLeft)
-        self.root.bind("<Up>", self.prevTag)
-        self.root.bind("<Down>", self.nextTag)
+#        self.root.bind("<Right>", self.moveRight)
+#        self.root.bind("<Left>", self.moveLeft)
+#        self.root.bind("<Up>", self.sidebar.prevTag)
+#        self.root.bind("<Down>", self.sidebar.nextTag)
 
-        self.fText.tag_bind(
-            "interviewee", "<ButtonRelease-3>", self._showTagMenu)
-        self.fText.tag_bind(
-            "interviewee", "<ButtonRelease-2>", self._showTagMenu)
+ #       self.fText.tag_bind(
+ #           "interviewee", "<ButtonRelease-3>", self._showTagMenu)
+ #       self.fText.tag_bind(
+ #           "interviewee", "<ButtonRelease-2>", self._showTagMenu)
             
-        self.sidebar.tagResults.populateTags([])
+#        self.sidebar.tagResults.populateTags([])
 
     def moveRight(self, event):
         # Should be in framed text, but here for testing purposes.
@@ -229,15 +232,16 @@ class Application:
         self.sidebar.showTagResults()
         self.sidebar.showSelectionInfo(0)
 
-    def nextTag(self, event):
-        newSel = self.sidebar.tagResults.move(1)
-        self.sidebar.tagResults.see(newSel)
-        self.sidebar.showSelectionInfo(0)
+    def _registerViewers(self):
+        
+        # Initialize the program state and register viewers
+        self._keywordTable.registerViewer(self.fText)
+        self._keywordTable.registerViewer(self.sidebar.tagResults)
+        self._keywordTable.registerViewer(self.sidebar.currentTag)
+        self._keywordTable.registerViewer(self.sidebar.tagInfoField)
 
-    def prevTag(self, event):
-        newSel = self.sidebar.tagResults.move(-1)
-        self.sidebar.tagResults.see(newSel)
-        self.sidebar.showSelectionInfo(0)
+
+
 
     #-------------------------------------------------------------------
     # Hover (in progress)

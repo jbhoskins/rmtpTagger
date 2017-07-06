@@ -30,29 +30,30 @@ import tkinter as tk
 import app.gui.widgets as widgets
 
 class Sidebar(tk.PanedWindow):
-    def __init__(self, parentFrame, fText, index, styles):
+    def __init__(self, parentFrame, fText, styles, keywordTable):
         tk.PanedWindow.__init__(self, parentFrame, orient=tk.VERTICAL)
         
         self.parent = parentFrame       
-        self.index = index
         self.fText = fText
         self.styles = styles
         self.exportTags = []
         self.bg = self.styles.c_2
         
+        self._keywordTable = keywordTable
+
         self._addWidgets()
         self._styleWidgets()
 
     def _addWidgets(self):
         """Declare and pack all the widgets used in the sidebar."""
-        self.currentTag = widgets.CurrentTagField(self)
-        self.tagInfoField = widgets.TagInformationField(self)
+        self.currentTag = widgets.CurrentTagField(self, self._keywordTable)
+        self.tagInfoField = widgets.TagInformationField(self, self._keywordTable)
         self.tagLabel = tk.Label(self, text="Tag Results")
         
         # Frame is to keep scrollbar next to text.
         frame = tk.Frame(self)
         scrollbar = tk.Scrollbar(frame)
-        self.tagResults = widgets.TagResults(frame, scrollbar)
+        self.tagResults = widgets.TagResults(frame, scrollbar, self._keywordTable)
         scrollbar.config(command=self.tagResults.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.tagResults.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
@@ -66,55 +67,15 @@ class Sidebar(tk.PanedWindow):
         # Initialize to empty fields.
         self.tagResults.populateTags([])
 
-    def showTagResultsOnClick(self, event):
-        # Update the cache.
-        self.fText.cacheWord(event)
-        # Zero passes as event.
-        self.showTagResults()
+    def nextTag(self, event):
+        newSel = self.tagResults.move(1)
+        self.tagResults.see(newSel)
+        self.showSelectionInfo(0)
 
-    def showTagResults(self):
-        """Update the tagResults widget (inherits from ListBox) with the 
-        word in the FramedText cache. Automatically fills the 
-        tagInfoField with first tag.
-        """
-        cache = self.fText.getCache()
-        print("cce", cache)
-        self.tagResults.populateTags(
-            [entry.xmlId() for entry in cache.entries()])
-
-        if cache.selectionIndex() is not None:
-            self.tagResults.selection_set(cache.selectionIndex() + 1)
-            self.currentTag.update(cache.selection().xmlId())
-        else:
-            self.currentTag.update("NO TAG")
-            self.tagResults.selection_set(0)
-   
-    def showSelectionInfo(self, event):
-        """Get the selection from the tagResults box and display its 
-        information in tagInfoField.
-        """
-        selectionIndex = self.tagResults.curSelection()
-        cache = self.fText.keywordTable.currentVal()
-        
-        if selectionIndex == 0:
-            cache["selectedEntry"] = None
-            ndx = 0
-            string = ""
-        else:
-            cache["selectedEntry"] = selectionIndex - 1
-            ndx = cache.selectionIndex() + 1
-            string = cache.selection()
-        
-        self.tagInfoField.updateInformation(string)
-        self.tagResults.selection_set(ndx)
-
-        # Catches when cache.selectedEntry is None
-        try:
-            string = cache.selection().xmlId()
-        except TypeError:
-            string = "NO TAG"
-
-        self.currentTag.update(string)
+    def prevTag(self, event):
+        newSel = self.tagResults.move(-1)
+        self.tagResults.see(newSel)
+        self.showSelectionInfo(0)
         
         
     #-----------------------------------------------

@@ -197,7 +197,7 @@ class Index:
 
 
 if __name__ == '__main__':
-    ndx = Index('../META/index.xml')
+    ndx = Index('../../META/index.xml')
     ndx.print_()
 
     print("test", ndx.multiTest("ирония"))
@@ -206,3 +206,16 @@ if __name__ == '__main__':
     print("test", ndx.multiTest("с"))
     print("test", ndx.multiTest("легким"))
     print("test", ndx.multiTest("паром"))
+   
+    print("Next:")
+    print("test", ndx.multiTest("кинотеатр"))
+    print("test", ndx.multiTest("кинотеатр"))
+    print("test", ndx.multiTest("аврора"))
+    print("test", ndx.multiTest("пп"))
+    print("test", ndx.multiTest("пп"))
+
+
+    print("Next:")
+    print("test", ndx.multiTest("кинотеатров"))
+    print("test", ndx.multiTest("кинотеатры"))
+    print("test", ndx.multiTest("кинотеатр"))

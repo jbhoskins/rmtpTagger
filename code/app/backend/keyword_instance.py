@@ -19,7 +19,7 @@ Margaret, 4/22/17
 Changed style of code to conform to the PEP8 styleguide.
 """
 
-class Cache(dict):
+class KeywordInstance(dict):
     """ Cache to save information about a word in FramedText """
     
     def __init__(self):
