@@ -221,6 +221,8 @@ class TextView(tk.Text, view.Viewer):
             "cur", "1.0+%sc" % currentEntry.start(), 
             "1.0+%sc" % currentEntry.stop())
 
+        self.see("1.0+%sc" % currentEntry.start())
+
 
 
 

@@ -77,33 +77,39 @@ class KeywordInstanceTable(list):
         self[:] = []
         self._current = 0
 
-    def nextValidEntry(self, setOfInvalidWords):
+    def nextValidEntry(self, setOfInvalidWords = {}):
         """ Returns the next valid entry that is not a member of the invalid
         set, and set the cursor to that index."""
         
-        i = 0
-        while i < len(self) and self[self._current + i] in setOfInvalidWords:
-            i += 1
+        # Not yet implemented yet. Dummy method to maintain functinoality
+        self._current = (self._current + 1) % len(self)
 
-        if i == len(self):
-            return None
-
-        self._current = self._current + i
-        return self.currentVal()
-
-    def previousValidEntry(self, setOfInvalidWords):
+    def previousValidEntry(self, setOfInvalidWords = {}):
         """ Returns the next valid entry that is not a member of the invalid
         set, and set the cursor to that index."""
         
-        i = 0
-        while i < len(self) and self[self._current + i] in setOfInvalidWords:
-            i -= 1
+        # Not yet implemented yet. Dummy method to maintain functinoality
+        self._current = (self._current - 1) % len(self)
 
-        if i == len(self):
-            return None
+    def nextTag(self):
+        
+        # Some weird mod arithmetic here, but it is needed to move seamlessly
+        # through the range, (-1, len(possibleTags) - 1)
+        self.getCurrentEntry()["selectedEntry"] += 2
+        self.getCurrentEntry()["selectedEntry"] %=\
+        (len(self.getCurrentEntry().entries()) + 1)
+        self.getCurrentEntry()["selectedEntry"] -= 1
 
-        self._current = self._current + i
-        return self.currentVal()
+
+    def prevTag(self):
+        
+        # Some weird mod arithmetic here, but it is needed to move seamlessly
+        # through the range, (-1, len(possibleTags) - 1)
+        self.getCurrentEntry()["selectedEntry"] %=\
+        (len(self.getCurrentEntry().entries()) + 1)
+        self.getCurrentEntry()["selectedEntry"] -= 1
+
+        
 
     def printTable(self):
         for line in self:

@@ -67,13 +67,6 @@ class TagResults(tk.Listbox, view.Viewer):
         else:
             return ""
 
-    def move(self, offset):
-        sel = self.curSelection()
-        self.selection_clear(0, tk.END)
-        newSel = (sel + offset) % self.size()
-        self.selection_set(newSel)
-        return newSel
-
     def onClick(self, event):
         self._keywordTable.getCurrentEntry()["selectedEntry"] =\
             self.curSelection() - 1
@@ -96,6 +89,7 @@ class TagResults(tk.Listbox, view.Viewer):
             self.populateTags([entry.xmlId() for entry in currentEntry.entries()])
             self._oldEntry = currentEntry
 
+        self.selection_clear(0, tk.END)
         print("SEL:", currentEntry.selectionIndex())
         if currentEntry.selectionIndex() is not None:
             self.selection_set(currentEntry.selectionIndex() + 1)
@@ -130,7 +124,6 @@ class TagInformationField(tk.Text, view.Viewer):
        
         print("Current sel:", currentSelection)
         if currentSelection == -1:
-            currentEntry["selectedEntry"] = None
             string = ""
         else:
             string = str(currentEntry.selection())

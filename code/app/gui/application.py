@@ -206,10 +206,10 @@ class Application:
         self.sidebar.tagResults.bind(
             "<ButtonRelease-1>", self.sidebar.tagResults.onClick)
         
-#        self.root.bind("<Right>", self.moveRight)
-#        self.root.bind("<Left>", self.moveLeft)
-#        self.root.bind("<Up>", self.sidebar.prevTag)
-#        self.root.bind("<Down>", self.sidebar.nextTag)
+        self.root.bind("<Right>", self.moveRight)
+        self.root.bind("<Left>", self.moveLeft)
+        self.root.bind("<Up>", self.prevTag)
+        self.root.bind("<Down>", self.nextTag)
 
  #       self.fText.tag_bind(
  #           "interviewee", "<ButtonRelease-3>", self._showTagMenu)
@@ -219,19 +219,21 @@ class Application:
 #        self.sidebar.tagResults.populateTags([])
 
     def moveRight(self, event):
-        # Should be in framed text, but here for testing purposes.
-        self.fText.move(1)
-        self.fText.see("1.0+%sc" % self.fText.getCache().start())
-        self.sidebar.showTagResults()
-        self.sidebar.showSelectionInfo(0)
+        self._keywordTable.nextValidEntry()
+        self._keywordTable.notifyViewersRedraw()
 
     def moveLeft(self, event):
-        # Should be in framed text, but here for testing purposes.
-        self.fText.move(-1)
-        self.fText.see("1.0+%sc" % self.fText.getCache().start())
-        self.sidebar.showTagResults()
-        self.sidebar.showSelectionInfo(0)
+        self._keywordTable.previousValidEntry()
+        self._keywordTable.notifyViewersRedraw()
 
+    def prevTag(self, event):
+        self._keywordTable.prevTag()
+        self._keywordTable.notifyViewersRedraw()
+        
+    def nextTag(self, event):
+        self._keywordTable.nextTag()
+        self._keywordTable.notifyViewersRedraw()
+    
     def _registerViewers(self):
         
         # Initialize the program state and register viewers

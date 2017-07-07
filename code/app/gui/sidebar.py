@@ -67,16 +67,6 @@ class Sidebar(tk.PanedWindow):
         # Initialize to empty fields.
         self.tagResults.populateTags([])
 
-    def nextTag(self, event):
-        newSel = self.tagResults.move(1)
-        self.tagResults.see(newSel)
-        self.showSelectionInfo(0)
-
-    def prevTag(self, event):
-        newSel = self.tagResults.move(-1)
-        self.tagResults.see(newSel)
-        self.showSelectionInfo(0)
-        
         
     #-----------------------------------------------
     # Styling.
