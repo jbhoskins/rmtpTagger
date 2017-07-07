@@ -136,11 +136,9 @@ class TextView(tk.Text, view.Viewer):
         self.tag_add("foundWord", wordStart, wordEnd)
 
 
-    #-------------------------------------------------------------------
-    # Making and tagging from table.
-
     def tagAllElementsInTable(self):
-        """Function description here."""
+        """ Tags every keyword present in the keywordTable with its appropiate
+        color. Only called once when first loading text from file. """
         for word in self._keywordTable:
             results = word.entries()
             self._applyTag(word, results)
@@ -151,69 +149,20 @@ class TextView(tk.Text, view.Viewer):
         
         
     #-------------------------------------------------------------------
-    # Extra functions.
+    # User interaction and graphical functions.
     
     def onClick(self, event):
         """Cache the word that has been clicked on."""        
         location = self.index("@%s,%s" % (event.x, event.y))
-
-#        current = self.keywordTable.currentVal()
-#        self.tag_remove(
-#            "cur", "1.0+%sc" % current.start(),"1.0+%sc" % current.stop())   
 
         charCount = self.count("1.0", location)[0] # O(n)?
         self._keywordTable.lookup(charCount)
         print("REDRAWING")
         self._keywordTable.notifyViewersRedraw()
         
-#        current = self.keywordTable.lookup(charCount)
-#        if self.keywordTable.currentVal().entries() == []:
-#            word = current.string().lower()
-#            self.keywordTable.saveEntries(self.indexObject.lookup(word))
-#        self.tag_add(
-#            "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
-
-    def move(self, offset):
-        """Set the currently selected word to be the one offset by an 
-        integer value.
-        """
-        try:
-            current = self.keywordTable.currentVal()
-        except:
-            # Catches first run issue
-            return
-        
-        self.tag_remove(
-            "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())   
-        self.keywordTable.setCurrent(
-            (self.keywordTable.getVal() + offset) % len(self.keywordTable))
-        current = self.keywordTable.currentVal()
-
-        if self.keywordTable.currentVal().entries() == []:
-            word = current.string().lower()
-            self.keywordTable.saveEntries(self.indexObject.lookup(word))
-        self.tag_add(
-            "cur", "1.0+%sc" % current.start(), "1.0+%sc" % current.stop())
-
-    def getString(self):
-        """Return a string of the current selection."""
-        current = self.index(tk.CURRENT)
-        cur_word = self.get(current + expr)
-        omits = ['\n', '']
-        count = 1
-        expr = ''
-        while cur_word not in omits and count < 100:
-            count += 1
-            expr = '- ' + str(count - 1) + ' c'
-            cur_word = self.get(current + expr)
-            
-        wordStart = current + expr + '+1c'
-        string = self.get(wordStart, current + ' wordend')
-            
-        return string
-
-
     def update(self):
+        """ Moves the current coloring to the correct entry as per the
+        keywordTable. """
         currentEntry = self._keywordTable.getCurrentEntry()
 
         self.tag_remove("cur", "1.0", tk.END)        
@@ -222,12 +171,7 @@ class TextView(tk.Text, view.Viewer):
             "1.0+%sc" % currentEntry.stop())
 
         self.see("1.0+%sc" % currentEntry.start())
-
-
-
-
-        
-    
+ 
 #-----------------------------------------------------------------------
 # Main.
 

@@ -30,6 +30,7 @@ class Menubar(tk.Menu):
         FileMenu(self, app)
         ThemeMenu(self, app)
         ToolsMenu(self, app)
+        IndexMenu(self, app)
         
         app._root.config(menu=self)
 
@@ -100,7 +101,7 @@ class FileMenu(DropdownMenu):
         self.app.fText.loadText(filePath)
 
 
-class ThemeMenu(tk.Menu):
+class ThemeMenu(DropdownMenu):
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
         self.add_command(
@@ -118,7 +119,7 @@ class ThemeMenu(tk.Menu):
         
         menubar.add_cascade(label="Theme", menu=self)
 
-class ToolsMenu(tk.Menu):
+class ToolsMenu(DropdownMenu):
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
         self.add_command(label="Hide Greens")
@@ -128,3 +129,14 @@ class ToolsMenu(tk.Menu):
         self.add_command(label="Edit index...")
         
         menubar.add_cascade(label="Tools", menu=self)
+
+class IndexMenu(DropdownMenu):
+    def __init__(self, menubar, app):
+        DropdownMenu.__init__(self, menubar, app)
+        self.add_command(label="Suggest new word")
+        self.add_command(label="Edit index...")
+        self.add_separator()
+        self.add_command(label="Check for updates to index....")
+        self.add_command(label="Submit updates to index...")
+        
+        menubar.add_cascade(label="Index", menu=self)

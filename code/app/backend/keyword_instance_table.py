@@ -68,10 +68,6 @@ class KeywordInstanceTable(list):
         """Returns the index of the current value."""
         return self._current
 
-    def setCursor(self, value):
-        """Sets the value of the 'current' cursor."""
-        self._current = value
-
     def reset(self):
         """Dereferences the table, and resets the current cursor to 0."""
         self[:] = []
@@ -107,15 +103,7 @@ class KeywordInstanceTable(list):
         # through the range, (-1, len(possibleTags) - 1)
         self.getCurrentEntry()["selectedEntry"] %=\
         (len(self.getCurrentEntry().entries()) + 1)
-        self.getCurrentEntry()["selectedEntry"] -= 1
-
-        
-
-    def printTable(self):
-        for line in self:
-            print(line)
-
-
+        self.getCurrentEntry()["selectedEntry"] -= 1 
 
     def fillTable(self, string):
         """Build a sorted table of all non-pronoun tags along with their 
