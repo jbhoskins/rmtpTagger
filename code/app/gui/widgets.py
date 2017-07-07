@@ -137,15 +137,12 @@ class CurrentTagField(tk.Label, view.Viewer):
 
     def update(self):
         
-        # Catches when cache.selectedEntry is None
-        
         selectionIndex = self._keywordTable.getCurrentEntry().selectionIndex()
         
         if selectionIndex == -1:
             string = "NO TAG"
         else:
             string = str(self._keywordTable.getCurrentEntry().selection().xmlId())
-        
         
         string = "Current:  " + string
         self.config(text=string)

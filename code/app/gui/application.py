@@ -116,22 +116,22 @@ class Application:
         """Initialize and style root; set styles, widgets, and frames, 
         make sure app opens properly.
         """
-        self.root = tk.Tk()
+        self._root = tk.Tk()
         
         # Pull window to the top, but not permanently.
-        self.root.lift()
-        self.root.call('wm', 'attributes', '.', '-topmost', True)
-        self.root.after_idle(
-            self.root.call, 'wm', 'attributes', '.', '-topmost', False)
-        self.root.focus_set()
+        self._root.lift()
+        self._root.call('wm', 'attributes', '.', '-topmost', True)
+        self._root.after_idle(
+            self._root.call, 'wm', 'attributes', '.', '-topmost', False)
+        self._root.focus_set()
         
         # Set title, dim, index, & paned window.
-        self.root.wm_title("William & Mary Index Tagger")
-        self.dim = ( self.root.winfo_screenwidth(), 
-                     self.root.winfo_screenheight() )
-        self.mainFrame = tk.PanedWindow(
-            self.root, orient=tk.HORIZONTAL, sashrelief=tk.GROOVE, 
-            height=self.dim[1], opaqueresize=False)
+        self._root.wm_title("William & Mary Index Tagger")
+        self._dim = ( self._root.winfo_screenwidth(), 
+                     self._root.winfo_screenheight() )
+        self._mainFrame = tk.PanedWindow(
+            self._root, orient=tk.HORIZONTAL, sashrelief=tk.GROOVE, 
+            height=self._dim[1], opaqueresize=False)
 
         # Initialize the table used by the program
         self._keywordTable = KeywordInstanceTable()
@@ -140,8 +140,8 @@ class Application:
         self._setStyles()
         self._addWidgets()
         self._registerViewers()
-        self.mainFrame.pack_propagate(0)
-        self.mainFrame.pack(fill=tk.BOTH, expand=True)
+        self._mainFrame.pack_propagate(0)
+        self._mainFrame.pack(fill=tk.BOTH, expand=True)
         self._bindKeys()
         self._styleApp()
 
@@ -153,18 +153,18 @@ class Application:
 
     def _setStyles(self, name="bella"):
         """Set the formatting of the application."""
-        self.styles = StyleSheet(name, dim=self.dim)
+        self._styles = StyleSheet(name, dim=self._dim)
         
     def _styleApp(self):
         """Style the application."""
-        self.root.config(bg=self.styles.c_1)
+        self._root.config(bg=self._styles.c_1)
         
-        self.legend.configStyles(styles=self.styles)
-        self.legend.config(bg=self.styles.c_2)
+        self._legend.configStyles(styles=self._styles)
+        self._legend.config(bg=self._styles.c_2)
         
-        self.fText.configStyles(styles=self.styles)
+        self._textView.configStyles(styles=self._styles)
         
-        self.sidebar.configStyles(styles=self.styles)    
+        self._sidebar.configStyles(styles=self._styles)    
         #self.sidebarFrame.config(bg=self.styles.c_2)
         
     def _changeTheme(self, name):
@@ -178,38 +178,38 @@ class Application:
         
     def _addWidgets(self):
         """Create and fill the text box, sidebar and menu."""
-        screenWidth = self.styles.dimensions[0]
-        self.legend = LeftSidebar(self.mainFrame, self.styles)
-        self.mainFrame.add(
-            self.legend, width=(screenWidth // 8), stretch="never")
+        screenWidth = self._styles.dimensions[0]
+        self._legend = LeftSidebar(self._mainFrame, self._styles)
+        self._mainFrame.add(
+            self._legend, width=(screenWidth // 8), stretch="never")
 
-        tframe = tk.Frame(self.mainFrame)
+        tframe = tk.Frame(self._mainFrame)
         scrollbar = tk.Scrollbar(tframe)
-        self.fText = TextView(tframe, self._keywordTable, self.styles, scrollbar)
-        scrollbar.config(command=self.fText.yview)
+        self._textView = TextView(tframe, self._keywordTable, self._styles, scrollbar)
+        scrollbar.config(command=self._textView.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.fText.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
-        self.mainFrame.add(tframe, width=(screenWidth // 2), stretch="always")
+        self._textView.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
+        self._mainFrame.add(tframe, width=(screenWidth // 2), stretch="always")
 
-        self.sidebar = Sidebar(
-            self.mainFrame, self.fText, self.styles, self._keywordTable)
-        self.mainFrame.add(
-            self.sidebar, width=(screenWidth // 4), stretch="never")
+        self._sidebar = Sidebar(
+            self._mainFrame, self._textView, self._styles, self._keywordTable)
+        self._mainFrame.add(
+            self._sidebar, width=(screenWidth // 4), stretch="never")
         
-        self.menubar = Menubar(self)
+        self._menubar = Menubar(self)
         self._makeTagMenu()
 
     def _bindKeys(self):
         """Bind all clicks and key presses to commands."""
-        self.fText.tag_bind(
-            "foundWord", "<Button-1>", self.fText.onClick)
-        self.sidebar.tagResults.bind(
-            "<ButtonRelease-1>", self.sidebar.tagResults.onClick)
+        self._textView.tag_bind(
+            "foundWord", "<Button-1>", self._textView.onClick)
+        self._sidebar.tagResults.bind(
+            "<ButtonRelease-1>", self._sidebar.tagResults.onClick)
         
-        self.root.bind("<Right>", self.moveRight)
-        self.root.bind("<Left>", self.moveLeft)
-        self.root.bind("<Up>", self.prevTag)
-        self.root.bind("<Down>", self.nextTag)
+        self._root.bind("<Right>", self.moveRight)
+        self._root.bind("<Left>", self.moveLeft)
+        self._root.bind("<Up>", self.prevTag)
+        self._root.bind("<Down>", self.nextTag)
 
  #       self.fText.tag_bind(
  #           "interviewee", "<ButtonRelease-3>", self._showTagMenu)
@@ -218,10 +218,11 @@ class Application:
             
 #        self.sidebar.tagResults.populateTags([])
 
+# ------------------- Methods bound to keys ----------------------
     def moveRight(self, event):
         self._keywordTable.nextValidEntry()
-        self._keywordTable.notifyViewersRedraw()
-
+        self._keywordTable.notifyViewersRedraw() # These redraw methods could
+                                                 # arguably be called within kt
     def moveLeft(self, event):
         self._keywordTable.previousValidEntry()
         self._keywordTable.notifyViewersRedraw()
@@ -236,24 +237,20 @@ class Application:
     
     def _registerViewers(self):
         
-        # Initialize the program state and register viewers
-        self._keywordTable.registerViewer(self.fText)
-        self._keywordTable.registerViewer(self.sidebar.tagResults)
-        self._keywordTable.registerViewer(self.sidebar.currentTag)
-        self._keywordTable.registerViewer(self.sidebar.tagInfoField)
-
-
-
+        # Register the viewers
+        self._keywordTable.registerViewer(self._textView)
+        self._keywordTable.registerViewer(self._sidebar.tagResults)
+        self._keywordTable.registerViewer(self._sidebar.currentTag)
+        self._keywordTable.registerViewer(self._sidebar.tagInfoField)
 
     #-------------------------------------------------------------------
     # Hover (in progress)
 
     def on_enter(self, event):
-        self.fText.tag_add("cur", self.cur_line, self.cur_line + 1) 
+        self.textView.tag_add("cur", self.cur_line, self.cur_line + 1) 
 
     def on_leave(self, enter):
-        self.fText.tag_add("reg", self.cur_line, self.cur_line + 1)
-
+        self.textView.tag_add("reg", self.cur_line, self.cur_line + 1)
 
     #-------------------------------------------------------------------
     # The right click menu.
@@ -262,19 +259,19 @@ class Application:
         """Define the menu that will show when
         right-clicked.
         """
-        self.menuFrame = tk.Frame(self.root)
-        self.tagMenu = tk.Menu(self.menuFrame, tearoff=0)
-        self.tagMenu.add_command(label="tag here", command=print("tag"))
-        self.tagMenu.add_command(label="Add Tag", command=self._showTagScreen)
+        self._menuFrame = tk.Frame(self._root)
+        self._tagMenu = tk.Menu(self._menuFrame, tearoff=0)
+        self._tagMenu.add_command(label="tag here", command=print("tag"))
+        self._tagMenu.add_command(label="Add Tag", command=self._showTagScreen)
 
     def _showTagMenu(self, event):
         """Show the Menu pop up when right-clicked."""
-        self.tagMenu.post(event.x_root, event.y_root)
+        self._tagMenu.post(event.x_root, event.y_root)
     
     def _showTagScreen(self):
         """Display the New Tag Window."""
-        word = self.fText.getString()
-        self.add_tag = EntryWindow(self.root, word, self.styles)
+        word = self._textView.getString()
+        self._add_tag = EntryWindow(self.root, word, self.styles)
 
 
     #-------------------------------------------------------------------
@@ -282,7 +279,7 @@ class Application:
 
     def launch(self):
         """Launch the program."""
-        self.root.mainloop()
+        self._root.mainloop()
         
 
 #-----------------------------------------------------------------------

@@ -25,13 +25,13 @@ import tkinter as tk
 
 class Menubar(tk.Menu):
     def __init__(self, app):
-        tk.Menu.__init__(self, app.root)
+        tk.Menu.__init__(self, app._root)
         
         FileMenu(self, app)
         ThemeMenu(self, app)
         ToolsMenu(self, app)
         
-        app.root.config(menu=self)
+        app._root.config(menu=self)
 
 
 class DropdownMenu(tk.Menu):
