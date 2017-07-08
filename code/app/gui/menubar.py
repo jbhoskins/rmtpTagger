@@ -99,7 +99,7 @@ class FileMenu(DropdownMenu):
 
     def openFile(self):
         filePath = tk.filedialog.askopenfilename(initialdir="../../input/")
-        self.app.fText.loadText(filePath)
+        self.app._textView.loadText(filePath)
 
 
 class ThemeMenu(DropdownMenu):
