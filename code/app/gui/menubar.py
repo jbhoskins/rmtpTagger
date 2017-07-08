@@ -22,6 +22,7 @@ Changed style of code to conform to the PEP8 styleguide.
 
 import codecs 
 import tkinter as tk
+import app.gui.index_editor as index_editor
 
 class Menubar(tk.Menu):
     def __init__(self, app):
@@ -133,10 +134,16 @@ class ToolsMenu(DropdownMenu):
 class IndexMenu(DropdownMenu):
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
+        
+        self.app = app
+        
         self.add_command(label="Suggest new word")
-        self.add_command(label="Edit index...")
+        self.add_command(label="Edit index...", command=self.indexEditPop)
         self.add_separator()
         self.add_command(label="Check for updates to index....")
         self.add_command(label="Submit updates to index...")
         
         menubar.add_cascade(label="Index", menu=self)
+
+    def indexEditPop(self):
+        index_editor.IndexEditor(self.app.getRoot())

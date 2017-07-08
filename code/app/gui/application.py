@@ -148,6 +148,9 @@ class Application:
     #-------------------------------------------------------------------
     # Styling.
 
+    def getRoot(self):
+        return self._root
+
     def _getDim(self):
         """Return dimensions of the screen."""
 
