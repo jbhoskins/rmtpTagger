@@ -63,7 +63,7 @@ class StyleSheet:
             self.c_3 = "white"
             self.h_single = "#8585ad"
             self.h_multi = "#ffff80"
-            self.h_current = "yellow"      
+            self.h_current = "#ff66d9"      
             self.h_interviewer = "#666699"            
             
       def _Sasha(self):
