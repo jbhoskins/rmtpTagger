@@ -46,7 +46,8 @@ class LeftSidebar(tk.Frame):
         self.l1 = tk.Label(self, text = "Interviewer text")
         self.l2 = tk.Label(self, text = "Interviewee text")
         self.l3 = tk.Label(self, text = "Single key")
-        self.l4 = tk.Label(self, text = "Multiple Keys")       
+        self.l4 = tk.Label(self, text = "Multiple Keys")   
+        self.l5 = tk.Label(self, text = "Current Selection")
 
 
     #--------------------------------------
@@ -70,6 +71,8 @@ class LeftSidebar(tk.Frame):
             font=self.styles.f_text, bg=self.styles.h_single, pady=5)
         self.l4.config(
             font=self.styles.f_text, bg=self.styles.h_multi, pady=5)
+        self.l5.config(
+                    font=self.styles.f_text, bg=self.styles.h_current, pady=5)        
 
     def configStyles(self, styles):
         """Change the desired stylesheet."""
@@ -83,4 +86,5 @@ class LeftSidebar(tk.Frame):
         self.l1.pack()
         self.l2.pack()
         self.l3.pack()
-        self.l4.pack()        
+        self.l4.pack()    
+        self.l5.pack()
