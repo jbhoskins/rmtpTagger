@@ -1,21 +1,21 @@
  # A popup window that allows the user to add entries to a local, "mini index"
  # that can be sent out to merge with a universal copy.
 
+from app.gui.popup_window import PopupWindow
 import tkinter as tk
 from lxml import etree as ET
 
-class IndexEditor(tk.Toplevel):
+class IndexEditor(PopupWindow):
     def __init__(self, root):
-        tk.Toplevel.__init__(self, root)
-        self.grab_set()
+        PopupWindow.__init__(self, root)
 
         self.root = ET.Element("Person")
         self.root.attrib["xmlid"] = "sashaprokhorov"
 
-        self._addWidgets()
         self.update()
 
     def _addWidgets(self):
+        """ Called in the superclass"""
         self.txt = tk.Text(self, state=tk.DISABLED)
         self.attributeName = tk.Entry(self)
         self.attributeContent = tk.Entry(self)

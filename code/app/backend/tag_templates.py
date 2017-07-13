@@ -7,9 +7,36 @@
 class ParseError(Exception):
     pass
 
-class TemplateIndex(dict):
+
+class Tag:
+    def __init__(self, front = "", back=""):
+        self._front = front
+        self._back = back
+
+    def setFront(self, string):
+        self._front = string
+
+    def setBack(self, string):
+        self._back = string
+
+    def getTuple(self):
+        return (self._front, self._back)
+
+    def getFront(self):
+        return self._front
+
+    def getBack(self):
+        return self._back
+
+    def __str__(self):
+        return "%s\t%s" % (self.getFront(), self.getBack())
+
+class TemplateIndex:
     def __init__(self):
-        f = open("../../META/tagTemplates.txt")
+        f = open("../META/tagTemplates.txt")
+        
+        self._templates = []
+        
         for line in f:
             splitLine = line.split(':')
             if len(splitLine) > 3:
@@ -18,8 +45,41 @@ class TemplateIndex(dict):
                 raise ParseError("Tag definitions must be of the type <name> :\
                     <tag> : </tag>")
 
-            self[splitLine[0].strip().lower()] = (splitLine[1].strip(),
-                splitLine[2].strip())
+            self._templates.append((splitLine[0].strip().lower(),
+                    Tag(splitLine[1].strip(), splitLine[2].strip())))
         
         print(self)
         f.close()
+
+    def getNames(self):
+        return [entry[0] for entry in self._templates]
+
+    def getValues(self):
+        return [entry[1] for entry in self._templates]
+
+
+# The stuff here is a newer idea, is it better? 
+class AbstractTemplate:
+    def __init__(self):
+        # String must have two %s 's 
+        self._string = "<tag>"
+
+    def get_string(self):
+        return self._string
+
+
+class defaultTemplate(AbstractTemplate):
+    def __init__(self):
+        self._string = ""
+
+class pronounTemplate(AbstractTemplate):
+    def __init__(self):
+        self._string = ""
+
+
+
+if __name__ == "__main__":
+    ndx = TemplateIndex()
+
+    print(ndx.getNames())
+    print(ndx.getValues())
