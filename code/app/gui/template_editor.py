@@ -45,9 +45,10 @@ class TemplateEditor(PopupWindow):
         name = self._templateIndex.getNames()[selection]
         frontTag = self._templateIndex.getValues()[selection].getFront()
         endTag = self._templateIndex.getValues()[selection].getBack()
+        arguments = self._templateIndex.getValues()[selection].getArguments()
 
         
-        tmp.setDefaults(name, frontTag, endTag)
+        tmp.setDefaults(name, frontTag, endTag, arguments)
 
     def updateTags(self):
 
@@ -84,7 +85,7 @@ class TemplateEditor(PopupWindow):
 
 
 class AddTemplateEditor(PopupWindow):
-    def __init__(self, root, templateIndex, selection = -1):
+    def __init__(self, root, templateIndex, selection = None):
         self._templateIndex = templateIndex
         self._parent = root
         self._selection = selection
@@ -96,6 +97,7 @@ class AddTemplateEditor(PopupWindow):
         self.nameEntry = tk.Entry(self)
         self.frontTagEntry = tk.Entry(self)
         self.endTagEntry = tk.Entry(self)
+        self.argumentsEntry = tk.Entry(self)
         
         
         tk.Label(self, text="Template name:").pack()
@@ -104,24 +106,29 @@ class AddTemplateEditor(PopupWindow):
         self.frontTagEntry.pack()
         tk.Label(self, text="End Tag:").pack()
         self.endTagEntry.pack()
+        tk.Label(self, text="Arguments:").pack()
+        self.argumentsEntry.pack()
         tk.Button(self, text="ok", command=self.close).pack()
 
-    def setDefaults(self, name, frontTag, endTag):
+    def setDefaults(self, name, frontTag, endTag, arguments):
         self.nameEntry.insert(0, name)
         self.frontTagEntry.insert(0, frontTag)
         self.endTagEntry.insert(0, endTag)
+        self.argumentsEntry.insert(0, " ".join(arguments))
     
     def close(self):
 
-        if self._selection == -1:
-            # Meaning that you are apppending
+
+        if self._selection == None:
+            # Meaning that you are appending
             self._templateIndex.addTemplate(self.nameEntry.get(), 
-                self.frontTagEntry.get(), self.endTagEntry.get())
+                self.frontTagEntry.get(), self.endTagEntry.get(),
+                self.argumentsEntry.get().split())
         else:
             # Meaning you are editing
             self._templateIndex.replaceTemplate(self._selection,
                 self.nameEntry.get(), self.frontTagEntry.get(),
-                self.endTagEntry.get())
+                self.endTagEntry.get(), self.argumentsEntry.get().split())
         
         self._parent.updateTags()
         

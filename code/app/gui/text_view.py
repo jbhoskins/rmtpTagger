@@ -101,11 +101,13 @@ class TextView(tk.Text, view.Viewer):
     
     def _createTags(self):
         """Create the tags that will be applied to a word in the text."""
-        self.tag_configure("foundWord")
-        self.tag_configure('multi', background=self.styles.h_multi)
-        self.tag_configure('single', background=self.styles.h_single) 
-        self.tag_configure('cur', background=self.styles.h_current)
-        self.tag_configure('reg', background=self.styles.c_1)
+        self.tag_configure("clickableWord")
+        self.tag_configure("multi", background=self.styles.h_multi)
+        self.tag_configure("single", background=self.styles.h_single) 
+        self.tag_configure("cur", background=self.styles.h_current)
+        
+        self.tag_configure("unambiguous", background="white")
+
         self.tag_configure("interviewer", foreground=self.styles.h_interviewer)
         self.tag_configure("interviewee")
         
@@ -119,11 +121,13 @@ class TextView(tk.Text, view.Viewer):
             self.tag_add("interviewer", inx, inx + 1)     
             self.tag_add("interviewee", inx + 2, inx + 3)    
             
-    def _applyTag(self, word, results):
+    def _applyTag(self, word, results, unambiguous=False):
         """Apply tags to words that have been found, so that they can be 
         referenced later. 
         """            
-        if len(results) > 1:
+        if unambiguous:
+            tag = "unambiguous"
+        elif len(results) > 1:
             tag = "multi"
         else:
             tag = "single"
@@ -133,7 +137,9 @@ class TextView(tk.Text, view.Viewer):
         
         # Tag the relevant region of text.
         self.tag_add(tag, wordStart, wordEnd)
-        self.tag_add("foundWord", wordStart, wordEnd)
+        
+        if not unambiguous:
+            self.tag_add("clickableWord", wordStart, wordEnd)
 
 
     def tagAllElementsInTable(self):
@@ -141,7 +147,7 @@ class TextView(tk.Text, view.Viewer):
         color. Only called once when first loading text from file. """
         for word in self._keywordTable:
             results = word.entries()
-            self._applyTag(word, results)
+            self._applyTag(word, results, word["unambiguous"])
 
         #cur = self.index("1.0+%sc" % 20163) # hardcoding?
         #print("value:", self.keywordTable.lookup(self.count("1.0", cur)[0]))

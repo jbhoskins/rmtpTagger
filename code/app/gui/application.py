@@ -205,7 +205,7 @@ class Application:
     def _bindKeys(self):
         """Bind all clicks and key presses to commands."""
         self._textView.tag_bind(
-            "foundWord", "<Button-1>", self._textView.onClick)
+            "clickableWord", "<Button-1>", self._textView.onClick)
         self._sidebar.tagResults.bind(
             "<ButtonRelease-1>", self._sidebar.tagResults.onClick)
         

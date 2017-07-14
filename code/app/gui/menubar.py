@@ -56,79 +56,39 @@ class FileMenu(DropdownMenu):
         menubar.add_cascade(label="File", menu=self)
     
     def export(self):
-        """Confirm and export the changes into a file. """
-        string = self.app.fText.get("1.0", tk.END)
-        for entry in reversed(self.app.fText.keywordTable):
-            word = entry.string().lower()
-            word_inx = entry.selectionIndex()
-            sel = self.app.index.lookup(word)[word_inx]
-            
-            frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
-            backTag = "</rs>"
-            
-            string = string[:entry.stop()] + backTag + string[entry.stop():]
-            string = string[:entry.start()] + frontTag + string[entry.start():]
-        
-        outputFile = tk.filedialog.asksaveasfilename(
-            defaultextension=".txt", initialdir="../../output/")
-        
-        if outputFile:
-            with codecs.open(outputFile, 'w', 'utf-8') as outputFile:
-                lines = string.splitlines()
-                j = 1
-                
-                # Tag metadata and body.
-                metadata = "<meta> metadata here </meta>\n\n"
-                outputFile.write(metadata)
-                outputFile.write("<body>\n\n")
-                names = ["interviewer", "interviewee"] #should ask the user.
-                
-                # Run through lines, tag speaker utterances.
-                for i in range(len(lines)):
-                    line = lines[i]
-                    name = names[(i % 4) // 2]
-                    frontTag = '<u xml:id="sp' + str(j) + '" who="' \
-                        + name + '">'
-                    backTag = '</u>\n\n'                    
-                    if i % 2 == 0:
-                        line = frontTag + line + backTag
-                        j += 1
-                    outputFile.write(line)
-                
-                # Close body tags and file.
-                outputFile.write("</body>")    
-            outputFile.close()
-            print("Export successful! Wrote %s" % outputFile.name)
-
-    def newExport(self):
         templateIndex = templates.TemplateIndex()
         
-        string = self.app.fText.get("1.0", tk.END)
-        for entry in reversed(self.app.fText.keywordTable):
+        string = self.app._textView.get("1.0", tk.END)
+        for entry in reversed(self.app._keywordTable):
             word = entry.string().lower()
             word_inx = entry.selectionIndex()
-            sel = self.app.index.lookup(word)[word_inx]
+            #sel = self.app.index.lookup(word)[word_inx]
             
+            # Skip words set to NO TAG
+            if word_inx == -1:
+                continue
 
             # These lines are the ones that need updating.
             # frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
             # backTag = "</rs>"
-            if entry.template() is None:
+            if entry.selection().getValue("template") is "":
                 tag = templateIndex.lookup("default")
             else:
-                tag = templateIndex.lookup(entry.template())
+                tag =\
+                templateIndex.lookup(entry.selection().getValue("template").lower())
 
             # Interesting problem, to have strings with a variable number of
             # arguments. It looks like you can do it with tuples. Use a string,
             # cast is as a tuple, and then mod it with the tags.
-            frontTag = tag.getFront()
+            frontTag = tag.getFront() % tuple([entry.selection().getValue(x)\
+                for x in tag.getArguments()])
             backTag = tag.getBack()
             
             string = string[:entry.stop()] + backTag + string[entry.stop():]
             string = string[:entry.start()] + frontTag + string[entry.start():]
         
         outputFile = tk.filedialog.asksaveasfilename(
-            defaultextension=".txt", initialdir="../../output/")
+            defaultextension=".txt", initialdir="../output/")
         
         if outputFile:
             with codecs.open(outputFile, 'w', 'utf-8') as outputFile:

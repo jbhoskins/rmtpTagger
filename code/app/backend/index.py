@@ -80,12 +80,30 @@ class Index:
         
         def __init__(self, bs4_object):
             self._info = []
-            self._info.append(("type", bs4_object.name))
-            self._info.append(("xmlId", bs4_object["xml:id"]))
+
+            # Underscores to avoid conflicts
+            self._info.append(("__type__", bs4_object.name))
+            
+            try:
+                self._info.append(("__xml:id__", bs4_object["xml:id"]))
+            except:
+                self._info.append(("__xml:id__", ""))
+
             
             for info in bs4_object:
                 if info.name != 'keys' and info.name is not None:
                     self._info.append((info.name, info.string))
+
+        def getValue(self, string):
+            i = 0
+            while i < len(self._info) and self._info[i][0] != string:
+                i += 1
+
+            if i == len(self._info):
+                # not found
+                return ""
+            else:
+                return self._info[i][1]
 
         def type(self):
             """ Return the TYPE of the _Entry, e.g. person."""

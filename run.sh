@@ -2,4 +2,4 @@
 set -eu
 
 cd programFiles/interface
-python3 Application.py
+python3 application.py

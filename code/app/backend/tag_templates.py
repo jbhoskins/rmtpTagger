@@ -9,15 +9,19 @@ class ParseError(Exception):
 
 
 class Tag:
-    def __init__(self, front = "", back=""):
+    def __init__(self, front = "", back="", arguments = []):
         self._front = front
         self._back = back
+        self._arguments = arguments
 
     def setFront(self, string):
         self._front = string
 
     def setBack(self, string):
         self._back = string
+
+    def setArguments(self, arguments):
+        self._arguments = arguments
 
     def getTuple(self):
         return (self._front, self._back)
@@ -27,6 +31,9 @@ class Tag:
 
     def getBack(self):
         return self._back
+
+    def getArguments(self):
+        return self._arguments
 
     def __str__(self):
         return "%s\t%s" % (self.getFront(), self.getBack())
@@ -39,17 +46,22 @@ class TemplateIndex:
         
         for line in f:
             
-            splitLine = line.split(':')
-            if len(splitLine) > 3:
-                raise ParseError("Lines may not contain more than two \":\"")
-            elif len(splitLine) < 3:
-                raise ParseError("Tag definitions must be of the type <name> :\
-                    <tag> : </tag>")
+            # Allow for comments & whitespace
+            if line.isspace() or line == "" or line.strip()[0] == "#":
+                continue
+
+            splitLine = line.split('__+__')
+            if len(splitLine) > 4:
+                raise ParseError("Lines may not contain more than three \"__+__\"")
+            elif len(splitLine) < 4:
+                raise ParseError("Tag definitions must be of the type <name>\
+                __+__ <tag> __+__ </tag> __+__ <arguments>")
 
             self._templates.append((splitLine[0].strip().lower(),
-                    Tag(splitLine[1].strip(), splitLine[2].strip())))
+                    Tag(splitLine[1].strip(), splitLine[2].strip(),
+                        splitLine[3].strip().split())))
         
-        print(self)
+        print([entry[0] for entry in self._templates])
         f.close()
 
     def getFileString(self):
@@ -70,15 +82,15 @@ class TemplateIndex:
     def getRaw(self):
         return self._rawLines
 
-    def addTemplate(self, name, frontTag, backTag):
-        self._templates.append((name, Tag(frontTag, backTag)))
+    def addTemplate(self, name, frontTag, backTag, arguments):
+        self._templates.append((name, Tag(frontTag, backTag, arguments)))
 
     def deleteTemplate(self, index):
         self._templates.pop(index)
 
-    def replaceTemplate(self, index, name, frontTag, backTag):
+    def replaceTemplate(self, index, name, frontTag, backTag, arguments):
         self.deleteTemplate(index)
-        self._templates.insert(index, (name, Tag(frontTag, backTag)))
+        self._templates.insert(index, (name, Tag(frontTag, backTag, arguments)))
 
     def lookup(self, name):
         i = 0

@@ -30,8 +30,7 @@ class KeywordInstance(dict):
         self["stop"] = None
         self["entries"] = []
         self["selectedEntry"] = 0
-        self["skip"] = False
-        self["template"] = None
+        self["unambiguous"] = False
 
     def selectionIndex(self):
         print("returning", self["selectedEntry"])
@@ -54,9 +53,6 @@ class KeywordInstance(dict):
 
     def entries(self):
         return self["entries"]
-
-    def template(self):
-        return self["template"]
 
 if __name__ == "__main__":
     cce = [Cache()]

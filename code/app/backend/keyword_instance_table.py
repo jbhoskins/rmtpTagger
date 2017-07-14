@@ -49,7 +49,7 @@ class KeywordInstanceTable(list):
             i += 1
 
         # index does not corrospond to an entry.
-        if i == len(self):
+        if i == len(self) or self[i]["unambiguous"]:
             return None
         
         self._current = i
@@ -62,6 +62,7 @@ class KeywordInstanceTable(list):
 
     def getCurrentEntry(self):
         """Returns the currently selected entry."""
+        print("Current is: ", self._current)
         return self[self._current]
 
     def getCurrentIndex(self):
@@ -73,19 +74,26 @@ class KeywordInstanceTable(list):
         self[:] = []
         self._current = 0
 
-    def nextValidEntry(self, setOfInvalidWords = {}):
+    def nextValidEntry(self):
         """ Returns the next valid entry that is not a member of the invalid
         set, and set the cursor to that index."""
         
-        # Not yet implemented yet. Dummy method to maintain functinoality
-        self._current = (self._current + 1) % len(self)
+        i = 1
+        while i < len(self) and self[(self._current + i) % len(self)]["unambiguous"]:
+            i = i + 1
 
-    def previousValidEntry(self, setOfInvalidWords = {}):
+        self._current = (self._current + i) % len(self)
+        print("CURSOR SET TO: ", self._current)
+
+    def previousValidEntry(self):
         """ Returns the next valid entry that is not a member of the invalid
         set, and set the cursor to that index."""
         
-        # Not yet implemented yet. Dummy method to maintain functinoality
-        self._current = (self._current - 1) % len(self)
+        i = 1
+        while i < len(self) and self[(self._current - i) % len(self)]["unambiguous"]:
+            i = i + 1
+
+        self._current = (self._current - i) % len(self)
 
     def nextTag(self):
         
@@ -148,6 +156,13 @@ class KeywordInstanceTable(list):
                         if foundMatch:
                             cacheItem["string"] = keyword
                             cacheItem["entries"] = self._indexObject.lookup(keyword.lower())
+                            # set to unambiguous. checks len is 1 to avoid
+                            # multiple definitions of word bugs by accident.
+                            if len(cacheItem["entries"]) == 1 and\
+                            cacheItem["entries"][0].getValue("unambiguous")\
+                            == "true":
+                                cacheItem["unambiguous"] = True
+                            
                             self.append(cacheItem)  
                             
                             # Reset the saved values.
@@ -188,6 +203,8 @@ class KeywordInstanceTable(list):
             # May need to save the last information, in case the final 
             # word is a keyword
             pass
+
+        self.nextValidEntry() # start at the first value
 
     # ------- Methods to implement subject / observer design pattern --------
     

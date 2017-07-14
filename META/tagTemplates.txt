@@ -1,0 +1,10 @@
+# Template Configuration file. Do not change this from this file unless 
+# you know what you are doing.
+#
+# '#' is the comment charector.
+# __+__ is the string that the templates are split at, it was selected
+# as it is extremely unlikely to appear in an actual tag.
+
+Default __+__ <rs type="%s" key="%s"> __+__ </rs> __+__ __type__ __xml:id__
+Pronoun __+__ <rs type="%s" subtype="%s"> __+__ </rs> __+__ type subtype
+Hesitation __+__ <span type="%s"> __+__ </rs> __+__ type
