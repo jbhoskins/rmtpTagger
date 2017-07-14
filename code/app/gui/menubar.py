@@ -24,6 +24,7 @@ import codecs
 import tkinter as tk
 import app.gui.index_editor as index_editor
 import app.gui.template_editor as template_editor
+import app.backend.tag_templates as templates
 
 class Menubar(tk.Menu):
     def __init__(self, app):
@@ -98,6 +99,66 @@ class FileMenu(DropdownMenu):
                 outputFile.write("</body>")    
             outputFile.close()
             print("Export successful! Wrote %s" % outputFile.name)
+
+    def newExport(self):
+        templateIndex = templates.TemplateIndex()
+        
+        string = self.app.fText.get("1.0", tk.END)
+        for entry in reversed(self.app.fText.keywordTable):
+            word = entry.string().lower()
+            word_inx = entry.selectionIndex()
+            sel = self.app.index.lookup(word)[word_inx]
+            
+
+            # These lines are the ones that need updating.
+            # frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
+            # backTag = "</rs>"
+            if entry.template() is None:
+                tag = templateIndex.lookup("default")
+            else:
+                tag = templateIndex.lookup(entry.template())
+
+            # Interesting problem, to have strings with a variable number of
+            # arguments. It looks like you can do it with tuples. Use a string,
+            # cast is as a tuple, and then mod it with the tags.
+            frontTag = tag.getFront()
+            backTag = tag.getBack()
+            
+            string = string[:entry.stop()] + backTag + string[entry.stop():]
+            string = string[:entry.start()] + frontTag + string[entry.start():]
+        
+        outputFile = tk.filedialog.asksaveasfilename(
+            defaultextension=".txt", initialdir="../../output/")
+        
+        if outputFile:
+            with codecs.open(outputFile, 'w', 'utf-8') as outputFile:
+                lines = string.splitlines()
+                j = 1
+                
+                # Tag metadata and body.
+                metadata = "<meta> metadata here </meta>\n\n"
+                outputFile.write(metadata)
+                outputFile.write("<body>\n\n")
+                names = ["interviewer", "interviewee"] #should ask the user.
+                
+                # Run through lines, tag speaker utterances.
+                for i in range(len(lines)):
+                    line = lines[i]
+                    name = names[(i % 4) // 2]
+                    frontTag = '<u xml:id="sp' + str(j) + '" who="' \
+                        + name + '">'
+                    backTag = '</u>\n\n'                    
+                    if i % 2 == 0:
+                        line = frontTag + line + backTag
+                        j += 1
+                    outputFile.write(line)
+                
+                # Close body tags and file.
+                outputFile.write("</body>")    
+            outputFile.close()
+            print("Export successful! Wrote %s" % outputFile.name)
+
+
 
     def openFile(self):
         filePath = tk.filedialog.askopenfilename(initialdir="../../input/")

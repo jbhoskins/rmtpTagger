@@ -38,6 +38,7 @@ class TemplateIndex:
         self._templates = []
         
         for line in f:
+            
             splitLine = line.split(':')
             if len(splitLine) > 3:
                 raise ParseError("Lines may not contain more than two \":\"")
@@ -51,12 +52,45 @@ class TemplateIndex:
         print(self)
         f.close()
 
+    def getFileString(self):
+        string = ""
+
+        for entry in self._templates:
+            string += entry[0] + ": " + entry[1].getFront() + " : " +\
+            entry[1].getBack() + "\n"
+
+        return string
+
     def getNames(self):
         return [entry[0] for entry in self._templates]
 
     def getValues(self):
         return [entry[1] for entry in self._templates]
 
+    def getRaw(self):
+        return self._rawLines
+
+    def addTemplate(self, name, frontTag, backTag):
+        self._templates.append((name, Tag(frontTag, backTag)))
+
+    def deleteTemplate(self, index):
+        self._templates.pop(index)
+
+    def replaceTemplate(self, index, name, frontTag, backTag):
+        self.deleteTemplate(index)
+        self._templates.insert(index, (name, Tag(frontTag, backTag)))
+
+    def lookup(self, name):
+        i = 0
+        while (i < len(self._templates) and name != self._templates[i][0]):
+            i += 1
+
+        if i == len(self._templates):
+            raise Exception("Name is not a valid template.")
+
+        return self._templates[i][1]
+        
+    
 
 # The stuff here is a newer idea, is it better? 
 class AbstractTemplate:
