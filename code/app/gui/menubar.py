@@ -56,6 +56,8 @@ class FileMenu(DropdownMenu):
         menubar.add_cascade(label="File", menu=self)
     
     def export(self):
+        """ Exports the text of the interview with each word instance
+        associated with its proper tag template, and arguments."""
         templateIndex = templates.TemplateIndex()
         
         string = self.app._textView.get("1.0", tk.END)
@@ -183,4 +185,5 @@ class TemplateMenu(DropdownMenu):
         menubar.add_cascade(label="Templates", menu=self)
     
     def templateEditPop(self):
+        """ Opens the template editor popup window. """
         template_editor.TemplateEditor(self.app.getRoot())

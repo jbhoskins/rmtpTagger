@@ -8,8 +8,17 @@
 # Authored by John Hoskins: jbhoskins@email.wm.edu
 # Last edit 4/22/17 by Margaret.
 
-"""A table to hold keywords and their current tags in the text.
-LAST EDIT:
+""" A table of KeywordInstances, with the inclusion of a index, to keep track
+of which instance is currently being examined/edited. 
+
+This the main data structure of the program during runtime.
+
+This program utilizes the Observer design pattern, and this class is the
+"Subject" of this pattern - whenever it changes, it's viewers need to be
+updated to reflect the new changes.
+
+
+EDITED:
 Margaret, 4/22/17
 Changed style of code to conform to the PEP8 styleguide.
 """
@@ -17,10 +26,11 @@ Changed style of code to conform to the PEP8 styleguide.
 import app.gui.view_controller as view
 from app.backend.keyword_instance import KeywordInstance
 from app.backend.index import Index
+from app.backend.index import MatchState
 
 import re
 
-# Use these to run this program as main
+# Use these instead of the imports above re to run this program as main
 #import sys
 #sys.path.insert(0, "../backend")
 #from index import Index
@@ -39,34 +49,30 @@ class KeywordInstanceTable(list):
         
 
     def lookup(self, startIndex):        
-        """Returns the entry that corrosponds to the given charector index."""
+        """Returns the KeywordInstance that corrosponds to the given CHARECTOR index."""
         
-        # This needs optinization. For now, it just iterates to keep 
+        # This could be a binary search. For now, it's linear to keep 
         # functionality.
 
         i = 0
         while i < len(self) and not (self[i].start() <= startIndex <= self[i].stop()):
             i += 1
 
-        # index does not corrospond to an entry.
+        # If index does not corrospond to any entry, or is marked as
+        # uninteractable
         if i == len(self) or self[i]["unambiguous"]:
             return None
         
         self._current = i
         return self[i]
 
-    def saveEntries(self, entries):
-        """Saves a list of entries to the currently selected entry in the
-        table."""
-        self[self._current]["entries"] = entries
-
     def getCurrentEntry(self):
-        """Returns the currently selected entry."""
-        print("Current is: ", self._current)
+        """Returns the currently selected KeywordInstance."""
         return self[self._current]
 
     def getCurrentIndex(self):
-        """Returns the index of the current value."""
+        """Returns the value of the index of the entry currently being
+        examined/edited."""
         return self._current
 
     def reset(self):
@@ -75,19 +81,18 @@ class KeywordInstanceTable(list):
         self._current = 0
 
     def nextValidEntry(self):
-        """ Returns the next valid entry that is not a member of the invalid
-        set, and set the cursor to that index."""
+        """ Returns the next valid entry that is ambiguous and set the cursor
+        to that index."""
         
         i = 1
         while i < len(self) and self[(self._current + i) % len(self)]["unambiguous"]:
             i = i + 1
 
         self._current = (self._current + i) % len(self)
-        print("CURSOR SET TO: ", self._current)
 
     def previousValidEntry(self):
-        """ Returns the next valid entry that is not a member of the invalid
-        set, and set the cursor to that index."""
+        """ Returns the previous valid entry that is ambiguous and set the cursor
+        to that index."""
         
         i = 1
         while i < len(self) and self[(self._current - i) % len(self)]["unambiguous"]:
@@ -96,6 +101,7 @@ class KeywordInstanceTable(list):
         self._current = (self._current - i) % len(self)
 
     def nextTag(self):
+        """ Move to the next tag in the list of tag suggestions (entry list) """
         
         # Some weird mod arithmetic here, but it is needed to move seamlessly
         # through the range, (-1, len(possibleTags) - 1)
@@ -106,6 +112,7 @@ class KeywordInstanceTable(list):
 
 
     def prevTag(self):
+        """ Move to the previous tag in the list of tag suggestions (entry list) """
         
         # Some weird mod arithmetic here, but it is needed to move seamlessly
         # through the range, (-1, len(possibleTags) - 1)
@@ -114,12 +121,9 @@ class KeywordInstanceTable(list):
         self.getCurrentEntry()["selectedEntry"] -= 1 
 
     def fillTable(self, string):
-        """Build a sorted table of all non-pronoun tags along with their 
-        start and stop indices. 
-        """
+        """Build a sorted table of all KeywordInstances in the given string."""
         
         self.reset()
-        print("length of table", len(self))
 
         # Ideally, make a generator for each relevant line
         iterator = re.finditer("\w+", string) 
@@ -129,7 +133,8 @@ class KeywordInstanceTable(list):
         word = next(iterator)
         
         try:
-            while True: # Gods of CS, forgive this infinite loop.
+            while True: # Yes, it's an infinite loop. It's the solution the
+                        # docs suggested.
                 
                 # Kind of inefficient, but seems to be fast enough
                 # inx = int(tk.Text.index("1.0+%sc" % word.start()).split(".")[0])
@@ -141,12 +146,7 @@ class KeywordInstanceTable(list):
                 if  (inx % 4 - 1) != 0:
                     testCode = self._indexObject.multiTest(word.group().lower())
 
-                    # For this next block of if, elif, else:
-                    # Using the testCode, save object information:
-                    # 2 = unique match found, 
-                    # 1 = potential match,
-                    # 0 = no match.                     
-                    if testCode == 0:
+                    if testCode == MatchState.no_match:
          
                         # This is the point when an entry is actually 
                         # saved. When it finds a match, it waits until 
@@ -178,7 +178,7 @@ class KeywordInstanceTable(list):
                         keyword = ""
                         cacheItem = KeywordInstance()
                     
-                    elif testCode == 1:
+                    elif testCode == MatchState.potential_match:
                         # If there is a word, add a space before the
                         # next one.                       
                         if keyword != "":
@@ -187,7 +187,7 @@ class KeywordInstanceTable(list):
                             cacheItem["start"] = word.start()
                         keyword += word.group()
                         
-                    else:
+                    elif testCode == MatchState.unique_match:
                         if keyword != "":
                             keyword += " "
                         else:
@@ -209,14 +209,21 @@ class KeywordInstanceTable(list):
     # ------- Methods to implement subject / observer design pattern --------
     
     def notifyViewersRedraw(self):
+        """ Notify all the viewers to redraw themselves based on the current 
+        state of the table. """
+        
         for view in self._views:
             print("updating view:", view)
             view.update()
     
     def registerViewer(self, newView):
+        """ Add a viewer that will update whenever notifyViewersRedraw is
+        called. """
         self._views.append(newView)
 
     def deleteViewer(self, viewToDelete):
+        """ Remove a viewer that will update whenever notifyViewersRedraw is
+        called. """
         self._views.remove(viewToDelete)
 
 

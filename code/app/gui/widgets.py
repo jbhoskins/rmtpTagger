@@ -86,7 +86,7 @@ class TagResults(tk.Listbox, view.Viewer):
         # Makes sure not to repopulate everything unless the current entry has
         # been changed.
         if self._oldEntry != currentEntry:
-            self.populateTags([entry.xmlId() for entry in currentEntry.entries()])
+            self.populateTags([entry.getValue("__xml:id__") for entry in currentEntry.entries()])
             self._oldEntry = currentEntry
 
         self.selection_clear(0, tk.END)
@@ -142,7 +142,8 @@ class CurrentTagField(tk.Label, view.Viewer):
         if selectionIndex == -1:
             string = "NO TAG"
         else:
-            string = str(self._keywordTable.getCurrentEntry().selection().xmlId())
+            string =\
+            str(self._keywordTable.getCurrentEntry().selection().getValue("__xml:id__"))
         
         string = "Current:  " + string
         self.config(text=string)

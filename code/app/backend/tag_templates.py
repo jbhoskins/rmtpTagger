@@ -5,35 +5,49 @@
 
 
 class ParseError(Exception):
+    """ I wanted a more descriptive exception name, so I made this."""
     pass
 
 
 class Tag:
+    """Data container for an XML tag."""
     def __init__(self, front = "", back="", arguments = []):
-        self._front = front
-        self._back = back
+        self._front = front # Front tag
+        self._back = back # Back tag
+        
+        # Any arguments that need to be inserted into the front tag.
+        if self._front.count(r"%s") != len(arguments):
+            raise ParseError(r"%s count is not equal to number of arguments.")
         self._arguments = arguments
 
     def setFront(self, string):
+        """ Set the value of the front tag. """
         self._front = string
 
     def setBack(self, string):
+        """ Set the value of the back tag. """
         self._back = string
 
     def setArguments(self, arguments):
+        """ Set the value of the arguments to be inserted into the front tag."""
         self._arguments = arguments
 
-    def getTuple(self):
-        return (self._front, self._back)
-
     def getFront(self):
+        """ Get the value of the front tag. """
         return self._front
 
     def getBack(self):
+        """ Get the value of the back tag. """
         return self._back
 
     def getArguments(self):
+        """ Get the value of the list of arguments to be inserted into the
+        front tag. """
         return self._arguments
+    
+    def getTuple(self):
+        """Get a tuple of the front and back tag in the form (front, back)."""
+        return (self._front, self._back)
 
     def __str__(self):
         return "%s\t%s" % (self.getFront(), self.getBack())
@@ -79,9 +93,6 @@ class TemplateIndex:
     def getValues(self):
         return [entry[1] for entry in self._templates]
 
-    def getRaw(self):
-        return self._rawLines
-
     def addTemplate(self, name, frontTag, backTag, arguments):
         self._templates.append((name, Tag(frontTag, backTag, arguments)))
 
@@ -93,6 +104,10 @@ class TemplateIndex:
         self._templates.insert(index, (name, Tag(frontTag, backTag, arguments)))
 
     def lookup(self, name):
+        
+        # this thing that I keep doing can probably replaced with a normal,
+        # built in list method.
+        
         i = 0
         while (i < len(self._templates) and name != self._templates[i][0]):
             i += 1
@@ -101,29 +116,7 @@ class TemplateIndex:
             raise Exception("Name is not a valid template.")
 
         return self._templates[i][1]
-        
-    
-
-# The stuff here is a newer idea, is it better? 
-class AbstractTemplate:
-    def __init__(self):
-        # String must have two %s 's 
-        self._string = "<tag>"
-
-    def get_string(self):
-        return self._string
-
-
-class defaultTemplate(AbstractTemplate):
-    def __init__(self):
-        self._string = ""
-
-class pronounTemplate(AbstractTemplate):
-    def __init__(self):
-        self._string = ""
-
-
-
+         
 if __name__ == "__main__":
     ndx = TemplateIndex()
 
