@@ -65,7 +65,6 @@ class Sidebar(tk.PanedWindow):
         self.add(self.currentTag, sticky=tk.N)
         self.add(frame, height=screenHeight // 3)
         self.add(self.tagInfoField, height=screenHeight // 2)        
-
         self.add(self.preview, sticky=tk.N)
 
         

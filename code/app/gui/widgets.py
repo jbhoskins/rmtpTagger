@@ -146,6 +146,7 @@ class CurrentTagField(tk.Label, view.Viewer):
             str(self._keywordTable.getCurrentEntry().selection().getValue("__xml:id__"))
         
         string = "Current:  " + string
+#        string += u" \u2713" # Testing confirmed check mark
         self.config(text=string)
 
 class TagPreviewField(tk.Label, view.Viewer):

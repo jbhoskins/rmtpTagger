@@ -22,6 +22,7 @@ Changed style of code to conform to the PEP8 styleguide.
 
 import codecs 
 import tkinter as tk
+import pickle as pickle
 import app.gui.index_editor as index_editor
 import app.gui.template_editor as template_editor
 import app.backend.tag_templates as templates
@@ -48,10 +49,11 @@ class DropdownMenu(tk.Menu):
 class FileMenu(DropdownMenu):
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
-        self.add_command(label="Open", command=self.openFile)
-        self.add_command(label="Save")
+        self.add_command(label="Open Session")
+        self.add_command(label="Save Session", command=self.saveSession)
         self.add_separator()
-        self.add_command(label="Export", command=self.export)
+        self.add_command(label="Import text...", command=self.openFile)
+        self.add_command(label="Export text...", command=self.export)
         self.add_command(label="Export as TEI...")
         menubar.add_cascade(label="File", menu=self)
     
@@ -126,6 +128,10 @@ class FileMenu(DropdownMenu):
         filePath = tk.filedialog.askopenfilename(initialdir="../../input/")
         self.app._textView.loadText(filePath)
 
+    def saveSession(self):
+        pass
+    def loadSession(self):
+        pass
 
 class ThemeMenu(DropdownMenu):
     def __init__(self, menubar, app):
