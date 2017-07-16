@@ -246,6 +246,8 @@ class Application:
         self._keywordTable.registerViewer(self._sidebar.currentTag)
         self._keywordTable.registerViewer(self._sidebar.tagInfoField)
 
+        self._keywordTable.registerViewer(self._sidebar.preview)
+
     #-------------------------------------------------------------------
     # Hover (in progress)
 

@@ -49,6 +49,8 @@ class Sidebar(tk.PanedWindow):
         self.currentTag = widgets.CurrentTagField(self, self._keywordTable)
         self.tagInfoField = widgets.TagInformationField(self, self._keywordTable)
         self.tagLabel = tk.Label(self, text="Tag Results")
+
+        self.preview = widgets.TagPreviewField(self, self._keywordTable)
         
         # Frame is to keep scrollbar next to text.
         frame = tk.Frame(self)
@@ -62,7 +64,10 @@ class Sidebar(tk.PanedWindow):
         self.add(self.tagLabel)
         self.add(self.currentTag, sticky=tk.N)
         self.add(frame, height=screenHeight // 3)
-        self.add(self.tagInfoField, height=screenHeight // 3)        
+        self.add(self.tagInfoField, height=screenHeight // 2)        
+
+        self.add(self.preview, sticky=tk.N)
+
         
         # Initialize to empty fields.
         self.tagResults.populateTags([])
@@ -86,6 +91,10 @@ class Sidebar(tk.PanedWindow):
         self.tagInfoField.config(
             font=self.styles.f_text, bg=self.bg, 
             highlightbackground=self.bg)        
+
+        self.preview.config(
+                bg=self.bg,
+                highlightbackground=self.bg)
 
     def configStyles(self, styles):
         """Change the desired stylesheet."""

@@ -27,7 +27,7 @@ import tkinter as tk
 import app.gui.view_controller as view
 
 from app.backend.keyword_instance import KeywordInstance
-
+import app.backend.tag_templates as templates
 
 class TagResults(tk.Listbox, view.Viewer):
     """Create a ListBox of results pulled from the index."""
@@ -148,3 +148,33 @@ class CurrentTagField(tk.Label, view.Viewer):
         string = "Current:  " + string
         self.config(text=string)
 
+class TagPreviewField(tk.Label, view.Viewer):
+    def __init__(self, sidebar, keywordTable):
+        tk.Label.__init__(self, sidebar, text="Preview:")
+        self._keywordTable = keywordTable
+
+        # Will need updating after changes to templates
+        self._templates = templates.TemplateIndex()
+
+    def update(self):
+        
+        selectionIndex = self._keywordTable.getCurrentEntry().selectionIndex()
+        
+        if selectionIndex == -1:
+            string = ""
+        else:
+
+            currentEntry = self._keywordTable.getCurrentEntry()
+
+            template = currentEntry.selection().getValue("template")
+            if template is "":
+                tag = self._templates.lookup("default")
+            else:
+                tag = self._templates.lookup(template.lower())
+
+            frontTag = tag.getFront() % tuple([currentEntry.selection().getValue(x)\
+                for x in tag.getArguments()])
+            backTag = tag.getBack()
+        
+            string = "Preview:  " + frontTag + currentEntry.string() + backTag
+        self.config(text=string)
