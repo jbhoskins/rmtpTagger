@@ -209,10 +209,10 @@ class Application:
         self._sidebar.tagResults.bind(
             "<ButtonRelease-1>", self._sidebar.tagResults.onClick)
         
-        self._root.bind("<Right>", self.moveRight)
-        self._root.bind("<Left>", self.moveLeft)
-        self._root.bind("<Up>", self.prevTag)
-        self._root.bind("<Down>", self.nextTag)
+        self._root.bind("<Right>", self._keywordTable.nextValidEntry)
+        self._root.bind("<Left>", self._keywordTable.previousValidEntry)
+        self._root.bind("<Up>", self._keywordTable.prevTag)
+        self._root.bind("<Down>", self._keywordTable.nextTag)
 
  #       self.fText.tag_bind(
  #           "interviewee", "<ButtonRelease-3>", self._showTagMenu)
@@ -222,21 +222,22 @@ class Application:
 #        self.sidebar.tagResults.populateTags([])
 
 # ------------------- Methods bound to keys ----------------------
-    def moveRight(self, event):
-        self._keywordTable.nextValidEntry()
-        self._keywordTable.notifyViewersRedraw() # These redraw methods could
+# Now deprecated after adding calls to notify viewers within keywordtable
+#    def moveRight(self, event):
+#        self._keywordTable.nextValidEntry()
+#        self._keywordTable.notifyViewersRedraw() # These redraw methods could
                                                  # arguably be called within kt
-    def moveLeft(self, event):
-        self._keywordTable.previousValidEntry()
-        self._keywordTable.notifyViewersRedraw()
+#    def moveLeft(self, event):
+#        self._keywordTable.previousValidEntry()
+#        self._keywordTable.notifyViewersRedraw()
 
-    def prevTag(self, event):
-        self._keywordTable.prevTag()
-        self._keywordTable.notifyViewersRedraw()
+#    def prevTag(self, event):
+#        self._keywordTable.prevTag()
+#        self._keywordTable.notifyViewersRedraw()
         
-    def nextTag(self, event):
-        self._keywordTable.nextTag()
-        self._keywordTable.notifyViewersRedraw()
+#    def nextTag(self, event):
+#        self._keywordTable.nextTag()
+#        self._keywordTable.notifyViewersRedraw()
     
     def _registerViewers(self):
         

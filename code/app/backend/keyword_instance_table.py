@@ -80,7 +80,7 @@ class KeywordInstanceTable(list):
         self[:] = []
         self._current = 0
 
-    def nextValidEntry(self):
+    def nextValidEntry(self, event=None):
         """ Returns the next valid entry that is ambiguous and set the cursor
         to that index."""
         
@@ -90,7 +90,9 @@ class KeywordInstanceTable(list):
 
         self._current = (self._current + i) % len(self)
 
-    def previousValidEntry(self):
+        self.notifyViewersRedraw()
+
+    def previousValidEntry(self, event=None):
         """ Returns the previous valid entry that is ambiguous and set the cursor
         to that index."""
         
@@ -100,7 +102,9 @@ class KeywordInstanceTable(list):
 
         self._current = (self._current - i) % len(self)
 
-    def nextTag(self):
+        self.notifyViewersRedraw()
+
+    def nextTag(self, event=None):
         """ Move to the next tag in the list of tag suggestions (entry list) """
         
         # Some weird mod arithmetic here, but it is needed to move seamlessly
@@ -110,8 +114,10 @@ class KeywordInstanceTable(list):
         (len(self.getCurrentEntry().entries()) + 1)
         self.getCurrentEntry()["selectedEntry"] -= 1
 
+        self.notifyViewersRedraw()
 
-    def prevTag(self):
+
+    def prevTag(self, event=None):
         """ Move to the previous tag in the list of tag suggestions (entry list) """
         
         # Some weird mod arithmetic here, but it is needed to move seamlessly
@@ -119,6 +125,8 @@ class KeywordInstanceTable(list):
         self.getCurrentEntry()["selectedEntry"] %=\
         (len(self.getCurrentEntry().entries()) + 1)
         self.getCurrentEntry()["selectedEntry"] -= 1 
+
+        self.notifyViewersRedraw()
 
     def fillTable(self, string):
         """Build a sorted table of all KeywordInstances in the given string."""
