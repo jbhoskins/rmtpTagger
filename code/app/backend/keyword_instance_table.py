@@ -66,6 +66,10 @@ class KeywordInstanceTable(list):
         self._current = i
         return self[i]
 
+    def makeIndex(self):
+        """Instantiates an Index object. Needed for session loading."""
+        self._indexObject = Index("../META/index.xml")
+
     def getCurrentEntry(self):
         """Returns the currently selected KeywordInstance."""
         return self[self._current]
@@ -221,7 +225,6 @@ class KeywordInstanceTable(list):
         state of the table. """
         
         for view in self._views:
-            print("updating view:", view)
             view.update()
     
     def registerViewer(self, newView):

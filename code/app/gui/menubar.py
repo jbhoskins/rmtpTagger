@@ -23,6 +23,8 @@ Changed style of code to conform to the PEP8 styleguide.
 import codecs 
 import tkinter as tk
 import pickle as pickle
+import dill as dill
+import json as json
 import app.gui.index_editor as index_editor
 import app.gui.template_editor as template_editor
 import app.backend.tag_templates as templates
@@ -52,7 +54,7 @@ class FileMenu(DropdownMenu):
     """Menu that appears when you click 'File' on the top menubar."""
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
-        self.add_command(label="Open Session")
+        self.add_command(label="Open Session", command=self.loadSession)
         self.add_command(label="Save Session", command=self.saveSession)
         self.add_separator()
         self.add_command(label="Import text...", command=self.openFile)
@@ -129,15 +131,62 @@ class FileMenu(DropdownMenu):
 
     def openFile(self):
         """Import text from a file into the program."""
-        filePath = tk.filedialog.askopenfilename(initialdir="../../input/")
+        filePath = tk.filedialog.askopenfilename(initialdir="../input/")
         self.app._textView.loadText(filePath)
 
     def saveSession(self):
         """Saves the current session so that it can be resumed later."""
-        pass
+        
+        outputFile = tk.filedialog.asksaveasfilename(
+            defaultextension=".rmtp", initialdir="../sessions/") 
+        
+        if outputFile:
+            f = open(outputFile, "wb")
+        else:
+            print("File does not exist!")
+            return
+        
+        print("Currently Selected entry is ON SAVE:", self.app._keywordTable[11]["selectedEntry"])
+
+        referenceToIndex = self.app._keywordTable._indexObject
+        referenceToViews = self.app._keywordTable._views
+
+        # Index object can be serialized, not sure if it needs to be.
+        self.app._keywordTable._indexObject = None
+        self.app._keywordTable._views = []
+
+        # serialize the data structure and save it as bytecode.
+        pickle.dump(self.app._keywordTable, f)
+        f.close()
+
+        self.app._keywordTable._indexObject = referenceToIndex
+        self.app._keywordTable._views = referenceToViews
+        
+
     def loadSession(self):
         """Loads a session from file so that it can be continued."""
-        pass
+        filePath = tk.filedialog.askopenfilename(initialdir="../sessions/")
+
+        if filePath:
+            f = open(filePath, "rb")
+#            f = open("../sessions/savedSessionDude", "rb")
+            newTable = pickle.load(f)
+            f.close()
+        else:
+            print("File does not exist.")
+            return
+
+        print("Currently Selected entry is ON LOAD:", newTable[11]["selectedEntry"])
+        
+        
+        newTable._indexObject = self.app._keywordTable._indexObject
+        newTable._views = self.app._keywordTable._views
+        
+        self.app._keywordTable = newTable
+
+        self.app._bindKeys()
+        self.app._keywordTable.notifyViewersRedraw()
+        
 
 class ThemeMenu(DropdownMenu):
     """Menu that appears when you click 'Theme' from the top menubar. """

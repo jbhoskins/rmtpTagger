@@ -41,10 +41,10 @@ import app.gui.view_controller as view
 class TextView(tk.Text, view.Viewer):
     """Class to display text, and highlight appropiate words in the text based
     on a table of values (keywordTable)."""
-    def __init__(self, Frame, keywordInstanceTable, styles, scrollbar):
+    def __init__(self, Frame, app, styles, scrollbar):
         tk.Text.__init__(self, Frame, yscrollcommand=scrollbar.set)
         
-        self._keywordTable = keywordInstanceTable
+        self._app = app
         self.styles = styles
         
         self._styleFrame()
@@ -59,12 +59,15 @@ class TextView(tk.Text, view.Viewer):
         """Insert text from desired file into the widget, then highlight 
         keywords upon initialization. 
         """
+
+        keywordTable = self._app.getKeywordTable()
+
         f = open(path, encoding="UTF-8")
         string = f.read()
         string = string.replace("ё", "е")
         f.close()
 
-        self._keywordTable.fillTable(string)
+        keywordTable.fillTable(string)
         
         self.config(state=tk.NORMAL)
         self.delete("1.0", tk.END)
@@ -143,7 +146,10 @@ class TextView(tk.Text, view.Viewer):
     def tagAllElementsInTable(self):
         """ Tags every keyword present in the keywordTable with its appropiate
         color. Only called once when first loading text from file. """
-        for word in self._keywordTable:
+        
+        keywordTable = self._app.getKeywordTable()
+        
+        for word in keywordTable:
             results = word.entries()
             self._applyTag(word, results, word["unambiguous"])
 
@@ -156,17 +162,21 @@ class TextView(tk.Text, view.Viewer):
     
     def onClick(self, event):
         """Cache the word that has been clicked on."""        
+        keywordTable = self._app.getKeywordTable()
+        
         location = self.index("@%s,%s" % (event.x, event.y))
 
         charCount = self.count("1.0", location)[0] # O(n)?
-        self._keywordTable.lookup(charCount)
+        keywordTable.lookup(charCount)
         print("REDRAWING")
-        self._keywordTable.notifyViewersRedraw()
+        keywordTable.notifyViewersRedraw()
         
     def update(self):
         """ Moves the current coloring to the correct entry as per the
         keywordTable. """
-        currentEntry = self._keywordTable.getCurrentEntry()
+        keywordTable = self._app.getKeywordTable()
+        
+        currentEntry = keywordTable.getCurrentEntry()
 
         self.tag_remove("cur", "1.0", tk.END)        
         self.tag_add(

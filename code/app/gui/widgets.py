@@ -32,10 +32,10 @@ import app.backend.tag_templates as templates
 class TagResults(tk.Listbox, view.Viewer):
     """A ListBox of results pulled from the index."""
     
-    def __init__(self, sidebar, scrollbar, keywordTable):
+    def __init__(self, sidebar, scrollbar, app):
         tk.Listbox.__init__(self, sidebar, selectmode=tk.SINGLE, 
                             yscrollcommand=scrollbar.set)
-        self._keywordTable = keywordTable
+        self._app = app
 
         # Used to determine which kind of update to do.
         self._oldEntry = None
@@ -74,19 +74,26 @@ class TagResults(tk.Listbox, view.Viewer):
 
     def onClick(self, event):
         """Update the selected entry when an entry is clicked."""
-        self._keywordTable.getCurrentEntry()["selectedEntry"] =\
+        
+        keywordTable = self._app.getKeywordTable()
+        
+        keywordTable.getCurrentEntry()["selectedEntry"] =\
             self.curSelection() - 1
 
-        self._keywordTable.notifyViewersRedraw()
+        keywordTable.notifyViewersRedraw()
     
     def update(self):
         """Redraw the widget based on the state of the program."""
-        
-        currentEntry = self._keywordTable.getCurrentEntry()
+       
+        keywordTable = self._app.getKeywordTable()
+
+        currentEntry = keywordTable.getCurrentEntry()
+        print("IN DUDE, CURRENT ENTRY IS:", currentEntry.selectionIndex())
        
         # Makes sure not to repopulate everything unless the current entry has
         # been changed.
         if self._oldEntry != currentEntry:
+            print("Ignoring update...")
             self.populateTags([entry.getValue("__xml:id__") for entry in currentEntry.entries()])
             self._oldEntry = currentEntry
 
@@ -103,10 +110,10 @@ class TagResults(tk.Listbox, view.Viewer):
 class TagInformationField(tk.Text, view.Viewer):
     """ Display information about the current selection in TagResults."""
     
-    def __init__(self, sidebar, keywordTable):
+    def __init__(self, sidebar, app):
         tk.Text.__init__(self, sidebar)
         self.config(state=tk.DISABLED)
-        self._keywordTable = keywordTable
+        self._app = app
 
     def _updateInformation(self, string):
         """ Display information about the item selected in TagResults."""
@@ -118,7 +125,9 @@ class TagInformationField(tk.Text, view.Viewer):
     def update(self):
         """Redraw the widget based on the state of the program."""
 
-        currentEntry = self._keywordTable.getCurrentEntry()
+        keywordTable = self._app.getKeywordTable()
+
+        currentEntry = keywordTable.getCurrentEntry()
         currentSelection = currentEntry["selectedEntry"]
        
         print("Current sel:", currentSelection)
@@ -132,19 +141,22 @@ class TagInformationField(tk.Text, view.Viewer):
 class CurrentTagField(tk.Label, view.Viewer):
     """A label that shows the xml:id of the current selection of the possible
     tags."""
-    def __init__(self, sidebar, keywordTable):
+    def __init__(self, sidebar, app):
         tk.Label.__init__(self, sidebar, text="Current:")
-        self._keywordTable = keywordTable
+        self._app = app
 
     def update(self):
         """Redraw the widget based on the state of the program."""
-        selectionIndex = self._keywordTable.getCurrentEntry().selectionIndex()
+
+        keywordTable = self._app.getKeywordTable()
+
+        selectionIndex = keywordTable.getCurrentEntry().selectionIndex()
         
         if selectionIndex == -1:
             string = "NO TAG"
         else:
             string =\
-            str(self._keywordTable.getCurrentEntry().selection().getValue("__xml:id__"))
+            str(keywordTable.getCurrentEntry().selection().getValue("__xml:id__"))
         
         string = "Current:  " + string
 #        string += u" \u2713" # Testing confirmed check mark
@@ -153,23 +165,25 @@ class CurrentTagField(tk.Label, view.Viewer):
 class TagPreviewField(tk.Label, view.Viewer):
     """Shows a preview of how the xml tags around the current selecion will
     look."""
-    def __init__(self, sidebar, keywordTable):
+    def __init__(self, sidebar, app):
         tk.Label.__init__(self, sidebar, text="Preview:")
-        self._keywordTable = keywordTable
+        self._app = app
 
         # Will need updating after changes to templates.
         self._templates = templates.TemplateIndex()
 
     def update(self):
         """Redraw the widget based on the current state of the program."""
+
+        keywordTable = self._app.getKeywordTable()
         
-        selectionIndex = self._keywordTable.getCurrentEntry().selectionIndex()
+        selectionIndex = keywordTable.getCurrentEntry().selectionIndex()
         
         if selectionIndex == -1:
             string = ""
         else:
 
-            currentEntry = self._keywordTable.getCurrentEntry()
+            currentEntry = keywordTable.getCurrentEntry()
 
             template = currentEntry.selection().getValue("template")
             if template is "":

@@ -145,6 +145,9 @@ class Application:
         self._bindKeys()
         self._styleApp()
 
+    def getKeywordTable(self):
+        return self._keywordTable
+
     #-------------------------------------------------------------------
     # Styling.
 
@@ -188,14 +191,14 @@ class Application:
 
         tframe = tk.Frame(self._mainFrame)
         scrollbar = tk.Scrollbar(tframe)
-        self._textView = TextView(tframe, self._keywordTable, self._styles, scrollbar)
+        self._textView = TextView(tframe, self, self._styles, scrollbar)
         scrollbar.config(command=self._textView.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self._textView.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
         self._mainFrame.add(tframe, width=(screenWidth // 2), stretch="always")
 
         self._sidebar = Sidebar(
-            self._mainFrame, self._textView, self._styles, self._keywordTable)
+            self._mainFrame, self._textView, self._styles, self)
         self._mainFrame.add(
             self._sidebar, width=(screenWidth // 4), stretch="never")
         

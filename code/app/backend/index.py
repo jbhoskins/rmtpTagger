@@ -83,20 +83,20 @@ class Entry:
         # instead of "__type__" You would run into issues if the user
         # specified an attribute called "type", since you would have two
         # values with the same key.
-        self._info.append(("__type__", bs4_object.name))
+        self._info.append(("__type__", str(bs4_object.name)))
         
         # If an xml:id is not specified, set it to an empty string.
         try:
-            self._info.append(("__xml:id__", bs4_object["xml:id"]))
+            self._info.append(("__xml:id__", str(bs4_object["xml:id"])))
         except:
             self._info.append(("__xml:id__", ""))
 
         
         # Attach all information in the index.xml entry to the object.
         for info in bs4_object:
-            if info.name != 'keys' and info.name is not None:
-                self._info.append((info.name, info.string))
-
+            if str(info.name) != 'keys' and info.name is not None:
+                self._info.append((str(info.name), str(info.string)))
+    
     def getValue(self, string):
         """ Returns the value of the associated with the key
         provided."""

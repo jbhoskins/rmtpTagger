@@ -31,7 +31,7 @@ import app.gui.widgets as widgets
 
 class Sidebar(tk.PanedWindow):
     """Container to hold all widgets that will appear on the right sidebar."""
-    def __init__(self, parentFrame, fText, styles, keywordTable):
+    def __init__(self, parentFrame, fText, styles, app):
         tk.PanedWindow.__init__(self, parentFrame, orient=tk.VERTICAL)
         
         self.parent = parentFrame       
@@ -40,23 +40,24 @@ class Sidebar(tk.PanedWindow):
         self.exportTags = []
         self.bg = self.styles.c_2
         
-        self._keywordTable = keywordTable
+        self._app = app
 
         self._addWidgets()
         self._styleWidgets()
 
     def _addWidgets(self):
         """Declare and pack all the widgets used in the sidebar."""
-        self.currentTag = widgets.CurrentTagField(self, self._keywordTable)
-        self.tagInfoField = widgets.TagInformationField(self, self._keywordTable)
+        self.currentTag = widgets.CurrentTagField(self, self._app)
+        self.tagInfoField = widgets.TagInformationField(self, self._app)
         self.tagLabel = tk.Label(self, text="Tag Results")
 
-        self.preview = widgets.TagPreviewField(self, self._keywordTable)
+        self.preview = widgets.TagPreviewField(self, self._app)
         
         # Frame is to keep scrollbar next to text.
         frame = tk.Frame(self)
         scrollbar = tk.Scrollbar(frame)
-        self.tagResults = widgets.TagResults(frame, scrollbar, self._keywordTable)
+        self.tagResults = widgets.TagResults(frame, scrollbar,
+                self._app)
         scrollbar.config(command=self.tagResults.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.tagResults.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)

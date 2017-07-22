@@ -1,3 +1,2 @@
-default: <rs type="%s" key="%s"> : </rs>
-pronoun: <rs type="%s" subtype="%s"> : </rs           >
+pronoun: <rs type="%s" subtype="%s"> : </rs>
 hesitation: <span type="%s"> : </rs>
