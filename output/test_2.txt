@@ -148,7 +148,7 @@
 
 <u xml:id="sp73" who="interviewer">А кинотеатр был большой?</u>
 
-<u xml:id="sp74" who="interviewee">Разные. Поскольку <rs type="pron" subtype="persSing">я</rs> ходила в разных городах, часто многое, много <rs type="place" key="kinoteatrRodina">кинотеатров</rs>, <rs type="place" key="kinoteatrAurora">кинотеатры</rs> разные.</u>
+<u xml:id="sp74" who="interviewee">Разные. Поскольку <rs type="pron" subtype="persSing">я</rs> ходила в разных городах, часто многое, много <rs type="place" key="kinoteatrRodina">кинотеатров</rs>, <rs type="place" key="kinoteatrRodina">кинотеатры</rs> разные.</u>
 
 <u xml:id="sp75" who="interviewer">Кинотеатр был только для кино, или для других мероприятий?</u>
 

@@ -1,6 +1,7 @@
 
 from app.gui.popup_window import PopupWindow
 import tkinter as tk
+import tkinter.ttk as ttk
 import tkinter.messagebox
 
 import app.backend.tag_templates as templates
@@ -11,49 +12,50 @@ class TemplateEditor(PopupWindow):
         # This widget might benefit from the observer pattern as well.
         self._templateIndex = templates.TemplateIndex()
         PopupWindow.__init__(self, root)
-
     
+        self.bind("<Double-Button-1>", self.editTag)
+
     def _addWidgets(self):
         """ Called in superclass, adds all widgets to itself."""
-        self.text = tk.Text(self)
-        self.listBox = tk.Listbox(self)
-        self.listBox.bind("<ButtonRelease-1>", self.update)
+
+        headings = ("name", "front tag", "back tag", "arguments")
+        self.tree = ttk.Treeview(self, columns=headings, show="headings")
+
+        for col in headings:
+            self.tree.heading(col, text=col.title())
         
-        self.listBox.pack(side=tk.LEFT)
-        self.text.pack(side=tk.LEFT)
-        tk.Button(self, text="add", command=self.addTag).pack(side=tk.LEFT)
-        tk.Button(self, text="edit", command=self.editTag).pack(side=tk.LEFT)
-        tk.Button(self, text="delete", command=self.deleteTag).pack(side=tk.LEFT)
-        tk.Button(self, text="ok", command=self.close).pack(side=tk.LEFT)
+        self.tree.pack(fill=tk.BOTH, expand=True)
+        
+        # Need this frame to pack the buttons neatly centered below the table.
+        buttonFrame = tk.Frame(self)
 
-        for tagName in self._templateIndex.getNames():
-            self.listBox.insert(tk.END, tagName)
+        tk.Button(buttonFrame, text="add",
+                command=self.addTag).pack(side=tk.LEFT)
+        tk.Button(buttonFrame, text="edit", command=self.editTag).pack(side=tk.LEFT)
+        tk.Button(buttonFrame, text="delete",
+                command=self.deleteTag).pack(side=tk.LEFT)
+        tk.Button(buttonFrame, text="ok", command=self.closeAndCommit).pack(side=tk.LEFT)
+        tk.Button(buttonFrame, text="cancel", command=self.close).pack(side=tk.LEFT)
 
-        self.listBox.selection_set(0)
-        self.update()
+        buttonFrame.pack(expand=True)
+        self.updateTags()
 
-    def update(self, event=None):
-        """Update the text widget based on the user's selection in the
-        listbox."""
-        # Event needed for the click
-        self.text.delete("1.0", tk.END)
-        selection = self.listBox.curselection()[0] # bug here, returns a tup
-        self.text.insert("1.0",
-                str(self._templateIndex.getValues()[selection]))
-
-    def editTag(self):
+    def editTag(self, event=None):
         """Opens another popup window that allows the user to edit the selected
         template."""
-        selection = self.listBox.curselection()[0]
+        # Note: event passed as it is needed for the binding to mouseclick. 
+        selection = self.tree.focus()
+        index = self.tree.index(selection)
+        print("SELECTION IS>>>>>>>>>>>>>>>>>>>>>>", index)
         
-        tmp = AddTemplateEditor(self, self._templateIndex, selection)
+        tmp = AddTemplateEditor(self, self._templateIndex, index)
         
         # get the values of the selected template to fill the defaults of the
         # new popup window
-        name = self._templateIndex.getNames()[selection]
-        frontTag = self._templateIndex.getValues()[selection].getFront()
-        endTag = self._templateIndex.getValues()[selection].getBack()
-        arguments = self._templateIndex.getValues()[selection].getArguments()
+        name = self._templateIndex.getNames()[index]
+        frontTag = self._templateIndex.getValues()[index].getFront()
+        endTag = self._templateIndex.getValues()[index].getBack()
+        arguments = self._templateIndex.getValues()[index].getArguments()
 
         
         tmp.setDefaults(name, frontTag, endTag, arguments)
@@ -62,19 +64,30 @@ class TemplateEditor(PopupWindow):
         """populate the listbox with the names of the templates in the
         template index."""
 
-        self.listBox.delete(0, tk.END)
+        # Delete all the templates in the view.
+        for row in self.tree.get_children():
+            self.tree.delete(row)
 
-        for tagName in self._templateIndex.getNames():
-            self.listBox.insert(tk.END, tagName)
+        # Populate the tree view with templates.
+        for template in self._templateIndex.getTemplates():
+            self.tree.insert("", tk.END, text=template[0],
+                    values=(template[0],) + template[1].getTuple())
 
-    def close(self):
+
+    def closeAndCommit(self):
         """Write the current index to file, and close the popup window."""
         
-        f = open("../META/custom_tags.txt", "w")
+        f = open("../META/tagTemplatesBackup.txt", "w")
         f.write(self._templateIndex.getFileString())
         f.close()
         print("Successfully updated tags")
 
+        # grab_release allows the user to iteract with other windows again.
+        self.grab_release()
+        self.destroy()
+
+    def close(self):
+        """Closes the window."""
         # grab_release allows the user to iteract with other windows again.
         self.grab_release()
         self.destroy()
@@ -84,12 +97,13 @@ class TemplateEditor(PopupWindow):
         
         # This actually can be undone if we add a cancel button - this is
         # probably a better solution.
-        if tk.messagebox.askquestion("Delete Warning", "Are you sure you want\
-        to delete this template? This cannot be undone.") == "no":
+        if tk.messagebox.askquestion("Delete Warning", "Are you sure you"+\
+            "want to delete this template? This cannot be undone.") == "no":
             return
         
-        selection = self.listBox.curselection()[0]
-        self._templateIndex.deleteTemplate(selection)
+        selection = self.tree.focus()
+        index = self.tree.index(selection)
+        self._templateIndex.deleteTemplate(index)
         self.updateTags()
 
     def addTag(self):
@@ -108,22 +122,37 @@ class AddTemplateEditor(PopupWindow):
 
     def _addWidgets(self):
         """Populate the popup window with widgets."""
-        
+       
+        topFrame = tk.Frame(self)
+        bottomFrame = tk.Frame(self)
+
         # Called in the superclass
-        self.nameEntry = tk.Entry(self)
-        self.frontTagEntry = tk.Entry(self)
-        self.endTagEntry = tk.Entry(self)
-        self.argumentsEntry = tk.Entry(self)
+        leftFrame = tk.Frame(topFrame)
+        rightFrame = tk.Frame(topFrame)
+
+        tk.Label(leftFrame, text="Template name:").pack()
+        tk.Label(leftFrame, text="Front Tag:").pack()
+        tk.Label(leftFrame, text="End Tag:").pack()
+        tk.Label(leftFrame, text="Arguments:").pack()
         
-        tk.Label(self, text="Template name:").pack()
-        self.nameEntry.pack()
-        tk.Label(self, text="Front Tag:").pack()
-        self.frontTagEntry.pack()
-        tk.Label(self, text="End Tag:").pack()
-        self.endTagEntry.pack()
-        tk.Label(self, text="Arguments:").pack()
-        self.argumentsEntry.pack()
-        tk.Button(self, text="ok", command=self.close).pack()
+        self.nameEntry = tk.Entry(rightFrame, width=30)
+        self.frontTagEntry = tk.Entry(rightFrame, width=30)
+        self.endTagEntry = tk.Entry(rightFrame, width=30)
+        self.argumentsEntry = tk.Entry(rightFrame, width=30)
+       
+        self.nameEntry.pack(fill=tk.X, expand=True)
+        self.frontTagEntry.pack(fill=tk.X, expand=True)
+        self.endTagEntry.pack(fill=tk.X, expand=True)
+        self.argumentsEntry.pack(fill=tk.X, expand=True)
+       
+        topFrame.pack(fill= tk.X, expand=True)
+        bottomFrame.pack()
+
+        leftFrame.pack(side=tk.LEFT)
+        rightFrame.pack(side=tk.LEFT, fill=tk.X, expand=True)
+         
+        tk.Button(bottomFrame, text="ok",
+                command=self.close).pack()
 
     def setDefaults(self, name, frontTag, endTag, arguments):
         """Populate the fields of the popup window with the values of the
@@ -138,6 +167,16 @@ class AddTemplateEditor(PopupWindow):
         """Commit the changes made by the user to the data structure, and close
         the window."""
 
+        # Make sure that there are the right amount of arguments to fit the
+        # number of '%s' string formatting spots in the front tag.
+        if len(self.argumentsEntry.get().split()) !=\
+                self.frontTagEntry.get().count(r"%s"):
+            tk.messagebox.showwarning("Argument Error", "The number of"+\
+                    " arguments you supplied was not equal to the number of"+\
+                    r" '%s' symbols in the front tag.")
+            return
+
+
         if self._selection == None:
             # Meaning that you are appending
             self._templateIndex.addTemplate(self.nameEntry.get(), 
@@ -148,9 +187,10 @@ class AddTemplateEditor(PopupWindow):
             self._templateIndex.replaceTemplate(self._selection,
                 self.nameEntry.get(), self.frontTagEntry.get(),
                 self.endTagEntry.get(), self.argumentsEntry.get().split())
+
         
         self._parent.updateTags()
-        
+    
         # finalize stuff here
         self.grab_release()
         self.destroy()

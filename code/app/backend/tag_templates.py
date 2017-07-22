@@ -46,8 +46,9 @@ class Tag:
         return self._arguments
     
     def getTuple(self):
-        """Get a tuple of the front and back tag in the form (front, back)."""
-        return (self._front, self._back)
+        """Get a tuple of the front and back tag in the form (front, back,
+        arguments)."""
+        return (self._front, self._back, "   ".join(self._arguments))
 
     def __str__(self):
         return "%s\t%s" % (self.getFront(), self.getBack())
@@ -100,6 +101,9 @@ class TemplateIndex:
     def getValues(self):
         """Returns a list of the Tag objects in the data structure."""
         return [entry[1] for entry in self._templates]
+
+    def getTemplates(self):
+        return self._templates
 
     def addTemplate(self, name, frontTag, backTag, arguments):
         """Appends a new template to the index."""
