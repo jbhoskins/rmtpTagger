@@ -34,12 +34,15 @@ class Menubar(tk.Menu):
         tk.Menu.__init__(self, app._root)
         
         FileMenu(self, app)
-        ThemeMenu(self, app)
-        # This menu we probably don't need in the final product.
+        # These menus had either only one elemenet, or tons of unused elements,
+        # so for now, until we have more functionality, I combined them into
+        # one EditMenu.
         # ToolsMenu(self, app)
-        IndexMenu(self, app)
-        TemplateMenu(self, app)
+        # IndexMenu(self, app)
+        # TemplateMenu(self, app)
+        EditMenu(self, app)
         
+        ThemeMenu(self, app)
         app._root.config(menu=self)
 
 
@@ -260,3 +263,24 @@ class TemplateMenu(DropdownMenu):
     def templateEditPop(self):
         """ Opens the template editor popup window. """
         template_editor.TemplateEditor(self.app.getRoot())
+
+class EditMenu(DropdownMenu):
+    """Menu that appears when you click 'Edit' from the top menubar. """
+    def __init__(self, menubar, app):
+        DropdownMenu.__init__(self, menubar, app)
+
+        self.app = app
+
+        self.add_command(label="Edit Templates...",
+                command=self.templateEditPop)
+        self.add_command(label="Edit index...", command=self.indexEditPop)
+        
+        menubar.add_cascade(label="Edit", menu=self)
+
+    def templateEditPop(self):
+        """ Opens the template editor popup window. """
+        template_editor.TemplateEditor(self.app.getRoot())
+    
+    def indexEditPop(self):
+        """ Opens the index editor popup window. """
+        index_editor.IndexEditor(self.app.getRoot())
