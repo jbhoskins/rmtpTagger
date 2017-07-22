@@ -23,8 +23,6 @@ Changed style of code to conform to the PEP8 styleguide.
 import codecs 
 import tkinter as tk
 import pickle as pickle
-import dill as dill
-import json as json
 import app.gui.index_editor as index_editor
 import app.gui.template_editor as template_editor
 import app.backend.tag_templates as templates
@@ -36,7 +34,8 @@ class Menubar(tk.Menu):
         
         FileMenu(self, app)
         ThemeMenu(self, app)
-        ToolsMenu(self, app)
+        # This menu we probably don't need in the final product.
+        # ToolsMenu(self, app)
         IndexMenu(self, app)
         TemplateMenu(self, app)
         
@@ -54,11 +53,12 @@ class FileMenu(DropdownMenu):
     """Menu that appears when you click 'File' on the top menubar."""
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
-        self.add_command(label="Open Session", command=self.loadSession)
-        self.add_command(label="Save Session", command=self.saveSession)
+        self.add_command(label="Open Session...", command=self.loadSession)
+        self.add_command(label="Save Session...", command=self.saveSession)
         self.add_separator()
         self.add_command(label="Import text...", command=self.openFile)
         self.add_command(label="Export text...", command=self.export)
+        self.add_separator()
         self.add_command(label="Export as TEI...")
         menubar.add_cascade(label="File", menu=self)
     
@@ -151,7 +151,9 @@ class FileMenu(DropdownMenu):
         referenceToIndex = self.app._keywordTable._indexObject
         referenceToViews = self.app._keywordTable._views
 
-        # Index object can be serialized, not sure if it needs to be.
+        # Index object can be serialized, not sure if it needs to be. view
+        # objects cannot be serialized, so they need to be erased from the
+        # version being stored. 
         self.app._keywordTable._indexObject = None
         self.app._keywordTable._views = []
 
@@ -159,6 +161,7 @@ class FileMenu(DropdownMenu):
         pickle.dump(self.app._keywordTable, f)
         f.close()
 
+        # Bring the references back.
         self.app._keywordTable._indexObject = referenceToIndex
         self.app._keywordTable._views = referenceToViews
         
