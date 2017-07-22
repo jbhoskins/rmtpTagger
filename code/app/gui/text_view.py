@@ -33,6 +33,9 @@ import math
 import re
 import tkinter as tk
 
+# For the error message
+import tkinter.messagebox
+
 from app.backend.keyword_instance_table import KeywordInstanceTable
 from app.backend.keyword_instance import KeywordInstance
 import app.gui.view_controller as view
@@ -63,9 +66,20 @@ class TextView(tk.Text, view.Viewer):
         keywordTable = self._app.getKeywordTable()
 
         f = open(path, encoding="UTF-8")
-        string = f.read()
+        string = f.read().strip()
         string = string.replace("ё", "е")
         f.close()
+
+        pattern = re.compile(r"^((.+)\n\n)+(.+)$", re.MULTILINE)
+        if pattern.fullmatch(string) is None:
+            # the input string is not in the right format of text\n\ntext
+            # etc...
+            tk.messagebox.showwarning("Parse Error", "It looks like the text"+\
+                    " you are trying to load is not formatted correctly."+\
+                    "\n\nBefore importing please make sure that everything an"+\
+                    " individual says is on its own line, and each line is"+\
+                    " seperated by a single blank line.")
+            return
 
         keywordTable.fillTable(string)
         

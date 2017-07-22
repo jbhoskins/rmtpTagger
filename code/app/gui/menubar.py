@@ -81,18 +81,14 @@ class FileMenu(DropdownMenu):
             if word_inx == -1:
                 continue
 
-            # These lines are the ones that need updating.
-            # frontTag = "<rs type=\"%s\" key=\"%s\">" % (sel.type(), sel.xmlId())
-            # backTag = "</rs>"
+            # If no template is specified, use default template.
             if entry.selection().getValue("template") is "":
                 tag = templateIndex.lookup("default")
             else:
                 tag =\
                 templateIndex.lookup(entry.selection().getValue("template").lower())
 
-            # Interesting problem, to have strings with a variable number of
-            # arguments. It looks like you can do it with tuples. Use a string,
-            # cast is as a tuple, and then mod it with the tags.
+            # Create the front and back tags from the templates
             frontTag = tag.getFront() % tuple([entry.selection().getValue(x)\
                 for x in tag.getArguments()])
             backTag = tag.getBack()
