@@ -22,7 +22,8 @@ Changed style of code to conform to the PEP8 styleguide.
 
 import codecs 
 import tkinter as tk
-import pickle as pickle
+import pickle
+import shelve
 import app.gui.index_editor as index_editor
 import app.gui.template_editor as template_editor
 import app.backend.tag_templates as templates
@@ -141,7 +142,7 @@ class FileMenu(DropdownMenu):
             defaultextension=".rmtp", initialdir="../sessions/") 
         
         if outputFile:
-            f = open(outputFile, "wb")
+            shelf = shelve.open(outputFile)
         else:
             print("File does not exist!")
             return
@@ -157,9 +158,10 @@ class FileMenu(DropdownMenu):
         self.app._keywordTable._indexObject = None
         self.app._keywordTable._views = []
 
-        # serialize the data structure and save it as bytecode.
-        pickle.dump(self.app._keywordTable, f)
-        f.close()
+        # serialize the structures and save it as bytecode.
+        shelf["keywordTable"] = self.app._keywordTable
+        shelf["text"] = self.app._textView.get("1.0", tk.END)
+        shelf.close()
 
         # Bring the references back.
         self.app._keywordTable._indexObject = referenceToIndex
@@ -171,10 +173,11 @@ class FileMenu(DropdownMenu):
         filePath = tk.filedialog.askopenfilename(initialdir="../sessions/")
 
         if filePath:
-            f = open(filePath, "rb")
+            shelf = shelve.open(filePath)
 #            f = open("../sessions/savedSessionDude", "rb")
-            newTable = pickle.load(f)
-            f.close()
+            newTable = shelf["keywordTable"]
+            text = shelf["text"]
+            shelf.close()
         else:
             print("File does not exist.")
             return
@@ -186,6 +189,7 @@ class FileMenu(DropdownMenu):
         newTable._views = self.app._keywordTable._views
         
         self.app._keywordTable = newTable
+        self.app._textView.loadString(text)
 
         self.app._bindKeys()
         self.app._keywordTable.notifyViewersRedraw()

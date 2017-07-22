@@ -76,6 +76,18 @@ class TextView(tk.Text, view.Viewer):
         self._tagPersons()
         self.tagAllElementsInTable()
         self.config(state=tk.DISABLED) 
+
+    def loadString(self, string):
+        """Inserts a string into the view instead of reading from a file."""
+        string = string.replace("ё", "е")
+        
+        self.config(state=tk.NORMAL)
+        self.delete("1.0", tk.END)
+        self.insert("1.0", string, "bigger")
+            
+        self._tagPersons()
+        self.tagAllElementsInTable()
+        self.config(state=tk.DISABLED) 
     
     def _styleFrame(self):
         """Style the text."""
