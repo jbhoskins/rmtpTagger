@@ -227,8 +227,7 @@ class Index:
             # The dictionary {None : None} signifies the termination of a key -
             # check if it is present, and if it is the only possible
             # continuation of the tree.
-            if None in self._activeDict.keys() and\
-            len(self._activeDict.keys()) == 1:
+            if None in self._activeDict.keys():
                 return MatchState.unique_match
             return MatchState.potential_match
         
@@ -279,3 +278,4 @@ if __name__ == '__main__':
     print("test", ndx.multiTest("кинотеатров"))
     print("test", ndx.multiTest("кинотеатры"))
     print("test", ndx.multiTest("кинотеатр"))
+    print("test", ndx.multiTest("кинотеатров"))
