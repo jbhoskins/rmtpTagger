@@ -30,6 +30,7 @@ import tkinter as tk
 import app.gui.widgets as widgets
 
 class Sidebar(tk.PanedWindow):
+    """Container to hold all widgets that will appear on the right sidebar."""
     def __init__(self, parentFrame, fText, styles, keywordTable):
         tk.PanedWindow.__init__(self, parentFrame, orient=tk.VERTICAL)
         

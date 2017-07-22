@@ -28,6 +28,7 @@ import app.gui.template_editor as template_editor
 import app.backend.tag_templates as templates
 
 class Menubar(tk.Menu):
+    """The top menubar of the application."""
     def __init__(self, app):
         tk.Menu.__init__(self, app._root)
         
@@ -41,12 +42,14 @@ class Menubar(tk.Menu):
 
 
 class DropdownMenu(tk.Menu):
+    """Abstract class to describe the menus that dropdown from the menubar."""
     def __init__(self, menubar, app):
         tk.Menu.__init__(self, menubar, tearoff = 0)
         self.app = app
 
 
 class FileMenu(DropdownMenu):
+    """Menu that appears when you click 'File' on the top menubar."""
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
         self.add_command(label="Open Session")
@@ -125,15 +128,19 @@ class FileMenu(DropdownMenu):
 
 
     def openFile(self):
+        """Import text from a file into the program."""
         filePath = tk.filedialog.askopenfilename(initialdir="../../input/")
         self.app._textView.loadText(filePath)
 
     def saveSession(self):
+        """Saves the current session so that it can be resumed later."""
         pass
     def loadSession(self):
+        """Loads a session from file so that it can be continued."""
         pass
 
 class ThemeMenu(DropdownMenu):
+    """Menu that appears when you click 'Theme' from the top menubar. """
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
         self.add_command(
@@ -152,6 +159,7 @@ class ThemeMenu(DropdownMenu):
         menubar.add_cascade(label="Theme", menu=self)
 
 class ToolsMenu(DropdownMenu):
+    """Menu that appears when you click 'Tools' from the top menubar. """
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
         self.add_command(label="Hide Greens")
@@ -163,6 +171,7 @@ class ToolsMenu(DropdownMenu):
         menubar.add_cascade(label="Tools", menu=self)
 
 class IndexMenu(DropdownMenu):
+    """Menu that appears when you click 'Index' from the top menubar. """
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
         
@@ -177,9 +186,11 @@ class IndexMenu(DropdownMenu):
         menubar.add_cascade(label="Index", menu=self)
 
     def indexEditPop(self):
+        """ Opens the index editor popup window. """
         index_editor.IndexEditor(self.app.getRoot())
 
 class TemplateMenu(DropdownMenu):
+    """Menu that appears when you click 'Templates' from the top menubar. """
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
 

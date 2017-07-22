@@ -240,6 +240,8 @@ class Application:
 #        self._keywordTable.notifyViewersRedraw()
     
     def _registerViewers(self):
+        """Attaches view objects to the keyword table, so that they will be
+        updated when keywordTable is told up update its viewers."""
         
         # Register the viewers
         self._keywordTable.registerViewer(self._textView)

@@ -53,7 +53,11 @@ class Tag:
         return "%s\t%s" % (self.getFront(), self.getBack())
 
 class TemplateIndex:
+    """Data container to access the tagTemplates configuration file, and
+    encapsulate all access to it. Stores information as tuples, in a list of 
+    key:value pairs with strings as keys and Tag objects as values."""
     def __init__(self):
+        """ Open the file and parse it for tag templates."""
         f = open("../META/tagTemplates.txt")
         
         self._templates = []
@@ -79,31 +83,39 @@ class TemplateIndex:
         f.close()
 
     def getFileString(self):
+        """Used for writing the data structure as a tag configuration file. Has
+        not been tested or finished yet. """
         string = ""
 
         for entry in self._templates:
-            string += entry[0] + ": " + entry[1].getFront() + " : " +\
+            string += entry[0] + "__+__ " + entry[1].getFront() + " __+__ " +\
             entry[1].getBack() + "\n"
 
         return string
 
     def getNames(self):
+        """Return a list of the names of the templates."""
         return [entry[0] for entry in self._templates]
 
     def getValues(self):
+        """Returns a list of the Tag objects in the data structure."""
         return [entry[1] for entry in self._templates]
 
     def addTemplate(self, name, frontTag, backTag, arguments):
+        """Appends a new template to the index."""
         self._templates.append((name, Tag(frontTag, backTag, arguments)))
 
     def deleteTemplate(self, index):
+        """Deletes the template at the given index."""
         self._templates.pop(index)
 
     def replaceTemplate(self, index, name, frontTag, backTag, arguments):
+        """Replaces the template aat the given index. Used for editing tags."""
         self.deleteTemplate(index)
         self._templates.insert(index, (name, Tag(frontTag, backTag, arguments)))
 
     def lookup(self, name):
+        """Looks up and returns the Tag object associated with the given name."""
         
         # this thing that I keep doing can probably replaced with a normal,
         # built in list method.

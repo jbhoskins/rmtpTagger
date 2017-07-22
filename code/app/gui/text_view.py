@@ -39,14 +39,11 @@ import app.gui.view_controller as view
 
 
 class TextView(tk.Text, view.Viewer):
+    """Class to display text, and highlight appropiate words in the text based
+    on a table of values (keywordTable)."""
     def __init__(self, Frame, keywordInstanceTable, styles, scrollbar):
-        """Initialize the text, keyword table, index, styles, variable 
-        tags, and widgets.
-        """
         tk.Text.__init__(self, Frame, yscrollcommand=scrollbar.set)
         
-        # The following needs "object" name so as not to overwrite the 
-        # Text method Text.index()
         self._keywordTable = keywordInstanceTable
         self.styles = styles
         
@@ -78,7 +75,7 @@ class TextView(tk.Text, view.Viewer):
         self.config(state=tk.DISABLED) 
     
     def _styleFrame(self):
-        """Style the whole frame."""
+        """Style the text."""
         self.insert(
             "1.0", "Load some text from the menubar!")
         self.config(state=tk.DISABLED, wrap=tk.WORD)        
@@ -100,7 +97,9 @@ class TextView(tk.Text, view.Viewer):
     # Configuring and applying tags.
     
     def _createTags(self):
-        """Create the tags that will be applied to a word in the text."""
+        """Create the tags that will be applied to a word in the text. Tags
+        have associated background colors - each tag has a different color
+        associated with it."""
         self.tag_configure("clickableWord")
         self.tag_configure("multi", background=self.styles.h_multi)
         self.tag_configure("single", background=self.styles.h_single) 
@@ -132,10 +131,9 @@ class TextView(tk.Text, view.Viewer):
         else:
             tag = "single"
             
-        wordStart = "1.0+%sc" % word.start()
-        wordEnd   = "1.0+%sc" % word.stop()
-        
         # Tag the relevant region of text.
+        wordStart = "1.0+%sc" % word.start()
+        wordEnd   = "1.0+%sc" % word.stop() 
         self.tag_add(tag, wordStart, wordEnd)
         
         if not unambiguous:
@@ -149,7 +147,6 @@ class TextView(tk.Text, view.Viewer):
             results = word.entries()
             self._applyTag(word, results, word["unambiguous"])
 
-        #cur = self.index("1.0+%sc" % 20163) # hardcoding?
         #print("value:", self.keywordTable.lookup(self.count("1.0", cur)[0]))
         #print(self.keywordTable)
         

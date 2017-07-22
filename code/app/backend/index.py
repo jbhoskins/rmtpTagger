@@ -40,7 +40,7 @@ mation given in the Index entry.
 
 There are two exceptions - type (person, in this case), and xml:id are treated
 specially, as they are important values (used in other contexts) that every
-entry needs to have they are given underscores to prevent being overwritten by
+entry needs to have. they are given underscores to prevent being overwritten by
 user defined attributes.
 
 continuing with the example, this list would look like this (note that all
@@ -129,7 +129,7 @@ class Index:
         
         2: Builds a parse tree of the keys themselves, to provide a way to
         determine, one word at a time, if a string with an arbitrary number of
-        words is a key. An important consequence of this is that longer keys
+        words is a valid key. An important consequence of this is that longer keys
         will always take precedence over nested keys that are shorter.
         
         This should probably be refactored into a parse-tree class and a seperate

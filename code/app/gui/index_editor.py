@@ -6,6 +6,7 @@ import tkinter as tk
 from lxml import etree as ET
 
 class IndexEditor(PopupWindow):
+    """Popup window to facilitate editing the index."""
     def __init__(self, root):
         PopupWindow.__init__(self, root)
 
@@ -15,12 +16,12 @@ class IndexEditor(PopupWindow):
         self.update()
 
     def _addWidgets(self):
-        """ Called in the superclass"""
+        """ Called in the superclass. Adds all widgets to the window."""
         self.txt = tk.Text(self, state=tk.DISABLED)
         self.attributeName = tk.Entry(self)
         self.attributeContent = tk.Entry(self)
 
-
+        # Needed to stack buttons below other widgets.
         bottom_frame = tk.Frame(self)
         bottom_frame.pack(side=tk.BOTTOM)
         
@@ -41,7 +42,11 @@ class IndexEditor(PopupWindow):
     
     
     def update(self):
-        # Note: numbers cannot be tags
+        """Fill the text based on the xml tree made by the user as they add
+        elements."""
+
+
+        # Note: tags cannot be numbers.
         
         # This block catches if the fields are empty.
         try:
@@ -61,6 +66,7 @@ class IndexEditor(PopupWindow):
         self.txt.config(state=tk.DISABLED)
 
     def submit(self):
+        """Close the window."""
         # finalize stuff here
         self.grab_release()
         self.destroy()

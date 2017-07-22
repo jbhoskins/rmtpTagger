@@ -30,7 +30,7 @@ from app.backend.keyword_instance import KeywordInstance
 import app.backend.tag_templates as templates
 
 class TagResults(tk.Listbox, view.Viewer):
-    """Create a ListBox of results pulled from the index."""
+    """A ListBox of results pulled from the index."""
     
     def __init__(self, sidebar, scrollbar, keywordTable):
         tk.Listbox.__init__(self, sidebar, selectmode=tk.SINGLE, 
@@ -43,8 +43,11 @@ class TagResults(tk.Listbox, view.Viewer):
     def populateTags(self, listOfXmlIds):
         """Populate the ListBox with every element in a list."""
         self.delete(0, tk.END)
+
+        # Don't display anything if an empty list is passed.
         if listOfXmlIds != []:
             self.insert(tk.END, "NO TAG")
+
         for item in listOfXmlIds:
             self.insert(tk.END, item)
 
@@ -60,6 +63,8 @@ class TagResults(tk.Listbox, view.Viewer):
             return 0
 
     def xmlIdSelection(self):
+        """Returns the string in the listbox corrosponding to the current
+        selection."""
         selection = self.curselection()
         if selection != ():
             # Returned as tuple, only want 1st value.
@@ -68,19 +73,15 @@ class TagResults(tk.Listbox, view.Viewer):
             return ""
 
     def onClick(self, event):
+        """Update the selected entry when an entry is clicked."""
         self._keywordTable.getCurrentEntry()["selectedEntry"] =\
             self.curSelection() - 1
 
         self._keywordTable.notifyViewersRedraw()
     
     def update(self):
-        """Update the tagResults widget (inherits from ListBox) with the 
-        word in the FramedText cache. Automatically fills the 
-        tagInfoField with first tag.
-        """
+        """Redraw the widget based on the state of the program."""
         
-        # confusing terminology here - fix it. One entry is an entry in the
-        # keywordTable, the other is each possible tag per entry.
         currentEntry = self._keywordTable.getCurrentEntry()
        
         # Makes sure not to repopulate everything unless the current entry has
@@ -115,9 +116,7 @@ class TagInformationField(tk.Text, view.Viewer):
         self.config(state = tk.DISABLED)
     
     def update(self):
-        """Get the selection from the tagResults box and display its 
-        information in tagInfoField.
-        """
+        """Redraw the widget based on the state of the program."""
 
         currentEntry = self._keywordTable.getCurrentEntry()
         currentSelection = currentEntry["selectedEntry"]
@@ -131,12 +130,14 @@ class TagInformationField(tk.Text, view.Viewer):
         self._updateInformation(string)
 
 class CurrentTagField(tk.Label, view.Viewer):
+    """A label that shows the xml:id of the current selection of the possible
+    tags."""
     def __init__(self, sidebar, keywordTable):
         tk.Label.__init__(self, sidebar, text="Current:")
         self._keywordTable = keywordTable
 
     def update(self):
-        
+        """Redraw the widget based on the state of the program."""
         selectionIndex = self._keywordTable.getCurrentEntry().selectionIndex()
         
         if selectionIndex == -1:
@@ -150,14 +151,17 @@ class CurrentTagField(tk.Label, view.Viewer):
         self.config(text=string)
 
 class TagPreviewField(tk.Label, view.Viewer):
+    """Shows a preview of how the xml tags around the current selecion will
+    look."""
     def __init__(self, sidebar, keywordTable):
         tk.Label.__init__(self, sidebar, text="Preview:")
         self._keywordTable = keywordTable
 
-        # Will need updating after changes to templates
+        # Will need updating after changes to templates.
         self._templates = templates.TemplateIndex()
 
     def update(self):
+        """Redraw the widget based on the current state of the program."""
         
         selectionIndex = self._keywordTable.getCurrentEntry().selectionIndex()
         
