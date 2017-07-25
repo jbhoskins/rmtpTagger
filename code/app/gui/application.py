@@ -108,6 +108,7 @@ from app.gui.left_sidebar import LeftSidebar
 from app.gui.menubar import Menubar
 from app.gui.sidebar import Sidebar
 from app.gui.stylesheet import StyleSheet
+from app.gui.splash_screen import SplashScreen
 
 from app.backend.keyword_instance_table import KeywordInstanceTable
 
@@ -116,7 +117,11 @@ class Application:
         """Initialize and style root; set styles, widgets, and frames, 
         make sure app opens properly.
         """
+        # Withdraw hides all graphical elements, so that nothing is shown
+        # partially loaded until everything is in place.
         self._root = tk.Tk()
+        self._root.withdraw()
+        self._splash = SplashScreen(self._root)
         
         # Pull window to the top, but not permanently.
         self._root.lift()
@@ -290,6 +295,12 @@ class Application:
 
     def launch(self):
         """Launch the program."""
+
+        # deiconify shows the window again. It is hidden at the beginning of
+        # initialization, so that you don't get that weird grey box when it
+        # starts to load.
+        self._splash.destroy()
+        self._root.deiconify()
         self._root.mainloop()
         
 
