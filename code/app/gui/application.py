@@ -130,8 +130,15 @@ class Application:
             self._root.call, 'wm', 'attributes', '.', '-topmost', False)
         self._root.focus_set()
         
-        # Set title, dim, index, & paned window.
+        # Set title
         self._root.wm_title("William & Mary Index Tagger")
+        
+        # Set the window icon. This has some cross platform issues.
+        icon =\
+        tk.PhotoImage(file=r"../META/cypher_alpha_32x32.png")
+        self._root.tk.call("wm", "iconphoto", self._root._w, "-default", icon)
+        
+        # Set dim, index, & paned window.
         self._dim = ( self._root.winfo_screenwidth(), 
                      self._root.winfo_screenheight() )
         self._mainFrame = tk.PanedWindow(
