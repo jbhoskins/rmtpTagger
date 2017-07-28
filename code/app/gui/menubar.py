@@ -138,7 +138,8 @@ class FileMenu(DropdownMenu):
         """Saves the current session so that it can be resumed later."""
         
         outputFile = tk.filedialog.asksaveasfilename(
-            defaultextension=".rmtp", initialdir="../sessions/") 
+            defaultextension=".rmtp", initialdir="../sessions/",
+            filetypes=[("rmtp session files", "*.rmtp")]) 
         
         if outputFile:
             shelf = shelve.open(outputFile)
@@ -169,7 +170,8 @@ class FileMenu(DropdownMenu):
 
     def loadSession(self):
         """Loads a session from file so that it can be continued."""
-        filePath = tk.filedialog.askopenfilename(initialdir="../sessions/")
+        filePath = tk.filedialog.askopenfilename(initialdir="../sessions/",
+                filetypes=[("rmtp session files", "*.rmtp")])
 
         if filePath:
             shelf = shelve.open(filePath)
