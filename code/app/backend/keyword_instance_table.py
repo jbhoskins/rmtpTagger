@@ -138,7 +138,7 @@ class KeywordInstanceTable(list):
         self.reset()
 
         # Ideally, make a generator for each relevant line
-        iterator = re.finditer("\w+", string) 
+        iterator = re.finditer("\w+(-\w+)?", string) 
         keyword = ""
         cacheItem = KeywordInstance()
         foundMatch = False
