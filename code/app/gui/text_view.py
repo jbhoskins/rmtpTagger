@@ -104,8 +104,7 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
 
     def style(self, styles):
         self.config(
-            bg=styles.c_1, font=styles.f_text,
-            highlightbackground=styles.c_1)
+            background=styles.c_1, font=styles.f_text)
         self._createTags(styles) # need to remake them with new colors
     
     #-------------------------------------------------------------------       
@@ -119,6 +118,7 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
         self.tag_configure("multi", background=styles.h_multi)
         self.tag_configure("single", background=styles.h_single) 
         self.tag_configure("cur", background=styles.h_current)
+        print(styles.h_current)
         
         self.tag_configure("unambiguous", background="white")
 
@@ -189,6 +189,8 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
         keywordTable = self._app.getKeywordTable()
         
         currentEntry = keywordTable.getCurrentEntry()
+        print("LOKOOOOOOOOOOOOOOK", currentEntry)
+        print(currentEntry.start(), currentEntry.stop())
 
         self.tag_remove("cur", "1.0", tk.END)        
         self.tag_add(
@@ -196,6 +198,7 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
             "1.0+%sc" % currentEntry.stop())
 
         self.see("1.0+%sc" % currentEntry.start())
+        print(self.tag_ranges("cur"))
  
 #-----------------------------------------------------------------------
 # Main.

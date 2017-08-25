@@ -227,26 +227,7 @@ class Application:
  #       self.fText.tag_bind(
  #           "interviewee", "<ButtonRelease-2>", self._showTagMenu)
             
-#        self.sidebar.tagResults.populateTags([])
 
-# ------------------- Methods bound to keys ----------------------
-# Now deprecated after adding calls to notify viewers within keywordtable
-#    def moveRight(self, event):
-#        self._keywordTable.nextValidEntry()
-#        self._keywordTable.notifyViewersRedraw() # These redraw methods could
-                                                 # arguably be called within kt
-#    def moveLeft(self, event):
-#        self._keywordTable.previousValidEntry()
-#        self._keywordTable.notifyViewersRedraw()
-
-#    def prevTag(self, event):
-#        self._keywordTable.prevTag()
-#        self._keywordTable.notifyViewersRedraw()
-        
-#    def nextTag(self, event):
-#        self._keywordTable.nextTag()
-#        self._keywordTable.notifyViewersRedraw()
-    
     def _registerViewers(self):
         """Attaches view objects to the keyword table, so that they will be
         updated when keywordTable is told up update its viewers."""
@@ -276,8 +257,8 @@ class Application:
     #-------------------------------------------------------------------
     # Hover (in progress)
 
-    def on_enter(self, event):
-        self.textView.tag_add("cur", self.cur_line, self.cur_line + 1) 
+#    def on_enter(self, event):
+#        self.textView.tag_add("cur", self.cur_line, self.cur_line + 1) 
 
     def on_leave(self, enter):
         self.textView.tag_add("reg", self.cur_line, self.cur_line + 1)
@@ -316,7 +297,6 @@ class Application:
         self._splash.destroy()
         self._root.deiconify()
         self._root.mainloop()
-        self._styles.changeTheme("bella")
         
 
 #-----------------------------------------------------------------------
