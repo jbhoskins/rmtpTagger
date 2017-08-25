@@ -224,11 +224,14 @@ class Application:
             "clickableWord", "<Button-1>", self._textView.onClick)
         self._sidebar.tagResults.bind(
             "<ButtonRelease-1>", self._sidebar.tagResults.onClick)
+        self._legend.tree.bind("<ButtonRelease-1>", self._legend.tree.onClick)
         
         self._root.bind("<Right>", self._keywordTable.nextValidEntry)
         self._root.bind("<Left>", self._keywordTable.previousValidEntry)
         self._root.bind("<Up>", self._keywordTable.prevTag)
         self._root.bind("<Down>", self._keywordTable.nextTag)
+        self._root.bind("<Return>",
+                self._keywordTable.toggleConfirmCurrent)
 
  #       self.fText.tag_bind(
  #           "interviewee", "<ButtonRelease-3>", self._showTagMenu)

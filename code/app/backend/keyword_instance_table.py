@@ -66,13 +66,24 @@ class KeywordInstanceTable(list):
         self._current = i
         return self[i]
 
+    def jumpTo(self, tableIndex):
+        
+        # assert to prevent jumps to pronouns, etc.
+        assert self[tableIndex]["unambiguous"] == False
+        self._current = tableIndex % len(self)
+        self.notifyViewersRedraw()
+
     def makeIndex(self):
         """Instantiates an Index object. Needed for session loading."""
         self._indexObject = Index("../META/index.xml")
 
     def getCurrentEntry(self):
         """Returns the currently selected KeywordInstance."""
-        return self[self._current]
+        if len(self) == 0:
+            return KeywordInstance()
+        else:
+            return self[self._current]
+
 
     def getCurrentIndex(self):
         """Returns the value of the index of the entry currently being
@@ -130,6 +141,10 @@ class KeywordInstanceTable(list):
         (len(self.getCurrentEntry().entries()) + 1)
         self.getCurrentEntry()["selectedEntry"] -= 1 
 
+        self.notifyViewersRedraw()
+
+    def toggleConfirmCurrent(self, event=None):
+        self.getCurrentEntry().toggleConfirm()
         self.notifyViewersRedraw()
 
     def fillTable(self, string):

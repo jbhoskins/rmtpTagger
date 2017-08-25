@@ -74,17 +74,9 @@ class KeywordInstance(dict):
         """Return the list of possible entries for the instance."""
         return self["entries"]
 
-    def confirm(self):
-        self["confirmed"] = True
-
-    def unconfirm(self):
-        self["confirmed"] = False
-
-    def isConfirmed(self):
-        if self["confirmed"]:
-            return u"\u2713"
-        else:
-            return ""
+    def toggleConfirm(self):
+        self["confirmed"] = not self["confirmed"]
+        print(self["confirmed"])
 
 
 if __name__ == "__main__":

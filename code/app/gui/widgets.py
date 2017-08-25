@@ -216,6 +216,11 @@ class AllTaggedResultsTable(ttk.Treeview, view.Viewer):
         self.unbind("<Up>")
         self.unbind("<Down>")
 
+    def onClick(self, event):
+        
+        index = int(self.focus()) - 1
+
+        self._app.getKeywordTable().jumpTo(index)
 
     def update(self):
         keywordTable = self._app.getKeywordTable()
@@ -228,9 +233,12 @@ class AllTaggedResultsTable(ttk.Treeview, view.Viewer):
         for entry in keywordTable:
             keywordTableIndex += 1
             if entry["unambiguous"]: continue
+
+            confirmedCheck = ""
+            if entry["confirmed"]: confirmedCheck = u"\u2713"
+
             self.insert("", tk.END, str(keywordTableIndex), values=("%d" %
-                rowIndex,
-            entry.string(), entry.isConfirmed()))
+                rowIndex, entry.string(), confirmedCheck))
             rowIndex += 1
 
         self.selection_add(str(keywordTable.getCurrentIndex() + 1))
