@@ -24,6 +24,7 @@ Changed style of code to conform to the PEP8 styleguide.
 """
 
 import tkinter as tk
+import tkinter.ttk as ttk
 import app.gui.view_controller as view
 
 from app.backend.keyword_instance import KeywordInstance
@@ -197,3 +198,44 @@ class TagPreviewField(tk.Label, view.Viewer):
         
             string = "Preview:  " + frontTag + currentEntry.string() + backTag
         self.config(text=string)
+
+class AllTaggedResultsTable(ttk.Treeview, view.Viewer):
+    def __init__(self, parent, app):
+        headings = ("#", "word", u"\u2713")
+        ttk.Treeview.__init__(self, parent, columns=headings, show="headings")
+
+        self._app = app
+
+        for col in headings:
+            self.heading(col, text=col.title())
+
+        self.column("#", width=35, stretch=False)
+        self.column("word", width=0, stretch=True)
+        self.column(u"\u2713", width=20, stretch=False)
+
+        self.unbind("<Up>")
+        self.unbind("<Down>")
+
+
+    def update(self):
+        keywordTable = self._app.getKeywordTable()
+
+        for row in self.get_children():
+            self.delete(row)
+
+        keywordTableIndex = 0
+        rowIndex = 1
+        for entry in keywordTable:
+            keywordTableIndex += 1
+            if entry["unambiguous"]: continue
+            self.insert("", tk.END, str(keywordTableIndex), values=("%d" %
+                rowIndex,
+            entry.string(), entry.isConfirmed()))
+            rowIndex += 1
+
+        self.selection_add(str(keywordTable.getCurrentIndex() + 1))
+
+
+
+
+

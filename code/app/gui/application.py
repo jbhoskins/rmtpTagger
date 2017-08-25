@@ -177,8 +177,8 @@ class Application:
         """Style the application."""
         self._root.config(bg=self._styles.c_1)
         
-        self._legend.configStyles(styles=self._styles)
-        self._legend.config(bg=self._styles.c_2)
+#        self._legend.configStyles(styles=self._styles)
+#        self._legend.config(bg=self._styles.c_2)
         
         self._textView.configStyles(styles=self._styles)
         
@@ -197,7 +197,8 @@ class Application:
     def _addWidgets(self):
         """Create and fill the text box, sidebar and menu."""
         screenWidth = self._styles.dimensions[0]
-        self._legend = LeftSidebar(self._mainFrame, self._styles)
+
+        self._legend = LeftSidebar(self._mainFrame, self._styles, self)
         self._mainFrame.add(
             self._legend, width=(screenWidth // 8), stretch="never")
 
@@ -265,6 +266,7 @@ class Application:
         self._keywordTable.registerViewer(self._sidebar.tagInfoField)
 
         self._keywordTable.registerViewer(self._sidebar.preview)
+        self._keywordTable.registerViewer(self._legend.tree)
 
     #-------------------------------------------------------------------
     # Hover (in progress)

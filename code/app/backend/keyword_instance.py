@@ -40,6 +40,8 @@ class KeywordInstance(dict):
         self["selectedEntry"] = 0
         self["unambiguous"] = False
 
+        self["confirmed"] = False
+
     def selectionIndex(self):
         """ Return the integer that corrosponds to the entry that has been
         selected for the instance."""
@@ -71,6 +73,19 @@ class KeywordInstance(dict):
     def entries(self):
         """Return the list of possible entries for the instance."""
         return self["entries"]
+
+    def confirm(self):
+        self["confirmed"] = True
+
+    def unconfirm(self):
+        self["confirmed"] = False
+
+    def isConfirmed(self):
+        if self["confirmed"]:
+            return u"\u2713"
+        else:
+            return ""
+
 
 if __name__ == "__main__":
     cce = [Cache()]

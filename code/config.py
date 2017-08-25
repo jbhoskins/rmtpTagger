@@ -3,7 +3,7 @@
 
 # Turns on log messages, and permits the values below to be used.
 # However, log messages are not yet implemented.
-DEBUG = False
+DEBUG = True
 
 # Automatically loads up an interviw on launch
 LAUNCH_TO_LOADED_INTERVIEW = True
