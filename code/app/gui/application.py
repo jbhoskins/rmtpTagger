@@ -148,10 +148,14 @@ class Application:
         # Initialize the table used by the program
         self._keywordTable = KeywordInstanceTable()
         
+        # Declare the stylesheet
+        self._styles = StyleSheet(self._dim)
+        
         # Set styles, widgets, frame, and bind keys.
-        self._addWidgets()
-        self._styleApp()
+        self._defineWidgets()
         self._registerViewers()
+        self._styleWidgets()
+        self._addWidgets()
         self._mainFrame.pack_propagate(0)
         self._mainFrame.pack(fill=tk.BOTH, expand=True)
         self._bindKeys()
@@ -167,11 +171,26 @@ class Application:
 
     def _getDim(self):
         """Return dimensions of the screen."""
- 
-    def _styleApp(self):
-        """Style the application."""
 
-        self._styles = StyleSheet(self._dim)
+    def _defineWidgets(self):
+
+        self._legend = LeftSidebar(self._mainFrame, self)
+        
+        self.tframe = tk.Frame(self._mainFrame)
+        scrollbar = tk.Scrollbar(self.tframe)
+        self._textView = TextView(self.tframe, self, scrollbar)
+        scrollbar.config(command=self._textView.yview)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        self._textView.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
+        
+        self._sidebar = Sidebar(
+            self._mainFrame, self._textView, self._dim, self)
+ 
+        self._menubar = Menubar(self)
+
+    def _styleWidgets(self):
+        """Style the application."""
+        self._styles.changeTheme("bella")
         
 #        self._legend.configStyles(styles=self._styles)
 #        self._legend.config(bg=self._styles.c_2)
@@ -186,26 +205,14 @@ class Application:
     def _addWidgets(self):
         """Create and fill the text box, sidebar and menu."""
         screenWidth = self._dim[0]
-
-        self._legend = LeftSidebar(self._mainFrame, self)
         self._mainFrame.add(
             self._legend, width=(screenWidth // 8), stretch="never")
 
-        tframe = tk.Frame(self._mainFrame)
-        scrollbar = tk.Scrollbar(tframe)
-        self._textView = TextView(tframe, self, scrollbar)
-        scrollbar.config(command=self._textView.yview)
-        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self._textView.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
-        self._mainFrame.add(tframe, width=(screenWidth // 2), stretch="always")
+        self._mainFrame.add(self.tframe, width=(screenWidth // 2), stretch="always")
 
-        self._sidebar = Sidebar(
-            self._mainFrame, self._textView, self._dim, self)
         self._mainFrame.add(
             self._sidebar, width=(screenWidth // 4), stretch="never")
         
-        self._menubar = Menubar(self)
-        self._makeTagMenu()
 
     def _bindKeys(self):
         """Bind all clicks and key presses to commands."""

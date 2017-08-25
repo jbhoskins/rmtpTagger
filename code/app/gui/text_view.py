@@ -192,6 +192,7 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
         print("LOKOOOOOOOOOOOOOOK", currentEntry)
         print(currentEntry.start(), currentEntry.stop())
 
+        print("Before any operations:", self.tag_ranges("cur"))
         self.tag_remove("cur", "1.0", tk.END)        
         self.tag_add(
             "cur", "1.0+%sc" % currentEntry.start(), 
