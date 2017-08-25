@@ -30,7 +30,7 @@ import app.gui.widgets as widgets
 
 
 class LeftSidebar(tk.PanedWindow):
-    def __init__(self, parentFrame, styles, app):
+    def __init__(self, parentFrame, app):
         tk.PanedWindow.__init__(self, parentFrame, orient=tk.VERTICAL)
 
         self._app = app
@@ -41,15 +41,9 @@ class LeftSidebar(tk.PanedWindow):
         
     def _addWidgets(self):
         """Declare and pack all the widgets used in the sidebar."""
-        self.l1 = ttk.Label(self, text = "Interviewer text")
-        self.l2 = ttk.Label(self, text = "Interviewee text")
-        self.l3 = ttk.Label(self, text = "Single key")
-        self.l4 = ttk.Label(self, text = "Multiple Keys")
 
-        self.add(self.l1)
-        self.add(self.l2)
-        self.add(self.l3)
-        self.add(self.l4)
+        self._legend = Legend(self)
+        self.add(self._legend)
 
 
         self.tree = widgets.AllTaggedResultsTable(self, self._app)
@@ -58,6 +52,38 @@ class LeftSidebar(tk.PanedWindow):
 #        self.tree.pack()
         self.add(self.tree)
 
+    def style(self, styles):
+        self.config(bg=styles.c_2)
+#        self.title.config(
+#            text="Legend", font=self.styles.f_title, bg=self.styles.c_2, 
+#            pady=10)        
+        
+
+class Legend(tk.Frame):
+    def __init__(self, parent): 
+        tk.Frame.__init__(self, parent)
+        self.l1 = ttk.Label(self, text = "Interviewer text")
+        self.l2 = ttk.Label(self, text = "Interviewee text")
+        self.l3 = ttk.Label(self, text = "Single key")
+        self.l4 = ttk.Label(self, text = "Multiple Keys")
+
+        self.l1.pack()
+        self.l2.pack()
+        self.l3.pack()
+        self.l4.pack()
+
+    def style(self, styles):
+        self.config(bg=styles.c_2)
+
+        self.l1.config(
+            font=styles.f_text, background=styles.c_1, 
+            foreground=styles.h_interviewer)
+        self.l2.config(
+            font=styles.f_text, background=styles.c_1, foreground="black")
+        self.l3.config(
+            font=styles.f_text, background=styles.h_single)
+        self.l4.config(
+            font=styles.f_text, background=styles.h_multi)
 
     #--------------------------------------
     # Styling.

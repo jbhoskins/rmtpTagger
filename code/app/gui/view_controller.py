@@ -24,3 +24,22 @@ class ViewController:
     def deleteViewer(self, viewToDelete):
         """Delete a viewer."""
         self._views.remove(viewToDelete)
+
+class Stylable:
+    """Abstract class that is identical to a viewer, the difference being its
+    wording for easier readibility."""
+    def __init__(self):
+        pass
+
+    def style(self):
+        raise NotImplementedError("All Stylables must implement style()")
+
+class Styler(ViewController):
+    def __init__(self):
+        ViewController.__init__(self)
+
+    def notifyViewersredraw(self):
+        for stylable in self._views:
+            stylable.style(self)
+            print("success")
+

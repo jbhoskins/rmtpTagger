@@ -31,19 +31,19 @@ import app.gui.widgets as widgets
 
 class Sidebar(tk.PanedWindow):
     """Container to hold all widgets that will appear on the right sidebar."""
-    def __init__(self, parentFrame, fText, styles, app):
+    def __init__(self, parentFrame, fText, dim, app):
         tk.PanedWindow.__init__(self, parentFrame, orient=tk.VERTICAL)
         
         self.parent = parentFrame       
         self.fText = fText
-        self.styles = styles
+        self.dimensions = dim
         self.exportTags = []
-        self.bg = self.styles.c_2
+#        self.bg = self.styles.c_2
         
         self._app = app
 
         self._addWidgets()
-        self._styleWidgets()
+#       self._styleWidgets()
 
     def _addWidgets(self):
         """Declare and pack all the widgets used in the sidebar."""
@@ -62,7 +62,7 @@ class Sidebar(tk.PanedWindow):
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.tagResults.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
 
-        screenHeight = self.styles.dimensions[1]
+        screenHeight = self.dimensions[1]
         self.add(self.tagLabel)
         self.add(self.currentTag, sticky=tk.N)
         self.add(frame, height=screenHeight // 3)
@@ -73,31 +73,35 @@ class Sidebar(tk.PanedWindow):
         # Initialize to empty fields.
         self.tagResults.populateTags([])
 
+    def style(self, styles):
+        self.config(bg=styles.c_2)
+        self.tagLabel.config(font=styles.f_subtitle, bg=styles.c_2)
+
         
     #-----------------------------------------------
     # Styling.
     
-    def _styleWidgets(self):
-        """Apply the styles from styleSheet() to the 
-        widgets.
-        """
-        self.config(bg=self.bg)
-        self.tagLabel.config(font=self.styles.f_subtitle, bg=self.bg)
+#    def _styleWidgets(self):
+#        """Apply the styles from styleSheet() to the 
+#        widgets.
+#        """
+#        self.config(bg=self.bg)
+#        self.tagLabel.config(font=self.styles.f_subtitle, bg=self.bg)
         
-        self.currentTag.config(
-            font=self.styles.f_button, bg=self.bg, 
-            highlightbackground=self.bg)
+#        self.currentTag.config(
+#            font=self.styles.f_button, bg=self.bg, 
+#            highlightbackground=self.bg)
 
-        self.tagResults.config(font=self.styles.f_button, bg=self.bg)
-        self.tagInfoField.config(
-            font=self.styles.f_text, bg=self.bg, 
-            highlightbackground=self.bg)        
+#        self.tagResults.config(font=self.styles.f_button, bg=self.bg)
+#        self.tagInfoField.config(
+#            font=self.styles.f_text, bg=self.bg, 
+#            highlightbackground=self.bg)        
 
-        self.preview.config(
-                bg=self.bg,
-                highlightbackground=self.bg)
+#        self.preview.config(
+#                bg=self.bg,
+#                highlightbackground=self.bg)
 
-    def configStyles(self, styles):
-        """Change the desired stylesheet."""
-        self.styles = styles
-        self._styleWidgets()
+#    def configStyles(self, styles):
+#        """Change the desired stylesheet."""
+#        self.styles = styles
+#        self._styleWidgets()

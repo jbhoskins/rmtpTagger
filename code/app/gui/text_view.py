@@ -41,19 +41,18 @@ from app.backend.keyword_instance import KeywordInstance
 import app.gui.view_controller as view
 
 
-class TextView(tk.Text, view.Viewer):
+class TextView(tk.Text, view.Viewer, view.Stylable):
     """Class to display text, and highlight appropiate words in the text based
     on a table of values (keywordTable)."""
-    def __init__(self, Frame, app, styles, scrollbar):
+    def __init__(self, Frame, app, scrollbar):
         tk.Text.__init__(self, Frame, yscrollcommand=scrollbar.set)
         
         self._app = app
-        self.styles = styles
-        
-        self._styleFrame()
-        self._styleWidget()
-        self._createTags()        
-    
+
+        # initalize and configure the widget
+        self.insert(
+            "1.0", "Load some text from the menubar!")
+        self.config(state=tk.DISABLED, wrap=tk.WORD)        
         
     #-------------------------------------------------------------------
     # Styling.    
@@ -102,41 +101,28 @@ class TextView(tk.Text, view.Viewer):
         self._tagPersons()
         self.tagAllElementsInTable()
         self.config(state=tk.DISABLED) 
-    
-    def _styleFrame(self):
-        """Style the text."""
-        self.insert(
-            "1.0", "Load some text from the menubar!")
-        self.config(state=tk.DISABLED, wrap=tk.WORD)        
-        
-    def _styleWidget(self):
-        """Style the widget."""
+
+    def style(self, styles):
         self.config(
-            bg=self.styles.c_1, font=self.styles.f_text,
-            highlightbackground=self.styles.c_1)
-        
-    def configStyles(self, styles):
-        """Change the desired stylesheet."""
-        self.styles = styles
-        self._styleWidget()
-        self._createTags()    
+            bg=styles.c_1, font=styles.f_text,
+            highlightbackground=styles.c_1)
+        self._createTags(styles) # need to remake them with new colors
     
-        
     #-------------------------------------------------------------------       
     # Configuring and applying tags.
     
-    def _createTags(self):
+    def _createTags(self, styles):
         """Create the tags that will be applied to a word in the text. Tags
         have associated background colors - each tag has a different color
         associated with it."""
         self.tag_configure("clickableWord")
-        self.tag_configure("multi", background=self.styles.h_multi)
-        self.tag_configure("single", background=self.styles.h_single) 
-        self.tag_configure("cur", background=self.styles.h_current)
+        self.tag_configure("multi", background=styles.h_multi)
+        self.tag_configure("single", background=styles.h_single) 
+        self.tag_configure("cur", background=styles.h_current)
         
         self.tag_configure("unambiguous", background="white")
 
-        self.tag_configure("interviewer", foreground=self.styles.h_interviewer)
+        self.tag_configure("interviewer", foreground=styles.h_interviewer)
         self.tag_configure("interviewee")
         
     def _tagPersons(self):

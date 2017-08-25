@@ -201,17 +201,17 @@ class ThemeMenu(DropdownMenu):
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
         self.add_command(
-            label="Bella", command=lambda: app._changeTheme(name="bella"))
+            label="Bella", command=lambda: app._styles.changeTheme(name="bella"))
         self.add_command(
-            label="Sasha", command=lambda: app._changeTheme(name="sasha"))
+            label="Sasha", command=lambda: app._styles.changeTheme(name="sasha"))
         self.add_command(
-            label="Elena", command=lambda: app._changeTheme(name="elena"))
+            label="Elena", command=lambda: app._styles.changeTheme(name="elena"))
         self.add_command(
-            label="Maggie", command=lambda: app._changeTheme(name="maggie"))
+            label="Maggie", command=lambda: app._styles.changeTheme(name="maggie"))
         self.add_command(
-            label="John", command=lambda: app._changeTheme(name="john"))
+            label="John", command=lambda: app._styles.changeTheme(name="john"))
         self.add_command(
-            label="Helena", command=lambda: app._changeTheme(name="helena"))
+            label="Helena", command=lambda: app._styles.changeTheme(name="helena"))
         
         menubar.add_cascade(label="Theme", menu=self)
 

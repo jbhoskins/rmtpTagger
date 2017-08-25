@@ -149,13 +149,12 @@ class Application:
         self._keywordTable = KeywordInstanceTable()
         
         # Set styles, widgets, frame, and bind keys.
-        self._setStyles()
         self._addWidgets()
+        self._styleApp()
         self._registerViewers()
         self._mainFrame.pack_propagate(0)
         self._mainFrame.pack(fill=tk.BOTH, expand=True)
         self._bindKeys()
-        self._styleApp()
 
     def getKeywordTable(self):
         return self._keywordTable
@@ -168,50 +167,40 @@ class Application:
 
     def _getDim(self):
         """Return dimensions of the screen."""
-
-    def _setStyles(self, name="bella"):
-        """Set the formatting of the application."""
-        self._styles = StyleSheet(name, dim=self._dim)
-        
+ 
     def _styleApp(self):
         """Style the application."""
-        self._root.config(bg=self._styles.c_1)
+
+        self._styles = StyleSheet(self._dim)
         
 #        self._legend.configStyles(styles=self._styles)
 #        self._legend.config(bg=self._styles.c_2)
         
-        self._textView.configStyles(styles=self._styles)
         
-        self._sidebar.configStyles(styles=self._styles)    
+#        self._sidebar.configStyles(styles=self._styles)    
         #self.sidebarFrame.config(bg=self.styles.c_2)
         
-    def _changeTheme(self, name):
-        """Change the theme of the app."""
-        self._setStyles(name)
-        self._styleApp()    
-
-
     #-------------------------------------------------------------------
     # Create and place frames, widgets, and menus
         
     def _addWidgets(self):
         """Create and fill the text box, sidebar and menu."""
-        screenWidth = self._styles.dimensions[0]
+        screenWidth = self._dim[0]
 
-        self._legend = LeftSidebar(self._mainFrame, self._styles, self)
+        self._legend = LeftSidebar(self._mainFrame, self)
         self._mainFrame.add(
             self._legend, width=(screenWidth // 8), stretch="never")
 
         tframe = tk.Frame(self._mainFrame)
         scrollbar = tk.Scrollbar(tframe)
-        self._textView = TextView(tframe, self, self._styles, scrollbar)
+        self._textView = TextView(tframe, self, scrollbar)
         scrollbar.config(command=self._textView.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self._textView.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
         self._mainFrame.add(tframe, width=(screenWidth // 2), stretch="always")
 
         self._sidebar = Sidebar(
-            self._mainFrame, self._textView, self._styles, self)
+            self._mainFrame, self._textView, self._dim, self)
         self._mainFrame.add(
             self._sidebar, width=(screenWidth // 4), stretch="never")
         
@@ -271,6 +260,19 @@ class Application:
         self._keywordTable.registerViewer(self._sidebar.preview)
         self._keywordTable.registerViewer(self._legend.tree)
 
+        # Styling Viewers
+        self._styles.registerViewer(self._textView)
+        self._styles.registerViewer(self._sidebar)
+        self._styles.registerViewer(self._sidebar.tagResults)
+        self._styles.registerViewer(self._sidebar.currentTag)
+        self._styles.registerViewer(self._sidebar.tagInfoField)
+        self._styles.registerViewer(self._sidebar.preview)
+
+        # Left sidebar
+        self._styles.registerViewer(self._legend)
+        self._styles.registerViewer(self._legend._legend)
+
+
     #-------------------------------------------------------------------
     # Hover (in progress)
 
@@ -314,6 +316,7 @@ class Application:
         self._splash.destroy()
         self._root.deiconify()
         self._root.mainloop()
+        self._styles.changeTheme("bella")
         
 
 #-----------------------------------------------------------------------

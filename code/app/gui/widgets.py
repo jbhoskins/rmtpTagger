@@ -30,7 +30,7 @@ import app.gui.view_controller as view
 from app.backend.keyword_instance import KeywordInstance
 import app.backend.tag_templates as templates
 
-class TagResults(tk.Listbox, view.Viewer):
+class TagResults(tk.Listbox, view.Viewer, view.Stylable):
     """A ListBox of results pulled from the index."""
     
     def __init__(self, sidebar, scrollbar, app):
@@ -106,9 +106,12 @@ class TagResults(tk.Listbox, view.Viewer):
             self.selection_set(0)
 
         self.see(currentEntry.selectionIndex() + 1)
+
+    def style(self, styles):
+        self.config(font=styles.f_subtitle, bg=styles.c_2)
         
 
-class TagInformationField(tk.Text, view.Viewer):
+class TagInformationField(tk.Text, view.Viewer, view.Stylable):
     """ Display information about the current selection in TagResults."""
     
     def __init__(self, sidebar, app):
@@ -139,7 +142,11 @@ class TagInformationField(tk.Text, view.Viewer):
         
         self._updateInformation(string)
 
-class CurrentTagField(tk.Label, view.Viewer):
+    def style(self, styles):
+        self.config(font=styles.f_text, bg=styles.c_2,
+                highlightbackground=styles.c_2)
+
+class CurrentTagField(tk.Label, view.Viewer, view.Stylable):
     """A label that shows the xml:id of the current selection of the possible
     tags."""
     def __init__(self, sidebar, app):
@@ -163,7 +170,11 @@ class CurrentTagField(tk.Label, view.Viewer):
 #        string += u" \u2713" # Testing confirmed check mark
         self.config(text=string)
 
-class TagPreviewField(tk.Label, view.Viewer):
+    def style(self, styles):
+        self.config(font=styles.f_button, bg=styles.c_2,
+                highlightbackground=styles.c_2)
+
+class TagPreviewField(tk.Label, view.Viewer, view.Stylable):
     """Shows a preview of how the xml tags around the current selecion will
     look."""
     def __init__(self, sidebar, app):
@@ -199,7 +210,10 @@ class TagPreviewField(tk.Label, view.Viewer):
             string = "Preview:  " + frontTag + currentEntry.string() + backTag
         self.config(text=string)
 
-class AllTaggedResultsTable(ttk.Treeview, view.Viewer):
+    def style(self, styles):
+        self.config(bg=styles.c_2, highlightbackground=styles.c_2)
+
+class AllTaggedResultsTable(ttk.Treeview, view.Viewer, view.Stylable):
     def __init__(self, parent, app):
         headings = ("#", "word", u"\u2713")
         ttk.Treeview.__init__(self, parent, columns=headings, show="headings")
@@ -242,8 +256,3 @@ class AllTaggedResultsTable(ttk.Treeview, view.Viewer):
             rowIndex += 1
 
         self.selection_add(str(keywordTable.getCurrentIndex() + 1))
-
-
-
-
-

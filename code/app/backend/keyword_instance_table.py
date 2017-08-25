@@ -121,6 +121,10 @@ class KeywordInstanceTable(list):
 
     def nextTag(self, event=None):
         """ Move to the next tag in the list of tag suggestions (entry list) """
+
+        # Don't allow changes to confirmed entries
+        if self.getCurrentEntry()["confirmed"]:
+            return
         
         # Some weird mod arithmetic here, but it is needed to move seamlessly
         # through the range, (-1, len(possibleTags) - 1)
@@ -134,6 +138,10 @@ class KeywordInstanceTable(list):
 
     def prevTag(self, event=None):
         """ Move to the previous tag in the list of tag suggestions (entry list) """
+        
+        # Don't allow changes to confirmed entries
+        if self.getCurrentEntry()["confirmed"]:
+            return
         
         # Some weird mod arithmetic here, but it is needed to move seamlessly
         # through the range, (-1, len(possibleTags) - 1)
