@@ -215,10 +215,13 @@ class TagPreviewField(tk.Label, view.Viewer, view.Stylable):
 
 class AllTaggedResultsTable(ttk.Treeview, view.Viewer, view.Stylable):
     def __init__(self, parent, app):
+        self.treeStyle = ttk.Style() # Needed to change the background
+        
         headings = ("#", "word", u"\u2713")
         ttk.Treeview.__init__(self, parent, columns=headings, show="headings")
 
         self._app = app
+
 
         for col in headings:
             self.heading(col, text=col.title())
@@ -230,24 +233,28 @@ class AllTaggedResultsTable(ttk.Treeview, view.Viewer, view.Stylable):
         self.unbind("<Up>")
         self.unbind("<Down>")
 
-    def onClick(self, event):
-        
+    def onClick(self, event): 
         index = int(self.focus()) - 1
-
         self._app.getKeywordTable().jumpTo(index)
 
     def update(self):
         keywordTable = self._app.getKeywordTable()
 
+        # Delete everything, and repopulate it.
         for row in self.get_children():
             self.delete(row)
 
+        # saves each row under a string version of its index in the 
+        # keyword table. row index is only incremented once each time,
+        # to put a nice looking index on the sidebar.
         keywordTableIndex = 0
         rowIndex = 1
         for entry in keywordTable:
             keywordTableIndex += 1
             if entry["unambiguous"]: continue
 
+            # If the entry has been confirmed, give it a checkmark in the
+            # table.
             confirmedCheck = ""
             if entry["confirmed"]: confirmedCheck = u"\u2713"
 
@@ -256,3 +263,8 @@ class AllTaggedResultsTable(ttk.Treeview, view.Viewer, view.Stylable):
             rowIndex += 1
 
         self.selection_add(str(keywordTable.getCurrentIndex() + 1))
+        self.see(str(keywordTable.getCurrentIndex() + 1))
+
+    def style(self, styles):
+        self.treeStyle.configure("Treeview", background=styles.c_2,
+                fieldbackground=styles.c_2)

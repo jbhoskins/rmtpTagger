@@ -62,11 +62,13 @@ class LeftSidebar(tk.PanedWindow):
 class Legend(tk.Frame):
     def __init__(self, parent): 
         tk.Frame.__init__(self, parent)
-        self.l1 = ttk.Label(self, text = "Interviewer text")
-        self.l2 = ttk.Label(self, text = "Interviewee text")
-        self.l3 = ttk.Label(self, text = "Single key")
-        self.l4 = ttk.Label(self, text = "Multiple Keys")
+        self.title = ttk.Label(self, text="Legend")
+        self.l1 = ttk.Label(self, text="Interviewer text")
+        self.l2 = ttk.Label(self, text="Interviewee text")
+        self.l3 = ttk.Label(self, text="Single key")
+        self.l4 = ttk.Label(self, text="Multiple Keys")
 
+        self.title.pack(pady=10)
         self.l1.pack()
         self.l2.pack()
         self.l3.pack()
@@ -75,6 +77,7 @@ class Legend(tk.Frame):
     def style(self, styles):
         self.config(bg=styles.c_2)
 
+        self.title.config(font=styles.f_text, background=styles.c_2)
         self.l1.config(
             font=styles.f_text, background=styles.c_1, 
             foreground=styles.h_interviewer)

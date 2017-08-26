@@ -259,6 +259,7 @@ class Application:
         # Left sidebar
         self._styles.registerViewer(self._legend)
         self._styles.registerViewer(self._legend._legend)
+        self._styles.registerViewer(self._legend.tree)
 
 
     #-------------------------------------------------------------------
