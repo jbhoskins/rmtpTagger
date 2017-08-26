@@ -217,6 +217,9 @@
                 <key>тарковскому</key>
                 <key>тарковским</key>
                 <key>тарковском</key>
+                <key>андрей тарковский</key>
+                <key>андреего тарковского</key>
+                <key>андоеему тарковскому</key>
             </keys>
         </person>
 
@@ -2830,6 +2833,11 @@
                 <key>санкт петербургу</key>
                 <key>санкт петербургом</key>
                 <key>санкт петербурге</key>
+                <key>санкт-петербург</key>
+                <key>санкт-петербурга</key>
+                <key>санкт-петербургу</key>
+                <key>санкт-петербургом</key>
+                <key>санкт-петербурге</key>
             </keys>
         </place>
         
@@ -2842,6 +2850,10 @@
                 <key>россию</key>
                 <key>россиией</key>
                 <key>россииею</key>
+                <key>россий</key>
+                <key>россиям</key>
+                <key>россиями</key>
+                <key>россиях</key>
             </keys>
         </place>
         
@@ -2880,6 +2892,11 @@
                 <key>кинотеатром</key>
                 <key>кинотеатре</key>
                 <key>кинотеатров</key>
+                <key>кинотеатр родина</key>
+                <key>кинотеатра родины</key>
+                <key>кинотеатру родину</key>
+                <key>кинотеатром родиной</key>
+                <key>кинотеатре родине</key>
             </keys>
         </place>
         
@@ -2911,7 +2928,6 @@
             <fullName>Hong Kong</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
                 <key>хонг конг</key>
             </keys>
         </place>
@@ -2942,8 +2958,13 @@
             <fullName>Republic Bashkortostan</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>республика башкортостан</key>
+                <key>республики башкортостана</key>
+                <key>республику башкортостан</key>
+                <key>республике башкортостане</key>
+                <key>башкортостан</key>
+                <key>башкортостане</key>
+                <key>башкортостана</key>                
             </keys>
         </place>
         
@@ -2978,7 +2999,11 @@
             <fullName>Sverdlovsk</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
+                <key>свердловск</key>
+                <key>свердловска</key>
+                <key>свердловску</key>
+                <key>свердловском</key>
+                <key>свердловске</key>
             </keys>
         </place>
         
@@ -2986,7 +3011,11 @@
             <fullName>Ekaterinburg</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
+                <key>екатеринбург</key>
+                <key>екатеринбурга</key>
+                <key>екатеринбургу</key>
+                <key>екатеринбургом</key>
+                <key>екатеринбурге</key>
             </keys>
         </place>
         
@@ -3006,7 +3035,7 @@
             <fullName>Dom Kino</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
+                <key>дом кино</key>
             </keys>
         </place>
         
@@ -3025,8 +3054,11 @@
             <fullName>Seoul</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>сеул</key>
+                <key>сеула</key>
+                <key>сеулу</key>
+                <key>сеулом</key>
+                <key>сеуле</key>
             </keys>
         </place>
         
@@ -3058,15 +3090,13 @@
             <placeType>exhibition</placeType>
             <keys>
                 <key>кинотеатр</key>
-                <key>кинотеатр аврора</key>
-                <key>кинотеатр</key>
-                <key>кинотеатр</key>
                 <key>кинотеатры</key>
                 <key>кинотеатра</key>
                 <key>кинотеатру</key>
                 <key>кинотеатром</key>
                 <key>кинотеатре</key>
                 <key>кинотеатров</key>
+                <key>кинотеатр аврора</key>
             </keys>
         </place>
         
@@ -3109,8 +3139,10 @@
             <fullName>Cannes Film Festival</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>каннский кинофестиваль</key>
+                <key>каннского кинофестиваля</key>
+                <key>каннскому кинофестивалю</key>
+                <key>каннском кинофестивале</key>
             </keys>
         </place>
         
@@ -3118,8 +3150,11 @@
             <fullName>Nevsky Prospect</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>невский проспект</key>
+                <key>невского проспекта</key>
+                <key>невскому проспеку</key>
+                <key>невском проспекте</key>
+                <key>невским проспектом</key>                
             </keys>
         </place>
         
@@ -3154,8 +3189,11 @@
             <fullName>Hollywood</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>холливуд</key>
+                <key>холливуда</key>
+                <key>холливуду</key>
+                <key>холливудом</key>
+                <key>холливуде</key>
             </keys>
         </place>
         
@@ -3163,8 +3201,13 @@
             <fullName>Siberia</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>сибирь</key>
+                <key>сибири</key>
+                <key>сибирью</key>
+                <key>сибирей</key>
+                <key>сибирям</key>
+                <key>сибирями</key>
+                <key>сибирях</key>
             </keys>
         </place>
         
@@ -3181,8 +3224,11 @@
             <fullName>Volgograd</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>волгоград</key>
+                <key>волгограда</key>
+                <key>волгограду</key>
+                <key>волгоградом</key>
+                <key>волгограде</key>
             </keys>
         </place>
         
@@ -3190,8 +3236,12 @@
             <fullName>America</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>америка</key>
+                <key>америку</key>
+                <key>америки</key>
+                <key>америке</key>
+                <key>америкой</key>
+                <key>сша</key>
             </keys>
         </place>
         
@@ -3199,8 +3249,11 @@
             <fullName>Vietnam</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>вьетнам</key>
+                <key>вьетнама</key>
+                <key>вьетнаму</key>
+                <key>вьетнамом</key>
+                <key>вьетнаме</key>
             </keys>
         </place>
         
@@ -3222,8 +3275,13 @@
             <fullName>movie theater</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
             </keys>
         </place>
         
@@ -3254,8 +3312,12 @@
             <fullName>Odessa</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>одесса</key>
+                <key>одессы</key>
+                <key>одессе</key>
+                <key>одессу</key>
+                <key>одессой</key>
+                <key>одессою</key>
             </keys>
         </place>
         
@@ -3317,8 +3379,11 @@
             <fullName>Vancouver</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>ванкувер</key>
+                <key>ванкувера</key>
+                <key>ванкуверу</key>
+                <key>ванкувером</key>
+                <key>ванкувере</key>
             </keys>
         </place>
         
@@ -3344,8 +3409,11 @@
             <fullName>Nikolaev</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>николаев</key>
+                <key>николаева</key>
+                <key>николаеву</key>
+                <key>николаевом</key>
+                <key>николаеве</key>
             </keys>
         </place>
         
@@ -3353,8 +3421,12 @@
             <fullName>Ukraine</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>украина</key>
+                <key>украины</key>
+                <key>украине</key>
+                <key>украину</key>
+                <key>украиной</key>
+                <key>украиною</key>
             </keys>
         </place>
         
@@ -3362,8 +3434,11 @@
             <fullName>The Black Sea</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>черное море</key>
+                <key>черного моря</key>
+                <key>черному морю</key>
+                <key>черным морем</key>
+                <key>черном море</key>
             </keys>
         </place>
         
@@ -3371,8 +3446,11 @@
             <fullName>Crimea</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>крым</key>
+                <key>крыма</key>
+                <key>крыму</key>
+                <key>крымом</key>
+                <key>крыме</key>
             </keys>
         </place>
         
@@ -3410,8 +3488,11 @@
             <fullName>Tashkent</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>ташкент</key>
+                <key>ташкента</key>
+                <key>ташкенту</key>
+                <key>ташкентом</key>
+                <key>ташкенте</key>
             </keys>
         </place>
         
@@ -3428,8 +3509,11 @@
             <fullName>Murmansk</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>мурманск</key>
+                <key>мурманска</key>
+                <key>мурманску</key>
+                <key>мурманском</key>
+                <key>мурманске</key>
             </keys>
         </place>
         
@@ -3492,4 +3576,75 @@
         <nationalCinema xml:id="indianCinema"/>
         
     </nationalCinemas>
+    <!-- Added tags -->
+    <pronouns>
+        <pronoun>
+            <string>я</string>
+            <type>pron</type>
+            <subtype>persSing</subtype>
+            <unambiguous>true</unambiguous>
+            <template>Pronoun</template>
+            <keys>
+                <key>я</key>
+            </keys>
+        </pronoun>
+        <pronoun>
+            <string>мы</string>
+            <type>pron</type>
+            <subtype>persPlur</subtype>
+            <unambiguous>true</unambiguous>
+            <template>Pronoun</template>
+            <keys>
+                <key>мы</key>
+            </keys>
+        </pronoun>
+        <pronoun>
+            <string>мой</string>
+            <type>pron</type>
+            <subtype>possSing</subtype>
+            <unambiguous>true</unambiguous>
+            <template>Pronoun</template>
+            <keys>
+                <key>мой</key>
+                <key>моя</key>
+                <key>мою</key>
+                <key>моё</key>
+                <key>моей</key>
+                <key>моего</key>
+                <key>моему</key>
+                <key>моим</key>
+                <key>моими</key>
+            </keys>
+        </pronoun>
+        <pronoun>
+            <string>наш</string>
+            <type>pron</type>
+            <subtype>possPlur</subtype>
+            <unambiguous>true</unambiguous>
+            <template>Pronoun</template>
+            <keys>
+                <key>наш</key>
+                <key>наша</key>
+                <key>нашу</key>
+                <key>наше</key>
+                <key>нашем</key>
+                <key>нашего</key>
+                <key>нашей</key>
+                <key>нашему</key>
+                <key>нашим</key>
+                <key>нашими</key>
+            </keys>
+        </pronoun>
+    </pronouns>
+
+    <hesitations>
+            <hesitation>
+                <unambiguous>true</unambiguous>
+                <template>hesitation</template>
+                <type>lex</type>
+                <keys>
+                    <key>ну</key>
+                </keys>
+            <hesitation>
+    </hesitations>
 </index>

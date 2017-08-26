@@ -13,10 +13,10 @@ Software to match keywords in a given textfile to keys and information stored in
 
 ### Instructions
 
-Clone or download the repository, navigate to /rmtptagger/programFiles/interface/ and run
+Clone or download the repository, navigate to /rmtptagger/code and run
 
 ``` python
-python3 Application.py
+python3 run.py
 ```
 
 Created by John Hoskins and Margaret Swift for the Russian and Post-Soviet Studies department at the College of William and Mary
