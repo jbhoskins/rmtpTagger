@@ -8,15 +8,13 @@
 # Authored by John Hoskins: jbhoskins@email.wm.edu
 # Last edit 4/22/17 by Margaret.
 
-
-
-from bs4 import BeautifulSoup
-from index_entry import Entry
+from app.backend.index_entry import Entry
 from enum import Enum
 
 class MatchState(Enum):
     """ Enumerated type to increase readibility of the match validator."""
-    unique_match = 2
+    unique_match = 2 # kepy to ease integration, phase out references to this
+    found_match = 2
     potential_match = 1
     no_match = 0
 
@@ -77,6 +75,8 @@ class ParseTree:
                 self._currentNode = self._currentNode[key[i]]
                 
             self._currentNode[None] = None
+
+        self.reset()
                 
     def print_(self):
         """ Prints a semi-formatted representation of the multi-word validator.
@@ -108,7 +108,7 @@ class ParseTree:
 
     def reset(self):
         """ Resets the multi-word validator to the beginning of the parse tree."""
-        self._activeDict = self._multiValidator
+        self._currentNode = self._rootNode
     
 if __name__ == '__main__':
     ndx = Index('../../../META/index.xml')

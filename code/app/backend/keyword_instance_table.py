@@ -26,7 +26,7 @@ Changed style of code to conform to the PEP8 styleguide.
 import app.gui.view_controller as view
 from app.backend.keyword_instance import KeywordInstance
 from app.backend.index import Index
-from app.backend.index import MatchState
+from app.backend.parse_tree import MatchState
 
 import re
 
@@ -81,8 +81,6 @@ class KeywordInstanceTable(list):
         """Returns the currently selected KeywordInstance."""
         if len(self) == 0:
             return KeywordInstance()
-        else:
-            return self[self._current]
 
 
     def getCurrentIndex(self):

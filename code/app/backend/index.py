@@ -65,6 +65,7 @@ Changed style of code to conform to the PEP8 styleguide.
 
 
 from bs4 import BeautifulSoup
+from app.backend.index_entry import Entry
 
 class Index:
     """ Class that encapsulates all interaction with the index.xml file. It
