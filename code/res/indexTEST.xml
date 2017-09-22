@@ -1,0 +1,3483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-model href="schema_index.rnc" type="application/relax-ng-compact-syntax"?>
+<index>
+    <metaPersons>
+        <person xml:id="leventalVadim">
+            <surnameEng>Levental</surnameEng>
+            <surnameRus>Левенталь</surnameRus>
+            <forename>Vadim</forename>
+            <gender>m</gender>
+            <viewerAge>postSov</viewerAge>
+        </person>
+
+        <person xml:id="leventalIrina">
+            <surnameEng>Levental</surnameEng>
+            <surnameRus>Левенталь</surnameRus>
+            <forename>Irina</forename>
+            <gender>f</gender>
+            <viewerAge>postSov</viewerAge>
+        </person>
+
+        <person xml:id="voronin">
+            <surnameEng>Voronin</surnameEng>
+            <surnameRus>Воронин</surnameRus>
+            <forename>Mikhail</forename>
+            <gender>m</gender>
+            <viewerAge>postSov</viewerAge>
+        </person>
+
+        <person xml:id="sorkina">
+            <surnameEng>Sorkina</surnameEng>
+            <surnameRus>Соркина</surnameRus>
+            <forename>Viktoriia</forename>
+            <gender>f</gender>
+            <viewerAge>postSov</viewerAge>
+        </person>
+
+        <person xml:id="pavlov">
+            <surnameEng>Pavlov</surnameEng>
+            <surnameRus>Павлов</surnameRus>
+            <forename>Aleksei</forename>
+            <gender>m</gender>
+            <viewerAge>postSov</viewerAge>
+        </person>
+
+        <person xml:id="efimova">
+            <surnameEng>Efimova</surnameEng>
+            <surnameRus>Ефимова</surnameRus>
+            <forename>Svetlana</forename>
+            <gender>f</gender>
+            <viewerAge>sov</viewerAge>
+        </person>
+
+        <person xml:id="danilenko">
+            <surnameEng>Danilenko</surnameEng>
+            <surnameRus>Даниленко</surnameRus>
+            <forename>Liudmila</forename>
+            <gender>f</gender>
+            <viewerAge>sov</viewerAge>
+        </person>
+
+        <person xml:id="chistiakova">
+            <surnameEng>Chistiakova</surnameEng>
+            <surnameRus>Чистякова</surnameRus>
+            <forename>Galina</forename>
+            <gender>f</gender>
+            <viewerAge>sov</viewerAge>
+        </person>
+
+        <person xml:id="alyrzaeva">
+            <surnameEng>Alyrzaeva</surnameEng>
+            <surnameRus>Алырзаева</surnameRus>
+            <forename>Natalia</forename>
+            <gender>f</gender>
+            <viewerAge>sov</viewerAge>
+        </person>
+
+        <person xml:id="faith">
+            <surnameEng>Faith</surnameEng>
+            <forename>Rachel</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="andell">
+            <surnameEng>Andell</surnameEng>
+            <forename>Andrew</forename>
+            <gender>m</gender>
+        </person>
+
+        <person xml:id="mcgrath">
+            <surnameEng>McGrath</surnameEng>
+            <forename>Alex</forename>
+            <gender>m</gender>
+        </person>
+
+        <person xml:id="derevyannykh">
+            <surnameEng>Derevyannykh</surnameEng>
+            <forename>Zhenia</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="verheul">
+            <surnameEng>Verheul</surnameEng>
+            <forename>JP</forename>
+            <gender>m</gender>
+        </person>
+
+        <person xml:id="roberts">
+            <surnameEng>Roberts</surnameEng>
+            <forename>Michael</forename>
+            <gender>m</gender>
+        </person>
+
+        <person xml:id="argodale">
+            <surnameEng>Argodale</surnameEng>
+            <forename>Sarah</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="stolz">
+            <surnameEng>Stolz</surnameEng>
+            <forename>Jennifer</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="abdullayeva">
+            <surnameEng>Abdullayeva</surnameEng>
+            <forename>Sabina</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="burke">
+            <surnameEng>Burke</surnameEng>
+            <forename>Maggie</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="clark">
+            <surnameEng>Clark</surnameEng>
+            <forename>Emilie</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="kitchen">
+            <surnameEng>Kitchen</surnameEng>
+            <forename>Hannah</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="parks">
+            <surnameEng>Parks</surnameEng>
+            <forename>Jessica</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="seeleyHall">
+            <surnameEng>Seeley-Hall</surnameEng>
+            <forename>Julia</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="wilkinson">
+            <surnameEng>Wilkinson</surnameEng>
+            <forename>Olivia</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="radich">
+            <surnameEng>Radich</surnameEng>
+            <forename>Patricia</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="buzek">
+            <surnameEng>Buzek</surnameEng>
+            <forename>Aaron</forename>
+            <gender>m</gender>
+        </person>
+
+        <person xml:id="house">
+            <surnameEng>House</surnameEng>
+            <forename>Lydia</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="mirtaj">
+            <surnameEng>Mirtaj</surnameEng>
+            <forename>Lirsen</forename>
+            <gender>m</gender>
+        </person>
+
+        <person xml:id="grierson">
+            <surnameEng>Grierson</surnameEng>
+            <forename>Sherri</forename>
+            <gender>f</gender>
+        </person>
+
+        <person xml:id="lain">
+            <surnameEng>Lain</surnameEng>
+            <forename>Taylor</forename>
+            <gender>f</gender>
+        </person>
+
+    </metaPersons>
+
+    <persons>
+       
+        <person xml:id="andreiTarkovskii">
+            <role>director</role>
+            <surname>Tarkovskii</surname>
+            <forename>Andrei</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>тарковский</key>
+                <key>тарковского</key>
+                <key>тарковскому</key>
+                <key>тарковским</key>
+                <key>тарковском</key>
+            </keys>
+        </person>
+
+        <person xml:id="arseniiTarkovskii">
+            <role>poet</role>
+            <surname>Tarkovskii</surname>
+            <forename>Arsenii</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>тарковский</key>
+                <key>тарковского</key>
+                <key>тарковскому</key>
+                <key>тарковским</key>
+                <key>тарковском</key>
+            </keys>
+        </person>
+
+        <person xml:id="sokurov">
+            <role>director</role>
+            <surname>Sokurov</surname>
+            <forename>Aleksandr</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>сокуров</key>
+                <key>сокурова</key>
+                <key>сокурову</key>
+                <key>сокурове</key>
+                <key>сокуровом</key>
+            </keys>
+        </person>
+
+        <person xml:id="serebrennikov">
+            <role>director</role>
+            <surname>Serebrennikov</surname>
+            <forename>Kirill</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>серебренников</key>
+                <key>серебренникова</key>
+                <key>серебренникову</key>
+                <key>серебренникове</key>
+                <key>серебренниковом</key>
+            </keys>
+        </person>
+
+        <person xml:id="popogrebskii">
+            <role>director</role>
+            <surname>popogrebskii</surname>
+            <forename>Aleksei</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>попогребский</key>
+                <key>попогребского</key>
+                <key>попогребскому</key>
+                <key>попогребским</key>
+                <key>попогребском</key>
+            </keys>
+        </person>
+
+        <person xml:id="pasolini">
+            <role>director</role>
+            <surname>Pasolini</surname>
+            <forename>Pier Paolo</forename>
+            <gender>m</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>пазолини</key>
+            </keys>
+        </person>
+
+        <person xml:id="antonioni">
+            <role>director</role>
+            <surname>Antonioni</surname>
+            <forename>Michelangelo</forename>
+            <gender>m</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>антониони</key>
+            </keys>
+        </person>
+
+        <person xml:id="visconti">
+            <role>director</role>
+            <surname>Visconti</surname>
+            <forename>Luchino</forename>
+            <gender>m</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>висконти</key>
+            </keys>
+        </person>
+
+        <person xml:id="godard">
+            <role>director</role>
+            <surname>Godard</surname>
+            <forename>Jean-Luc</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>годар</key>
+                <key>годара</key>
+                <key>годару</key>
+                <key>годаром</key>
+                <key>годаре</key>
+            </keys>
+        </person>
+
+        <person xml:id="bergman">
+            <role>director</role>
+            <surname>Bergman</surname>
+            <forename>Ingmar</forename>
+            <gender>m</gender>
+            <nationality>Sweden</nationality>
+            <keys>
+                <key>бергман</key>
+            </keys>
+        </person>
+
+        <person xml:id="fellini">
+            <role>director</role>
+            <surname>Fellini</surname>
+            <forename>Federico</forename>
+            <gender>m</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>феллини</key>
+            </keys>
+        </person>
+
+        <person xml:id="lynch">
+            <role>director</role>
+            <surname>Lynch</surname>
+            <forename>David</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>линч</key>
+            </keys>
+        </person>
+
+        <person xml:id="jarmusch">
+            <role>director</role>
+            <surname>Jarmusch</surname>
+            <forename>Jim</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>джармуш</key>
+                <key>джармуша</key>
+                <key>джармушу</key>
+                <key>джармушем</key>
+                <key>джармуше</key>
+            </keys>
+        </person>
+
+        <person xml:id="aronofsky">
+            <role>director</role>
+            <surname>Aronofsky</surname>
+            <forename>Darren</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>аронофски</key>
+            </keys>
+        </person>
+
+        <person xml:id="vonTrier">
+            <role>director</role>
+            <surname>von Trier</surname>
+            <forename>Lars</forename>
+            <gender>m</gender>
+            <nationality>Denmark</nationality>
+            <keys>
+                <key>фон триер</key>
+                <key>фон триера</key>
+                <key>фон триеру</key>
+                <key>фон триером</key>
+                <key>фон триере</key>
+                <key>триер</key>
+                <key>триера</key>
+                <key>триеру</key>
+                <key>триером</key>
+                <key>триере</key>
+		<key>one two three four five</key>
+            </keys>
+        </person>
+
+        <person xml:id="binoche">
+            <role>actor</role>
+            <surname>Binoche</surname>
+            <forename>Juliette</forename>
+            <gender>f</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>бинош</key>
+            </keys>
+        </person>
+
+        <person xml:id="karwai">
+            <role>director</role>
+            <surname>Kar-wai</surname>
+            <forename>Wong</forename>
+            <gender>m</gender>
+            <nationality>China</nationality>
+            <keys>
+                <key>карвай</key>
+                <key>карвая</key>
+                <key>карваю</key>
+                <key>карвае</key>
+                <key>карваем</key>
+            </keys>
+        </person>
+
+        <person xml:id="bellucci">
+            <role>actor</role>
+            <surname>Bellucci</surname>
+            <forename>Monica</forename>
+            <gender>f</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="butler">
+            <role>actor</role>
+            <surname>Butler</surname>
+            <forename>Gerard</forename>
+            <gender>m</gender>
+            <nationality>Britain</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="theron">
+            <role>actor</role>
+            <surname>Theron</surname>
+            <forename>Charlize</forename>
+            <gender>f</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="depp">
+            <role>actor</role>
+            <surname>Depp</surname>
+            <forename>Johnny</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="carrey">
+            <role>actor</role>
+            <surname>Carrey</surname>
+            <forename>Jim</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="murphy">
+            <role>actor</role>
+            <surname>Murphy</surname>
+            <forename>Eddie</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="peck">
+            <role>actor</role>
+            <surname>Peck</surname>
+            <forename>Gregory</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="hepburn">
+            <role>actor</role>
+            <surname>Hepburn</surname>
+            <forename>Audrey</forename>
+            <gender>f</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="riazanov">
+            <role>director</role>
+            <surname>Riazanov</surname>
+            <forename>Eldar</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="allen">
+            <role>director</role>
+            <surname>Allen</surname>
+            <forename>Woody</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="almodovar">
+            <role>director</role>
+            <surname>Almodovar</surname>
+            <forename>Pedro</forename>
+            <gender>m</gender>
+            <nationality>Spain</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="mamonov">
+            <role>actor</role>
+            <surname>Mamonov</surname>
+            <forename>Petr</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="mikhalkov">
+            <role>director</role>
+            <surname>Mikhalkov</surname>
+            <forename>Nikita</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="menshov">
+            <role>director</role>
+            <surname>Menshov</surname>
+            <forename>Vladimir</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="deNiro">
+            <role>actor</role>
+            <surname>de Niro</surname>
+            <forename>Robert</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="pacino">
+            <role>actor</role>
+            <surname>Pacino</surname>
+            <forename>Al</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="chaplin">
+            <role>director</role>
+            <surname>Chaplin</surname>
+            <forename>Charlie</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="christie">
+            <role>writer</role>
+            <surname>Christie</surname>
+            <forename>Agatha</forename>
+            <gender>f</gender>
+            <nationality>Britain</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="rubinchik">
+            <role>director</role>
+            <surname>Rubinchik</surname>
+            <forename>Valerii</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="lee">
+            <role>actor</role>
+            <surname>Lee</surname>
+            <forename>Bruce</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="bondarchuk">
+            <role>director</role>
+            <surname>Bondarchuk</surname>
+            <forename>Sergei</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="cruise">
+            <role>actor</role>
+            <surname>Cruise</surname>
+            <forename>Tom</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="jackson">
+            <role>director</role>
+            <surname>Jackson</surname>
+            <forename>Peter</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="trofimenkov">
+            <role>critic</role>
+            <surname>Trofimenkov</surname>
+            <forename>Mikhail</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="volobuev">
+            <role>critic</role>
+            <surname>Volobuev</surname>
+            <forename>Roman</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="chuviliaev">
+            <role>critic</role>
+            <surname>Chuviliaev</surname>
+            <forename>Ivan</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="gaidai">
+            <role>director</role>
+            <surname>Gaidai</surname>
+            <forename>Leonid</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="leonov">
+            <role>actor</role>
+            <surname>Leonov</surname>
+            <forename>Evgenii</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="pugacheva">
+            <role>singer</role>
+            <surname>Pugacheva</surname>
+            <forename>Alla</forename>
+            <gender>f</gender>
+            <nationality>Soviet</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="dalton">
+            <role>actor</role>
+            <surname>Dalton</surname>
+            <forename>Timothy</forename>
+            <gender>m</gender>
+            <nationality>Britain</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="deFunes">
+            <role>actor</role>
+            <surname>de Funes</surname>
+            <forename>Louis</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="marais">
+            <role>actor</role>
+            <surname>Marais</surname>
+            <forename>Jean</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="rourke">
+            <role>actor</role>
+            <surname>Rourke</surname>
+            <forename>Mickey</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+
+        <person xml:id="malkovich">
+            <role>actor</role>
+            <surname>Malkovich</surname>
+            <forename>John</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+
+        <person xml:id="verne">
+            <role>writer</role>
+            <surname>Verne</surname>
+            <forename>Jules</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="milosForman">
+            <role>director</role>
+            <surname>Forman</surname>
+            <forename>Milos</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="hopkins">
+            <role>actor</role>
+            <surname>Hopkins</surname>
+            <forename>Anthony</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="eisenstein">
+            <role>director</role>
+            <surname>Eisenstein</surname>
+            <forename>Sergei</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="vertov">
+            <role>director</role>
+            <surname>Vertov</surname>
+            <forename>Dziga</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="bertolucci">
+            <role>director</role>
+            <surname>Bertolucci</surname>
+            <forename>Bernardo</forename>
+            <gender>m</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="greenaway">
+            <role>director</role>
+            <surname>Greenaway</surname>
+            <forename>Peter</forename>
+            <gender>m</gender>
+            <nationality>Britain</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="carax">
+            <role>director</role>
+            <surname>Carax</surname>
+            <forename>Leos</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="noe">
+            <role>director</role>
+            <surname>Noe</surname>
+            <forename>Gaspar</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="cassel">
+            <role>actor</role>
+            <surname>Cassel</surname>
+            <forename>Vincent</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+
+        <person xml:id="guerra">
+            <role>scriptwriter</role>
+            <surname>Guerra</surname>
+            <forename>Tonino</forename>
+            <gender>m</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="celentano">
+            <role>actor and singer</role>
+            <surname>Celentano</surname>
+            <forename>Adriano</forename>
+            <gender>m</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="gere">
+            <role>actor</role>
+            <surname>Gere</surname>
+            <forename>Richard</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+     
+         <person xml:id="robertsJ">
+            <role>actor</role>
+            <surname>Roberts</surname>
+            <forename>Julia</forename>
+            <gender>f</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+         <person xml:id="delon">
+            <role>actor</role>
+            <surname>Delon</surname>
+            <forename>Alain</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+         <person xml:id="loren">
+            <role>actor</role>
+            <surname>Loren</surname>
+            <forename>Sophia</forename>
+            <gender>f</gender>
+            <nationality>Italy</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="swayze">
+            <role>actor</role>
+            <surname>Swayze</surname>
+            <forename>Patrick</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="gromova">
+            <role>character</role>
+            <surname>Gromova</surname>
+            <forename>Ul'iana</forename>
+            <gender>f</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="shevtsova">
+            <role>character</role>
+            <surname>Shevtsova</surname>
+            <forename>Liubov'</forename>
+            <gender>f</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="chkalov">
+            <role>pilot</role>
+            <surname>Chkalov</surname>
+            <forename>Valerii</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="kholodnaia">
+            <role>actor</role>
+            <surname>Kholodnaia</surname>
+            <forename>Vera</forename>
+            <gender>f</gender>
+            <nationality>Russian Empire</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="dietrich">
+            <role>actor</role>
+            <surname>Dietrich</surname>
+            <forename>Marlene</forename>
+            <gender>f</gender>
+            <nationality>Germany/USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="garbo">
+            <role>actor</role>
+            <surname>Garbo</surname>
+            <forename>Greta</forename>
+            <gender>f</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="zheimo">
+            <role>actor</role>
+            <surname>Zheimo</surname>
+            <forename>Ianina</forename>
+            <gender>f</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="garin">
+            <role>actor</role>
+            <surname>Garin</surname>
+            <forename>Erast</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="ranevskaia">
+            <role>actor</role>
+            <surname>Ranevskaia</surname>
+            <forename>Faina</forename>
+            <gender>f</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="strauss">
+            <role>composer</role>
+            <surname>Strauss</surname>
+            <forename>Johann</forename>
+            <gender>m</gender>
+            <nationality>Austria</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="rybnikov">
+            <role>actor</role>
+            <surname>Rybnikov</surname>
+            <forename>Nikolai</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="ilinskii">
+            <role>actor</role>
+            <surname>Il'inskii</surname>
+            <forename>Igor'</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="chekhov">
+            <role>writer</role>
+            <surname>Chekhov</surname>
+            <forename>Anton</forename>
+            <gender>m</gender>
+            <nationality>Russian Empire</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="dostoevskii">
+            <role>writer</role>
+            <surname>Dostoevskii</surname>
+            <forename>Fedor</forename>
+            <gender>m</gender>
+            <nationality>Russian Empire</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="tolstoi">
+            <role>writer</role>
+            <surname>Tolstoi</surname>
+            <forename>Lev</forename>
+            <gender>m</gender>
+            <nationality>Russian Empire</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        
+        <person xml:id="tolstoi2">
+            <role>writer</role>
+            <surname>Tolstoi</surname>
+            <forename>Aleksei</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="turgenev">
+            <role>writer</role>
+            <surname>Turgenev</surname>
+            <forename>Ivan</forename>
+            <gender>m</gender>
+            <nationality>Russian Empire</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="smoktunovskii">
+            <role>actor</role>
+            <surname>Smoktunovskii</surname>
+            <forename>Innokentii</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="basilashvili">
+            <role>actor</role>
+            <surname>Basilashvili</surname>
+            <forename>Oleg</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="freindlikh">
+            <role>actor</role>
+            <surname>Freindlikh</surname>
+            <forename>Alisa</forename>
+            <gender>f</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="kuznetsovAl">
+            <role>actor</role>
+            <surname>Kuznetsov</surname>
+            <forename>Aleksandr</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="kuznetsovAn">
+            <role>actor</role>
+            <surname>Kuznetsov</surname>
+            <forename>Anatolii</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="batalov">
+            <role>actor</role>
+            <surname>Batalov</surname>
+            <forename>Aleksei</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="dumas">
+            <role>writer</role>
+            <surname>Dumas</surname>
+            <forename>Alexandre</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="schneider">
+            <role>actor</role>
+            <surname>Schneider</surname>
+            <forename>Romy</forename>
+            <gender>f</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="funes">
+            <role>actor</role>
+            <surname>de Funes</surname>
+            <forename>Louis</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="brezhnev">
+            <role>General Secretary of the Communist Party </role>
+            <surname>Brezhnev</surname>
+            <forename>Leonid</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="gubenko">
+            <role>director </role>
+            <surname>Gubenko</surname>
+            <forename>Nikolai</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="bolotova">
+            <role>actor </role>
+            <surname>Bolotova</surname>
+            <forename>Zhanna</forename>
+            <gender>f</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="gabin">
+            <role>actor </role>
+            <surname>Gabin</surname>
+            <forename>Jean</forename>
+            <gender>m</gender>
+            <nationality>France</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="monroe">
+            <role>actor </role>
+            <surname>Monroe</surname>
+            <forename>Marilyn</forename>
+            <gender>f</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="savelyeva">
+            <role>actor </role>
+            <surname>Savel'eva</surname>
+            <forename>Liudmila</forename>
+            <gender>f</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="rostova">
+            <role>character</role>
+            <surname>Rostova</surname>
+            <forename>Natasha</forename>
+            <gender>f</gender>
+            <nationality>Russian Empire</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="bulgakov">
+            <role>writer</role>
+            <surname>Bulgakov</surname>
+            <forename>Mikhail</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="nicholson">
+            <role>actor</role>
+            <surname>Nicholson</surname>
+            <forename>Jack</forename>
+            <gender>m</gender>
+            <nationality>USA</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="seryi">
+            <role>director</role>
+            <surname>Seryi</surname>
+            <forename>Aleksandr</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="mironov">
+            <role>actor</role>
+            <surname>Mironov</surname>
+            <forename>Andrei</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="mkrtchian">
+            <role>actor</role>
+            <surname>Mkrtchian</surname>
+            <forename>Frunzik</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="daneliia">
+            <role>actor</role>
+            <surname>Daneliia</surname>
+            <forename>Georgii</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="solovyov">
+            <role>director</role>
+            <surname>Solovyov</surname>
+            <forename>Sergei</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="drubich">
+            <role>actor</role>
+            <surname>Drubich</surname>
+            <forename>Tatyana</forename>
+            <gender>f</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+        <person xml:id="papanov">
+            <role>actor</role>
+            <surname>Papanov</surname>
+            <forename>Anatolii</forename>
+            <gender>m</gender>
+            <nationality>USSR</nationality>
+            <keys>
+                <key>test</key>
+                <key>blahblah</key>
+                <key>test</key>
+                <key>blahblah</key>
+            </keys>
+        </person>
+        
+    </persons>
+
+    <titles>
+
+        <title xml:id="alladin">
+            <fullTitleEng>Alladin</fullTitleEng>
+            <fullTitleRus>Алладин</fullTitleRus>
+            <director>Ron Clements and John Musker</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>disney</genre>
+            <year>1992</year>
+            <imdb>http://www.imdb.com/title/tt0103639/</imdb>
+        </title>
+
+        <title xml:id="theLittleMermaid">
+            <fullTitleEng>The Little Mermaid</fullTitleEng>
+            <fullTitleRus>Русалочка</fullTitleRus>
+            <director>Ron Clements and John Musker</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>disney</genre>
+            <year>1989</year>
+            <imdb>http://www.imdb.com/title/tt0097757/</imdb>
+        </title>
+
+        <title xml:id="beautyBeast">
+            <fullTitleEng>Beauty and the Beast</fullTitleEng>
+            <fullTitleRus>Красавица и чудовище</fullTitleRus>
+            <director>Gary Trousdale and Kirk Wise</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>disney</genre>
+            <year>1991</year>
+            <imdb>http://www.imdb.com/title/tt0101414/</imdb>  
+        </title>
+        
+        <title xml:id="heat">
+            <fullTitleEng>Heat</fullTitleEng>
+            <fullTitleRus>Схватка</fullTitleRus>
+            <director>Michael Mann</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>crime</genre>
+            <year>1995</year>
+            <imdb>http://www.imdb.com/title/tt0113277/</imdb>
+        </title>
+
+        <title xml:id="playingVictim">
+            <fullTitleEng>Playing the Victim</fullTitleEng>
+            <fullTitleRus>Изображая жертву</fullTitleRus>
+            <director>Kirill Serebrennikov</director>
+            <medium>film</medium>
+            <country>Russia</country>
+            <genre>black comedy</genre>
+            <year>2006</year>
+            <imdb>http://www.imdb.com/title/tt0820096/</imdb>
+        </title>
+
+        <title xml:id="straightStory">
+            <fullTitleEng>The Straight Story</fullTitleEng>
+            <fullTitleRus>Простая история</fullTitleRus>
+            <director>David Lynch</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>drama</genre>
+            <year>1999</year>
+            <imdb>http://www.imdb.com/title/tt0166896/</imdb>
+        </title>
+        
+        <title xml:id="wildHeart">
+            <fullTitleEng>Wild at Heart</fullTitleEng>
+            <fullTitleRus>Дикие сердцем</fullTitleRus>
+            <director>David Lynch</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>crime thriller</genre>
+            <year>1990</year>
+            <imdb>http://www.imdb.com/title/tt0100935/</imdb>
+        </title>
+
+        <title xml:id="melancholy">
+            <fullTitleEng>Melancholia</fullTitleEng>
+            <fullTitleRus>Меланхолия</fullTitleRus>
+            <director>Lars von Trier</director>
+            <medium>film</medium>
+            <country>Denmark</country>
+            <genre>artistic</genre>
+            <year>2011</year>
+            <imdb>http://www.imdb.com/title/tt1527186/</imdb>
+        </title>
+
+        <title xml:id="moodForLove">
+            <fullTitleEng>In the Mood for Love</fullTitleEng>
+            <fullTitleRus>Любовное настроение</fullTitleRus>
+            <director>Wong Kar-wai</director>
+            <medium>film</medium>
+            <country>China</country>
+            <genre>artistic</genre>
+            <year>2000</year>
+            <imdb>http://www.imdb.com/title/tt0118694/</imdb>
+        </title>
+
+        <title xml:id="mavericks">
+            <fullTitleEng>Chasing Mavericks</fullTitleEng>
+            <fullTitleRus>Покорители волн</fullTitleRus>
+            <director>Curtis Hanson and Michael Apted</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>drama</genre>
+            <year>2012</year>
+            <imdb>http://www.imdb.com/title/tt1629757/</imdb>
+        </title>
+
+        <title xml:id="piratesCaribbean">
+            <fullTitleEng>Pirates of the Caribbean: Dead Man's Chest</fullTitleEng>
+            <fullTitleRus>Пираты Карибского моря</fullTitleRus>
+            <director>Gore Verbinski</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>fantasy</genre>
+            <year>2006</year>
+            <imdb>http://www.imdb.com/title/tt0383574/</imdb>
+        </title>
+        
+        <title xml:id="aceVentura">
+            <fullTitleEng>Ace Ventura: Pet Detective</fullTitleEng>
+            <fullTitleRus>Эйс Вентура: Розыск домашних животных</fullTitleRus>
+            <director>Tom Shadyac</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>comedy</genre>
+            <year>1994</year>
+            <imdb>http://www.imdb.com/title/tt0109040/</imdb>
+        </title>
+
+        <title xml:id="godfather">
+            <fullTitleEng>The Godfather</fullTitleEng>
+            <fullTitleRus>Крестный отец</fullTitleRus>
+            <director>Francis Ford Coppola</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>crime drama</genre>
+            <year>1972</year>
+            <imdb>http://www.imdb.com/title/tt0068646/</imdb>
+        </title>
+
+        <title xml:id="brigade">
+            <fullTitleEng>The Brigade</fullTitleEng>
+            <fullTitleRus>Бригада</fullTitleRus>
+            <director>Aleksei Sidorov</director>
+            <medium>television</medium>
+            <country>Russia</country>
+            <genre>crime drama</genre>
+            <year>2002</year>
+            <imdb>http://www.imdb.com/title/tt0337898/</imdb>
+        </title>
+
+
+        <title xml:id="brother">
+            <fullTitleEng>Brother</fullTitleEng>
+            <fullTitleRus>Брат</fullTitleRus>
+            <director>Aleksei Balabanov</director>
+            <medium>film</medium>
+            <country>Russia</country>
+            <genre>crime drama</genre>
+            <year>1997</year>
+            <imdb>http://www.imdb.com/title/tt0118767/</imdb>
+        </title>
+
+        <title xml:id="brother2">
+            <fullTitleEng>Brother 2</fullTitleEng>
+            <fullTitleRus>Брат 2</fullTitleRus>
+            <director>Aleksei Balabanov</director>
+            <medium>film</medium>
+            <country>Russia</country>
+            <genre>crime drama</genre>
+            <year>2000</year>
+            <imdb>http://www.imdb.com/title/tt0238883/</imdb>
+        </title>
+
+        <title xml:id="lifeIsBeautiful">
+            <fullTitleEng>Life Is Beautiful</fullTitleEng>
+            <fullTitleRus>Жизнь прекрасна</fullTitleRus>
+            <director>Roberto Benigni</director>
+            <medium>film</medium>
+            <country>Italy</country>
+            <genre>drama</genre>
+            <year>1997</year>
+            <imdb>http://www.imdb.com/title/tt0118799/</imdb>
+        </title>
+
+        <title xml:id="mask">
+            <fullTitleEng>The Mask</fullTitleEng>
+            <fullTitleRus>Маска</fullTitleRus>
+            <director>Chuck Russell</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>comedy</genre>
+            <year>1994</year>
+            <imdb>http://www.imdb.com/title/tt0110475/</imdb>
+        </title>
+
+        <title xml:id="ironman3">
+            <fullTitleEng>Iron Man 3</fullTitleEng>
+            <fullTitleRus>Железный человек 3</fullTitleRus>
+            <director>Shane Black</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>superhero</genre>
+            <year>2013</year>
+            <imdb>http://www.imdb.com/title/tt1300854/</imdb>
+        </title>
+
+        <title xml:id="firstYearStudent">
+            <fullTitleEng>Firstgrader</fullTitleEng>
+            <fullTitleRus>Первоклассница</fullTitleRus>
+            <director>Il'ia Frez</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>children's</genre>
+            <year>1948</year>
+            <imdb>http://www.imdb.com/title/tt0040689/</imdb>
+        </title>
+
+        <title xml:id="romanHoliday">
+            <fullTitleEng>Roman Holiday</fullTitleEng>
+            <fullTitleRus>Римские каникулы</fullTitleRus>
+            <director>William Wyler</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>romantic comedy</genre>
+            <year>1953</year>
+            <imdb>http://www.imdb.com/title/tt0046250/</imdb>
+        </title>
+
+        <title xml:id="goneWithTheWind">
+            <fullTitleEng>Gone with the Wind</fullTitleEng>
+            <fullTitleRus>Унесенные ветром</fullTitleRus>
+            <director>Victor Fleming</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>melodrama</genre>
+            <year>1953</year>
+            <imdb>http://www.imdb.com/title/tt0031381/</imdb>
+        </title>
+
+        <title xml:id="moscowDoesNotBelieveInTears">
+            <fullTitleEng>Moscow Does Not Believe in Tears</fullTitleEng>
+            <fullTitleRus>Москва слезам не верит</fullTitleRus>
+            <director>Vladimir Men'shov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>melodrama</genre>
+            <year>1979</year>
+            <imdb>http://www.imdb.com/title/tt0079579/</imdb>
+        </title>
+
+
+        <title xml:id="vasilisaTheWise">
+            <fullTitleEng>Vasilisa the Beautiful</fullTitleEng>
+            <fullTitleRus>Василиса Прекрасная</fullTitleRus>
+            <director>Aleksandr Rou</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>fairy tale</genre>
+            <year>1939</year>
+            <imdb>http://www.imdb.com/title/tt0167474/</imdb>
+        </title>
+
+
+        <title xml:id="pomegranate">
+            <fullTitleEng>The Color of Pomegranates</fullTitleEng>
+            <fullTitleRus>Цвет граната</fullTitleRus>
+            <director>Sergei Paradzhanov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>art cinema</genre>
+            <year>1969</year>
+            <imdb>http://www.imdb.com/title/tt0063555/</imdb>
+        </title>
+
+        <title xml:id="theIsland">
+            <fullTitleEng>The Island</fullTitleEng>
+            <fullTitleRus>Остров</fullTitleRus>
+            <director>Pavel Lungin</director>
+            <medium>film</medium>
+            <country>Russia</country>
+            <genre>drama</genre>
+            <year>2006</year>
+            <imdb>http://www.imdb.com/title/tt0851577/</imdb>
+        </title>
+
+        <title xml:id="theAdmiral">
+            <fullTitleEng>The Admiral</fullTitleEng>
+            <fullTitleRus>Адмирал</fullTitleRus>
+            <director>Andrei Kravchuk</director>
+            <medium>film</medium>
+            <country>Russia</country>
+            <genre>melodrama</genre>
+            <year>2008</year>
+            <imdb>http://www.imdb.com/title/tt1101026/</imdb>
+        </title>
+
+        <title xml:id="burntBySun2">
+            <fullTitleEng>Burnt by the Sun 2: Exodus and Citadel</fullTitleEng>
+            <fullTitleRus>Утомленные солнцем 2: Предстояние и Цитадель</fullTitleRus>
+            <director>Nikita Mikhalkov</director>
+            <medium>film</medium>
+            <country>Russia</country>
+            <genre>war epic</genre>
+            <year>2010</year>
+            <imdb>http://www.imdb.com/title/tt1912518/</imdb>
+        </title>
+
+        <title xml:id="ironyOfFate">
+            <fullTitleEng>The Irony of Fate</fullTitleEng>
+            <fullTitleRus>Ирония судьбы</fullTitleRus>
+            <director>Eldar Riazanov</director>
+            <medium>television</medium>
+            <country>USSR</country>
+            <genre>romantic comedy</genre>
+            <year>1976</year>
+            <imdb>http://www.imdb.com/title/tt0073179/</imdb>
+        </title>
+
+        <title xml:id="piratesOfTheTwentiethCentury">
+            <fullTitleEng>Pirates of the 20th Century</fullTitleEng>
+            <fullTitleRus>Пираты ХХ века</fullTitleRus>
+            <director>Boris Durov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>action</genre>
+            <year>1979</year>
+            <imdb>http://www.imdb.com/title/tt0151987/</imdb>
+        </title>
+
+        <title xml:id="tenLittleIndians">
+            <fullTitleEng>And Then There Were None</fullTitleEng>
+            <fullTitleRus>Десять негритят</fullTitleRus>
+            <director>Stanislav Govorukhin</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>murder mystery</genre>
+            <year>1987</year>
+            <imdb>http://www.imdb.com/title/tt0092879/</imdb>
+        </title>
+
+        <title xml:id="coldSummer">
+            <fullTitleEng>Cold Summer of 1953</fullTitleEng>
+            <fullTitleRus>Холодное лето пятьдесят третьего...</fullTitleRus>
+            <director>Aleksandr Proshkin</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>drama</genre>
+            <year>1988</year>
+            <imdb>http://www.imdb.com/title/tt0095441/</imdb>
+        </title>
+
+        <title xml:id="nineAndHalfWeeks">
+            <fullTitleEng>Nine 1/2 Weeks</fullTitleEng>
+            <fullTitleRus>Девять с половиной недель</fullTitleRus>
+            <director>Adrian Lyne</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>erotic</genre>
+            <year>1986</year>
+            <imdb>http://www.imdb.com/title/tt0091635/</imdb>
+        </title>
+
+        <title xml:id="windowOnParis">
+            <fullTitleEng>Window to Paris</fullTitleEng>
+            <fullTitleRus>Окное в Парию</fullTitleRus>
+            <director>Iurii Mamin</director>
+            <medium>film</medium>
+            <country>Russia</country>
+            <genre>comedy</genre>
+            <year>1993</year>
+            <imdb>http://www.imdb.com/title/tt0110719/</imdb>
+        </title>
+
+        <title xml:id="savageHuntKingStakh">
+            <fullTitleEng>King Stakh's Wild Hunt</fullTitleEng>
+            <fullTitleRus>Дикая охота короля Стаха</fullTitleRus>
+            <director>Valerii Rubinchik</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>thriller</genre>
+            <year>1979</year>
+            <imdb>http://www.imdb.com/title/tt0128164/</imdb>
+        </title>
+
+        <title xml:id="pinkCloud">
+            <fullTitleEng>The Wayward Cloud</fullTitleEng>
+            <fullTitleRus>Капризное облако</fullTitleRus>
+            <director>Tsai Ming-liang</director>
+            <medium>film</medium>
+            <country>China</country>
+            <genre>erotic</genre>
+            <year>2005</year>
+            <imdb>http://www.imdb.com/title/tt0445760/</imdb>
+        </title>
+
+        <title xml:id="transformers">
+            <fullTitleEng>Transformers</fullTitleEng>
+            <fullTitleRus>Трансформеры</fullTitleRus>
+            <director>Michael Bay</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>science fiction</genre>
+            <year>2007</year>
+            <imdb>http://www.imdb.com/title/tt0418279/</imdb>
+        </title>
+
+        <title xml:id="worldWarZ">
+            <fullTitleEng>World War Z</fullTitleEng>
+            <fullTitleRus>Война миров Z</fullTitleRus>
+            <director>Marc Forster</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>action thriller</genre>
+            <year>2013</year>
+            <imdb>http://www.imdb.com/title/tt0816711/</imdb>
+        </title>
+
+        <title xml:id="hobbit">
+            <fullTitleEng>The Hobbit</fullTitleEng>
+            <fullTitleRus>Хоббит</fullTitleRus>
+            <director>Peter Jackson</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>fantasy</genre>
+            <year>2012</year>
+            <imdb>http://www.imdb.com/title/tt0903624/</imdb>
+        </title>
+
+        <title xml:id="lifeOfAdele">
+            <fullTitleEng>Blue Is the Warmest Color</fullTitleEng>
+            <fullTitleRus>Жизнь Адель</fullTitleRus>
+            <director>Abdellatif Kechiche</director>
+            <medium>film</medium>
+            <country>France</country>
+            <genre>drama</genre>
+            <year>2013</year>
+            <imdb>http://www.imdb.com/title/tt2278871/</imdb>
+        </title>
+
+        <title xml:id="inTheAnimalWorld">
+            <fullTitleEng>In the Animal World</fullTitleEng>
+            <fullTitleRus>В мире животных</fullTitleRus>
+            <director>n/a</director>
+            <medium>television</medium>
+            <country>USSR</country>
+            <genre>TV show</genre>
+            <year>1968</year>
+            <imdb></imdb>
+        </title>
+
+
+        <title xml:id="diamondArm">
+            <fullTitleEng>The Diamond Arm</fullTitleEng>
+            <fullTitleRus>Бриллиантовая рука</fullTitleRus>
+            <director>Leonid Gaidai</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>comedy</genre>
+            <year>1968</year>
+            <imdb>http://www.imdb.com/title/tt0062759/</imdb>
+        </title>
+
+        <title xml:id="elusiveAvengers">
+            <fullTitleEng>The Elusive Avengers</fullTitleEng>
+            <fullTitleRus>Неуловимые мстители</fullTitleRus>
+            <director>Edmond Keosaian</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>adventure</genre>
+            <year>1966</year>
+            <imdb>http://www.imdb.com/title/tt0060747/</imdb>
+        </title>
+
+        <title xml:id="swanLake">
+            <fullTitleEng>Swan Lake</fullTitleEng>
+            <fullTitleRus>Лебединое озеро</fullTitleRus>
+            <director>Appolinarii Dudko and Konstantin Sergeev</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>film-ballet</genre>
+            <year>1958</year>
+            <imdb>http://www.imdb.com/title/tt0165855/</imdb>
+        </title>
+
+        <title xml:id="womanWhoSings">
+            <fullTitleEng>The Woman Who Sings</fullTitleEng>
+            <fullTitleRus>Женщина, которая поет</fullTitleRus>
+            <director>Aleksandr Orlov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>musical</genre>
+            <year>1979</year>
+            <imdb>http://www.imdb.com/title/tt0169403/</imdb>
+        </title>
+
+        <title xml:id="troy">
+            <fullTitleEng>Troy</fullTitleEng>
+            <fullTitleRus>Троя</fullTitleRus>
+            <director>Wolfgang Petersen</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>epic</genre>
+            <year>2004</year>
+            <imdb>http://www.imdb.com/title/tt0332452/</imdb>
+        </title>
+
+        <title xml:id="spartacus">
+            <fullTitleEng>Spartacus</fullTitleEng>
+            <fullTitleRus>Спартак</fullTitleRus>
+            <director>Stanley Kubrick</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>epic</genre>
+            <year>1960</year>
+            <imdb>http://www.imdb.com/title/tt0054331/</imdb>
+        </title>
+
+        <title xml:id="alexander">
+            <fullTitleEng>Alexander</fullTitleEng>
+            <fullTitleRus>Александр</fullTitleRus>
+            <director>Oliver Stone</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>epic</genre>
+            <year>2004</year>
+            <imdb>http://www.imdb.com/title/tt0346491/</imdb>
+        </title>
+
+
+        <title xml:id="janeEyre">
+            <fullTitleEng>Jane Eyre</fullTitleEng>
+            <fullTitleRus>Джейн Эйр</fullTitleRus>
+            <director>Julian Amyes</director>
+            <medium>television</medium>
+            <country>Britain</country>
+            <genre>adaptation</genre>
+            <year>1983</year>
+            <imdb>http://www.imdb.com/title/tt0085037/</imdb>
+        </title>
+
+        <title xml:id="dumbAndDumber">
+            <fullTitleEng>Dumb and Dumber</fullTitleEng>
+            <fullTitleRus>Тупой и еще тупее</fullTitleRus>
+            <director>Peter Farrelly</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>comedy</genre>
+            <year>1994</year>
+            <imdb>http://www.imdb.com/title/tt0109686/</imdb>
+        </title>
+
+        <title xml:id="pi">
+            <fullTitleEng>Pi</fullTitleEng>
+            <fullTitleRus>Пи</fullTitleRus>
+            <director>Darren Aronofsky</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>thriller</genre>
+            <year>1998</year>
+            <imdb>http://www.imdb.com/title/tt0138704/</imdb>
+        </title>
+
+        <title xml:id="spokNochi">
+            <fullTitleEng>Good Night, Little Ones!</fullTitleEng>
+            <fullTitleRus>Спокойной ночи, малыши!</fullTitleRus>
+            <director>n/a</director>
+            <medium>television</medium>
+            <country>USSR</country>
+            <genre>TV show</genre>
+            <year>1998</year>
+            <imdb>http://www.imdb.com/title/tt3994982/</imdb>
+        </title>
+
+        <title xml:id="childrenOfCaptainGrant">
+            <fullTitleEng>The Children of Captain Grant</fullTitleEng>
+            <fullTitleRus>Дети капитана Гранта</fullTitleRus>
+            <director>Vladimir Vainshtok and David Gutman</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>adventure</genre>
+            <year>1936</year>
+            <imdb>http://www.imdb.com/title/tt0027516/</imdb>
+        </title>
+
+        <title xml:id="unclеBoonmee">
+            <fullTitleEng>Uncle Boonmee Who Can Recall His Past Lives</fullTitleEng>
+            <fullTitleRus>Дядюшка Бунми, который помнит свои прошлые жизни</fullTitleRus>
+            <director>Apichatpong Weerasethakul</director>
+            <medium>film</medium>
+            <country>Thailand</country>
+            <genre>art cinema</genre>
+            <year>2010</year>
+            <imdb>http://www.imdb.com/title/tt1588895/</imdb>
+        </title>
+
+        <title xml:id="ivanVasilevichChangesJobs">
+            <fullTitleEng>Ivan Vasilievich: Back to the Future</fullTitleEng> 
+            <fullTitleRus>Иван Васильевич меняет профессию</fullTitleRus>
+            <director>Leonid Gaidai</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>comedy</genre>
+            <year>1973</year>
+            <imdb>http://www.imdb.com/title/tt0070233/</imdb>
+        </title>
+
+        <title xml:id="warAndPeace">
+            <fullTitleEng>War and Peace</fullTitleEng>
+            <fullTitleRus>Война и мир</fullTitleRus>
+            <director>Sergei Bondarchuk</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>epic</genre>
+            <year>1967</year>
+            <imdb>http://www.imdb.com/title/tt0062456/</imdb>
+        </title>
+
+        <title xml:id="juno">
+            <fullTitleEng>Juno</fullTitleEng>
+            <fullTitleRus>Джуно</fullTitleRus>
+            <director>Jason Reitman</director>
+            <medium>film</medium>
+            <country>Canada/USA</country>
+            <genre>comedy</genre>
+            <year>2007</year>
+            <imdb>http://www.imdb.com/title/tt0467406/</imdb>
+        </title>
+
+        <title xml:id="rockyBullwinkle">
+            <fullTitleEng>The Rocky and Bullwinkle Show</fullTitleEng>
+            <fullTitleRus>Шоу Рокки и Буллвинкля</fullTitleRus>
+            <director>Jay Ward</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>cartoon</genre>
+            <year>1960</year>
+            <imdb>http://www.imdb.com/title/tt0054524/</imdb>
+        </title>
+        
+        <title xml:id="irreversible">
+            <fullTitleEng>Irreversible</fullTitleEng>
+            <fullTitleRus>Необратимость</fullTitleRus>
+            <director>Gaspar Noe</director>
+            <medium>film</medium>
+            <country>France</country>
+            <genre>thriller</genre>
+            <year>2002</year>
+            <imdb>http://www.imdb.com/title/tt0290673/</imdb>
+        </title>
+        
+        <title xml:id="youngGuard">
+            <fullTitleEng>The Young Guard</fullTitleEng>
+            <fullTitleRus>Молодая гвардия</fullTitleRus>
+            <director>Sergei Gerasimov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>war film</genre>
+            <year>1948</year>
+            <imdb>http://www.imdb.com/title/tt0040601/</imdb>
+        </title>
+        
+          <title xml:id="seventeenMoments">
+            <fullTitleEng>Seventeen Moments of Spring</fullTitleEng>
+              <fullTitleRus>Семнадцать мгновений весны</fullTitleRus>
+            <director>Tat'ana Lioznova</director>
+            <medium>television</medium>
+            <country>USSR</country>
+            <genre>spy thriller</genre>
+            <year>1973</year>
+            <imdb>http://www.imdb.com/title/tt0069628/</imdb>
+        </title>
+        
+        
+          <title xml:id="morozko">
+            <fullTitleEng>Morozko</fullTitleEng>
+              <fullTitleRus>Морозко</fullTitleRus>
+            <director>Aleksandr Rou</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>skazka</genre>
+            <year>1964</year>
+              <imdb>http://www.imdb.com/title/tt0058374/</imdb>
+        </title>
+        
+           <title xml:id="ivanBrovkin">
+            <fullTitleEng>Ivan Brovkin at the Virgin Lands</fullTitleEng>
+               <fullTitleRus>Иван Бровкин на целине</fullTitleRus>
+            <director>Ivan Lukinskii</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>comedy</genre>
+            <year>1959</year>
+               <imdb>http://www.imdb.com/title/tt0051789/</imdb>
+        </title>
+        
+        <title xml:id="chapaev">
+            <fullTitleEng>Chapaev</fullTitleEng>
+            <fullTitleRus>Чапаев</fullTitleRus>
+            <director>Georgii Vasil'ev and Sergei Vasil'ev</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>biopic</genre>
+            <year>1934</year>
+            <imdb>http://www.imdb.com/title/tt0024966/</imdb>
+        </title>
+        
+        <title xml:id="cinderella">
+            <fullTitleEng>Cinderella</fullTitleEng>
+            <fullTitleRus>Золушка</fullTitleRus>
+            <director>Nadezhda Kosheverova and Mikhail Shapiro</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>skazka</genre>
+            <year>1947</year>
+            <imdb>http://www.imdb.com/title/tt0168269/</imdb>
+        </title>
+        
+        <title xml:id="greatWaltz">
+            <fullTitleEng>The Great Waltz</fullTitleEng>
+            <fullTitleRus>Большой вальс</fullTitleRus>
+            <director>Julien Duvivier</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>biopic</genre>
+            <year>1938</year>
+            <imdb>http://www.imdb.com/title/tt0030202/</imdb>
+        </title>
+        
+        <title xml:id="jorgenDay">
+            <fullTitleEng>St. Jorgen's Day</fullTitleEng>
+            <fullTitleRus>Праздник святого Йоргена</fullTitleRus>
+            <director>Iakov Protazanov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>comedy</genre>
+            <year>1930</year>
+            <imdb>http://www.imdb.com/title/tt0021268/</imdb>
+        </title>
+        
+        <title xml:id="warAndPeaceAm">
+            <fullTitleEng>War and Peace</fullTitleEng>
+            <fullTitleRus>Война и мир</fullTitleRus>
+            <director>King Vidor</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>adaptation</genre>
+            <year>1956</year>
+            <imdb>http://www.imdb.com/title/tt0049934/</imdb>
+        </title>
+        
+        <title xml:id="admiralUshakov">
+            <fullTitleEng>Admiral Ushakov</fullTitleEng>
+            <fullTitleRus>Адмирал Ушаков</fullTitleRus>
+            <director>Mikhail Romm</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>biopic</genre>
+            <year>1953</year>
+            <imdb>http://www.imdb.com/title/tt0045473/</imdb>
+        </title>
+        
+        <title xml:id="gladiator">
+            <fullTitleEng>Gladiator</fullTitleEng>
+            <fullTitleRus>Гладиатор</fullTitleRus>
+            <director>ridley Scott</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>epic</genre>
+            <year>2000</year>
+            <imdb>http://www.imdb.com/title/tt0172495/</imdb>
+        </title>
+        
+        <title xml:id="mumu">
+            <fullTitleEng>Mumu</fullTitleEng>
+            <fullTitleRus>Муму</fullTitleRus>
+            <director>Iurii Grymov</director>
+            <medium>film</medium>
+            <country>Russia</country>
+            <genre>adaptation</genre>
+            <year>1998</year>
+            <imdb>http://www.imdb.com/title/tt0129243/</imdb>
+        </title>   
+        
+        <title xml:id="iceAge">
+            <fullTitleEng>Ice Age</fullTitleEng>
+            <fullTitleRus>Ледниковый период</fullTitleRus>
+            <director>Chris Wedge and Carlos Saldanha</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>cartoon</genre>
+            <year>2002</year>
+            <imdb>http://www.imdb.com/title/tt0268380/</imdb>
+        </title>  
+        
+        <title xml:id="whiteSun">
+            <fullTitleEng>White Sun of the Desert</fullTitleEng>
+            <fullTitleRus>Белое солнце пустыни</fullTitleRus>
+            <director>Vladimir Motyl'</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>western</genre>
+            <year>1970</year>
+            <imdb>http://www.imdb.com/title/tt0066565/</imdb>
+        </title>
+        
+        <title xml:id="ladyWithDog">
+            <fullTitleEng>The lady with the Dog</fullTitleEng>
+            <fullTitleRus>Дама с собачкой</fullTitleRus>
+            <director>Iosif Kheifits</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>melodrama</genre>
+            <year>1960</year>
+            <imdb>http://www.imdb.com/title/tt0053746/</imdb>
+        </title>
+        
+        <title xml:id="threeMusketeers">
+            <fullTitleEng>The Three Musketeers</fullTitleEng>
+            <fullTitleRus>Три мушкетера</fullTitleRus>
+            <director>Andre Hunebelle</director>
+            <medium>film</medium>
+            <country>France</country>
+            <genre>adaptation</genre>
+            <year>1953</year>
+            <imdb>http://www.imdb.com/title/tt0046461/</imdb>
+        </title>
+        
+        <title xml:id="tearsOfBlood">
+            <fullTitleEng>Tears of Blood</fullTitleEng>
+            <fullTitleRus>И дождь смывает все следы</fullTitleRus>
+            <director>Alfred Vohrer</director>
+            <medium>film</medium>
+            <country>Germany/France</country>
+            <genre>melodrama</genre>
+            <year>1972</year>
+            <imdb>http://www.imdb.com/title/tt0069441/</imdb>
+        </title>
+        
+        <title xml:id="fantomas">
+            <fullTitleEng>Fantomas</fullTitleEng>
+            <fullTitleRus>Фантомас</fullTitleRus>
+            <director>Andre Hunebelle</director>
+            <medium>film</medium>
+            <country>France</country>
+            <genre>crime thriller / comedy</genre>
+            <year>1964</year>
+            <imdb>http://www.imdb.com/title/tt0058089/</imdb>
+        </title>
+        
+        <title xml:id="podranki">
+            <fullTitleEng>Wounded game</fullTitleEng>
+            <fullTitleRus>Подранки</fullTitleRus>
+            <director>Nikolai Gubenko</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>drama</genre>
+            <year>1977</year>
+            <imdb>http://www.imdb.com/title/tt0075079/</imdb>
+        </title>
+        
+        <title xml:id="lifeTearsLove">
+            <fullTitleEng>Life, Tears, and Love</fullTitleEng>
+            <fullTitleRus>И жизнь, и следы, и любовь</fullTitleRus>
+            <director>Nikolai Gubenko</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>drama</genre>
+            <year>1973</year>
+            <imdb>http://www.imdb.com/title/tt0167204/</imdb>
+        </title>
+        
+        <title xml:id="vacationers">
+            <fullTitleEng>From the Life of Vacationers</fullTitleEng>
+            <fullTitleRus>Из жизни отдыхающих</fullTitleRus>
+            <director>Nikolai Gubenko</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>romantic comedy</genre>
+            <year>1980</year>
+            <imdb>http://www.imdb.com/title/tt0080939/</imdb>
+        </title>
+        
+        <title xml:id="flight">
+            <fullTitleEng>The Flight</fullTitleEng>
+            <fullTitleRus>Бег</fullTitleRus>
+            <director>Aleksandr Alov and Vladimir Naumov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>adaptation</genre>
+            <year>1970</year>
+            <imdb>http://www.imdb.com/title/tt0065457/</imdb>
+        </title>
+        
+        <title xml:id="onceUponTime">
+            <fullTitleEng>Once Upon a Time in America</fullTitleEng>
+            <fullTitleRus>Однажды в Америке</fullTitleRus>
+            <director>Sergio Leone</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>crime drama</genre>
+            <year>1984</year>
+            <imdb>http://www.imdb.com/title/tt0087843/</imdb>
+            
+        </title>
+        
+        <title xml:id="oneFlewCuckoo">
+            <fullTitleEng>One Flew Over the Cuckoo's Nest</fullTitleEng>
+            <fullTitleRus>Полет над гнездом кукушки</fullTitleRus>
+            <director>Milos Forman</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>drama</genre>
+            <year>1975</year>
+            <imdb>http://www.imdb.com/title/tt0073486/</imdb>
+        </title>
+        
+        <title xml:id="gentelmenFortune">
+            <fullTitleEng>Gentelmen of Fortune</fullTitleEng>
+            <fullTitleRus>Джентельмены удачи</fullTitleRus>
+            <director>Aleksandr Seryi</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>comedy</genre>
+            <year>1971</year>
+            <imdb>http://www.imdb.com/title/tt0068519/</imdb>
+        </title>
+        
+        <title xml:id="nuPogodi">
+            <fullTitleEng>Just You Wait!</fullTitleEng>
+            <fullTitleRus>Ну, погоди!</fullTitleRus>
+            <director>Viacheslav Kotenochkin</director>
+            <medium>film</medium>
+            <country>USSR </country>
+            <genre>cartoon series</genre>
+            <year>1969</year>
+            <imdb>http://www.imdb.com/title/tt0234355/</imdb>
+        </title>
+        
+        <title xml:id="mimino">
+            <fullTitleEng>Mimino</fullTitleEng>
+            <fullTitleRus>Мимино</fullTitleRus>
+            <director>Georgii Daneliia</director>
+            <medium>film</medium>
+            <country>USSR </country>
+            <genre>comedy</genre>
+            <year>1977</year>
+            <imdb>http://www.imdb.com/title/tt0076391/</imdb>
+        </title>
+        
+        <title xml:id="casablanca">
+            <fullTitleEng>Casablanca</fullTitleEng>
+            <fullTitleRus>Касабланка</fullTitleRus>
+            <director>Michael Curtiz</director>
+            <medium>film</medium>
+            <country>USA </country>
+            <genre>melodrama</genre>
+            <year>1942</year>
+            <imdb>http://www.imdb.com/title/tt0034583/</imdb>
+        </title>
+        
+        <title xml:id="annaKarenina">
+            <fullTitleEng>Anna Karenina</fullTitleEng>
+            <fullTitleRus>Анна Каренина</fullTitleRus>
+            <director>Sergei Solovyov</director>
+            <medium>film</medium>
+            <country>Russia </country>
+            <genre>melodrama</genre>
+            <year>2009</year>
+            <imdb>http://www.imdb.com/title/tt0403726/</imdb>
+        </title>
+        
+        <title xml:id="copperMountMistress">
+            <fullTitleEng>Mistress of the Copper Mountain</fullTitleEng>
+            <fullTitleRus>Хозяйка медной горы</fullTitleRus>
+            <director>Alexander Ptushko</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>skazka</genre>
+            <year>1946</year>
+            <imdb>http://www.imdb.com/title/tt0038666/</imdb>
+        </title>
+        
+        <title xml:id="kingKong_2005">
+            <fullTitleEng>King Kong</fullTitleEng>
+            <fullTitleRus>Кинг Конг</fullTitleRus>
+            <director>Peter Jackson</director>
+            <medium>film</medium>
+            <country>USA</country>
+            <genre>monster film</genre>
+            <year>2005</year>
+            <imdb>http://www.imdb.com/title/tt0360717/</imdb>
+        </title>
+        
+        <title xml:id="officeRomance">
+            <fullTitleEng>Office Romance</fullTitleEng>
+            <fullTitleRus>Служебный роман</fullTitleRus>
+            <director>Eldar Riazanov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>comedy</genre>
+            <year>1977</year>
+            <imdb>http://www.imdb.com/title/tt0076727/</imdb>
+        </title>
+        
+        <title xml:id="pokrovskyGate">
+            <fullTitleEng>Pokrov Gates</fullTitleEng>
+            <fullTitleRus>Покровские ворота</fullTitleRus>
+            <director>Mikhail Kozakov</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>comedy</genre>
+            <year>1983</year>
+            <imdb>http://www.imdb.com/title/tt0083465/</imdb>
+        </title>
+        
+        <title xml:id="mirror">
+            <fullTitleEng>Mirror</fullTitleEng>
+            <fullTitleRus>Зеркало</fullTitleRus>
+            <director>Andrei Tarkovskii</director>
+            <medium>film</medium>
+            <country>USSR</country>
+            <genre>drama</genre>
+            <year>1975</year>
+            <imdb>http://www.imdb.com/title/tt0072443/</imdb>
+        </title>
+  
+    </titles>
+
+    <genres>
+        <genre xml:id="animation"/>
+        <genre xml:id="childrens"/>
+        <genre xml:id="comedy"/>
+        <genre xml:id="drama"/>
+        <genre xml:id="melodrama"/>
+        <genre xml:id="psychologicalThriller"/>
+        <genre xml:id="horror"/>
+        <genre xml:id="blockbuster"/>
+        <genre xml:id="warFilms"/>
+        <genre xml:id="adult"/>
+        <genre xml:id="skazka"/>
+        <genre xml:id="romanticComedy"/>
+        <genre xml:id="art"/>
+        <genre xml:id="romance"/>
+        <genre xml:id="action"/>
+        <genre xml:id="documentary"/>
+        <genre xml:id="classics"/>
+        <genre xml:id="patrioticFilms"/>
+        <genre xml:id="fantasy"/>
+        <genre xml:id="crimeDrama"/>
+        <genre xml:id="thriller"/>
+        <genre xml:id="retro"/>
+        <genre xml:id="trophy"/>
+        <genre xml:id="silent"/>
+        <genre xml:id="detective"/>
+        <genre xml:id="western"/>
+        <genre xml:id="shortFilm"/>
+        <genre xml:id="commercialCinema"/>
+        <genre xml:id="historyFilm"/>
+    </genres>
+
+    <places>
+        <place xml:id="stPetersburg">
+            <fullName>St. Petersburg</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>питера</key>
+                <key>питеру</key>
+                <key>питером</key>
+                <key>питере</key>
+                <key>петербург</key>
+                <key>петербурга</key>
+                <key>петербургу</key>
+                <key>петербургом</key>
+                <key>петербурге</key>
+            </keys>
+        </place>
+        
+        <place xml:id="russia">
+            <fullName>Russia</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>россия</key>
+                <key>россии</key>
+                <key>россию</key>
+                <key>россиией</key>
+                <key>россииею</key>
+            </keys>
+        </place>
+        
+        <place xml:id="pskovskayaOblast">
+            <fullName>Pskov Oblast </fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>псков</key>
+                <key>пскова</key>
+                <key>пскову</key>
+                <key>псковом</key>
+                <key>пскове</key>
+            </keys>
+        </place>
+        
+        <place xml:id="sovietUnion">
+            <fullName>Soviet Union</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>советский союз</key>
+                <key>советского союза</key>
+                <key>советскому союзу</key>
+                <key>советским союзом</key>
+                <key>советском союзе</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kinoteatrRodina">
+            <fullName>Rodina movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+        <place xml:id="nevel">
+            <fullName>Nevel</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>невель</key>
+                <key>невеле</key>
+                <key>невеля</key>
+                <key>невелю</key>
+                <key>невелем</key>
+            </keys>
+        </place>
+        
+        <place xml:id="china">
+            <fullName>China</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>китай</key>
+                <key>китая</key>
+                <key>китаю</key>
+                <key>китаем</key>
+                <key>китае</key>
+            </keys>
+        </place>
+        
+        <place xml:id="hongKong">
+            <fullName>Hong Kong</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="urals">
+            <fullName>CThe Urals</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="ufa">
+            <fullName>Ufa</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>уфа</key>
+                <key>уфы</key>
+                <key>уфе</key>
+                <key>уфу</key>
+                <key>уфой</key>
+                <key>уфою</key>
+            </keys>
+        </place>
+        
+        <place xml:id="republicBashkirtostan">
+            <fullName>Republic Bashkortostan</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="moscow">
+            <fullName>Moscow</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>москва</key>
+                <key>москвы</key>
+                <key>москве</key>
+                <key>москву</key>
+                <key>москвой</key>
+                <key>москвою</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kinoteatrIskra">
+            <fullName>Iskra movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+        <place xml:id="sverdlovsk">
+            <fullName>Sverdlovsk</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+            </keys>
+        </place>
+        
+        <place xml:id="ekaterinburg">
+            <fullName>Ekaterinburg</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+            </keys>
+        </place>
+        
+        <place xml:id="berlin">
+            <fullName>Berlin</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>берлин</key>
+                <key>берлина</key>
+                <key>берлину</key>
+                <key>берлином</key>
+                <key>берлине</key>
+            </keys>
+        </place>
+        
+        <place xml:id="domKino">
+            <fullName>Dom Kino</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+            </keys>
+        </place>
+        
+        <place xml:id="philadelphia">
+            <fullName>Philadelhia</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>филадельфия</key>
+                <key>филадельфии</key>
+                <key>филадельфию</key>
+                <key>филадельфией</key>
+            </keys>
+        </place>
+        
+        <place xml:id="seoul">
+            <fullName>Seoul</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kinoteatrFestival">
+            <fullName>Festival movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+        <place xml:id="cityCenter">
+            <fullName>mall</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kinoteatrAurora">
+            <fullName>Aurora movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kinoteatrMaksim">
+            <fullName>Maksim movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+        <place xml:id="leningrad">
+            <fullName>Leningrad</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>ленинград</key>
+                <key>ленинграда</key>
+                <key>ленинграду</key>
+                <key>ленинградом</key>
+                <key>ленинграде</key>
+            </keys>
+        </place>
+        
+        <place xml:id="videoSalon">
+            <fullName>Video Salon</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="canneFestival">
+            <fullName>Cannes Film Festival</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="nevskiyProspekt">
+            <fullName>Nevsky Prospect</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="imperialRussia">
+            <fullName>Imperial Russia</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="hotelAngleter">
+            <fullName>Hotel Angleterre</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="isaacsSquare">
+            <fullName>Saint Isaac's Square</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="hollywood">
+            <fullName>Hollywood</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="siberia">
+            <fullName>Siberia</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="volgograskayaOblast">
+            <fullName>Volgograd Oblast</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="volgograd">
+            <fullName>Volgograd</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="america">
+            <fullName>America</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="vietnam">
+            <fullName>Vietnam</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="movieTheater">
+            <fullName>movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kino">
+            <fullName>movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kinoteatrMirazh">
+            <fullName>Mirazh movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+        <place xml:id="club">
+            <fullName>Club</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="odessa">
+            <fullName>Odessa</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="baltika">
+            <fullName>Baltika</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="priboi">
+            <fullName>Priboi movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="rostovOnDon">
+            <fullName>Rostov-on-Don</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="filmProjectionUnit">
+            <fullName>Portable Film Projection Unit</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="chkalovets">
+            <fullName>Chalovets movie theater</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="moskva">
+            <fullName>Moscow</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="vancouver">
+            <fullName>Vancouver</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="knowledgePower">
+            <fullName>Knowledge Is Power</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="volgogradskayaOblast">
+            <fullName>Volgograd Oblast</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="nikolaev">
+            <fullName>Nikolaev</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="ukraine">
+            <fullName>Ukraine</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="blackSea">
+            <fullName>The Black Sea</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="crimea">
+            <fullName>Crimea</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="feodosiia">
+            <fullName>Feodosiia</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="vinbochka">
+            <fullName>"kinoteatr "Vinbochka"</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="france">
+            <fullName>France</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>франция</key>
+                <key>франции</key>
+                <key>францию</key>
+                <key>францией</key>
+                <key>франциею</key>
+            </keys>
+        </place>
+        
+        <place xml:id="tashkent">
+            <fullName>Tashkent</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="shortFestival">
+            <fullName>Short and Animation Film Festival Open Cinema</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="murmansk">
+            <fullName>Murmansk</fullName>
+            <placeType>geo</placeType>
+            <keys>
+                <key>питер</key>
+                <key>петербург</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kinoteatrMurmansk">
+            <fullName>Murmansk</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+        <place xml:id="kinoteatrLadoga">
+            <fullName>Ladoga</fullName>
+            <placeType>exhibition</placeType>
+            <keys>
+                <key>кинотеатр</key>
+                <key>кинотеатры</key>
+                <key>кинотеатра</key>
+                <key>кинотеатру</key>
+                <key>кинотеатром</key>
+                <key>кинотеатре</key>
+                <key>кинотеатров</key>
+            </keys>
+        </place>
+        
+         
+    </places>
+
+
+    <nationalCinemas>
+        <nationalCinema xml:id="americanCinema"/>
+        <nationalCinema xml:id="sovietCinema"/>
+        <nationalCinema xml:id="russianCinema"/>
+        <nationalCinema xml:id="foreignCinema"/>
+        <nationalCinema xml:id="europeanCinema"/>
+        <nationalCinema xml:id="italianCinema"/>
+        <nationalCinema xml:id="ourCinema"/>
+        <nationalCinema xml:id="chineseCinema"/>
+        <nationalCinema xml:id="japaneseCinema"/>
+        <nationalCinema xml:id="polishCinema"/>
+        <nationalCinema xml:id="indianCinema"/>
+        <nationalCinema xml:id="koreanCinema"/>
+        <nationalCinema xml:id="germanCinema"/>
+        <nationalCinema xml:id="frenchCinema"/>
+        <nationalCinema xml:id="swedishCinema"/>
+        <nationalCinema xml:id="taiwaneseCinema"/>
+        <nationalCinema xml:id="australianCinema"/>
+        <nationalCinema xml:id="hungarianCinema"/>
+        <nationalCinema xml:id="czechoslovakCinema"/>
+        <nationalCinema xml:id="austrianCinema"/>
+        <nationalCinema xml:id="britishCinema"/>
+        <nationalCinema xml:id="coproduction"/>
+        <nationalCinema xml:id="asianCinema"/>
+        <nationalCinema xml:id="indianCinema"/>
+        
+    </nationalCinemas>
+</index>

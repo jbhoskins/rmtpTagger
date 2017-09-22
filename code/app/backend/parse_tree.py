@@ -9,6 +9,7 @@
 # Last edit 4/22/17 by Margaret.
 
 from app.backend.index_entry import Entry
+from bs4 import BeautifulSoup
 from enum import Enum
 
 class MatchState(Enum):
@@ -30,10 +31,11 @@ class ParseTree:
         This should probably be refactored into a parse-tree class and a seperate
         index class, splitting up the functionalities."""
 
-    def __init__(self, listOfKeys):
+    def __init__(self, listOfWords):
         self._rootNode = dict()
         self._currentNode = self._rootNode
-        self._makeParseTree(listOfKeys)
+
+        self._makeParseTree(listOfWords)
 
     def _makeParseTree(self, listOfKeys):
         """ Creates a tree of dictionaries that represents a parse-tree of

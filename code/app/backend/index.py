@@ -82,8 +82,13 @@ class Index:
         This should probably be refactored into a parse-tree class and a seperate
         index class, splitting up the functionalities."""
 
-    def __init__(self, soup):
-        self._index = self._buildIndex(self._soup)
+    def __init__(self, path):
+
+        f = open(path, "r", encoding="UTF-8")
+        soup = BeautifulSoup(f, 'xml')
+        f.close()
+
+        self._index = self._buildIndex(soup)
 
     def _buildIndex(self, soup, opts = []):
         """Create a dictionary with <keys> (declined forms) as its 

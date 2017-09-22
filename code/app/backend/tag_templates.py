@@ -3,6 +3,7 @@
 # 
 # Description: Reads the templates specified, and returns a dictionary of them
 
+import os
 
 class ParseError(Exception):
     """ I wanted a more descriptive exception name, so I made this."""
@@ -59,7 +60,7 @@ class TemplateIndex:
     key:value pairs with strings as keys and Tag objects as values."""
     def __init__(self):
         """ Open the file and parse it for tag templates."""
-        f = open("../META/tagTemplates.txt")
+        f = open(os.path.join("res", "tagTemplates.txt"))
         
         self._templates = []
         

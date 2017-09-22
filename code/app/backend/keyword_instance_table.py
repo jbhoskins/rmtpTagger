@@ -25,8 +25,11 @@ Changed style of code to conform to the PEP8 styleguide.
 
 import app.gui.view_controller as view
 from app.backend.keyword_instance import KeywordInstance
+import os
+from bs4 import BeautifulSoup
 from app.backend.index import Index
 from app.backend.parse_tree import MatchState
+from app.backend.parse_tree import ParseTree
 
 import re
 
@@ -45,7 +48,9 @@ class KeywordInstanceTable(list):
         self._views = []
 
         # This is the only data structure that needs the index
-        self._indexObject = Index("../META/index.xml")
+        # Shouldnt open the file twice but hey
+        self._indexObject = Index(os.path.join("res", "index.xml"))
+        self._parseTree = ParseTree(os.path.join("res", "index.xml"))
         
 
     def lookup(self, startIndex):        
@@ -177,7 +182,7 @@ class KeywordInstanceTable(list):
                 # to not skip anything.
                 # if True:
                 if  (inx % 4 - 1) != 0:
-                    testCode = self._indexObject.multiTest(word.group().lower())
+                    testCode = self._indexObject.validate(word.group().lower())
 
                     if testCode == MatchState.no_match:
          
