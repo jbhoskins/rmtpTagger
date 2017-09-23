@@ -77,6 +77,18 @@ class TagResults(tk.Listbox, view.Viewer, view.Stylable):
         """Update the selected entry when an entry is clicked."""
         
         keywordTable = self._app.getKeywordTable()
+
+        # Don't allow changes to confirmed entries
+        # This is trickier to do for clicks, since interacting with tkinter
+        # using the mouse is not in this code. When you click, it sets the
+        # selection, and this on method is called after the click has been made
+        # change the keyword table. this solution works, but causing a
+        # "jumping selection" and I don't like it - there must be a better
+        # way.. you might need to find a way to access the default binding of
+        # button one on nthe listbox.
+        if keywordTable.getCurrentEntry()["confirmed"]:
+            self.update() # return the selection to its proper place
+            return
         
         keywordTable.getCurrentEntry()["selectedEntry"] =\
             self.curSelection() - 1
