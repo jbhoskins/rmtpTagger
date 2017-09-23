@@ -50,7 +50,7 @@ class KeywordInstanceTable(list):
         # This is the only data structure that needs the index
         # Shouldnt open the file twice but hey
         self._indexObject = Index(os.path.join("res", "index.xml"))
-        self._parseTree = ParseTree(os.path.join("res", "index.xml"))
+        self._parseTree = ParseTree(self._indexObject.keys())
         
 
     def lookup(self, startIndex):        
@@ -86,6 +86,8 @@ class KeywordInstanceTable(list):
         """Returns the currently selected KeywordInstance."""
         if len(self) == 0:
             return KeywordInstance()
+        else:
+            return self[self._current]
 
 
     def getCurrentIndex(self):
@@ -182,7 +184,7 @@ class KeywordInstanceTable(list):
                 # to not skip anything.
                 # if True:
                 if  (inx % 4 - 1) != 0:
-                    testCode = self._indexObject.validate(word.group().lower())
+                    testCode = self._parseTree.validate(word.group().lower())
 
                     if testCode == MatchState.no_match:
          

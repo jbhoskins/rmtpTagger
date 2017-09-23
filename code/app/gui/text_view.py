@@ -187,7 +187,8 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
         """ Moves the current coloring to the correct entry as per the
         keywordTable. """
         keywordTable = self._app.getKeywordTable()
-        
+      
+        print(keywordTable)
         currentEntry = keywordTable.getCurrentEntry()
         print("LOKOOOOOOOOOOOOOOK", currentEntry)
         print(currentEntry.start(), currentEntry.stop())

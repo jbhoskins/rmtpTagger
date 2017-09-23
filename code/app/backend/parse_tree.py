@@ -59,23 +59,13 @@ class ParseTree:
         """
         for key in listOfKeys:
             self._currentNode = self._rootNode
-
-            i = 0
-            for i in range(len(key) - 1):
-                if key[i] not in self._currentNode.keys():
-                    self._currentNode[key[i]] = dict()
-                self._currentNode = self._currentNode[key[i]]
-            
-            # Handles the case of an empty key like <key></key>
-            if len(key) > 1:
-                i += 1
-             
-            try:
-                self._currentNode = self._currentNode[key[i]]
-            except:
-                self._currentNode[key[i]] = dict()
-                self._currentNode = self._currentNode[key[i]]
+            key = key.split()
+            for word in key:
+                if word not in self._currentNode.keys():
+                    self._currentNode[word] = dict()
                 
+                self._currentNode = self._currentNode[word]
+
             self._currentNode[None] = None
 
         self.reset()

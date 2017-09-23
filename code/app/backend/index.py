@@ -54,13 +54,6 @@ words are string types):
   ("gender", "m"),
   ("nationality","Russia") ]
 
-
-LAST EDIT:
-
-Margaret, 4/22/17
-
-Changed style of code to conform to the PEP8 styleguide.
-
 """
 
 
@@ -73,38 +66,23 @@ class Index:
         
         1: Permit the lookup of information in the xml file based on <key>
         attributes defined in the index.xml file itself.
+    """
         
-        2: Builds a parse tree of the keys themselves, to provide a way to
-        determine, one word at a time, if a string with an arbitrary number of
-        words is a valid key. An important consequence of this is that longer keys
-        will always take precedence over nested keys that are shorter.
-        
-        This should probably be refactored into a parse-tree class and a seperate
-        index class, splitting up the functionalities."""
-
     def __init__(self, path):
-
-        f = open(path, "r", encoding="UTF-8")
-        soup = BeautifulSoup(f, 'xml')
-        f.close()
-
-        self._index = self._buildIndex(soup)
-
-    def _buildIndex(self, soup, opts = []):
         """Create a dictionary with <keys> (declined forms) as its 
         dictionary keys and LISTS of _Entry objects as its dictionary
         values.
         """
-        index = dict()
+        f = open(path, "r", encoding="UTF-8")
+        soup = BeautifulSoup(f, 'xml')
+        f.close()
 
-        # Handles keys with multiple possible entries by creating a list of 
-        # _Entry objects for a key.
+        self._index = dict()
         for key in soup.find_all('key'):
             try:
-                index[key.string].append(Entry(key.parent.parent))
+                self._index[key.string].append(Entry(key.parent.parent))
             except KeyError:
-                index[key.string] = [Entry(key.parent.parent)]
-        return index
+                self._index[key.string] = [Entry(key.parent.parent)]
 
     def lookup(self, string):
         """Return a LIST of entry objects that is tied to each key."""
@@ -114,27 +92,3 @@ class Index:
         """Return all the keys of the index."""
         return self._index.keys()
 
-if __name__ == '__main__':
-    ndx = Index('../../../META/index.xml')
-    ndx.print_()
-
-    print("test", ndx.multiTest("ирония"))
-    print("test", ndx.multiTest("судьбы"))
-    print("test", ndx.multiTest("или"))
-    print("test", ndx.multiTest("с"))
-    print("test", ndx.multiTest("легким"))
-    print("test", ndx.multiTest("паром"))
-    print("test", ndx.multiTest("кинотеатров"))
-   
-    print("Next:")
-    print("test", ndx.multiTest("кинотеатр"))
-    print("test", ndx.multiTest("аврора"))
-    print("test", ndx.multiTest("пп"))
-    print("test", ndx.multiTest("пп"))
-
-
-    print("Next:")
-    print("test", ndx.multiTest("кинотеатров"))
-    print("test", ndx.multiTest("кинотеатры"))
-    print("test", ndx.multiTest("кинотеатр"))
-    print("test", ndx.multiTest("кинотеатров"))
