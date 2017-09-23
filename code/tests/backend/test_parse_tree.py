@@ -86,12 +86,8 @@ class ParseTreeTesterNull(unittest.TestCase):
         assert self._parseTree._rootNode == self._parseTree._currentNode
 
     def test_one_level_none(self):
-        assert len(self._parseTree._rootNode.keys()) == 1
-        assert None in self._parseTree._rootNode.keys()
+        assert len(self._parseTree._rootNode.keys()) == 0
 
-    def test_one_level_none_termination(self):
-        assert self._parseTree._rootNode[None] == None
-    
     def test_match_found_one(self):
         assert self._parseTree.validate("John") == MatchState.no_match
 
