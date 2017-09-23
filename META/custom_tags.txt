@@ -1,3 +1,0 @@
-default__+__ <rs type="%s" key="%s"> __+__ </rs>
-pronoun__+__ <rs type="%s" subtype="%s"> __+__ </rs>
-hesitation__+__ <span type="%s"> __+__ </rs>
