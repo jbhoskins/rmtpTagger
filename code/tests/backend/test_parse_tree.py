@@ -4,9 +4,9 @@ from app.backend.parse_tree import MatchState
 
 class ParseTreeTesterSimple(unittest.TestCase):
     def setUp(self):
-        testInput = [["John", "Hoskins"], 
-                     ["John", "Wick", "Buddy"],
-                     ["John"]]
+        testInput = ["John Hoskins",
+                     "John Wick Buddy",
+                     "John"]
         self._parseTree = ParseTree(testInput)
 
     def test_not_none(self):
@@ -76,7 +76,7 @@ class ParseTreeTesterSimple(unittest.TestCase):
 class ParseTreeTesterNull(unittest.TestCase):
     # Assumes that a null structure passed in should produce {None:None}
     def setUp(self):
-        self._parseTree = ParseTree([[]])
+        self._parseTree = ParseTree([])
     
     def test_not_none(self):
         assert self._parseTree != None
@@ -98,7 +98,7 @@ class ParseTreeTesterNull(unittest.TestCase):
 class ParseTreeTesterDuplicateSingleKeys(unittest.TestCase):
     # Assumes that a null structure passed in should produce {None:None}
     def setUp(self):
-        testInput = [["test"], ["test"], ["test"]]
+        testInput = ["test", "test", "test"]
         self._parseTree = ParseTree(testInput)
                      
     def test_not_none(self):
@@ -124,9 +124,9 @@ class ParseTreeTesterDuplicateSingleKeys(unittest.TestCase):
 class ParseTreeTesterDuplicateMultipleKeys(unittest.TestCase):
     # Assumes that a null structure passed in should produce {None:None}
     def setUp(self):
-        testInput = [["test", "one", "two", "three"], 
-                     ["test", "one", "two", "three"], 
-                     ["test", "one", "two", "three"]]
+        testInput = ["test one two three", 
+                     "test one two three", 
+                     "test one two three"]
         self._parseTree = ParseTree(testInput)
                      
     def test_not_none(self):
