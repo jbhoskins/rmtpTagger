@@ -1,6 +1,6 @@
 # WordeCache.py
 
-# Created as part of the William and Mary Russian Movie Theater Project, 
+# Created as part of the William and Mary Russian Movie Theater Project,
 # this is the work of John Hoskins and Margaret Swift, under the
 # direction of Sasha and Elena Prokhorov.
 # https://rmtp.wm.edu
@@ -8,6 +8,8 @@
 # Authored by John Hoskins: jbhoskins@email.wm.edu
 # Last edit 4/22/17 by Margaret.
 
+""" This module contains classes to parse a specifically formatted XML file for
+    keywords and data, and to parse a textfile for those keywords. """
 
 class KeywordInstance(dict):
     """ A data container for all relevant information about a "match instance", or
@@ -29,10 +31,10 @@ class KeywordInstance(dict):
 
     Changed style of code to conform to the PEP8 styleguide.
     """
-    
+
     def __init__(self):
         dict.__init__(self)
-        
+
         self["string"] = ""
         self["start"] = None
         self["stop"] = None
@@ -42,7 +44,7 @@ class KeywordInstance(dict):
 
         self["confirmed"] = False
 
-    def selectionIndex(self):
+    def selection_index(self):
         """ Return the integer that corrosponds to the entry that has been
         selected for the instance."""
         return self["selectedEntry"]
@@ -74,16 +76,6 @@ class KeywordInstance(dict):
         """Return the list of possible entries for the instance."""
         return self["entries"]
 
-    def toggleConfirm(self):
+    def toggle_confirm(self):
+        """Inverts the boolean value of confirmed."""
         self["confirmed"] = not self["confirmed"]
-        print(self["confirmed"])
-
-
-if __name__ == "__main__":
-    cce = [Cache()]
-
-    cce[0]["string"] = "Hey"
-    print(cce[0]["string"])
-    print("before", cce[0]["selectedEntry"])
-    cce[0].select(5)
-    print("after", cce[0]["selectedEntry"])

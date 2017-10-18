@@ -1,6 +1,6 @@
-# KeywordTable.py 
+# KeywordTable.py
 
-# Created as part of the William and Mary Russian Movie Theater Project, 
+# Created as part of the William and Mary Russian Movie Theater Project,
 # this is the work of John Hoskins and Margaret Swift, under the
 # direction of Sasha and Elena Prokhorov.
 # https://rmtp.wm.edu
@@ -9,7 +9,7 @@
 # Last edit 4/22/17 by Margaret.
 
 """ A table of KeywordInstances, with the inclusion of a index, to keep track
-of which instance is currently being examined/edited. 
+of which instance is currently being examined/edited.
 
 This the main data structure of the program during runtime.
 
@@ -22,16 +22,15 @@ EDITED:
 Margaret, 4/22/17
 Changed style of code to conform to the PEP8 styleguide.
 """
+import os
+from bs4 import BeautifulSoup
+import re
 
 import app.gui.view_controller as view
 from app.backend.keyword_instance import KeywordInstance
-import os
-from bs4 import BeautifulSoup
 from app.backend.index import Index
 from app.backend.parse_tree import MatchState
 from app.backend.parse_tree import ParseTree
-
-import re
 
 # Use these instead of the imports above re to run this program as main
 #import sys
@@ -43,7 +42,7 @@ class KeywordInstanceTable(list):
     def __init__(self):
         list.__init__(self)
         self._current = 0
-        
+
         # Registered viewers for observer design pattern
         self._views = []
 
@@ -51,12 +50,12 @@ class KeywordInstanceTable(list):
         # Shouldnt open the file twice but hey
         self._indexObject = Index(os.path.join("res", "index.xml"))
         self._parseTree = ParseTree(self._indexObject.keys())
-        
 
-    def lookup(self, startIndex):        
+
+    def lookup(self, startIndex):
         """Returns the KeywordInstance that corrosponds to the given CHARECTOR index."""
-        
-        # This could be a binary search. For now, it's linear to keep 
+
+        # This could be a binary search. For now, it's linear to keep
         # functionality.
 
         i = 0
@@ -67,14 +66,14 @@ class KeywordInstanceTable(list):
         # uninteractable
         if i == len(self) or self[i]["unambiguous"]:
             return None
-        
+
         self._current = i
         return self[i]
 
     def jumpTo(self, tableIndex):
-        
+
         # assert to prevent jumps to pronouns, etc.
-        assert self[tableIndex]["unambiguous"] == False
+        assert self[tableIndex]["unambiguous"] is False
         self._current = tableIndex % len(self)
         self.notifyViewersRedraw()
 
@@ -103,7 +102,7 @@ class KeywordInstanceTable(list):
     def nextValidEntry(self, event=None):
         """ Returns the next valid entry that is ambiguous and set the cursor
         to that index."""
-        
+
         i = 1
         while i < len(self) and self[(self._current + i) % len(self)]["unambiguous"]:
             i = i + 1
@@ -115,7 +114,7 @@ class KeywordInstanceTable(list):
     def previousValidEntry(self, event=None):
         """ Returns the previous valid entry that is ambiguous and set the cursor
         to that index."""
-        
+
         i = 1
         while i < len(self) and self[(self._current - i) % len(self)]["unambiguous"]:
             i = i + 1
@@ -130,7 +129,7 @@ class KeywordInstanceTable(list):
         # Don't allow changes to confirmed entries
         if self.getCurrentEntry()["confirmed"]:
             return
-        
+
         # Some weird mod arithmetic here, but it is needed to move seamlessly
         # through the range, (-1, len(possibleTags) - 1)
         self.getCurrentEntry()["selectedEntry"] += 2
@@ -143,16 +142,16 @@ class KeywordInstanceTable(list):
 
     def prevTag(self, event=None):
         """ Move to the previous tag in the list of tag suggestions (entry list) """
-        
+
         # Don't allow changes to confirmed entries
         if self.getCurrentEntry()["confirmed"]:
             return
-        
+
         # Some weird mod arithmetic here, but it is needed to move seamlessly
         # through the range, (-1, len(possibleTags) - 1)
         self.getCurrentEntry()["selectedEntry"] %=\
         (len(self.getCurrentEntry().entries()) + 1)
-        self.getCurrentEntry()["selectedEntry"] -= 1 
+        self.getCurrentEntry()["selectedEntry"] -= 1
 
         self.notifyViewersRedraw()
 
@@ -162,24 +161,24 @@ class KeywordInstanceTable(list):
 
     def fillTable(self, string):
         """Build a sorted table of all KeywordInstances in the given string."""
-        
+
         self.reset()
 
         # Ideally, make a generator for each relevant line
-        iterator = re.finditer("\w+(-\w+)?", string) 
+        iterator = re.finditer("\w+(-\w+)?", string)
         keyword = ""
         cacheItem = KeywordInstance()
         foundMatch = False
         word = next(iterator)
-        
+
         try:
             while True: # Yes, it's an infinite loop. It's the solution the
                         # docs suggested.
-                
+
                 # Kind of inefficient, but seems to be fast enough
                 # inx = int(tk.Text.index("1.0+%sc" % word.start()).split(".")[0])
                 inx = string.count("\n", 0, word.start()) + 1
-                
+
                 # Only run the next bit if it's an interviewee. use "if true"
                 # to not skip anything.
                 # if True:
@@ -187,11 +186,11 @@ class KeywordInstanceTable(list):
                     testCode = self._parseTree.validate(word.group().lower())
 
                     if testCode == MatchState.no_match:
-         
-                        # This is the point when an entry is actually 
-                        # saved. When it finds a match, it waits until 
+
+                        # This is the point when an entry is actually
+                        # saved. When it finds a match, it waits until
                         # it hits a zero to save it, in case there are a
-                        # couple keys like so: "фон", "фон триер". We  
+                        # couple keys like so: "фон", "фон триер". We
                         # want the second, longer tag, not the shorter.
                         if foundMatch:
                             cacheItem["string"] = keyword
@@ -202,59 +201,59 @@ class KeywordInstanceTable(list):
                             cacheItem["entries"][0].getValue("unambiguous")\
                             == "true":
                                 cacheItem["unambiguous"] = True
-                            
-                            self.append(cacheItem)  
-                            
+
+                            self.append(cacheItem)
+
                             # Reset the saved values.
                             keyword = ""
                             cacheItem = KeywordInstance()
                             foundMatch = False
-                            
+
                             # Continue rechecks the same word with a re-
-                            # set multiTest, in case two keywords are 
+                            # set multiTest, in case two keywords are
                             # next to each other.
                             continue
 
                         keyword = ""
                         cacheItem = KeywordInstance()
-                    
+
                     elif testCode == MatchState.potential_match:
                         # If there is a word, add a space before the
-                        # next one.                       
+                        # next one.
                         if keyword != "":
                             keyword += " "
                         else:
                             cacheItem["start"] = word.start()
                         keyword += word.group()
-                        
+
                     elif testCode == MatchState.unique_match:
                         if keyword != "":
                             keyword += " "
                         else:
                             cacheItem["start"] = word.start()
-        
+
                         keyword += word.group()
                         cacheItem["stop"] = word.end()
                         foundMatch = True
-                        
+
                 word = next(iterator)
 
         except StopIteration:
-            # May need to save the last information, in case the final 
+            # May need to save the last information, in case the final
             # word is a keyword
             pass
 
         self.nextValidEntry() # start at the first value
 
     # ------- Methods to implement subject / observer design pattern --------
-    
+
     def notifyViewersRedraw(self):
-        """ Notify all the viewers to redraw themselves based on the current 
+        """ Notify all the viewers to redraw themselves based on the current
         state of the table. """
-        
+
         for view in self._views:
             view.update()
-    
+
     def registerViewer(self, newView):
         """ Add a viewer that will update whenever notifyViewersRedraw is
         called. """
