@@ -38,10 +38,11 @@ from app.backend.parse_tree import ParseTree
 #from index import Index
 #from keyword_instance import KeywordInstance
 
-class KeywordInstanceTable(list):
+class KeywordInstanceTable:
     def __init__(self):
-        list.__init__(self)
         self._current = 0
+
+        self._instances = []
 
         # Registered viewers for observer design pattern
         self._views = []
@@ -50,7 +51,10 @@ class KeywordInstanceTable(list):
         # Shouldnt open the file twice but hey
         self._indexObject = Index(os.path.join("res", "index.xml"))
         self._parseTree = ParseTree(self._indexObject.keys())
-
+    
+    def append(self, keyword_instance):
+        assert type(keyword_instance) is KeywordInstance, "Only KeywordInstances can be appended."
+        self._instances.append(keyword_instance)
 
     def lookup(self, startIndex):
         """Returns the KeywordInstance that corrosponds to the given CHARECTOR index."""
@@ -58,23 +62,20 @@ class KeywordInstanceTable(list):
         # This could be a binary search. For now, it's linear to keep
         # functionality.
 
-        i = 0
-        while i < len(self) and not (self[i].start() <= startIndex <= self[i].stop()):
-            i += 1
-
-        # If index does not corrospond to any entry, or is marked as
-        # uninteractable
-        if i == len(self) or self[i]["unambiguous"]:
-            return None
-
-        self._current = i
-        return self[i]
-
+        for index, instance in enumerate(self._instances):
+            if instance.start() <= startIndex <= instance.stop():
+                if instance._unambiguous:
+                    return None
+                else:
+                    self._current = index
+                    return instance
+        return None
+    
     def jumpTo(self, tableIndex):
 
         # assert to prevent jumps to pronouns, etc.
-        assert self[tableIndex]["unambiguous"] is False
-        self._current = tableIndex % len(self)
+        assert self._instances[tableIndex]._unambiguous is False
+        self._current = tableIndex % len(self._instances)
         self.notifyViewersRedraw()
 
     def makeIndex(self):
@@ -83,11 +84,10 @@ class KeywordInstanceTable(list):
 
     def getCurrentEntry(self):
         """Returns the currently selected KeywordInstance."""
-        if len(self) == 0:
+        if len(self._instances) == 0:
             return KeywordInstance()
         else:
-            return self[self._current]
-
+            return self._instances[self._current]
 
     def getCurrentIndex(self):
         """Returns the value of the index of the entry currently being
@@ -96,12 +96,17 @@ class KeywordInstanceTable(list):
 
     def reset(self):
         """Dereferences the table, and resets the current cursor to 0."""
-        self[:] = []
+        self._instances = []
         self._current = 0
 
     def nextValidEntry(self, event=None):
         """ Returns the next valid entry that is ambiguous and set the cursor
         to that index."""
+
+        for instance in self._instances:
+
+            if self._instances[(self._current + i) % len(self._instances)._unambiguous]
+            break
 
         i = 1
         while i < len(self) and self[(self._current + i) % len(self)]["unambiguous"]:
