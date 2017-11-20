@@ -12,16 +12,16 @@ class ViewController:
     def __init__(self):
         self._views = []
 
-    def notifyViewersredraw(self):
+    def notify_viewers_redraw(self):
         """Redraws all the registered viewers."""
         for view in self._views:
             view.update()
 
-    def registerViewer(self, newView):
+    def register_viewer(self, newView):
         """Add a viewer."""
         self._views.append(newView)
 
-    def deleteViewer(self, viewToDelete):
+    def delete_viewer(self, viewToDelete):
         """Delete a viewer."""
         self._views.remove(viewToDelete)
 
@@ -38,7 +38,7 @@ class Styler(ViewController):
     def __init__(self):
         ViewController.__init__(self)
 
-    def notifyViewersredraw(self):
+    def notify_viewers_redraw(self):
         for stylable in self._views:
             stylable.style(self)
             print("success")

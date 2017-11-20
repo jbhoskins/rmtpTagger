@@ -24,40 +24,39 @@ class Entry:
     """
 
     def __init__(self, bs4_object):
-        self._info = []
+        self.__info = []
 
         # Underscores to avoid name conflicts, if it was just "type"
         # instead of "__type__" you would run into issues if the user
         # specified an attribute called "type", since you would have two
         # values with the same key.
-        self._info.append(("__type__", str(bs4_object.name)))
+        self.__info.append(("__type__", str(bs4_object.name)))
 
-        # If an xml:id is not specified, set it to an empty string.
+        # If an xml:id is not specified, set it to an empty get_string.
         try:
-            self._info.append(("__xml:id__", str(bs4_object["xml:id"])))
+            self.__info.append(("__xml:id__", str(bs4_object["xml:id"])))
         except KeyError:
-            self._info.append(("__xml:id__", ""))
+            self.__info.append(("__xml:id__", ""))
 
 
         # Attach all information in the index.xml entry to the object.
         for info in bs4_object:
             if str(info.name) != 'keys' and info.name is not None:
-                self._info.append((str(info.name), str(info.string)))
+                self.__info.append((str(info.name), str(info.string)))
 
     def get_value(self, string):
         """ Return the value associated with the key provided."""
-
-        for entry in self._info:
-            if entry == string:
+        for entry in self.__info:
+            if entry[0] == string:
                 return entry[1]
         return "" # Not found
 
 
     def __str__(self):
-        """Return a nicely formatted string of the _Entry with one
+        """Return a nicely formatted get_string of the _Entry with one
         tuple per line, seperate by a colon.
         """
         string = ''
-        for entry in self._info:
+        for entry in self.__info:
             string = string + entry[0] + ': ' + entry[1] + '\n'
         return string

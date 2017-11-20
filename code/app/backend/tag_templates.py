@@ -13,46 +13,47 @@ class ParseError(Exception):
 class Tag:
     """Data container for an XML tag."""
     def __init__(self, front = "", back="", arguments = []):
-        self._front = front # Front tag
-        self._back = back # Back tag
+        self.__front = front # Front tag
+        self.__back = back # Back tag
         
         # Any arguments that need to be inserted into the front tag.
-        if self._front.count(r"%s") != len(arguments):
+        if self.__front.count(r"%s") != len(arguments):
             raise ParseError(r"%s count is not equal to number of arguments.")
-        self._arguments = arguments
+        self.__arguments = arguments
 
-    def setFront(self, string):
+    def set_front(self, string):
         """ Set the value of the front tag. """
-        self._front = string
+        self.__front = string
 
-    def setBack(self, string):
+    def set_back(self, string):
         """ Set the value of the back tag. """
-        self._back = string
+        self.__back = string
 
-    def setArguments(self, arguments):
+    def set_arguments(self, arguments):
         """ Set the value of the arguments to be inserted into the front tag."""
-        self._arguments = arguments
+        self.__arguments = arguments
 
-    def getFront(self):
+    def get_front(self):
         """ Get the value of the front tag. """
-        return self._front
+        return self.__front
 
-    def getBack(self):
+    def get_back(self):
         """ Get the value of the back tag. """
-        return self._back
+        return self.__back
 
-    def getArguments(self):
+    def get_arguments(self):
         """ Get the value of the list of arguments to be inserted into the
         front tag. """
-        return self._arguments
+        return self.__arguments
     
-    def getTuple(self):
+    def get_tuple(self):
         """Get a tuple of the front and back tag in the form (front, back,
         arguments)."""
-        return (self._front, self._back, "   ".join(self._arguments))
+        return (self.__front, self.__back, "   ".join(self.__arguments))
 
     def __str__(self):
-        return "%s\t%s" % (self.getFront(), self.getBack())
+        return "%s\t%s" % (self.get_front(), self.get_back())
+
 
 class TemplateIndex:
     """Data container to access the tagTemplates configuration file, and
@@ -62,7 +63,7 @@ class TemplateIndex:
         """ Open the file and parse it for tag templates."""
         f = open(os.path.join("res", "tagTemplates.txt"))
         
-        self._templates = []
+        self.__templates = []
         
         for line in f:
             
@@ -70,72 +71,71 @@ class TemplateIndex:
             if line.isspace() or line == "" or line.strip()[0] == "#":
                 continue
 
-            splitLine = line.split('__+__')
-            if len(splitLine) > 4:
+            split_line = line.split('__+__')
+            if len(split_line) > 4:
                 raise ParseError("Lines may not contain more than three \"__+__\"")
-            elif len(splitLine) < 4:
+            elif len(split_line) < 4:
                 raise ParseError("Tag definitions must be of the type <name>\
                 __+__ <tag> __+__ </tag> __+__ <arguments>")
 
-            self._templates.append((splitLine[0].strip().lower(),
-                    Tag(splitLine[1].strip(), splitLine[2].strip(),
-                        splitLine[3].strip().split())))
+            self.__templates.append((split_line[0].strip().lower(),
+                                     Tag(split_line[1].strip(), split_line[2].strip(),
+                        split_line[3].strip().split())))
         
-        print([entry[0] for entry in self._templates])
+        print([entry[0] for entry in self.__templates])
         f.close()
 
-    def getFileString(self):
+    def get_file_string(self):
         """Used for writing the data structure as a tag configuration file. Has
         not been tested or finished yet. """
         string = ""
 
-        for entry in self._templates:
-            string += entry[0] + "__+__ " + entry[1].getFront() + " __+__ " +\
-            entry[1].getBack() + "\n"
+        for entry in self.__templates:
+            string += entry[0] + "__+__ " + entry[1].get_front() + " __+__ " + \
+                      entry[1].get_back() + "\n"
 
         return string
 
-    def getNames(self):
+    def get_names(self):
         """Return a list of the names of the templates."""
-        return [entry[0] for entry in self._templates]
+        return [entry[0] for entry in self.__templates]
 
-    def getValues(self):
+    def get_values(self):
         """Returns a list of the Tag objects in the data structure."""
-        return [entry[1] for entry in self._templates]
+        return [entry[1] for entry in self.__templates]
 
-    def getTemplates(self):
-        return self._templates
+    def get_templates(self):
+        return self.__templates
 
-    def addTemplate(self, name, frontTag, backTag, arguments):
+    def add_template(self, name, frontTag, backTag, arguments):
         """Appends a new template to the index."""
-        self._templates.append((name, Tag(frontTag, backTag, arguments)))
+        self.__templates.append((name, Tag(frontTag, backTag, arguments)))
 
-    def deleteTemplate(self, index):
+    def delete_template(self, index):
         """Deletes the template at the given index."""
-        self._templates.pop(index)
+        self.__templates.pop(index)
 
-    def replaceTemplate(self, index, name, frontTag, backTag, arguments):
+    def replace_template(self, index, name, frontTag, backTag, arguments):
         """Replaces the template aat the given index. Used for editing tags."""
-        self.deleteTemplate(index)
-        self._templates.insert(index, (name, Tag(frontTag, backTag, arguments)))
+        self.delete_template(index)
+        self.__templates.insert(index, (name, Tag(frontTag, backTag, arguments)))
 
     def lookup(self, name):
         """Looks up and returns the Tag object associated with the given name."""
         
         # this thing that I keep doing can probably replaced with a normal,
         # built in list method.
-        
-        i = 0
-        while (i < len(self._templates) and name != self._templates[i][0]):
-            i += 1
 
-        if i == len(self._templates):
-            raise Exception("Name is not a valid template.")
+        print(self.__templates)
+        print("name is: ", name)
+        for template in self.__templates:
+            if name == template[0]:
+                return template[1]
 
-        return self._templates[i][1]
+        raise Exception("Name is not a valid template.")
          
 if __name__ == "__main__":
     ndx = TemplateIndex()
 
-    print(ndx.getNames())
-    print(ndx.getValues())
+    print(ndx.get_names())
+    print(ndx.get_values())

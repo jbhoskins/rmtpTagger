@@ -44,7 +44,7 @@ entry needs to have. they are given underscores to prevent being overwritten by
 user defined attributes.
 
 continuing with the example, this list would look like this (note that all
-words are string types):
+words are get_string types):
 
 [ ("__type__", "person"),
   ("__xml:id__", "andreiTerkovskii"),
@@ -73,21 +73,23 @@ class Index:
         dictionary keys and LISTS of _Entry objects as its dictionary
         values.
         """
+        print(path)
         input_file = open(path, "r", encoding="UTF-8")
         soup = BeautifulSoup(input_file, 'xml')
         input_file.close()
 
-        self._index = dict()
+        self.__index = dict()
         for key in soup.find_all('key'):
             try:
-                self._index[key.string].append(Entry(key.parent.parent))
+                self.__index[key.string].append(Entry(key.parent.parent))
             except KeyError:
-                self._index[key.string] = [Entry(key.parent.parent)]
+                self.__index[key.string] = [Entry(key.parent.parent)]
 
     def lookup(self, string):
         """Return a LIST of entry objects that is tied to each key."""
-        return self._index[string]
+        return self.__index[string]
 
     def keys(self):
         """Return all the keys of the index."""
-        return self._index.keys()
+        print("returning:", self.__index.keys())
+        return self.__index.keys()

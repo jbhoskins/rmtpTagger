@@ -11,7 +11,7 @@
 
 """A style sheet for the main application.  Holds fonts (title, subtitle, 
 text, buttons), background colors (main, secondary, tertiary) high-
-lighting colors (single key, multi-key, current selection, interviewee 
+lighting colors (single key, multi-key, current get_selected_entry, interviewee
 text)
 
 Use in Application might look like:
@@ -62,7 +62,7 @@ class StyleSheet(view.Styler):
         else:
             raise Exception("Invalid name of theme.")
 
-        self.notifyViewersredraw()
+        self.notify_viewers_redraw()
 
             
       #-------------------------------------    

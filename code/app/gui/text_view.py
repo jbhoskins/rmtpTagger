@@ -57,12 +57,12 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
     #-------------------------------------------------------------------
     # Styling.    
     
-    def loadText(self, path, makeTable = True):
+    def load_text(self, path, makeTable = True):
         """Insert text from desired file into the widget, then highlight 
         keywords upon initialization. 
         """
 
-        keywordTable = self._app.getKeywordTable()
+        keywordTable = self._app.get_keyword_table()
 
         f = open(path, encoding="UTF-8")
         string = f.read().strip()
@@ -71,7 +71,7 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
 
         pattern = re.compile(r"^((.+)\n\n)+(.+)$", re.MULTILINE)
         if pattern.fullmatch(string) is None:
-            # the input string is not in the right format of text\n\ntext
+            # the input get_string is not in the right format of text\n\ntext
             # etc...
             tk.messagebox.showwarning("Parse Error", "It looks like the text"+\
                     " you are trying to load is not formatted correctly."+\
@@ -80,37 +80,37 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
                     " seperated by a single blank line.")
             return
 
-        keywordTable.fillTable(string)
+        keywordTable.fill_table(string)
         
         self.config(state=tk.NORMAL)
         self.delete("1.0", tk.END)
         self.insert("1.0", string, "bigger")
             
-        self._tagPersons()
-        self.tagAllElementsInTable()
+        self.__tag_persons()
+        self.tag_all_elements_in_table()
         self.config(state=tk.DISABLED) 
 
-    def loadString(self, string):
-        """Inserts a string into the view instead of reading from a file."""
+    def load_string(self, string):
+        """Inserts a get_string into the view instead of reading from a file."""
         string = string.replace("ё", "е")
         
         self.config(state=tk.NORMAL)
         self.delete("1.0", tk.END)
         self.insert("1.0", string, "bigger")
             
-        self._tagPersons()
-        self.tagAllElementsInTable()
+        self.__tag_persons()
+        self.tag_all_elements_in_table()
         self.config(state=tk.DISABLED) 
 
     def style(self, styles):
         self.config(
             background=styles.c_1, font=styles.f_text)
-        self._createTags(styles) # need to remake them with new colors
+        self.__create_tags(styles) # need to remake them with new colors
     
     #-------------------------------------------------------------------       
     # Configuring and applying tags.
     
-    def _createTags(self, styles):
+    def __create_tags(self, styles):
         """Create the tags that will be applied to a word in the text. Tags
         have associated background colors - each tag has a different color
         associated with it."""
@@ -125,7 +125,7 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
         self.tag_configure("interviewer", foreground=styles.h_interviewer)
         self.tag_configure("interviewee")
         
-    def _tagPersons(self):
+    def __tag_persons(self):
         """Mute the interviewer text to make it less obtrusive."""
         length = math.floor(float(self.index(tk.END)))
         para_range = range(1, length, 4)
@@ -135,11 +135,11 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
             self.tag_add("interviewer", inx, inx + 1)     
             self.tag_add("interviewee", inx + 2, inx + 3)    
             
-    def _applyTag(self, word, results, unambiguous=False):
+    def __apply_tag(self, instance, results):
         """Apply tags to words that have been found, so that they can be 
         referenced later. 
         """            
-        if unambiguous:
+        if not instance.is_ambiguous():
             tag = "unambiguous"
         elif len(results) > 1:
             tag = "multi"
@@ -147,23 +147,22 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
             tag = "single"
             
         # Tag the relevant region of text.
-        wordStart = "1.0+%sc" % word.start()
-        wordEnd   = "1.0+%sc" % word.stop() 
-        self.tag_add(tag, wordStart, wordEnd)
+        word_start = "1.0+%sc" % instance.get_start()
+        word_end   = "1.0+%sc" % instance.get_stop()
+        self.tag_add(tag, word_start, word_end)
         
-        if not unambiguous:
-            self.tag_add("clickableWord", wordStart, wordEnd)
+        if instance.is_ambiguous():
+            self.tag_add("clickableWord", word_start, word_end)
 
-
-    def tagAllElementsInTable(self):
-        """ Tags every keyword present in the keywordTable with its appropiate
+    def tag_all_elements_in_table(self):
+        """ Tags every keyword present in the keyword_table with its appropiate
         color. Only called once when first loading text from file. """
         
-        keywordTable = self._app.getKeywordTable()
+        keyword_table = self._app.get_keyword_table()
         
-        for word in keywordTable:
-            results = word.entries()
-            self._applyTag(word, results, word["unambiguous"])
+        for instance in keyword_table:
+            results = instance.get_entries()
+            self.__apply_tag(instance, results)
 
         #print("value:", self.keywordTable.lookup(self.count("1.0", cur)[0]))
         #print(self.keywordTable)
@@ -172,34 +171,34 @@ class TextView(tk.Text, view.Viewer, view.Stylable):
     #-------------------------------------------------------------------
     # User interaction and graphical functions.
     
-    def onClick(self, event):
+    def on_click(self, event):
         """Cache the word that has been clicked on."""        
-        keywordTable = self._app.getKeywordTable()
+        keywordTable = self._app.get_keyword_table()
         
         location = self.index("@%s,%s" % (event.x, event.y))
 
         charCount = self.count("1.0", location)[0] # O(n)?
         keywordTable.lookup(charCount)
         print("REDRAWING")
-        keywordTable.notifyViewersRedraw()
+        keywordTable.notify_viewers_redraw()
         
     def update(self):
         """ Moves the current coloring to the correct entry as per the
         keywordTable. """
-        keywordTable = self._app.getKeywordTable()
+        keyword_table = self._app.get_keyword_table()
       
-        print(keywordTable)
-        currentEntry = keywordTable.getCurrentEntry()
-        print("LOKOOOOOOOOOOOOOOK", currentEntry)
-        print(currentEntry.start(), currentEntry.stop())
+        print(keyword_table)
+        current_entry = keyword_table.get_current_entry()
+        print("LOKOOOOOOOOOOOOOOK", current_entry)
+        print(current_entry.get_start(), current_entry.get_stop())
 
         print("Before any operations:", self.tag_ranges("cur"))
         self.tag_remove("cur", "1.0", tk.END)        
         self.tag_add(
-            "cur", "1.0+%sc" % currentEntry.start(), 
-            "1.0+%sc" % currentEntry.stop())
+            "cur", "1.0+%sc" % current_entry.get_start(),
+            "1.0+%sc" % current_entry.get_stop())
 
-        self.see("1.0+%sc" % currentEntry.start())
+        self.see("1.0+%sc" % current_entry.get_start())
         print(self.tag_ranges("cur"))
  
 #-----------------------------------------------------------------------
@@ -209,7 +208,7 @@ if __name__ == "__main__":
     root = tk.Tk()
 
     txt = FramedText(root)
-    txt.loadText("../../input/astaikina.txt", Index("../../META/index.xml"))
+    txt.load_text("../../input/astaikina.txt", Index("../../META/index.xml"))
     txt.pack()
 
     root.mainloop()

@@ -34,69 +34,11 @@ the name "Smith" and be talking about Adam Smith or Maggie Smith.
 Therefore, our program allows the user to choose the approrpriate tag
 in cases of ambiguity, based on context clues.
 
-
-LAST EDIT:
-
-Margaret, 4/22/17
-------------------------------------------------------------------------
-(1) PEP-8 styles require code to be no longer than 79 characters. I have 
-also implemented a new system for arguments:  If arguments all fit on 
-one line, that's fine. If any would go over the break line, then we must 
-move all to a new line, indented by 4 more spaces than the previous. 
-Ending delimiters stay on the last line, ie ")" wouldn't get its own 
-line.
-
-
-(2) An exception to the above: function definitions have all arguments 
-that can fit on one line, then remaining arguments go on the next line & 
-lined up with the opening delimiter:
-
-def this_is_a_long_function(argument_1, argument_2, argument_3,
-                            argument_4)
-
-If a single argument would still run over the breakline, then hanging 
-indent is moved back four spaces until there is enough room to encompass 
-the single longest argument.
-
-
-(3) Spacing around operators: Should have one space around operators, no 
-space around arguments or parameter values:
-a = 5                      NOT    a=5
-a.pack(side=left)     NOT    a.pack(side = left)
-
-
-(4) The style guide says that comments or docstrings should be 72 
-characters
-
-
-(5) Imports should be grouped in the following order:
-
-standard library imports
-related third party imports
-local application/library specific imports
-
-and then in alphabetical order.
-
-(6) Two spaces between classes, one between functions, two between 
-groups of functions.
-
-
-(7) Docstrings:
-Should be commands, not descriptions, and should not have a blank line 
-afterwards.  No space between quotes and characters. Keep end three 
-quotes on same line if docstring is only one line (even if quotes would 
-go over 72 characters), but if the docstring is multiline, put the 
-quotes on their own line (ie, this docstring).  All docstrings and 
-comments should be full sentences with punctuation and capitalization.
-
-
-(8)
-
 """
 
 
 import sys
-sys.path.insert(0, '../')
+#sys.path.insert(0, '../')
 
 import tkinter as tk
 from tkinter import filedialog # do we need this?
@@ -112,6 +54,7 @@ from app.gui.splash_screen import SplashScreen
 
 from app.backend.keyword_instance_table import KeywordInstanceTable
 
+
 class Application:
     def __init__(self):
         """Initialize and style root; set styles, widgets, and frames, 
@@ -119,19 +62,19 @@ class Application:
         """
         # Withdraw hides all graphical elements, so that nothing is shown
         # partially loaded until everything is in place.
-        self._root = tk.Tk()
-        self._root.withdraw()
-        self._splash = SplashScreen(self._root)
+        self.__root = tk.Tk()
+        self.__root.withdraw()
+        self.__splash = SplashScreen(self.__root)
         
         # Pull window to the top, but not permanently.
-        self._root.lift()
-        self._root.call('wm', 'attributes', '.', '-topmost', True)
-        self._root.after_idle(
-            self._root.call, 'wm', 'attributes', '.', '-topmost', False)
-        self._root.focus_set()
+        self.__root.lift()
+        self.__root.call('wm', 'attributes', '.', '-topmost', True)
+        self.__root.after_idle(
+            self.__root.call, 'wm', 'attributes', '.', '-topmost', False)
+        self.__root.focus_set()
         
         # Set title
-        self._root.wm_title("William & Mary Index Tagger")
+        self.__root.wm_title("William & Mary Index Tagger")
         
         # Set the window icon. This has some cross platform issues.
 #        icon =\
@@ -139,58 +82,66 @@ class Application:
 #        self._root.tk.call("wm", "iconphoto", self._root._w, "-default", icon)
         
         # Set dim, index, & paned window.
-        self._dim = ( self._root.winfo_screenwidth(), 
-                     self._root.winfo_screenheight() )
-        self._mainFrame = tk.PanedWindow(
-            self._root, orient=tk.HORIZONTAL, sashrelief=tk.GROOVE, 
-            height=self._dim[1], opaqueresize=False)
+        self.__dim = (self.__root.winfo_screenwidth(),
+                      self.__root.winfo_screenheight())
+        self.__mainFrame = tk.PanedWindow(
+            self.__root, orient=tk.HORIZONTAL, sashrelief=tk.GROOVE,
+            height=self.__dim[1], opaqueresize=False)
 
         # Initialize the table used by the program
-        self._keywordTable = KeywordInstanceTable()
+        self.__keyword_table = KeywordInstanceTable()
         
         # Declare the stylesheet
-        self._styles = StyleSheet(self._dim)
+        self.__styler = StyleSheet(self.__dim)
         
         # Set styles, widgets, frame, and bind keys.
-        self._defineWidgets()
-        self._registerViewers()
-        self._styleWidgets()
-        self._addWidgets()
-        self._mainFrame.pack_propagate(0)
-        self._mainFrame.pack(fill=tk.BOTH, expand=True)
-        self._bindKeys()
+        self.__define_widgets()
+        self.__register_viewers()
+        self.__style_widgets()
+        self.__add_widgets()
+        self.__mainFrame.pack_propagate(0)
+        self.__mainFrame.pack(fill=tk.BOTH, expand=True)
+        self.bind_keys()
 
-    def getKeywordTable(self):
-        return self._keywordTable
+    def get_keyword_table(self):
+        return self.__keyword_table
 
+    def set_keyword_table(self, keyword_table):
+        self.__keyword_table = keyword_table
+
+    def get_text_view(self):
+        return self.__text_view
+
+    def get_styler(self):
+        return self.__styler
     #-------------------------------------------------------------------
     # Styling.
 
-    def getRoot(self):
-        return self._root
+    def get_root(self):
+        return self.__root
 
-    def _getDim(self):
+    def __get_dim(self):
         """Return dimensions of the screen."""
 
-    def _defineWidgets(self):
+    def __define_widgets(self):
 
-        self._legend = LeftSidebar(self._mainFrame, self)
+        self.__left_sidebar = LeftSidebar(self.__mainFrame, self)
         
-        self.tframe = tk.Frame(self._mainFrame)
-        scrollbar = tk.Scrollbar(self.tframe)
-        self._textView = TextView(self.tframe, self, scrollbar)
-        scrollbar.config(command=self._textView.yview)
+        self.__text_frame = tk.Frame(self.__mainFrame)
+        scrollbar = tk.Scrollbar(self.__text_frame)
+        self.__text_view = TextView(self.__text_frame, self, scrollbar)
+        scrollbar.config(command=self.__text_view.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self._textView.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
+        self.__text_view.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
         
-        self._sidebar = Sidebar(
-            self._mainFrame, self._textView, self._dim, self)
+        self.__right_sidebar = Sidebar(
+            self.__mainFrame, self.__text_view, self.__dim, self)
  
-        self._menubar = Menubar(self)
+        self.__menubar = Menubar(self)
 
-    def _styleWidgets(self):
+    def __style_widgets(self):
         """Style the application."""
-        self._styles.changeTheme("bella")
+        self.__styler.changeTheme("bella")
         
 #        self._legend.configStyles(styles=self._styles)
 #        self._legend.config(bg=self._styles.c_2)
@@ -202,64 +153,62 @@ class Application:
     #-------------------------------------------------------------------
     # Create and place frames, widgets, and menus
         
-    def _addWidgets(self):
+    def __add_widgets(self):
         """Create and fill the text box, sidebar and menu."""
-        screenWidth = self._dim[0]
-        self._mainFrame.add(
-            self._legend, width=(screenWidth // 8), stretch="never")
+        screen_width = self.__dim[0]
+        self.__mainFrame.add(
+            self.__left_sidebar, width=(screen_width // 8), stretch="never")
 
-        self._mainFrame.add(self.tframe, width=(screenWidth // 2), stretch="always")
+        self.__mainFrame.add(self.__text_frame, width=(screen_width // 2), stretch="always")
 
-        self._mainFrame.add(
-            self._sidebar, width=(screenWidth // 4), stretch="never")
-        
+        self.__mainFrame.add(
+            self.__right_sidebar, width=(screen_width // 4), stretch="never")
 
-    def _bindKeys(self):
+    def bind_keys(self):
         """Bind all clicks and key presses to commands."""
-        self._textView.tag_bind(
-            "clickableWord", "<Button-1>", self._textView.onClick)
-        self._sidebar.tagResults.bind(
-            "<ButtonRelease-1>", self._sidebar.tagResults.onClick)
-        self._legend.tree.bind("<ButtonRelease-1>", self._legend.tree.onClick)
+        self.__text_view.tag_bind(
+            "clickableWord", "<Button-1>", self.__text_view.on_click)
+        self.__right_sidebar.tagResults.bind(
+            "<ButtonRelease-1>", self.__right_sidebar.tagResults.on_click)
+        self.__left_sidebar.tree.bind("<ButtonRelease-1>", self.__left_sidebar.tree.on_click)
         
-        self._root.bind("<Right>", self._keywordTable.nextValidEntry)
-        self._root.bind("<Left>", self._keywordTable.previousValidEntry)
-        self._root.bind("<Up>", self._keywordTable.prevTag)
-        self._root.bind("<Down>", self._keywordTable.nextTag)
-        self._root.bind("<Return>",
-                self._keywordTable.toggleConfirmCurrent)
+        self.__root.bind("<Right>", self.__keyword_table.next_valid_entry)
+        self.__root.bind("<Left>", self.__keyword_table.previous_valid_entry)
+        self.__root.bind("<Up>", self.__keyword_table.prev_tag)
+        self.__root.bind("<Down>", self.__keyword_table.next_tag)
+        self.__root.bind("<Return>",
+                         self.__keyword_table.toggle_confirm_current)
 
  #       self.fText.tag_bind(
- #           "interviewee", "<ButtonRelease-3>", self._showTagMenu)
+ #           "interviewee", "<ButtonRelease-3>", self.__show_tag_menu)
  #       self.fText.tag_bind(
- #           "interviewee", "<ButtonRelease-2>", self._showTagMenu)
-            
+ #           "interviewee", "<ButtonRelease-2>", self.__show_tag_menu)
 
-    def _registerViewers(self):
+    def __register_viewers(self):
         """Attaches view objects to the keyword table, so that they will be
         updated when keywordTable is told up update its viewers."""
         
         # Register the viewers
-        self._keywordTable.registerViewer(self._textView)
-        self._keywordTable.registerViewer(self._sidebar.tagResults)
-        self._keywordTable.registerViewer(self._sidebar.currentTag)
-        self._keywordTable.registerViewer(self._sidebar.tagInfoField)
+        self.__keyword_table.register_viewer(self.__text_view)
+        self.__keyword_table.register_viewer(self.__right_sidebar.tagResults)
+        self.__keyword_table.register_viewer(self.__right_sidebar.currentTag)
+        self.__keyword_table.register_viewer(self.__right_sidebar.tagInfoField)
 
-        self._keywordTable.registerViewer(self._sidebar.preview)
-        self._keywordTable.registerViewer(self._legend.tree)
+        self.__keyword_table.register_viewer(self.__right_sidebar.preview)
+        self.__keyword_table.register_viewer(self.__left_sidebar.tree)
 
         # Styling Viewers
-        self._styles.registerViewer(self._textView)
-        self._styles.registerViewer(self._sidebar)
-        self._styles.registerViewer(self._sidebar.tagResults)
-        self._styles.registerViewer(self._sidebar.currentTag)
-        self._styles.registerViewer(self._sidebar.tagInfoField)
-        self._styles.registerViewer(self._sidebar.preview)
+        self.__styler.register_viewer(self.__text_view)
+        self.__styler.register_viewer(self.__right_sidebar)
+        self.__styler.register_viewer(self.__right_sidebar.tagResults)
+        self.__styler.register_viewer(self.__right_sidebar.currentTag)
+        self.__styler.register_viewer(self.__right_sidebar.tagInfoField)
+        self.__styler.register_viewer(self.__right_sidebar.preview)
 
         # Left sidebar
-        self._styles.registerViewer(self._legend)
-        self._styles.registerViewer(self._legend._legend)
-        self._styles.registerViewer(self._legend.tree)
+        self.__styler.register_viewer(self.__left_sidebar)
+        self.__styler.register_viewer(self.__left_sidebar._legend)
+        self.__styler.register_viewer(self.__left_sidebar.tree)
 
 
     #-------------------------------------------------------------------
@@ -274,23 +223,23 @@ class Application:
     #-------------------------------------------------------------------
     # The right click menu.
 
-    def _makeTagMenu(self):
+    def __make_tag_menu(self):
         """Define the menu that will show when
         right-clicked.
         """
-        self._menuFrame = tk.Frame(self._root)
-        self._tagMenu = tk.Menu(self._menuFrame, tearoff=0)
-        self._tagMenu.add_command(label="tag here", command=print("tag"))
-        self._tagMenu.add_command(label="Add Tag", command=self._showTagScreen)
+        self.__menu_frame = tk.Frame(self.__root)
+        self.__tag_menu = tk.Menu(self.__menu_frame, tearoff=0)
+        self.__tag_menu.add_command(label="tag here", command=print("tag"))
+        self.__tag_menu.add_command(label="Add Tag", command=self.__show_tag_screen)
 
-    def _showTagMenu(self, event):
+    def __show_tag_menu(self, event):
         """Show the Menu pop up when right-clicked."""
-        self._tagMenu.post(event.x_root, event.y_root)
+        self.__tag_menu.post(event.x_root, event.y_root)
     
-    def _showTagScreen(self):
+    def __show_tag_screen(self):
         """Display the New Tag Window."""
-        word = self._textView.getString()
-        self._add_tag = EntryWindow(self.root, word, self.styles)
+        word = self.__text_view.getString()
+        self.__add_tag = EntryWindow(self.root, word, self.styles)
 
 
     #-------------------------------------------------------------------
@@ -302,9 +251,9 @@ class Application:
         # deiconify shows the window again. It is hidden at the beginning of
         # initialization, so that you don't get that weird grey box when it
         # starts to load.
-        self._splash.destroy()
-        self._root.deiconify()
-        self._root.mainloop()
+        self.__splash.destroy()
+        self.__root.deiconify()
+        self.__root.mainloop()
         
 
 #-----------------------------------------------------------------------

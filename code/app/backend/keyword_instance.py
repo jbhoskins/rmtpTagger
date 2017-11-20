@@ -13,7 +13,7 @@
 
 class KeywordInstance:
     """ A data container for all relevant information about a "match instance", or
-    an instance where the algorithm finds a matching string in the body of text
+    an instance where the algorithm finds a matching get_string in the body of text
     that has been fed into it.
 
     The class contains this information in addition to meta information about the
@@ -39,24 +39,40 @@ class KeywordInstance:
         self.__stop = None
         self.__entries = []
         self.__selected_entry = 0
-        self.__unambiguous = False
+        self.__ambiguous = True
 
-        self._confirmed = False
+        self.__confirmed = False
+
+    def set_start(self, start):
+        self.__start = start
+
+    def set_stop(self, stop):
+        self.__stop = stop
+
+    def set_string(self, string):
+        self.__string = string
+
+    def set_start(self, start):
+        self.__start = start
+
+    def set_entries(self, entries):
+        self.__entries = entries
 
     def get_selection_index(self):
         """ Return the integer that corrosponds to the entry that has been
         selected for the instance."""
-        return self.__selectedEntry
+        return self.__selected_entry
 
     def set_selection_index(self, index):
-        self.__selected = index
+        self.__selected_entry = index
 
-    def get_selection(self):
+    def get_selected_entry(self):
         """ Return the Entry object that is currently selected. """
+        print("selected entry", self.__entries[self.__selected_entry])
         return self.__entries[self.__selected_entry]
 
     def get_string(self):
-        """Return the string of the instance."""
+        """Return the get_string of the instance."""
         return self.__string
 
     def get_start(self):
@@ -71,13 +87,27 @@ class KeywordInstance:
         """Return the list of possible entries for the instance."""
         return self.__entries
 
+    def is_ambiguous(self):
+        return self.__ambiguous
+
+    def is_confirmed(self):
+        return self.__confirmed
+
     def toggle_confirm(self):
         """Inverts the boolean value of confirmed."""
         self.__confirmed = not self.__confirmed
+
+    def toggle_ambiguous(self):
+        print("b4", self.__ambiguous)
+        self.__ambiguous = not self.__ambiguous
+        print("aftr", self.__ambiguous)
 
     def __eq__(self, other):
         """ Overloads the == operator. """
 
         # All instances have a unique start position, (number of charecors from
         # start) so use it to determine equality.
-        return other.__start == self.__start
+        if other is None:
+            return False
+        else:
+            return other.__start == self.__start

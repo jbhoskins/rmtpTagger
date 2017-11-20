@@ -40,140 +40,141 @@ from app.backend.parse_tree import ParseTree
 
 class KeywordInstanceTable:
     def __init__(self):
-        self._current = 0
+        self.__current = 0
 
-        self._instances = []
+        self.__instances = []
 
         # Registered viewers for observer design pattern
-        self._views = []
+        self.__views = []
 
         # This is the only data structure that needs the index
         # Shouldnt open the file twice but hey
-        self._indexObject = Index(os.path.join("res", "index.xml"))
-        self._parseTree = ParseTree(self._indexObject.keys())
+        self.__indexObject = Index(os.path.join("res", "index.xml"))
+        self.__parse_tree = ParseTree(self.__indexObject.keys())
     
     def append(self, keyword_instance):
         assert type(keyword_instance) is KeywordInstance, "Only KeywordInstances can be appended."
-        self._instances.append(keyword_instance)
+        self.__instances.append(keyword_instance)
 
     def lookup(self, startIndex):
         """Returns the KeywordInstance that corrosponds to the given CHARECTOR index."""
 
-        # This could be a binary search. For now, it's linear to keep
-        # functionality.
+        # This could be a binary search.
 
-        for index, instance in enumerate(self._instances):
-            if instance.start() <= startIndex <= instance.stop():
-                if instance._unambiguous:
-                    return None
-                else:
-                    self._current = index
+        for index, instance in enumerate(self.__instances):
+            if instance.get_start() <= startIndex <= instance.get_stop():
+                if instance.is_ambiguous():
+                    self.__current = index
                     return instance
+                else:
+                    return None
         return None
-    
-    def jumpTo(self, tableIndex):
 
+    def __reversed__(self):
+        return reversed(self.__instances)
+
+    def jump_to(self, tableIndex):
         # assert to prevent jumps to pronouns, etc.
-        assert self._instances[tableIndex]._unambiguous is False
-        self._current = tableIndex % len(self._instances)
-        self.notifyViewersRedraw()
+        assert self.__instances[tableIndex].is_ambiguous()
+        self.__current = tableIndex % len(self.__instances)
+        self.notify_viewers_redraw()
 
-    def makeIndex(self):
+    def make_index(self):
         """Instantiates an Index object. Needed for session loading."""
-        self._indexObject = Index("../META/index.xml")
+        self.__indexObject = Index("../META/index.xml")
 
-    def getCurrentEntry(self):
+    def get_current_entry(self):
         """Returns the currently selected KeywordInstance."""
-        if len(self._instances) == 0:
+        if len(self.__instances) == 0:
             return KeywordInstance()
         else:
-            return self._instances[self._current]
+            return self.__instances[self.__current]
 
-    def getCurrentIndex(self):
+    def get_current_index(self):
         """Returns the value of the index of the entry currently being
         examined/edited."""
-        return self._current
+        return self.__current
 
     def reset(self):
         """Dereferences the table, and resets the current cursor to 0."""
-        self._instances = []
-        self._current = 0
+        self.__instances = []
+        self.__current = 0
 
-    def nextValidEntry(self, event=None):
+    def next_valid_entry(self, event=None):
         """ Returns the next valid entry that is ambiguous and set the cursor
         to that index."""
 
-        for instance in self._instances:
-
-            if self._instances[(self._current + i) % len(self._instances)._unambiguous]
-            break
-
+        table_length = len(self.__instances)
         i = 1
-        while i < len(self) and self[(self._current + i) % len(self)]["unambiguous"]:
+        while i < table_length and not self.__instances[(self.__current + i) % table_length].is_ambiguous():
             i = i + 1
 
-        self._current = (self._current + i) % len(self)
+        self.__current = (self.__current + i) % table_length
+        print("cur", self.__current)
 
-        self.notifyViewersRedraw()
+        self.notify_viewers_redraw()
 
-    def previousValidEntry(self, event=None):
+    def previous_valid_entry(self, event=None):
         """ Returns the previous valid entry that is ambiguous and set the cursor
         to that index."""
 
+        table_length = len(self.__instances)
         i = 1
-        while i < len(self) and self[(self._current - i) % len(self)]["unambiguous"]:
+        while i < table_length and not self.__instances[(self.__current - i) % table_length].is_ambiguous():
             i = i + 1
 
-        self._current = (self._current - i) % len(self)
+        self.__current = (self.__current - i) % table_length
 
-        self.notifyViewersRedraw()
+        self.notify_viewers_redraw()
 
-    def nextTag(self, event=None):
+    def next_tag(self, event=None):
         """ Move to the next tag in the list of tag suggestions (entry list) """
 
         # Don't allow changes to confirmed entries
-        if self.getCurrentEntry()["confirmed"]:
+        if self.get_current_entry().is_confirmed():
             return
 
         # Some weird mod arithmetic here, but it is needed to move seamlessly
         # through the range, (-1, len(possibleTags) - 1)
-        self.getCurrentEntry()["selectedEntry"] += 2
-        self.getCurrentEntry()["selectedEntry"] %=\
-        (len(self.getCurrentEntry().entries()) + 1)
-        self.getCurrentEntry()["selectedEntry"] -= 1
+        new_index = self.get_current_entry().get_selection_index()
+        new_index += 2
+        new_index %= (len(self.get_current_entry().get_entries()) + 1)
+        new_index -= 1
+        self.get_current_entry().set_selection_index(new_index)
 
-        self.notifyViewersRedraw()
+        self.notify_viewers_redraw()
 
 
-    def prevTag(self, event=None):
+    def prev_tag(self, event=None):
         """ Move to the previous tag in the list of tag suggestions (entry list) """
 
         # Don't allow changes to confirmed entries
-        if self.getCurrentEntry()["confirmed"]:
+        if self.get_current_entry().is_confirmed():
             return
 
         # Some weird mod arithmetic here, but it is needed to move seamlessly
         # through the range, (-1, len(possibleTags) - 1)
-        self.getCurrentEntry()["selectedEntry"] %=\
-        (len(self.getCurrentEntry().entries()) + 1)
-        self.getCurrentEntry()["selectedEntry"] -= 1
+        new_index = self.get_current_entry().get_selection_index()
+        new_index %= (len(self.get_current_entry().get_entries()) + 1)
+        new_index -= 1
+        self.get_current_entry().set_selection_index(new_index)
 
-        self.notifyViewersRedraw()
+        self.notify_viewers_redraw()
 
-    def toggleConfirmCurrent(self, event=None):
-        self.getCurrentEntry().toggleConfirm()
-        self.notifyViewersRedraw()
+    def toggle_confirm_current(self, event=None):
+        self.get_current_entry().toggleConfirm()
+        self.notify_viewers_redraw()
 
-    def fillTable(self, string):
-        """Build a sorted table of all KeywordInstances in the given string."""
+    def fill_table(self, string):
+        """Build a sorted table of all KeywordInstances in the given get_string."""
 
         self.reset()
 
         # Ideally, make a generator for each relevant line
         iterator = re.finditer("\w+(-\w+)?", string)
         keyword = ""
-        cacheItem = KeywordInstance()
-        foundMatch = False
+        potential_instance = KeywordInstance()
+        found_match = False
         word = next(iterator)
 
         try:
@@ -188,7 +189,7 @@ class KeywordInstanceTable:
                 # to not skip anything.
                 # if True:
                 if  (inx % 4 - 1) != 0:
-                    testCode = self._parseTree.validate(word.group().lower())
+                    testCode = self.__parse_tree.validate(word.group().lower())
 
                     if testCode == MatchState.no_match:
 
@@ -197,22 +198,22 @@ class KeywordInstanceTable:
                         # it hits a zero to save it, in case there are a
                         # couple keys like so: "фон", "фон триер". We
                         # want the second, longer tag, not the shorter.
-                        if foundMatch:
-                            cacheItem["string"] = keyword
-                            cacheItem["entries"] = self._indexObject.lookup(keyword.lower())
+                        if found_match:
+                            potential_instance.set_string(keyword)
+                            index_entries = self.__indexObject.lookup(keyword.lower())
+                            potential_instance.set_entries(index_entries)
                             # set to unambiguous. checks len is 1 to avoid
                             # multiple definitions of word bugs by accident.
-                            if len(cacheItem["entries"]) == 1 and\
-                            cacheItem["entries"][0].getValue("unambiguous")\
-                            == "true":
-                                cacheItem["unambiguous"] = True
 
-                            self.append(cacheItem)
+                            if len(index_entries) == 1 and index_entries[0].get_value("unambiguous") == "true":
+                                potential_instance.toggle_ambiguous() # set to false (unambiguous)
+
+                            self.__instances.append(potential_instance)
 
                             # Reset the saved values.
                             keyword = ""
-                            cacheItem = KeywordInstance()
-                            foundMatch = False
+                            potential_instance = KeywordInstance()
+                            found_match = False
 
                             # Continue rechecks the same word with a re-
                             # set multiTest, in case two keywords are
@@ -220,7 +221,7 @@ class KeywordInstanceTable:
                             continue
 
                         keyword = ""
-                        cacheItem = KeywordInstance()
+                        potential_instance = KeywordInstance()
 
                     elif testCode == MatchState.potential_match:
                         # If there is a word, add a space before the
@@ -228,18 +229,18 @@ class KeywordInstanceTable:
                         if keyword != "":
                             keyword += " "
                         else:
-                            cacheItem["start"] = word.start()
+                            potential_instance.set_start(word.start())
                         keyword += word.group()
 
-                    elif testCode == MatchState.unique_match:
+                    elif testCode == MatchState.found_match:
                         if keyword != "":
                             keyword += " "
                         else:
-                            cacheItem["start"] = word.start()
+                            potential_instance.set_start(word.start())
 
                         keyword += word.group()
-                        cacheItem["stop"] = word.end()
-                        foundMatch = True
+                        potential_instance.set_stop(word.end())
+                        found_match = True
 
                 word = next(iterator)
 
@@ -248,28 +249,51 @@ class KeywordInstanceTable:
             # word is a keyword
             pass
 
-        self.nextValidEntry() # start at the first value
+        self.next_valid_entry() # start at the first value
 
     # ------- Methods to implement subject / observer design pattern --------
 
-    def notifyViewersRedraw(self):
+    def notify_viewers_redraw(self):
         """ Notify all the viewers to redraw themselves based on the current
         state of the table. """
 
-        for view in self._views:
+        for view in self.__views:
             view.update()
 
-    def registerViewer(self, newView):
-        """ Add a viewer that will update whenever notifyViewersRedraw is
+    def register_viewer(self, newView):
+        """ Add a viewer that will update whenever notify_viewers_redraw is
         called. """
-        self._views.append(newView)
+        self.__views.append(newView)
 
-    def deleteViewer(self, viewToDelete):
-        """ Remove a viewer that will update whenever notifyViewersRedraw is
+    def delete_viewer(self, viewToDelete):
+        """ Remove a viewer that will update whenever notify_viewers_redraw is
         called. """
-        self._views.remove(viewToDelete)
+        self.__views.remove(viewToDelete)
 
+    def prepare_for_serialization(self):
+        # These elements are not serializable, so they need to be deleted.
+        self.__views = []
+        self.__indexObject = None
 
+    def get_viewers(self):
+        return self.__views
+
+    def get_index(self):
+        return self.__indexObject
+
+    def set_index(self, index):
+        self.__indexObject = index
+
+    def __next__(self):
+        if self.__iter_current == len(self.__instances) - 1:
+            raise StopIteration
+        else:
+            self.__iter_current += 1
+            return self.__instances[self.__iter_current]
+
+    def __iter__(self):
+        self.__iter_current = -1
+        return self
 
 if __name__ == "__main__":
     kt = KeywordInstanceTable()
@@ -279,4 +303,4 @@ if __name__ == "__main__":
     string = string.replace("ё", "е")
     f.close()
 
-    kt.fillTable(string)
+    kt.fill_table(string)

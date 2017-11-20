@@ -43,7 +43,7 @@ class Sidebar(tk.PanedWindow):
         self._app = app
 
         self._addWidgets()
-#       self._styleWidgets()
+#       self.__style_widgets()
 
     def _addWidgets(self):
         """Declare and pack all the widgets used in the sidebar."""
@@ -71,7 +71,7 @@ class Sidebar(tk.PanedWindow):
 
         
         # Initialize to empty fields.
-        self.tagResults.populateTags([])
+        self.tagResults.populate_tags([])
 
     def style(self, styles):
         self.config(bg=styles.c_2)
@@ -81,7 +81,7 @@ class Sidebar(tk.PanedWindow):
     #-----------------------------------------------
     # Styling.
     
-#    def _styleWidgets(self):
+#    def __style_widgets(self):
 #        """Apply the styles from styleSheet() to the 
 #        widgets.
 #        """
@@ -104,4 +104,4 @@ class Sidebar(tk.PanedWindow):
 #    def configStyles(self, styles):
 #        """Change the desired stylesheet."""
 #        self.styles = styles
-#        self._styleWidgets()
+#        self.__style_widgets()

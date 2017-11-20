@@ -52,10 +52,10 @@ class TemplateEditor(PopupWindow):
         
         # get the values of the selected template to fill the defaults of the
         # new popup window
-        name = self._templateIndex.getNames()[index]
-        frontTag = self._templateIndex.getValues()[index].getFront()
-        endTag = self._templateIndex.getValues()[index].getBack()
-        arguments = self._templateIndex.getValues()[index].getArguments()
+        name = self._templateIndex.get_names()[index]
+        frontTag = self._templateIndex.get_values()[index].get_front()
+        endTag = self._templateIndex.get_values()[index].get_back()
+        arguments = self._templateIndex.get_values()[index].get_arguments()
 
         
         tmp.setDefaults(name, frontTag, endTag, arguments)
@@ -69,16 +69,16 @@ class TemplateEditor(PopupWindow):
             self.tree.delete(row)
 
         # Populate the tree view with templates.
-        for template in self._templateIndex.getTemplates():
+        for template in self._templateIndex.get_templates():
             self.tree.insert("", tk.END, text=template[0],
-                    values=(template[0],) + template[1].getTuple())
+                             values=(template[0],) + template[1].get_tuple())
 
 
     def closeAndCommit(self):
         """Write the current index to file, and close the popup window."""
         
         f = open("../META/tagTemplatesBackup.txt", "w")
-        f.write(self._templateIndex.getFileString())
+        f.write(self._templateIndex.get_file_string())
         f.close()
         print("Successfully updated tags")
 
@@ -103,7 +103,7 @@ class TemplateEditor(PopupWindow):
         
         selection = self.tree.focus()
         index = self.tree.index(selection)
-        self._templateIndex.deleteTemplate(index)
+        self._templateIndex.delete_template(index)
         self.updateTags()
 
     def addTag(self):
@@ -168,7 +168,7 @@ class AddTemplateEditor(PopupWindow):
         the window."""
 
         # Make sure that there are the right amount of arguments to fit the
-        # number of '%s' string formatting spots in the front tag.
+        # number of '%s' get_string formatting spots in the front tag.
         if len(self.argumentsEntry.get().split()) !=\
                 self.frontTagEntry.get().count(r"%s"):
             tk.messagebox.showwarning("Argument Error", "The number of"+\
@@ -179,14 +179,14 @@ class AddTemplateEditor(PopupWindow):
 
         if self._selection == None:
             # Meaning that you are appending
-            self._templateIndex.addTemplate(self.nameEntry.get(), 
-                self.frontTagEntry.get(), self.endTagEntry.get(),
-                self.argumentsEntry.get().split())
+            self._templateIndex.add_template(self.nameEntry.get(),
+                                             self.frontTagEntry.get(), self.endTagEntry.get(),
+                                             self.argumentsEntry.get().split())
         else:
             # Meaning you are editing
-            self._templateIndex.replaceTemplate(self._selection,
-                self.nameEntry.get(), self.frontTagEntry.get(),
-                self.endTagEntry.get(), self.argumentsEntry.get().split())
+            self._templateIndex.replace_template(self._selection,
+                                                 self.nameEntry.get(), self.frontTagEntry.get(),
+                                                 self.endTagEntry.get(), self.argumentsEntry.get().split())
 
         
         self._parent.updateTags()

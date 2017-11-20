@@ -13,4 +13,4 @@ class PopupWindow(tk.Toplevel):
         self._addWidgets()
 
     def _addWidgets(self):
-        raise NotImplementedError("Method _addWidgets must be implemented!")
+        raise NotImplementedError("Method __add_widgets must be implemented!")

@@ -31,7 +31,8 @@ import app.backend.tag_templates as templates
 class Menubar(tk.Menu):
     """The top menubar of the application."""
     def __init__(self, app):
-        tk.Menu.__init__(self, app._root)
+        root = app.get_root()
+        tk.Menu.__init__(self, root)
         
         FileMenu(self, app)
         # These menus had either only one elemenet, or tons of unused elements,
@@ -43,20 +44,21 @@ class Menubar(tk.Menu):
         EditMenu(self, app)
         
         ThemeMenu(self, app)
-        app._root.config(menu=self)
+        root.config(menu=self)
 
 
 class DropdownMenu(tk.Menu):
     """Abstract class to describe the menus that dropdown from the menubar."""
     def __init__(self, menubar, app):
         tk.Menu.__init__(self, menubar, tearoff = 0)
-        self.app = app
+        self._app = app
 
 
 class FileMenu(DropdownMenu):
     """Menu that appears when you click 'File' on the top menubar."""
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
+
         self.add_command(label="Open Session...", command=self.loadSession)
         self.add_command(label="Save Session...", command=self.saveSession)
         self.add_separator()
@@ -71,30 +73,28 @@ class FileMenu(DropdownMenu):
         associated with its proper tag template, and arguments."""
         templateIndex = templates.TemplateIndex()
         
-        string = self.app._textView.get("1.0", tk.END)
-        for entry in reversed(self.app._keywordTable):
-            word = entry.string().lower()
-            word_inx = entry.selectionIndex()
-            #sel = self.app.index.lookup(word)[word_inx]
+        string = self._app.get_text_view().get("1.0", tk.END)
+        for instance in reversed(self._app.get_keyword_table()):
+            word_inx = instance.get_selection_index()
             
             # Skip words set to NO TAG
             if word_inx == -1:
                 continue
 
             # If no template is specified, use default template.
-            if entry.selection().getValue("template") is "":
+            if instance.get_selected_entry().get_value("template") is "":
                 tag = templateIndex.lookup("default")
             else:
                 tag =\
-                templateIndex.lookup(entry.selection().getValue("template").lower())
+                templateIndex.lookup(instance.get_selected_entry().get_value("template").lower())
 
             # Create the front and back tags from the templates
-            frontTag = tag.getFront() % tuple([entry.selection().getValue(x)\
-                for x in tag.getArguments()])
-            backTag = tag.getBack()
+            frontTag = tag.get_front() % tuple([instance.get_selected_entry().get_value(x) \
+                                                for x in tag.get_arguments()])
+            backTag = tag.get_back()
             
-            string = string[:entry.stop()] + backTag + string[entry.stop():]
-            string = string[:entry.start()] + frontTag + string[entry.start():]
+            string = string[:instance.get_stop()] + backTag + string[instance.get_stop():]
+            string = string[:instance.get_start()] + frontTag + string[instance.get_start():]
         
         outputFile = tk.filedialog.asksaveasfilename(
             defaultextension=".txt", initialdir="../output/")
@@ -132,7 +132,7 @@ class FileMenu(DropdownMenu):
     def openFile(self):
         """Import text from a file into the program."""
         filePath = tk.filedialog.askopenfilename(initialdir="../input/")
-        self.app._textView.loadText(filePath)
+        self._app.get_text_view().load_text(filePath)
 
     def saveSession(self):
         """Saves the current session so that it can be resumed later."""
@@ -146,72 +146,69 @@ class FileMenu(DropdownMenu):
         else:
             print("File does not exist!")
             return
-        
-        print("Currently Selected entry is ON SAVE:", self.app._keywordTable[11]["selectedEntry"])
 
-        referenceToIndex = self.app._keywordTable._indexObject
-        referenceToViews = self.app._keywordTable._views
+        current_keyword_table = self._app.get_keyword_table()
+        reference_to_views = current_keyword_table.get_viewers()
+        reference_to_index = current_keyword_table.get_index()
 
         # Index object can be serialized, not sure if it needs to be. view
         # objects cannot be serialized, so they need to be erased from the
-        # version being stored. 
-        self.app._keywordTable._indexObject = None
-        self.app._keywordTable._views = []
+        # version being stored.
+        current_keyword_table.prepare_for_serialization()
 
         # serialize the structures and save it as bytecode.
-        shelf["keywordTable"] = self.app._keywordTable
-        shelf["text"] = self.app._textView.get("1.0", tk.END)
+        shelf["keyword_table"] = current_keyword_table
+        shelf["text"] = self._app.get_text_view().get("1.0", tk.END)
         shelf.close()
 
         # Bring the references back.
-        self.app._keywordTable._indexObject = referenceToIndex
-        self.app._keywordTable._views = referenceToViews
-        
+        for view in reference_to_views:
+            current_keyword_table.register_viewer(view)
+
+        current_keyword_table.set_index(reference_to_index)
 
     def loadSession(self):
         """Loads a session from file so that it can be continued."""
-        filePath = tk.filedialog.askopenfilename(initialdir="../sessions/",
+        file_path = tk.filedialog.askopenfilename(initialdir="../sessions/",
                 filetypes=[("rmtp session files", "*.rmtp")])
 
-        if filePath:
-            shelf = shelve.open(filePath)
+        if file_path:
+            shelf = shelve.open(file_path)
 #            f = open("../sessions/savedSessionDude", "rb")
-            newTable = shelf["keywordTable"]
+            new_table = shelf["keyword_table"]
             text = shelf["text"]
             shelf.close()
         else:
             print("File does not exist.")
             return
 
-        print("Currently Selected entry is ON LOAD:", newTable[11]["selectedEntry"])
+        for view in self._app.get_keyword_table().get_viewers():
+            new_table.register_viewer(view)
+        new_table.set_index(self._app.get_keyword_table().get_index())
         
-        
-        newTable._indexObject = self.app._keywordTable._indexObject
-        newTable._views = self.app._keywordTable._views
-        
-        self.app._keywordTable = newTable
-        self.app._textView.loadString(text)
+        self._app.set_keyword_table(new_table)
+        self._app.get_text_view().load_string(text)
 
-        self.app._bindKeys()
-        self.app._keywordTable.notifyViewersRedraw()
-        
+        self._app.bind_keys()
+        self._app.get_keyword_table().notify_viewers_redraw()
+
 
 class ThemeMenu(DropdownMenu):
     """Menu that appears when you click 'Theme' from the top menubar. """
     def __init__(self, menubar, app):
         DropdownMenu.__init__(self, menubar, app)
         self.add_command(
-            label="Bella", command=lambda: app._styles.changeTheme(name="bella"))
+            label="Bella", command=lambda: app.get_styler().changeTheme(name="bella"))
         self.add_command(
-            label="Sasha", command=lambda: app._styles.changeTheme(name="sasha"))
+            label="Sasha", command=lambda: app.get_styler().changeTheme(name="sasha"))
         self.add_command(
-            label="Elena", command=lambda: app._styles.changeTheme(name="elena"))
+            label="Elena", command=lambda: app.get_styler().changeTheme(name="elena"))
         self.add_command(
-            label="Maggie", command=lambda: app._styles.changeTheme(name="maggie"))
+            label="Maggie", command=lambda: app.get_styler().changeTheme(name="maggie"))
         self.add_command(
-            label="John", command=lambda: app._styles.changeTheme(name="john"))
+            label="John", command=lambda: app.get_styler().changeTheme(name="john"))
         self.add_command(
-            label="Helena", command=lambda: app._styles.changeTheme(name="helena"))
+            label="Helena", command=lambda: app.get_styler().changeTheme(name="helena"))
         
         menubar.add_cascade(label="Theme", menu=self)
 
@@ -244,7 +241,7 @@ class IndexMenu(DropdownMenu):
 
     def indexEditPop(self):
         """ Opens the index editor popup window. """
-        index_editor.IndexEditor(self.app.getRoot())
+        index_editor.IndexEditor(self.app.get_root())
 
 class TemplateMenu(DropdownMenu):
     """Menu that appears when you click 'Templates' from the top menubar. """
@@ -260,7 +257,7 @@ class TemplateMenu(DropdownMenu):
     
     def templateEditPop(self):
         """ Opens the template editor popup window. """
-        template_editor.TemplateEditor(self.app.getRoot())
+        template_editor.TemplateEditor(self.app.get_root())
 
 class EditMenu(DropdownMenu):
     """Menu that appears when you click 'Edit' from the top menubar. """
@@ -277,8 +274,8 @@ class EditMenu(DropdownMenu):
 
     def templateEditPop(self):
         """ Opens the template editor popup window. """
-        template_editor.TemplateEditor(self.app.getRoot())
+        template_editor.TemplateEditor(self.app.get_root())
     
     def indexEditPop(self):
         """ Opens the index editor popup window. """
-        index_editor.IndexEditor(self.app.getRoot())
+        index_editor.IndexEditor(self.app.get_root())
