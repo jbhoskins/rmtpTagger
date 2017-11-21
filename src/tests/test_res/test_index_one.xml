@@ -1,0 +1,65 @@
+<top>
+    <html>
+        <person xml:id="andreiTarkovskii">
+            <role>director</role>
+            <surname>Tarkovskii</surname>
+            <forename>Andrei</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>Tarkovski_1</key>
+                <key>Tarkovski_2</key>
+                <key>Tarkovski_3</key>
+                <key>Tarkovski_4</key>
+		        <key>мы</key>
+	        	<key>я</key>
+		        <key>вы</key>
+            </keys>
+        </person>
+
+        <person xml:id="arseniiTarkovskii">
+            <role>poet</role>
+            <surname>Tarkovskii</surname>
+            <forename>Arsenii</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>Tarkovski_1</key>
+                <key>Tarkovski_2</key>
+                <key>Tarkovski_3</key>
+                <key>Tarkovski_4</key>
+		        <key>мы</key>
+            </keys>
+        </person>
+
+        <person xml:id="sokurov">
+            <role>director</role>
+            <surname>Sokurov</surname>
+            <forename>Aleksandr</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>sokurov_1</key>
+                <key>sokurov_2</key>
+                <key>sokurov_3</key>
+                <key>sokurov_4</key>
+        		<key>кинотеатр</key>
+            </keys>
+        </person>
+
+        <person xml:id="serebrennikov">
+            <role>director</role>
+            <surname>Serebrennikov</surname>
+            <forename>Kirill</forename>
+            <gender>m</gender>
+            <nationality>Russia</nationality>
+            <keys>
+                <key>serebrennikov_1</key>
+                <key>serebrennikov_2</key>
+                <key>serebrennikov_3</key>
+                <key>serebrennikov_4</key>
+                <key>фильм</key>
+            </keys>
+        </person>
+    </html>
+</top>

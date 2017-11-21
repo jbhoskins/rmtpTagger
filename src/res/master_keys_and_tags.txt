@@ -1,0 +1,521 @@
+я, <rstype="pron"subtype=“persSing”>, </rs>
+мне, <rstype="pron"subtype=“persSing”>, </rs>
+меня, <rstype="pron"subtype=“persSing”>, </rs>
+мой, <rstype="pron"subtype=“possSing”>, </rs>
+моя, <rstype="pron"subtype=“possSing”>, </rs>
+мое, <rstype="pron"subtype=“possSing”>, </rs>
+мою, <rstype="pron"subtype=“possSing”>, </rs>
+моему, <rstype="pron"subtype=“possSing”>, </rs>
+моей, <rstype="pron"subtype=“possSing”>, </rs>
+моего, <rstype="pron"subtype=“possSing”>, </rs>
+мои, <rstype="pron"subtype=“possSing”>, </rs>
+моим, <rstype="pron"subtype=“possSing”>, </rs>
+моих, <rstype="pron"subtype=“possSing”>, </rs>
+моими, <rstype="pron"subtype=“possSing”>, </rs>
+мы, <rstype="pron"subtype=“persPlur">, </rs>
+нас, <rstype="pron"subtype=“persPlur">, </rs>
+нам, <rstype="pron"subtype=“persPlur">, </rs>
+наш, <rstype="pron"subtype="possPlur"">, </rs>
+наша, <rstype="pron"subtype="possPlur"">, </rs>
+наше, <rstype="pron"subtype="possPlur"">, </rs>
+нашу, <rstype="pron"subtype="possPlur"">, </rs>
+нашей, <rstype="pron"subtype="possPlur"">, </rs>
+нашему, <rstype="pron"subtype="possPlur"">, </rs>
+нашего, <rstype="pron"subtype="possPlur"">, </rs>
+наши, <rstype="pron"subtype="possPlur"">, </rs>
+наших, <rstype="pron"subtype="possPlur"">, </rs>
+нашим, <rstype="pron"subtype="possPlur"">, </rs>
+нашими, <rstype="pron"subtype="possPlur"">, </rs>
+
+
+
+тарковский, <rstype="person"key="arseniiTarkovskii">, </rs>
+тарковского, <rstype="person"key="arseniiTarkovskii">, </rs>
+тарковском, <rstype="person"key="arseniiTarkovskii">, </rs>
+
+сокуров, <rstype="person"key="sokurov">, </rs>
+сокурова, <rstype="person"key="sokurov">, </rs>
+сокурове, <rstype="person"key="sokurov">, </rs>
+
+серебренников, <rstype="person"key="serebrennikov">, </rs>
+серебренникова, <rstype="person"key="serebrennikov">, </rs>
+серебренникове, <rstype="person"key="serebrennikov">, </rs>
+
+попогребский, <rstype="person"key="popogrebskii">, </rs>
+попогребского, <rstype="person"key="popogrebskii">, </rs>
+попогребском, <rstype="person"key="popogrebskii">, </rs>
+
+пазолини, <rstype="person"key="pasolini">, </rs>
+антониони, <rstype="person"key="antonioni">, </rs>
+висконти, <rstype="person"key="visconti">, </rs>
+годар, <rstype="person"key="godard">, </rs>
+бергман, <rstype="person"key="bergman">, </rs>
+феллини, <rstype="person"key="fellini">, </rs>
+линч, <rstype="person"key="lynch">, </rs>
+джармуш, <rstype="person"key="jarmusch">, </rs>
+аронофски, <rstype="person"key="aronofsky">, </rs>
+фонтриер, <rstype="person"key="vonTrier">, </rs>
+бинош, <rstype="person"key="binoche">, </rs>
+карвай, <rstype="person"key="karwai">, </rs>
+беллуччи, <rstype="person"key="bellucci">, </rs>
+батлер, <rstype="person"key="butler">, </rs>
+терон, <rstype="person"key="theron">, </rs>
+депп, <rstype="person"key="depp">, </rs>
+кэрри, <rstype="person"key="carrey">, </rs>
+мерфи, <rstype="person"key="murphy">, </rs>
+пек, <rstype="person"key="peck">, </rs>
+хепберн, <rstype="person"key="hepburn">, </rs>
+
+рязанов, <rstype="person"key="riazanov">, </rs>
+рязанова, <rstype="person"key="riazanov">, </rs>
+рязанове, <rstype="person"key="riazanov">, </rs>
+
+аллен, <rstype="person"key="allen">, </rs>
+альмодовар, <rstype="person"key="almodovar">, </rs>
+
+мамонов, <rstype="person"key="mamonov">, </rs>
+мамонова, <rstype="person"key="mamonov">, </rs>
+мамонове, <rstype="person"key="mamonov">, </rs>
+
+михайлов, <rstype="person"key="mikhalkov">, </rs>
+михайлова, <rstype="person"key="mikhalkov">, </rs>
+михайлове, <rstype="person"key="mikhalkov">, </rs>
+
+меньшов, <rstype="person"key="menshov">, </rs>
+меньшова, <rstype="person"key="menshov">, </rs>
+меньшове, <rstype="person"key="menshov">, </rs>
+
+дениро, <rstype="person"key="deNiro">, </rs>
+пачино, <rstype="person"key="pacino">, </rs>
+чаплин, <rstype="person"key="chaplin">, </rs>
+кристи, <rstype="person"key="christie">, </rs>
+
+рубинчик, <rstype="person"key="rubinchik">, </rs>
+рубинчика, <rstype="person"key="rubinchik">, </rs>
+рубинчике, <rstype="person"key="rubinchik">, </rs>
+
+ли, <rstype="person"key="lee">, </rs>
+бондарчук, <rstype="person"key="bondarchuk">, </rs>
+круз, <rstype="person"key="cruise">, </rs>
+джексон, <rstype="person"key="jackson">, </rs>
+
+трофименков, <rstype="person"key="trofimenkov">, </rs>
+трофименкова, <rstype="person"key="trofimenkov">, </rs>
+трофименкове, <rstype="person"key="trofimenkov">, </rs>
+
+волубуев, <rstype="person"key="volobuev">, </rs>
+волубуеве, <rstype="person"key="volobuev">, </rs>
+волубуева, <rstype="person"key="volobuev">, </rs>
+
+чувиляев, <rstype="person"key="chuviliaev">, </rs>
+чувиляева, <rstype="person"key="chuviliaev">, </rs>
+чувиляеве, <rstype="person"key="chuviliaev">, </rs>
+
+гайдай, <rstype="person"key="gaidai">, </rs>
+
+леонов, <rstype="person"key="leonov">, </rs>
+леонова, <rstype="person"key="leonov">, </rs>
+леонове, <rstype="person"key="leonov">, </rs>
+
+пугачева, <rstype="person"key="pugacheva">, </rs>
+пугачевы, <rstype="person"key="pugacheva">, </rs>
+пугачеве, <rstype="person"key="pugacheva">, </rs>
+
+далтон, <rstype="person"key="dalton">, </rs>
+дефюнес, <rstype="person"key="deFunes">, </rs>
+маре, <rstype="person"key="marais">, </rs>
+рурк, <rstype="person"key="rourke">, </rs>
+
+малкович, <rstype="person"key="malkovich">, </rs>
+малковича, <rstype="person"key="malkovich">, </rs>
+малковиче, <rstype="person"key="malkovich">, </rs>
+
+верн, <rstype="person"key="verne">, </rs>
+форман, <rstype="person"key="milosForman">, </rs>
+хопкинс, <rstype="person"key="hopkins">, </rs>
+эйзенштейн, <rstype="person"key="eisenstein">, </rs>
+
+вертов, <rstype="person"key="vertov">, </rs>
+вертова, <rstype="person"key="vertov">, </rs>
+вертове, <rstype="person"key="vertov">, </rs>
+
+бертолуччи, <rstype="person"key="bertolucci">, </rs>
+гринуэй, <rstype="person"key="greenaway">, </rs>
+каракс, <rstype="person"key="carax">, </rs>
+ноэ, <rstype="person"key="noe">, </rs>
+кассель, <rstype="person"key="cassel">, </rs>
+герра, <rstype="person"key="guerra">, </rs>
+челентано, <rstype="person"key="celentano">, </rs>
+гир, <rstype="person"key="gere">, </rs>
+робертс, <rstype="person"key="robertsJ">, </rs>
+делон, <rstype="person"key="delon">, </rs>
+лорен, <rstype="person"key="loren">, </rs>
+суэйзи, <rstype="person"key="swayze">, </rs>
+
+громова, <rstype="person"key="gromova">, </rs>
+громове, <rstype="person"key="gromova">, </rs>
+громовы, <rstype="person"key="gromova">, </rs>
+
+шевцова, <rstype="person"key="shevtsova">, </rs>
+шевцове, <rstype="person"key="shevtsova">, </rs>
+шевцовы, <rstype="person"key="shevtsova">, </rs>
+
+чкалов, <rstype="person"key="chkalov">, </rs>
+чкалове, <rstype="person"key="chkalov">, </rs>
+чкалова, <rstype="person"key="chkalov">, </rs>
+
+холодная, <rstype="person"key="kholodnaia">, </rs>
+холодной, <rstype="person"key="kholodnaia">, </rs>
+
+дитрих, <rstype="person"key="dietrich">, </rs>
+гарбо, <rstype="person"key="garbo">, </rs>
+жеймо, <rstype="person"key="zheimo">, </rs>
+
+гарин, <rstype="person"key="garin">, </rs>
+гарина, <rstype="person"key="garin">, </rs>
+гарине, <rstype="person"key="garin">, </rs>
+
+раневская, <rstype="person"key="ranevskaia">, </rs>
+раневской, <rstype="person"key="ranevskaia">, </rs>
+
+штраус, <rstype="person"key="strauss">, </rs>
+
+рыбников, <rstype="person"key="rybnikov">, </rs>
+рыбникова, <rstype="person"key="rybnikov">, </rs>
+рыбникове, <rstype="person"key="rybnikov">, </rs>
+
+ильинский, <rstype="person"key="ilinskii">, </rs>
+ильинского, <rstype="person"key="ilinskii">, </rs>
+ильинском, <rstype="person"key="ilinskii">, </rs>
+
+чехов, <rstype="person"key="chekhov">, </rs>
+чехова, <rstype="person"key="chekhov">, </rs>
+чехове, <rstype="person"key="chekhov">, </rs>
+
+достоевский, <rstype="person"key="dostoevskii">, </rs>
+достоевского, <rstype="person"key="dostoevskii">, </rs>
+достоевском, <rstype="person"key="dostoevskii">, </rs>
+
+толстой, <rstype="person"key="tolstoi">, </rs>
+толстого, <rstype="person"key="tolstoi">, </rs>
+толстом, <rstype="person"key="tolstoi">, </rs>
+
+тургенев, <rstype="person"key="turgenev">, </rs>
+тургенева, <rstype="person"key="turgenev">, </rs>
+тургеневе, <rstype="person"key="turgenev">, </rs>
+
+смоктуновский, <rstype="person"key="smoktunovskii">, </rs>
+смоктуновского, <rstype="person"key="smoktunovskii">, </rs>
+смоктуновском, <rstype="person"key="smoktunovskii">, </rs>
+
+басилашвили, <rstype="person"key="basilashvili">, </rs>
+фрейндлих, <rstype="person"key="freindlikh">, </rs>
+
+кузнецова, <rstype="person"key="kuznetsovAl">, </rs>
+кузнецова, <rstype="person"key="kuznetsovAn">, </rs>
+
+баталов, <rstype="person"key="batalov">, </rs>
+баталове, <rstype="person"key="batalov">, </rs>
+баталова, <rstype="person"key="batalov">, </rs>
+
+дюма, <rstype="person"key="dumas">, </rs>
+шнайдер, <rstype="person"key="schneider">, </rs>
+фюнес, <rstype="person"key="funes">, </rs>
+
+брежнев, <rstype="person"key="brezhnev">, </rs>
+брежнева, <rstype="person"key="brezhnev">, </rs>
+брежневе, <rstype="person"key="brezhnev">, </rs>
+
+губенко, <rstype="person"key="gubenko">, </rs>
+
+болотова, <rstype="person"key="bolotova">, </rs>
+болотове, <rstype="person"key="bolotova">, </rs>
+болотовы, <rstype="person"key="bolotova">, </rs>
+
+габен, <rstype="person"key="gabin">, </rs>
+монро, <rstype="person"key="monroe">, </rs>
+
+савельева, <rstype="person"key="savelyeva">, </rs>
+савельеве, <rstype="person"key="savelyeva">, </rs>
+савельевы, <rstype="person"key="savelyeva">, </rs>
+
+ростова, <rstype="person"key="rostova">, </rs>
+ростове, <rstype="person"key="rostova">, </rs>
+ростовы, <rstype="person"key="rostova">, </rs>
+
+булгаков, <rstype="person"key="bulgakov">, </rs>
+булгакове, <rstype="person"key="bulgakov">, </rs>
+булгакова, <rstype="person"key="bulgakov">, </rs>
+
+николсон, <rstype="person"key="nicholson">, </rs>
+серый, <rstype="person"key="seryi">, </rs>
+
+миронов, <rstype="person"key="mironov">, </rs>
+миронова, <rstype="person"key="mironov">, </rs>
+миронове, <rstype="person"key="mironov">, </rs>
+
+мкртчян, <rstype="person"key="mkrtchian">, </rs>
+мкртчяне, <rstype="person"key="mkrtchian">, </rs>
+мкртчяна, <rstype="person"key="mkrtchian">, </rs>
+
+данелия, <rstype="person"key="daneliia">, </rs>
+данелии, <rstype="person"key="daneliia">, </rs>
+данелию, <rstype="person"key="daneliia">, </rs>
+
+соловьев, <rstype="person"key="solovyov">, </rs>
+соловьева, <rstype="person"key="solovyov">, </rs>
+соловьеве, <rstype="person"key="solovyov">, </rs>
+
+друбич, <rstype="person"key="drubich">, </rs>
+друбича, <rstype="person"key="drubich">, </rs>
+друбиче, <rstype="person"key="drubich">, </rs>
+
+папанов, <rstype="person"key="papanov">, </rs>
+папанова, <rstype="person"key="papanov">, </rs>
+папанове, <rstype="person"key="papanov">, </rs>
+
+
+
+
+россия, <rstype="place"key="russia">, </rs>
+россии, <rstype="place"key="russia">, </rs>
+россию, <rstype="place"key="russia">, </rs>
+
+москва, <rstype="place"key=“moscow”>, </rs>
+москву, <rstype="place"key=“moscow”>, </rs>
+москве, <rstype="place"key=“moscow”>, </rs>
+
+петербург, <rstype="place"key=“stPetersburg”>, </rs>
+петербурге, <rstype="place"key=“stPetersburg”>, </rs>
+петербурга, <rstype="place"key=“stPetersburg”>, </rs>
+питер, <rstype="place"key=“stPetersburg”>, </rs>
+питере, <rstype="place"key=“stPetersburg”>, </rs>
+питера, <rstype="place"key=“stPetersburg”>, </rs>
+
+владивосток, <rstype="place"key=“vladivostok”>, </rs>
+владивостоке, <rstype="place"key=“vladivostok”>, </rs>
+владивостока, <rstype="place"key=“vladivostok”>, </rs>
+
+союз, <rstype="place"key="sovietUnion">, </rs>
+союза, <rstype="place"key="sovietUnion">, </rs>
+союзе, <rstype="place"key="sovietUnion">, </rs>
+
+родина, <rstype="place"key="kinoteatrRodina">, </rs>
+родину, <rstype="place"key="kinoteatrRodina">, </rs>
+родине, <rstype="place"key="kinoteatrRodina">, </rs>
+
+невель, <rstype="place"key="nevel">, </rs>
+невеле, <rstype="place"key="nevel">, </rs>
+невеля, <rstype="place"key="nevel">, </rs>
+
+китай, <rstype="place"key="china">, </rs>
+китае, <rstype="place"key="china">, </rs>
+китая, <rstype="place"key="china">, </rs>
+
+гонконг, <rstype="place"key="hongKong">, </rs>
+гонконге, <rstype="place"key="hongKong">, </rs>
+гонконга, <rstype="place"key="hongKong">, </rs>
+
+урал, <rstype="place"key="urals">, </rs>
+урале, <rstype="place"key="urals">, </rs>
+урала, <rstype="place"key="urals">, </rs>
+
+уфа, <rstype="place"key="ufa">, </rs>
+уфе, <rstype="place"key="ufa">, </rs>
+уфу, <rstype="place"key="ufa">, </rs>
+
+башкортостан, <rstype="place"key="republicBashkirtostan">, </rs>
+башкортостане, <rstype="place"key="republicBashkirtostan">, </rs>
+башкортостана, <rstype="place"key="republicBashkirtostan">, </rs>
+
+искра, <rstype="place"key="kinoteatrIskra">, </rs>
+искре, <rstype="place"key="kinoteatrIskra">, </rs>
+искру, <rstype="place"key="kinoteatrIskra">, </rs>
+
+свердловск, <rstype="place"key="sverdlovsk">, </rs>
+свердловска, <rstype="place"key="sverdlovsk">, </rs>
+свердловске, <rstype="place"key="sverdlovsk">, </rs>
+
+екатеринбург, <rstype="place"key="ekaterinburg">, </rs>
+екатеринбурга, <rstype="place"key="ekaterinburg">, </rs>
+екатеринбурге, <rstype="place"key="ekaterinburg">, </rs>
+
+берлин, <rstype="place"key="berlin">, </rs>
+берлина, <rstype="place"key="berlin">, </rs>
+берлине, <rstype="place"key="berlin">, </rs>
+
+филадельфия, <rstype="place"key="philadelphia">, </rs>
+филадельфии, <rstype="place"key="philadelphia">, </rs>
+филадельфию, <rstype="place"key="philadelphia">, </rs>
+
+сеул, <rstype="place"key="seoul">, </rs>
+сеула, <rstype="place"key="seoul">, </rs>
+сеуле, <rstype="place"key="seoul">, </rs>
+
+фестиваль, <rstype="place"key="kinoteatrFestival">, </rs>
+фестивале, <rstype="place"key="kinoteatrFestival">, </rs>
+фестиваля, <rstype="place"key="kinoteatrFestival">, </rs>
+
+аврора, <rstype="place"key="kinoteatrAurora">, </rs>
+авроре, <rstype="place"key="kinoteatrAurora">, </rs>
+аврору, <rstype="place"key="kinoteatrAurora">, </rs>
+
+максим, <rstype="place"key="kinoteatrMaksim">, </rs>
+максима, <rstype="place"key="kinoteatrMaksim">, </rs>
+максиме, <rstype="place"key="kinoteatrMaksim">, </rs>
+
+ленинград, <rstype="place"key="leningrad">, </rs>
+ленинграде, <rstype="place"key="leningrad">, </rs>
+ленинграда, <rstype="place"key="leningrad">, </rs>
+
+англетер, <rstype="place"key="hotelAngleter">, </rs>
+англетере, <rstype="place"key="hotelAngleter">, </rs>
+англетера, <rstype="place"key="hotelAngleter">, </rs>
+
+голливуд, <rstype="place"key="hollywood">, </rs>
+голливуде, <rstype="place"key="hollywood">, </rs>
+голливуда, <rstype="place"key="hollywood">, </rs>
+
+сибирь, <rstype="place"key="siberia">, </rs>
+сибире, <rstype="place"key="siberia">, </rs>
+сибиря, <rstype="place"key="siberia">, </rs>
+
+волгоград, <rstype="place"key="volgograd">, </rs>
+волгограде, <rstype="place"key="volgograd">, </rs>
+волгограда, <rstype="place"key="volgograd">, </rs>
+
+америка, <rstype="place"key="america">, </rs>
+америке, <rstype="place"key="america">, </rs>
+америку, <rstype="place"key="america">, </rs>
+
+вьетнам, <rstype="place"key="vietnam">, </rs>
+вьетнаме, <rstype="place"key="vietnam">, </rs>
+вьетнама, <rstype="place"key="vietnam">, </rs>
+
+кинотеатр, <rstype="place"key="movieTheater">, </rs>
+кинотеатре, <rstype="place"key="movieTheater">, </rs>
+кинотеатра, <rstype="place"key="movieTheater">, </rs>
+
+кино, <rstype="place"key="kino">, </rs>
+
+мираж, <rstype="place"key="kinoteatrMirazh">, </rs>
+миража, <rstype="place"key="kinoteatrMirazh">, </rs>
+мираже, <rstype="place"key="kinoteatrMirazh">, </rs>
+
+клуб, <rstype="place"key="club">, </rs>
+клубе, <rstype="place"key="club">, </rs>
+клуба, <rstype="place"key="club">, </rs>
+
+одесса, <rstype="place"key="odessa">, </rs>
+одессе, <rstype="place"key="odessa">, </rs>
+одессу, <rstype="place"key="odessa">, </rs>
+
+балтика, <rstype="place"key="baltika">, </rs>
+балтике, <rstype="place"key="baltika">, </rs>
+балтику, <rstype="place"key="baltika">, </rs>
+
+прибой, <rstype="place"key="priboi">, </rs>
+
+чкаловец, <rstype="place"key="chkalovets">, </rs>
+
+ванкувер, <rstype="place"key="vancouver">, </rs>
+ванкувере, <rstype="place"key="vancouver">, </rs>
+ванкувера, <rstype="place"key="vancouver">, </rs>
+
+николаев, <rstype="place"key="nikolaev">, </rs>
+николаева, <rstype="place"key="nikolaev">, </rs>
+николаеве, <rstype="place"key="nikolaev">, </rs>
+
+украина, <rstype="place"key="ukraine">, </rs>
+украине, <rstype="place"key="ukraine">, </rs>
+украину, <rstype="place"key="ukraine">, </rs>
+
+крым, <rstype="place"key="crimea">, </rs>
+крыме, <rstype="place"key="crimea">, </rs>
+крыма, <rstype="place"key="crimea">, </rs>
+
+феодосия, <rstype="place"key="feodosiia">, </rs>
+феодосии, <rstype="place"key="feodosiia">, </rs>
+феодосию, <rstype="place"key="feodosiia">, </rs>
+
+винбочка, <rstype="place"key="vinbochka">, </rs>
+винбочке, <rstype="place"key="vinbochka">, </rs>
+винбочку, <rstype="place"key="vinbochka">, </rs>
+
+франция, <rstype="place"key="france">, </rs>
+франции, <rstype="place"key="france">, </rs>
+францию, <rstype="place"key="france">, </rs>
+
+ташкент, <rstype="place"key="tashkent">, </rs>
+ташкента, <rstype="place"key="tashkent">, </rs>
+ташкенте, <rstype="place"key="tashkent">, </rs>
+
+мурманск, <rstype="place"key="murmansk">, </rs>
+мурманске, <rstype="place"key="murmansk">, </rs>
+мурманска, <rstype="place"key="murmansk">, </rs>
+
+ладога, <rstype="place"key="kinoteatrLadoga">, </rs>
+ладоге, <rstype="place"key="kinoteatrLadoga">, </rs>
+ладогу, <rstype="place"key="kinoteatrLadoga">, </rs>
+
+магадан, <rstype="place"key=“magadan”, </rs>
+магадане, <rstype="place"key=“magadan”>, </rs>
+магадана, <rstype="place"key=“magadan”>, </rs>
+
+донецк, <rstype="place"key=“donetsk”>, </rs>
+донецке, <rstype="place"key=“donetsk”>, </rs>
+донецка, <rstype="place"key=“donetsk”>, </rs>
+
+амдерма, <rstype="place"key=“amderma”>, </rs>
+амдерме, <rstype="place"key=“amderma”>, </rs>
+амдерму, <rstype="place"key=“amderma”>, </rs>
+
+рига, <rstype="place"key=“riga”>, </rs>
+риге, <rstype="place"key=“riga”>, </rs>
+ригу, <rstype="place"key=“riga”>, </rs>
+
+киев, <rstype="place"key=“kiev”>, </rs>
+киеве, <rstype="place"key=“kiev”>, </rs>
+киеву, <rstype="place"key=“kiev”>, </rs>
+
+
+
+мультфильм, <genre xml:id="animation"/>, </genres>
+мультфильмы, <genre xml:id="animation"/>, </genres>
+мультфильмах, <genre xml:id="animation"/>, </genres>
+мультфильмов, <genre xml:id="animation"/>, </genres>
+
+комедия, <genre xml:id="comedy"/>, </genres>
+комедии, <genre xml:id="comedy"/>, </genres>
+комедию, <genre xml:id="comedy"/>, </genres>
+
+драма, <genre xml:id="drama"/>, </genres>
+драме, <genre xml:id="drama"/>, </genres>
+драму, <genre xml:id="drama"/>, </genres>
+
+детективный, <genre xml:id="detective"/>, </genres>
+детективные, <genre xml:id="detective"/>, </genres>
+детективных, <genre xml:id="detective"/>, </genres>
+
+мелодрама, <genre xml:id="melodrama"/>, </genres>
+триллер, <genre xml:id="psychologicalThriller"/>, </genres>
+ужас, <genre xml:id="horror"/>, </genres>
+блокбастер, <genre xml:id="blockbuster"/>, </genres>
+боенный, <genre xml:id="warFilms"/>, </genres>
+порно, <genre xml:id="adult"/>, </genres>
+сказка, <genre xml:id="skazka"/>, </genres>
+романтическая комедия, <genre xml:id="romanticComedy"/>, </genres>
+артхаус, <genre xml:id="art"/>, </genres>
+романтический, <genre xml:id="romance"/>, </genres>
+боевик, <genre xml:id="action"/>, </genres>
+документальное, <genre xml:id="documentary"/>, </genres>
+классика, <genre xml:id="classics"/>, </genres>
+патриотические фильмы, <genre xml:id="patrioticFilms"/>, </genres>
+фантастика, <genre xml:id="fantasy"/>, </genres>
+детективы, <genre xml:id="crimeDrama"/>, </genres>
+триллер, <genre xml:id="thriller"/>, </genres>
+ретро, <genre xml:id="retro"/>, </genres>
+трофейные, <genre xml:id="trophy"/>, </genres>
+немые, <genre xml:id="silent"/>, </genres>
+вестерн, <genre xml:id="western"/>, </genres>
+исторический, <genre xml:id="historyFilm"/>, </genres>
