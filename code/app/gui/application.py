@@ -9,7 +9,6 @@
 
 # Authored by John Hoskins: jbhoskins@email.wm.edu
 # Co-authored by Margaret Swift: meswift@email.wm.edu
-# Last edit 4/22/17 by Margaret.
 
 """Our main application for the RMTP tagging project.  Application.py
 holds all the widgets that are used to tag interviews in XML.  This was
@@ -36,20 +35,13 @@ in cases of ambiguity, based on context clues.
 
 """
 
-
-import sys
-#sys.path.insert(0, '../')
-
 import tkinter as tk
-from tkinter import filedialog # do we need this?
 
-from app.backend.keyword_instance_table import KeywordInstanceTable
-from app.gui.entry_window import EntryWindow
 from app.gui.text_view import TextView
 from app.gui.left_sidebar import LeftSidebar
 from app.gui.menubar import Menubar
-from app.gui.sidebar import Sidebar
-from app.gui.stylesheet import StyleSheet
+from app.gui.right_sidebar import RightSidebar
+from app.gui.styler import Styler
 from app.gui.splash_screen import SplashScreen
 
 from app.backend.keyword_instance_table import KeywordInstanceTable
@@ -92,12 +84,12 @@ class Application:
         self.__keyword_table = KeywordInstanceTable()
         
         # Declare the stylesheet
-        self.__styler = StyleSheet(self.__dim)
+        self.__styler = Styler(self.__dim)
         
         # Set styles, widgets, frame, and bind keys.
         self.__define_widgets()
         self.__register_viewers()
-        self.__style_widgets()
+        self.__styler.change_theme("bella")
         self.__add_widgets()
         self.__mainFrame.pack_propagate(0)
         self.__mainFrame.pack(fill=tk.BOTH, expand=True)
@@ -114,19 +106,15 @@ class Application:
 
     def get_styler(self):
         return self.__styler
-    #-------------------------------------------------------------------
-    # Styling.
 
     def get_root(self):
         return self.__root
 
-    def __get_dim(self):
-        """Return dimensions of the screen."""
-
     def __define_widgets(self):
-
+        """Declare all the widgets, build the ones that need special configuration"""
         self.__left_sidebar = LeftSidebar(self.__mainFrame, self)
-        
+
+        # Set up the textview, add a scrollbar
         self.__text_frame = tk.Frame(self.__mainFrame)
         scrollbar = tk.Scrollbar(self.__text_frame)
         self.__text_view = TextView(self.__text_frame, self, scrollbar)
@@ -134,116 +122,52 @@ class Application:
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.__text_view.pack(side = tk.LEFT, fill=tk.BOTH, expand=1)
         
-        self.__right_sidebar = Sidebar(
-            self.__mainFrame, self.__text_view, self.__dim, self)
+        self.__right_sidebar = RightSidebar(self.__mainFrame, self.__text_view, self.__dim, self)
  
         self.__menubar = Menubar(self)
 
-    def __style_widgets(self):
-        """Style the application."""
-        self.__styler.changeTheme("bella")
-        
-#        self._legend.configStyles(styles=self._styles)
-#        self._legend.config(bg=self._styles.c_2)
-        
-        
-#        self._sidebar.configStyles(styles=self._styles)    
-        #self.sidebarFrame.config(bg=self.styles.c_2)
-        
-    #-------------------------------------------------------------------
-    # Create and place frames, widgets, and menus
-        
     def __add_widgets(self):
-        """Create and fill the text box, sidebar and menu."""
+        """Add the defined widgets to the application. Must be called after __define_widgets()"""
         screen_width = self.__dim[0]
-        self.__mainFrame.add(
-            self.__left_sidebar, width=(screen_width // 8), stretch="never")
-
+        self.__mainFrame.add(self.__left_sidebar, width=(screen_width // 8), stretch="never")
         self.__mainFrame.add(self.__text_frame, width=(screen_width // 2), stretch="always")
-
-        self.__mainFrame.add(
-            self.__right_sidebar, width=(screen_width // 4), stretch="never")
+        self.__mainFrame.add(self.__right_sidebar, width=(screen_width // 4), stretch="never")
 
     def bind_keys(self):
         """Bind all clicks and key presses to commands."""
-        self.__text_view.tag_bind(
-            "clickableWord", "<Button-1>", self.__text_view.on_click)
-        self.__right_sidebar.tagResults.bind(
-            "<ButtonRelease-1>", self.__right_sidebar.tagResults.on_click)
+        self.__text_view.tag_bind("clickableWord", "<Button-1>", self.__text_view.on_click)
+        self.__right_sidebar.tag_results.bind("<ButtonRelease-1>", self.__right_sidebar.tag_results.on_click)
         self.__left_sidebar.tree.bind("<ButtonRelease-1>", self.__left_sidebar.tree.on_click)
         
         self.__root.bind("<Right>", self.__keyword_table.next_valid_entry)
         self.__root.bind("<Left>", self.__keyword_table.previous_valid_entry)
         self.__root.bind("<Up>", self.__keyword_table.prev_tag)
         self.__root.bind("<Down>", self.__keyword_table.next_tag)
-        self.__root.bind("<Return>",
-                         self.__keyword_table.toggle_confirm_current)
-
- #       self.fText.tag_bind(
- #           "interviewee", "<ButtonRelease-3>", self.__show_tag_menu)
- #       self.fText.tag_bind(
- #           "interviewee", "<ButtonRelease-2>", self.__show_tag_menu)
+        self.__root.bind("<Return>", self.__keyword_table.toggle_confirm_current)
 
     def __register_viewers(self):
         """Attaches view objects to the keyword table, so that they will be
         updated when keywordTable is told up update its viewers."""
         
-        # Register the viewers
+        # Register the viewers for content
         self.__keyword_table.register_viewer(self.__text_view)
-        self.__keyword_table.register_viewer(self.__right_sidebar.tagResults)
-        self.__keyword_table.register_viewer(self.__right_sidebar.currentTag)
-        self.__keyword_table.register_viewer(self.__right_sidebar.tagInfoField)
+        self.__keyword_table.register_viewer(self.__right_sidebar.tag_results)
+        self.__keyword_table.register_viewer(self.__right_sidebar.current_tag)
+        self.__keyword_table.register_viewer(self.__right_sidebar.tag_info_field)
 
         self.__keyword_table.register_viewer(self.__right_sidebar.preview)
         self.__keyword_table.register_viewer(self.__left_sidebar.tree)
 
-        # Styling Viewers
+        # Register the viewers for style
         self.__styler.register_viewer(self.__text_view)
         self.__styler.register_viewer(self.__right_sidebar)
-        self.__styler.register_viewer(self.__right_sidebar.tagResults)
-        self.__styler.register_viewer(self.__right_sidebar.currentTag)
-        self.__styler.register_viewer(self.__right_sidebar.tagInfoField)
+        self.__styler.register_viewer(self.__right_sidebar.tag_results)
+        self.__styler.register_viewer(self.__right_sidebar.current_tag)
+        self.__styler.register_viewer(self.__right_sidebar.tag_info_field)
         self.__styler.register_viewer(self.__right_sidebar.preview)
-
-        # Left sidebar
         self.__styler.register_viewer(self.__left_sidebar)
         self.__styler.register_viewer(self.__left_sidebar._legend)
         self.__styler.register_viewer(self.__left_sidebar.tree)
-
-
-    #-------------------------------------------------------------------
-    # Hover (in progress)
-
-#    def on_enter(self, event):
-#        self.textView.tag_add("cur", self.cur_line, self.cur_line + 1) 
-
-    def on_leave(self, enter):
-        self.textView.tag_add("reg", self.cur_line, self.cur_line + 1)
-
-    #-------------------------------------------------------------------
-    # The right click menu.
-
-    def __make_tag_menu(self):
-        """Define the menu that will show when
-        right-clicked.
-        """
-        self.__menu_frame = tk.Frame(self.__root)
-        self.__tag_menu = tk.Menu(self.__menu_frame, tearoff=0)
-        self.__tag_menu.add_command(label="tag here", command=print("tag"))
-        self.__tag_menu.add_command(label="Add Tag", command=self.__show_tag_screen)
-
-    def __show_tag_menu(self, event):
-        """Show the Menu pop up when right-clicked."""
-        self.__tag_menu.post(event.x_root, event.y_root)
-    
-    def __show_tag_screen(self):
-        """Display the New Tag Window."""
-        word = self.__text_view.getString()
-        self.__add_tag = EntryWindow(self.root, word, self.styles)
-
-
-    #-------------------------------------------------------------------
-    # Launch app
 
     def launch(self):
         """Launch the program."""
@@ -254,10 +178,6 @@ class Application:
         self.__splash.destroy()
         self.__root.deiconify()
         self.__root.mainloop()
-        
-
-#-----------------------------------------------------------------------
-# Main section.
 
 if __name__ == "__main__":
     app = Application()

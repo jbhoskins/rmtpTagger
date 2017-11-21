@@ -1,9 +1,10 @@
- # A popup window that allows the user to add entries to a local, "mini index"
- # that can be sent out to merge with a universal copy.
+""" A popup window that allows the user to add entries to a local, 'mini index'
+    that can be sent out to merge with a universal copy. Incomplete."""
 
 from app.gui.popup_window import PopupWindow
 import tkinter as tk
 from lxml import etree as ET
+
 
 class IndexEditor(PopupWindow):
     """Popup window to facilitate editing the index."""
@@ -15,7 +16,7 @@ class IndexEditor(PopupWindow):
 
         self.update()
 
-    def _addWidgets(self):
+    def _add_widgets(self):
         """ Called in the superclass. Adds all widgets to the window."""
         self.txt = tk.Text(self, state=tk.DISABLED)
         self.attributeName = tk.Entry(self)
@@ -36,15 +37,12 @@ class IndexEditor(PopupWindow):
         tk.Button(bottom_frame, text="submit", command=self.submit).pack(side=tk.BOTTOM)
         tk.Button(bottom_frame, text="update", command=self.update).pack(side=tk.BOTTOM)
 
-    
     def addElement(self):
        pass
-    
-    
+
     def update(self):
         """Fill the text based on the xml tree made by the user as they add
         elements."""
-
 
         # Note: tags cannot be numbers.
         
@@ -57,7 +55,7 @@ class IndexEditor(PopupWindow):
 
         pretty_string = ET.tostring(self.root, pretty_print=True)
 
-        # Needs to be reencoded for some reason - not working yet tho
+        # Needs to be reencoded for some reason - not working yet though
         # pretty_string = pretty_string.encode(encoding='UTF-8')
 
         self.txt.config(state=tk.NORMAL)
@@ -72,15 +70,12 @@ class IndexEditor(PopupWindow):
         self.destroy()
 
 
-
 def __pop():
     top = IndexEditor(root)
 
 if __name__ == "__main__":
 
     root = tk.Tk()
-
     tk.Button(root, text="Pop", command=__pop).pack()
-
     root.mainloop()
 

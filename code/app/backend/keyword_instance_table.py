@@ -6,7 +6,6 @@
 # https://rmtp.wm.edu
 
 # Authored by John Hoskins: jbhoskins@email.wm.edu
-# Last edit 4/22/17 by Margaret.
 
 """ A table of KeywordInstances, with the inclusion of a index, to keep track
 of which instance is currently being examined/edited.
@@ -29,7 +28,7 @@ import re
 import app.gui.view_controller as view
 from app.backend.keyword_instance import KeywordInstance
 from app.backend.index import Index
-from app.backend.parse_tree import MatchState
+from app.backend.parse_tree import ValidityCode
 from app.backend.parse_tree import ParseTree
 
 # Use these instead of the imports above re to run this program as main
@@ -41,47 +40,13 @@ from app.backend.parse_tree import ParseTree
 class KeywordInstanceTable:
     def __init__(self):
         self.__current = 0
-
         self.__instances = []
 
         # Registered viewers for observer design pattern
         self.__views = []
 
-        # This is the only data structure that needs the index
-        # Shouldnt open the file twice but hey
         self.__indexObject = Index(os.path.join("res", "index.xml"))
         self.__parse_tree = ParseTree(self.__indexObject.keys())
-    
-    def append(self, keyword_instance):
-        assert type(keyword_instance) is KeywordInstance, "Only KeywordInstances can be appended."
-        self.__instances.append(keyword_instance)
-
-    def lookup(self, startIndex):
-        """Returns the KeywordInstance that corrosponds to the given CHARECTOR index."""
-
-        # This could be a binary search.
-
-        for index, instance in enumerate(self.__instances):
-            if instance.get_start() <= startIndex <= instance.get_stop():
-                if instance.is_ambiguous():
-                    self.__current = index
-                    return instance
-                else:
-                    return None
-        return None
-
-    def __reversed__(self):
-        return reversed(self.__instances)
-
-    def jump_to(self, tableIndex):
-        # assert to prevent jumps to pronouns, etc.
-        assert self.__instances[tableIndex].is_ambiguous()
-        self.__current = tableIndex % len(self.__instances)
-        self.notify_viewers_redraw()
-
-    def make_index(self):
-        """Instantiates an Index object. Needed for session loading."""
-        self.__indexObject = Index("../META/index.xml")
 
     def get_current_entry(self):
         """Returns the currently selected KeywordInstance."""
@@ -91,9 +56,45 @@ class KeywordInstanceTable:
             return self.__instances[self.__current]
 
     def get_current_index(self):
-        """Returns the value of the index of the entry currently being
-        examined/edited."""
         return self.__current
+
+    def get_viewers(self):
+        return self.__views
+
+    def get_index(self):
+        return self.__indexObject
+
+    def set_index_object(self, index):
+        self.__indexObject = index
+
+    def append(self, keyword_instance):
+        assert type(keyword_instance) is KeywordInstance, "Only KeywordInstances can be appended."
+        self.__instances.append(keyword_instance)
+
+    def lookup(self, start_index):
+        """Returns the KeywordInstance that corrosponds to the given CHARECTOR index."""
+
+        # This could be a binary search.
+
+        for index, instance in enumerate(self.__instances):
+            if instance.get_start() <= start_index <= instance.get_stop():
+                if instance.is_ambiguous():
+                    self.__current = index
+                    return instance
+                else:
+                    return None
+        return None
+
+    def jump_to(self, tableIndex):
+        """Skip to a certain keyword table index."""
+        # assert to prevent jumps to pronouns, etc.
+        assert self.__instances[tableIndex].is_ambiguous()
+        self.__current = tableIndex % len(self.__instances)
+        self.notify_viewers_redraw()
+
+    def make_index(self):
+        """Instantiates an Index object. Needed for session loading."""
+        self.__indexObject = Index("../META/index.xml")
 
     def reset(self):
         """Dereferences the table, and resets the current cursor to 0."""
@@ -101,7 +102,7 @@ class KeywordInstanceTable:
         self.__current = 0
 
     def next_valid_entry(self, event=None):
-        """ Returns the next valid entry that is ambiguous and set the cursor
+        """ Returns the next valid entry that is ambiguous, and set the cursor
         to that index."""
 
         table_length = len(self.__instances)
@@ -115,7 +116,7 @@ class KeywordInstanceTable:
         self.notify_viewers_redraw()
 
     def previous_valid_entry(self, event=None):
-        """ Returns the previous valid entry that is ambiguous and set the cursor
+        """ Returns the previous valid entry that is ambiguous, and set the cursor
         to that index."""
 
         table_length = len(self.__instances)
@@ -144,7 +145,6 @@ class KeywordInstanceTable:
 
         self.notify_viewers_redraw()
 
-
     def prev_tag(self, event=None):
         """ Move to the previous tag in the list of tag suggestions (entry list) """
 
@@ -162,11 +162,11 @@ class KeywordInstanceTable:
         self.notify_viewers_redraw()
 
     def toggle_confirm_current(self, event=None):
-        self.get_current_entry().toggleConfirm()
+        self.get_current_entry().toggle_confirm()
         self.notify_viewers_redraw()
 
     def fill_table(self, string):
-        """Build a sorted table of all KeywordInstances in the given get_string."""
+        """Build a sorted (by start index) table of all KeywordInstances."""
 
         self.reset()
 
@@ -186,12 +186,12 @@ class KeywordInstanceTable:
                 inx = string.count("\n", 0, word.start()) + 1
 
                 # Only run the next bit if it's an interviewee. use "if true"
-                # to not skip anything.
+                # to not skip any lines.
                 # if True:
                 if  (inx % 4 - 1) != 0:
-                    testCode = self.__parse_tree.validate(word.group().lower())
+                    validity_code = self.__parse_tree.validate(word.group().lower())
 
-                    if testCode == MatchState.no_match:
+                    if validity_code == ValidityCode.no_match:
 
                         # This is the point when an entry is actually
                         # saved. When it finds a match, it waits until
@@ -223,7 +223,7 @@ class KeywordInstanceTable:
                         keyword = ""
                         potential_instance = KeywordInstance()
 
-                    elif testCode == MatchState.potential_match:
+                    elif validity_code == ValidityCode.potential_match:
                         # If there is a word, add a space before the
                         # next one.
                         if keyword != "":
@@ -232,7 +232,7 @@ class KeywordInstanceTable:
                             potential_instance.set_start(word.start())
                         keyword += word.group()
 
-                    elif testCode == MatchState.found_match:
+                    elif validity_code == ValidityCode.found_match:
                         if keyword != "":
                             keyword += " "
                         else:
@@ -254,35 +254,21 @@ class KeywordInstanceTable:
     # ------- Methods to implement subject / observer design pattern --------
 
     def notify_viewers_redraw(self):
-        """ Notify all the viewers to redraw themselves based on the current
-        state of the table. """
-
         for view in self.__views:
             view.update()
 
     def register_viewer(self, newView):
-        """ Add a viewer that will update whenever notify_viewers_redraw is
-        called. """
         self.__views.append(newView)
 
     def delete_viewer(self, viewToDelete):
-        """ Remove a viewer that will update whenever notify_viewers_redraw is
-        called. """
         self.__views.remove(viewToDelete)
+
+    # ------------------------------------------------------------------------
 
     def prepare_for_serialization(self):
         # These elements are not serializable, so they need to be deleted.
         self.__views = []
         self.__indexObject = None
-
-    def get_viewers(self):
-        return self.__views
-
-    def get_index(self):
-        return self.__indexObject
-
-    def set_index(self, index):
-        self.__indexObject = index
 
     def __next__(self):
         if self.__iter_current == len(self.__instances) - 1:
@@ -295,12 +281,5 @@ class KeywordInstanceTable:
         self.__iter_current = -1
         return self
 
-if __name__ == "__main__":
-    kt = KeywordInstanceTable()
-
-    f = open("../../../input/lebedeva.txt", encoding="UTF-8")
-    string = f.read()
-    string = string.replace("ё", "е")
-    f.close()
-
-    kt.fill_table(string)
+    def __reversed__(self):
+        return reversed(self.__instances)

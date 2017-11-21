@@ -1,10 +1,13 @@
+"""Splash screen that is displayed as the program is loading."""
+
 import tkinter as tk
+
 
 class SplashScreen(tk.Toplevel):
     def __init__(self, parent):
         tk.Toplevel.__init__(self, parent)
         self.overrideredirect(True)
-        self.centerOnScreen(parent)
+        self.center_on_screen(parent)
         self.title("RMTP Tagger")
         self.configure(background="white")
         tk.Label(self, text="RMTP Contextual XML Tagger", font=("Helvetica",
@@ -15,7 +18,7 @@ class SplashScreen(tk.Toplevel):
                 font=("Helvetica", 15), bg="white").pack()
         self.update()
 
-    def centerOnScreen(self, window):
+    def center_on_screen(self, window):
         screen_width = window.winfo_screenwidth()
         screen_height = window.winfo_screenheight()
 

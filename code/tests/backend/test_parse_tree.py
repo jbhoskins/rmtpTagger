@@ -1,6 +1,6 @@
 import unittest
 from app.backend.parse_tree import ParseTree
-from app.backend.parse_tree import MatchState
+from app.backend.parse_tree import ValidityCode
 
 class ParseTreeTesterSimple(unittest.TestCase):
     def setUp(self):
@@ -51,27 +51,27 @@ class ParseTreeTesterSimple(unittest.TestCase):
 
     # Match code testing
     def test_no_match_root(self):
-        assert self._parseTree.validate("test") == MatchState.no_match
+        assert self._parseTree.validate("test") == ValidityCode.no_match
     
     def test_no_match_child(self):
         self._parseTree.validate("John")
-        assert self._parseTree.validate("test") == MatchState.no_match
+        assert self._parseTree.validate("test") == ValidityCode.no_match
 
     def test_potential_match(self):
         self._parseTree.validate("John")
-        assert self._parseTree.validate("Wick") == MatchState.potential_match
+        assert self._parseTree.validate("Wick") == ValidityCode.potential_match
     
     def test_match_found_one(self):
-        assert self._parseTree.validate("John") == MatchState.found_match
+        assert self._parseTree.validate("John") == ValidityCode.found_match
 
     def test_match_found_two(self):
         self._parseTree.validate("John")
-        assert self._parseTree.validate("Hoskins") == MatchState.found_match
+        assert self._parseTree.validate("Hoskins") == ValidityCode.found_match
 
     def test_match_found_three(self):
         self._parseTree.validate("John")
         self._parseTree.validate("Wick")
-        assert self._parseTree.validate("Buddy") == MatchState.found_match
+        assert self._parseTree.validate("Buddy") == ValidityCode.found_match
 
 class ParseTreeTesterNull(unittest.TestCase):
     # Assumes that a null structure passed in should produce {None:None}
@@ -89,7 +89,7 @@ class ParseTreeTesterNull(unittest.TestCase):
         assert len(self._parseTree._rootNode.keys()) == 0
 
     def test_match_found_one(self):
-        assert self._parseTree.validate("John") == MatchState.no_match
+        assert self._parseTree.validate("John") == ValidityCode.no_match
 
 class ParseTreeTesterDuplicateSingleKeys(unittest.TestCase):
     # Assumes that a null structure passed in should produce {None:None}
@@ -112,10 +112,10 @@ class ParseTreeTesterDuplicateSingleKeys(unittest.TestCase):
         assert self._parseTree._rootNode["test"] == {None:None}
     
     def test_match_found(self):
-        assert self._parseTree.validate("test") == MatchState.found_match
+        assert self._parseTree.validate("test") == ValidityCode.found_match
     
     def test_no_match(self):
-        assert self._parseTree.validate("John") == MatchState.no_match
+        assert self._parseTree.validate("John") == ValidityCode.no_match
 
 class ParseTreeTesterDuplicateMultipleKeys(unittest.TestCase):
     # Assumes that a null structure passed in should produce {None:None}

@@ -6,6 +6,7 @@ class Viewer:
     def update(self):
         raise NotImplementedError("All views must implement update()")
 
+
 class ViewController:
     """Not actually used, but probably should. shows all methods that a
     the subject in the Observer pattern should use implement."""
@@ -25,6 +26,7 @@ class ViewController:
         """Delete a viewer."""
         self._views.remove(viewToDelete)
 
+
 class Stylable:
     """Abstract class that is identical to a viewer, the difference being its
     wording for easier readibility."""
@@ -33,6 +35,7 @@ class Stylable:
 
     def style(self):
         raise NotImplementedError("All Stylables must implement style()")
+
 
 class Styler(ViewController):
     def __init__(self):

@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 class PopupWindow(tk.Toplevel):
     """Abstract class for popup windows."""
     def __init__(self, root):
@@ -10,7 +11,7 @@ class PopupWindow(tk.Toplevel):
         self.wait_visibility()
         self.grab_set()
 
-        self._addWidgets()
+        self._add_widgets()
 
-    def _addWidgets(self):
-        raise NotImplementedError("Method __add_widgets must be implemented!")
+    def _add_widgets(self):
+        raise NotImplementedError("Method _add_widgets must be implemented!")

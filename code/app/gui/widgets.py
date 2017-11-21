@@ -35,8 +35,9 @@ class TagResults(tk.Listbox, view.Viewer, view.Stylable):
     """A ListBox of results pulled from the index."""
     
     def __init__(self, sidebar, scrollbar, app):
-        tk.Listbox.__init__(self, sidebar, selectmode=tk.SINGLE, 
-                            yscrollcommand=scrollbar.set)
+        tk.Listbox.__init__(self, sidebar, selectmode=tk.SINGLE, yscrollcommand=scrollbar.set)
+        view.Viewer.__init__(self)
+        view.Stylable.__init__(self)
         self.__app = app
 
         # Used to determine which kind of update to do.
@@ -129,6 +130,8 @@ class TagInformationField(tk.Text, view.Viewer, view.Stylable):
     
     def __init__(self, sidebar, app):
         tk.Text.__init__(self, sidebar)
+        view.Viewer.__init__(self)
+        view.Stylable.__init__(self)
         self.config(state=tk.DISABLED)
         self._app = app
 
@@ -165,6 +168,8 @@ class CurrentTagField(tk.Label, view.Viewer, view.Stylable):
     tags."""
     def __init__(self, sidebar, app):
         tk.Label.__init__(self, sidebar, text="Current:")
+        view.Viewer.__init__(self)
+        view.Stylable.__init__(self)
         self.__app = app
 
     def update(self):
@@ -193,6 +198,8 @@ class TagPreviewField(tk.Label, view.Viewer, view.Stylable):
     look."""
     def __init__(self, sidebar, app):
         tk.Label.__init__(self, sidebar, text="Preview:")
+        view.Viewer.__init__(self)
+        view.Stylable.__init__(self)
         self.__app = app
 
         # Will need updating after changes to templates.
@@ -229,12 +236,13 @@ class TagPreviewField(tk.Label, view.Viewer, view.Stylable):
 
 class AllTaggedResultsTable(ttk.Treeview, view.Viewer, view.Stylable):
     def __init__(self, parent, app):
-        self.treeStyle = ttk.Style() # Needed to change the background
-        
         headings = ("#", "word", u"\u2713")
+        view.Viewer.__init__(self)
+        view.Stylable.__init__(self)
         ttk.Treeview.__init__(self, parent, columns=headings, show="headings")
 
         self._app = app
+        self.treeStyle = ttk.Style()  # Needed to change the background
 
         for col in headings:
             self.heading(col, text=col.title())
@@ -283,3 +291,35 @@ class AllTaggedResultsTable(ttk.Treeview, view.Viewer, view.Stylable):
     def style(self, styles):
         self.treeStyle.configure("Treeview", background=styles.c_2,
                 fieldbackground=styles.c_2)
+
+
+class Legend(tk.Frame, view.Viewer, view.Stylable):
+    def __init__(self, parent):
+        tk.Frame.__init__(self, parent)
+        view.Viewer.__init__(self)
+        view.Stylable.__init__(self)
+        self.title = ttk.Label(self, text="Legend")
+        self.l1 = ttk.Label(self, text="Interviewer text")
+        self.l2 = ttk.Label(self, text="Interviewee text")
+        self.l3 = ttk.Label(self, text="Single key")
+        self.l4 = ttk.Label(self, text="Multiple Keys")
+
+        self.title.pack(pady=10)
+        self.l1.pack()
+        self.l2.pack()
+        self.l3.pack()
+        self.l4.pack()
+
+    def style(self, styles):
+        self.config(bg=styles.c_2)
+
+        self.title.config(font=styles.f_text, background=styles.c_2)
+        self.l1.config(
+            font=styles.f_text, background=styles.c_1,
+            foreground=styles.h_interviewer)
+        self.l2.config(
+            font=styles.f_text, background=styles.c_1, foreground="black")
+        self.l3.config(
+            font=styles.f_text, background=styles.h_single)
+        self.l4.config(
+            font=styles.f_text, background=styles.h_multi)

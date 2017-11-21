@@ -6,7 +6,6 @@
 # https://rmtp.wm.edu
 
 # Authored by John Hoskins: jbhoskins@email.wm.edu
-# Last edit 4/22/17 by Margaret.
 
 """
 Reads and handles lookups from the Index.xml file, created by Sasha and
@@ -60,36 +59,31 @@ words are get_string types):
 from bs4 import BeautifulSoup
 from app.backend.index_entry import Entry
 
-class Index:
-    """ Class that encapsulates all interaction with the index.xml file. It
-    provides two primary functionalities:
 
-        1: Permit the lookup of information in the xml file based on <key>
+class Index:
+    """ Class that encapsulates all interaction with the index.xml file, and
+        facilitate the lookup of information in the xml file based on <key>
         attributes defined in the index.xml file itself.
     """
 
     def __init__(self, path):
         """Create a dictionary with <keys> (declined forms) as its
-        dictionary keys and LISTS of _Entry objects as its dictionary
+        dictionary keys and LISTS of Entry objects as its dictionary
         values.
         """
-        print(path)
         input_file = open(path, "r", encoding="UTF-8")
         soup = BeautifulSoup(input_file, 'xml')
         input_file.close()
 
-        self.__index = dict()
+        self.__dictionary = dict()
         for key in soup.find_all('key'):
             try:
-                self.__index[key.string].append(Entry(key.parent.parent))
+                self.__dictionary[key.string].append(Entry(key.parent.parent))
             except KeyError:
-                self.__index[key.string] = [Entry(key.parent.parent)]
+                self.__dictionary[key.string] = [Entry(key.parent.parent)]
 
     def lookup(self, string):
-        """Return a LIST of entry objects that is tied to each key."""
-        return self.__index[string]
+        return self.__dictionary[string]
 
     def keys(self):
-        """Return all the keys of the index."""
-        print("returning:", self.__index.keys())
-        return self.__index.keys()
+        return self.__dictionary.keys()

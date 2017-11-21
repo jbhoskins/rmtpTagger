@@ -13,16 +13,7 @@
 """A sidebar frame for the main application, used to hold sidebar
 widgets for the app.
 
-LAST EDIT:
-
-Margaret, 4/23/17
-
-Created this template so that we can use it on both sides of the main
-application.
 """
-
-import sys
-sys.path.insert(0, '../')
 
 import tkinter as tk
 

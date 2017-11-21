@@ -26,10 +26,7 @@ class Entry:
     def __init__(self, bs4_object):
         self.__info = []
 
-        # Underscores to avoid name conflicts, if it was just "type"
-        # instead of "__type__" you would run into issues if the user
-        # specified an attribute called "type", since you would have two
-        # values with the same key.
+        # Underscores to avoid name conflicts
         self.__info.append(("__type__", str(bs4_object.name)))
 
         # If an xml:id is not specified, set it to an empty get_string.
@@ -53,9 +50,6 @@ class Entry:
 
 
     def __str__(self):
-        """Return a nicely formatted get_string of the _Entry with one
-        tuple per line, seperate by a colon.
-        """
         string = ''
         for entry in self.__info:
             string = string + entry[0] + ': ' + entry[1] + '\n'

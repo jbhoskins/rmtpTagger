@@ -6,7 +6,6 @@
 # https://rmtp.wm.edu
 
 # Authored by John Hoskins: jbhoskins@email.wm.edu
-# Last edit 4/22/17 by Margaret.
 
 """ This module contains classes to parse a specifically formatted XML file for
     keywords and data, and to parse a textfile for those keywords. """
@@ -58,13 +57,13 @@ class KeywordInstance:
     def set_entries(self, entries):
         self.__entries = entries
 
+    def set_selection_index(self, index):
+        self.__selected_entry = index
+
     def get_selection_index(self):
         """ Return the integer that corrosponds to the entry that has been
         selected for the instance."""
         return self.__selected_entry
-
-    def set_selection_index(self, index):
-        self.__selected_entry = index
 
     def get_selected_entry(self):
         """ Return the Entry object that is currently selected. """

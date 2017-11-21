@@ -5,6 +5,7 @@
 
 import os
 
+
 class ParseError(Exception):
     """ I wanted a more descriptive exception name, so I made this."""
     pass
@@ -66,12 +67,13 @@ class TemplateIndex:
         self.__templates = []
         
         for line in f:
-            
-            # Allow for comments & whitespace
+            # Allow for comments & whitespace (no inline comments, though)
             if line.isspace() or line == "" or line.strip()[0] == "#":
                 continue
 
             split_line = line.split('__+__')
+
+            # Make sure the file is formatted correctly
             if len(split_line) > 4:
                 raise ParseError("Lines may not contain more than three \"__+__\"")
             elif len(split_line) < 4:
@@ -80,9 +82,8 @@ class TemplateIndex:
 
             self.__templates.append((split_line[0].strip().lower(),
                                      Tag(split_line[1].strip(), split_line[2].strip(),
-                        split_line[3].strip().split())))
-        
-        print([entry[0] for entry in self.__templates])
+                                     split_line[3].strip().split())))
+
         f.close()
 
     def get_file_string(self):
@@ -116,26 +117,13 @@ class TemplateIndex:
         self.__templates.pop(index)
 
     def replace_template(self, index, name, frontTag, backTag, arguments):
-        """Replaces the template aat the given index. Used for editing tags."""
+        """Replaces the template at the given index. Used for editing tags."""
         self.delete_template(index)
         self.__templates.insert(index, (name, Tag(frontTag, backTag, arguments)))
 
     def lookup(self, name):
         """Looks up and returns the Tag object associated with the given name."""
-        
-        # this thing that I keep doing can probably replaced with a normal,
-        # built in list method.
-
-        print(self.__templates)
-        print("name is: ", name)
         for template in self.__templates:
             if name == template[0]:
                 return template[1]
-
-        raise Exception("Name is not a valid template.")
-         
-if __name__ == "__main__":
-    ndx = TemplateIndex()
-
-    print(ndx.get_names())
-    print(ndx.get_values())
+        raise Exception("%s is not a valid template." % name)
