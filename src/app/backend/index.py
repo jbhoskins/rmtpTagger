@@ -77,10 +77,11 @@ class Index:
 
         self.__dictionary = dict()
         for key in soup.find_all('key'):
-            try:
-                self.__dictionary[key.string].append(Entry(key.parent.parent))
-            except KeyError:
-                self.__dictionary[key.string] = [Entry(key.parent.parent)]
+            key_string = str(key.string) # key.string is not a raw type
+            if key_string in self.__dictionary.keys():
+                self.__dictionary[key_string].append(Entry(key.parent.parent))
+            else:
+                self.__dictionary[key_string] = [Entry(key.parent.parent)]
 
     def lookup(self, string):
         return self.__dictionary[string]

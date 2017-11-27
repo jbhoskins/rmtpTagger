@@ -31,12 +31,6 @@ from app.backend.index import Index
 from app.backend.parse_tree import ValidityCode
 from app.backend.parse_tree import ParseTree
 
-# Use these instead of the imports above re to run this program as main
-#import sys
-#sys.path.insert(0, "../backend")
-#from index import Index
-#from keyword_instance import KeywordInstance
-
 class KeywordInstanceTable:
     def __init__(self):
         self.__current = 0
@@ -51,7 +45,7 @@ class KeywordInstanceTable:
     def get_current_entry(self):
         """Returns the currently selected KeywordInstance."""
         if len(self.__instances) == 0:
-            return KeywordInstance()
+            return None
         else:
             return self.__instances[self.__current]
 
@@ -106,12 +100,11 @@ class KeywordInstanceTable:
         to that index."""
 
         table_length = len(self.__instances)
-        i = 1
-        while i < table_length and not self.__instances[(self.__current + i) % table_length].is_ambiguous():
-            i = i + 1
-
-        self.__current = (self.__current + i) % table_length
-        print("cur", self.__current)
+        for i in range(1, table_length):
+            new_index = (self.__current + i) % table_length
+            if self.__instances[new_index].is_ambiguous():
+                break
+        self.__current = new_index
 
         self.notify_viewers_redraw()
 
@@ -120,14 +113,15 @@ class KeywordInstanceTable:
         to that index."""
 
         table_length = len(self.__instances)
-        i = 1
-        while i < table_length and not self.__instances[(self.__current - i) % table_length].is_ambiguous():
-            i = i + 1
-
-        self.__current = (self.__current - i) % table_length
+        for i in range(1, table_length):
+            new_index = (self.__current - i) % table_length
+            if self.__instances[new_index].is_ambiguous():
+                break
+        print("new:", new_index)
+        self.__current = new_index
 
         self.notify_viewers_redraw()
-
+    
     def next_tag(self, event=None):
         """ Move to the next tag in the list of tag suggestions (entry list) """
 

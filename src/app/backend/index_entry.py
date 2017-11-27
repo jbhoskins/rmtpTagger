@@ -30,11 +30,14 @@ class Entry:
         self.__info.append(("__type__", str(bs4_object.name)))
 
         # If an xml:id is not specified, set it to an empty get_string.
-        try:
+        if bs4_object.has_attr("xml:id"):
             self.__info.append(("__xml:id__", str(bs4_object["xml:id"])))
-        except KeyError:
+        else:
             self.__info.append(("__xml:id__", ""))
-
+#        try:
+#            self.__info.append(("__xml:id__", str(bs4_object["xml:id"])))
+#        except KeyError:
+#            self.__info.append(("__xml:id__", ""))
 
         # Attach all information in the index.xml entry to the object.
         for info in bs4_object:
