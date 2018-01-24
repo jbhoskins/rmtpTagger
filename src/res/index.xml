@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?xml-model href="schema_index.rnc" type="application/relax-ng-compact-syntax"?>
+
+
 <index>
     <metaPersons>
         <person xml:id="leventalVadim">
@@ -218,8 +220,8 @@
                 <key>тарковским</key>
                 <key>тарковском</key>
                 <key>андрей тарковский</key>
-                <key>андреего тарковского</key>
-                <key>андоеему тарковскому</key>
+                <key>андрея тарковского</key>
+                <key>андрею тарковскому</key>
             </keys>
         </person>
 
@@ -248,8 +250,8 @@
                 <key>сокуров</key>
                 <key>сокурова</key>
                 <key>сокурову</key>
+                <key>сокуровым</key>
                 <key>сокурове</key>
-                <key>сокуровом</key>
             </keys>
         </person>
 
@@ -263,8 +265,8 @@
                 <key>серебренников</key>
                 <key>серебренникова</key>
                 <key>серебренникову</key>
+                <key>серебренниковым</key>
                 <key>серебренникове</key>
-                <key>серебренниковом</key>
             </keys>
         </person>
 
@@ -339,6 +341,10 @@
             <nationality>Sweden</nationality>
             <keys>
                 <key>бергман</key>
+                <key>бергмана</key>
+                <key>бергману</key>
+                <key>бергманом</key>
+                <key>бергмане</key>
             </keys>
         </person>
 
@@ -361,6 +367,10 @@
             <nationality>USA</nationality>
             <keys>
                 <key>линч</key>
+                <key>линча</key>
+                <key>линчу</key>
+                <key>линчом</key>
+                <key>линче</key>
             </keys>
         </person>
 
@@ -407,7 +417,7 @@
                 <key>триеру</key>
                 <key>триером</key>
                 <key>триере</key>
-		<key>one two three four five</key>
+
             </keys>
         </person>
 
@@ -432,8 +442,9 @@
                 <key>карвай</key>
                 <key>карвая</key>
                 <key>карваю</key>
-                <key>карвае</key>
                 <key>карваем</key>
+                <key>карвае</key>
+                
             </keys>
         </person>
 
@@ -444,10 +455,7 @@
             <gender>f</gender>
             <nationality>Italy</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>белуччи</key>
             </keys>
         </person>
 
@@ -458,10 +466,11 @@
             <gender>m</gender>
             <nationality>Britain</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>батлер</key>
+                <key>батлера</key>
+                <key>батлеру</key>
+                <key>батлером</key>
+                <key>батлере</key>
             </keys>
         </person>
 
@@ -472,10 +481,7 @@
             <gender>f</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>терон</key>
             </keys>
         </person>
 
@@ -486,10 +492,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>депп</key>
+                <key>деппа</key> 
+                <key>деппу</key>
+                <key>деппом</key> 
+                <key>деппе</key>
             </keys>
         </person>
 
@@ -500,10 +507,7 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>керри</key>
             </keys>
         </person>
 
@@ -514,10 +518,7 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>мерфи</key>
             </keys>
         </person>
 
@@ -528,10 +529,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>пек</key>
+                <key>пека</key>
+                <key>пеку</key>
+                <key>пеком</key>
+                <key>пеке</key>
             </keys>
         </person>
 
@@ -542,10 +544,7 @@
             <gender>f</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>хепбёрн</key>
             </keys>
         </person>
 
@@ -556,10 +555,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>рязанов</key>
+                <key>рязанова</key>
+                <key>рязанову</key>
+                <key>рязановым</key>
+                <key>рязанове</key>
             </keys>
         </person>
 
@@ -570,10 +570,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>аллен</key>
+                <key>аллена</key>
+                <key>аллену</key>
+                <key>алленом</key>
+                <key>аллене</key>
             </keys>
         </person>
 
@@ -584,10 +585,11 @@
             <gender>m</gender>
             <nationality>Spain</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>альмодовар</key>
+                <key>альмодовара</key>
+                <key>альмодовару</key>
+                <key>альмодоваром</key>
+                <key>альмодоваре</key>
             </keys>
         </person>
 
@@ -598,10 +600,11 @@
             <gender>m</gender>
             <nationality>Russia</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>мамонов</key>
+                <key>мамонова</key>
+                <key>мамонову</key>
+                <key>мамоновым</key>
+                <key>мамонове</key>
             </keys>
         </person>
 
@@ -612,10 +615,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>михалков</key>
+                <key>михалкова</key>
+                <key>михалкову</key>
+                <key>михалковым</key>
+                <key>михалкове</key>
             </keys>
         </person>
 
@@ -626,10 +630,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>меньшов</key>
+                <key>меньшова</key>
+                <key>меньшову</key>
+                <key>меньшовым</key>
+                <key>меньшове</key>
             </keys>
         </person>
 
@@ -640,10 +645,7 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>де ниро</key>
             </keys>
         </person>
 
@@ -654,10 +656,7 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>пачино</key>
             </keys>
         </person>
 
@@ -668,10 +667,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>чаплин</key>
+                <key>чаплина</key>
+                <key>чаплину</key>
+                <key>чаплиным</key>
+                <key>чаплине</key>
             </keys>
         </person>
 
@@ -682,10 +682,7 @@
             <gender>f</gender>
             <nationality>Britain</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>кристи</key>
             </keys>
         </person>
 
@@ -696,10 +693,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>рубинчик</key>
+                <key>рубинчика</key>
+                <key>рубинчику</key>
+                <key>рубинчиком</key>
+                <key>рубинчике</key>
             </keys>
         </person>
 
@@ -710,10 +708,7 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>ли</key>
             </keys>
         </person>
 
@@ -724,10 +719,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>бондарчук</key>
+                <key>бондарчука</key> 
+                <key>бондарчуку</key>
+                <key>бондарчуком</key>
+                <key>бондарчуке</key>
             </keys>
         </person>
 
@@ -738,10 +734,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>круз</key>
+                <key>круза</key>
+                <key>крузу</key>
+                <key>крузом</key>
+                <key>крузе</key>
             </keys>
         </person>
 
@@ -752,10 +749,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>джексон</key>
+                <key>джексона</key>
+                <key>джексону</key>
+                <key>джексоном</key>
+                <key>джексоне</key>
             </keys>
         </person>
 
@@ -766,10 +764,11 @@
             <gender>m</gender>
             <nationality>Russia</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>трофименков</key>
+                <key>трофименкова</key>
+                <key>трофименкову</key>
+                <key>трофименковым</key>
+                <key>трофименкове</key>
             </keys>
         </person>
 
@@ -780,10 +779,11 @@
             <gender>m</gender>
             <nationality>Russia</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>волобуев</key>
+                <key>волобуева</key>
+                <key>волобуеву</key>
+                <key>волобуевым</key>
+                <key>волобуеве</key>
             </keys>
         </person>
 
@@ -794,10 +794,11 @@
             <gender>m</gender>
             <nationality>Russia</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>чувиляев</key>
+                <key>чувиляева</key>
+                <key>чувиляеву</key>
+                <key>чувиляевым</key>
+                <key>чувиляеве</key>
             </keys>
         </person>
 
@@ -808,10 +809,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>гайдай</key>
+                <key>гайдая</key>
+                <key>гайдаю</key>
+                <key>гайдаем</key>
+                <key>гайдае</key>
             </keys>
         </person>
 
@@ -822,10 +824,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>леонов</key>
+                <key>леонова</key>
+                <key>леонову</key>
+                <key>леоновым</key>
+                <key>леонове</key>
             </keys>
         </person>
 
@@ -836,10 +839,11 @@
             <gender>f</gender>
             <nationality>Soviet</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>пугачев</key>
+                <key>пугачеву</key>
+                <key>пугачевой</key>
+                <key>пугачевой</key>
+                <key>пугачевой</key>
             </keys>
         </person>
 
@@ -850,10 +854,11 @@
             <gender>m</gender>
             <nationality>Britain</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>далтон</key>
+                <key>далтона</key>
+                <key>далтону</key>
+                <key>далтоном</key>
+                <key>далтоне</key>
             </keys>
         </person>
 
@@ -864,10 +869,11 @@
             <gender>m</gender>
             <nationality>France</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>де Фюнес</key>
+                <key>де Фюнеса</key>
+                <key>де Фюнесу</key>
+                <key>де Фюнесом</key>
+                <key>де Фюнесе</key>
             </keys>
         </person>
 
@@ -878,10 +884,7 @@
             <gender>m</gender>
             <nationality>France</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>маре</key>
             </keys>
         </person>
 
@@ -892,10 +895,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>рурк</key>
+                <key>рурка</key>
+                <key>рурку</key>
+                <key>рурком</key>
+                <key>рурке</key>
             </keys>
         </person>
 
@@ -907,10 +911,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>малкович</key>
+                <key>малковича</key>
+                <key>малковичу</key>
+                <key>малковичом</key>
+                <key>малковиче</key>
             </keys>
         </person>
 
@@ -922,10 +927,11 @@
             <gender>m</gender>
             <nationality>France</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>верн</key>
+                <key>верна</key>
+                <key>верну</key>
+                <key>верном</key>
+                <key>верне</key>
             </keys>
         </person>
 
@@ -936,10 +942,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>форман</key>
+                <key>формана</key>
+                <key>форману</key>
+                <key>форманом</key>
+                <key>формане</key>
             </keys>
         </person>
 
@@ -950,10 +957,11 @@
             <gender>m</gender>
             <nationality>USA</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>хопкинс</key>
+                <key>хопкинса</key>
+                <key>хопкинсу</key>
+                <key>хопкинсом</key>
+                <key>хопкинсе</key>
             </keys>
         </person>
 
@@ -964,10 +972,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>эйзенштейн</key>
+                <key>эйзенштейна</key>
+                <key>эйзенштейну</key>
+                <key>эйзенштейном</key>
+                <key>эйзенштейне</key>
             </keys>
         </person>
 
@@ -978,10 +987,11 @@
             <gender>m</gender>
             <nationality>USSR</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>вертов</key>
+                <key>вертова</key>
+                <key>вертову</key>
+                <key>вертовым</key>
+                <key>вертове</key>
             </keys>
         </person>
 
@@ -992,10 +1002,7 @@
             <gender>m</gender>
             <nationality>Italy</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>бертолуччи</key>       
             </keys>
         </person>
 
