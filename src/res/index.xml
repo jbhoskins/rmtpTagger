@@ -1013,10 +1013,11 @@
             <gender>m</gender>
             <nationality>Britain</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>гринуэй</key>
+                <key>гринуэя</key>
+                <key>гринуэю</key>
+                <key>гринуэем</key>
+                <key>гринуэе</key>
             </keys>
         </person>
 
@@ -1027,10 +1028,11 @@
             <gender>m</gender>
             <nationality>France</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>каракс</key>
+                <key>каракса</key>
+                <key>караксу</key>
+                <key>караксом</key>
+                <key>караксе</key>       
             </keys>
         </person>
 
@@ -1041,10 +1043,11 @@
             <gender>m</gender>
             <nationality>France</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>гаспар</key>
+                <key>гаспарa</key> 
+                <key>гаспарa</key>
+                <key>гаспаром</key>
+                <key>гаспаре</key>
             </keys>
         </person>
 
@@ -1055,10 +1058,11 @@
             <gender>m</gender>
             <nationality>France</nationality>
             <keys>
-                <key>test</key>
-                <key>blahblah</key>
-                <key>test</key>
-                <key>blahblah</key>
+                <key>кассель</key>
+                <key>касселя</key>
+                <key>касселя</key>
+                <key>касселем</key>
+                <key>касселе</key>
             </keys>
         </person>
 
