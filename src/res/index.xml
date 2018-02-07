@@ -869,11 +869,11 @@
             <gender>m</gender>
             <nationality>France</nationality>
             <keys>
-                <key>де Фюнес</key>
-                <key>де Фюнеса</key>
-                <key>де Фюнесу</key>
-                <key>де Фюнесом</key>
-                <key>де Фюнесе</key>
+                <key>Фюнес</key>
+                <key>Фюнеса</key>
+                <key>Фюнесу</key>
+                <key>Фюнесом</key>
+                <key>Фюнесе</key>
             </keys>
         </person>
 
@@ -1788,6 +1788,13 @@
             <genre>disney</genre>
             <year>1992</year>
             <imdb>http://www.imdb.com/title/tt0103639/</imdb>
+            <keys>
+                <key>алладин</key>
+                <key>алладина</key>
+                <key>алладину</key>
+                <key>алладином</key>
+                <key>алладине</key>
+            </keys>
         </title>
 
         <title xml:id="theLittleMermaid">
