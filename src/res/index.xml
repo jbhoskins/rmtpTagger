@@ -206,7 +206,7 @@
     </metaPersons>
 
     <persons>
-       
+
         <person xml:id="andreiTarkovskii">
             <role>director</role>
             <surname>Tarkovskii</surname>
@@ -444,7 +444,7 @@
                 <key>карваю</key>
                 <key>карваем</key>
                 <key>карвае</key>
-                
+
             </keys>
         </person>
 
@@ -493,9 +493,9 @@
             <nationality>USA</nationality>
             <keys>
                 <key>депп</key>
-                <key>деппа</key> 
+                <key>деппа</key>
                 <key>деппу</key>
-                <key>деппом</key> 
+                <key>деппом</key>
                 <key>деппе</key>
             </keys>
         </person>
@@ -720,7 +720,7 @@
             <nationality>USSR</nationality>
             <keys>
                 <key>бондарчук</key>
-                <key>бондарчука</key> 
+                <key>бондарчука</key>
                 <key>бондарчуку</key>
                 <key>бондарчуком</key>
                 <key>бондарчуке</key>
@@ -1002,7 +1002,7 @@
             <gender>m</gender>
             <nationality>Italy</nationality>
             <keys>
-                <key>бертолуччи</key>       
+                <key>бертолуччи</key>
             </keys>
         </person>
 
@@ -1032,7 +1032,7 @@
                 <key>каракса</key>
                 <key>караксу</key>
                 <key>караксом</key>
-                <key>караксе</key>       
+                <key>караксе</key>
             </keys>
         </person>
 
@@ -1044,7 +1044,7 @@
             <nationality>France</nationality>
             <keys>
                 <key>гаспар</key>
-                <key>гаспарa</key> 
+                <key>гаспарa</key>
                 <key>гаспарa</key>
                 <key>гаспару</key>
                 <key>гаспаром</key>
@@ -1078,7 +1078,7 @@
                 <key>гуэрра</key>
             </keys>
         </person>
-        
+
         <person xml:id="celentano">
             <role>actor and singer</role>
             <surname>Celentano</surname>
@@ -1089,7 +1089,7 @@
                 <key>челентано</key>
             </keys>
         </person>
-        
+
         <person xml:id="gere">
             <role>actor</role>
             <surname>Gere</surname>
@@ -1105,8 +1105,8 @@
                 <key>гире</key>
             </keys>
         </person>
-     
-         <person xml:id="robertsJ">
+
+        <person xml:id="robertsJ">
             <role>actor</role>
             <surname>Roberts</surname>
             <forename>Julia</forename>
@@ -1116,8 +1116,8 @@
                 <key>робертс</key>
             </keys>
         </person>
-        
-         <person xml:id="delon">
+
+        <person xml:id="delon">
             <role>actor</role>
             <surname>Delon</surname>
             <forename>Alain</forename>
@@ -1132,8 +1132,8 @@
                 <key>делоне</key>
             </keys>
         </person>
-        
-         <person xml:id="loren">
+
+        <person xml:id="loren">
             <role>actor</role>
             <surname>Loren</surname>
             <forename>Sophia</forename>
@@ -1143,7 +1143,7 @@
                 <key>лорен</key>
             </keys>
         </person>
-        
+
         <person xml:id="swayze">
             <role>actor</role>
             <surname>Swayze</surname>
@@ -1154,7 +1154,7 @@
                 <key>суэйзи</key>
             </keys>
         </person>
-        
+
         <person xml:id="gromova">
             <role>character</role>
             <surname>Gromova</surname>
@@ -1170,7 +1170,7 @@
                 <key>громовой</key>
             </keys>
         </person>
-        
+
         <person xml:id="shevtsova">
             <role>character</role>
             <surname>Shevtsova</surname>
@@ -1185,7 +1185,7 @@
                 <key>шевцовой</key>
             </keys>
         </person>
-        
+
         <person xml:id="chkalov">
             <role>pilot</role>
             <surname>Chkalov</surname>
@@ -1201,7 +1201,7 @@
                 <key>чкалове</key>
             </keys>
         </person>
-        
+
         <person xml:id="kholodnaia">
             <role>actor</role>
             <surname>Kholodnaia</surname>
@@ -1217,7 +1217,7 @@
                 <key>холодной</key>
             </keys>
         </person>
-        
+
         <person xml:id="dietrich">
             <role>actor</role>
             <surname>Dietrich</surname>
@@ -1228,7 +1228,7 @@
                 <key>дитрих</key>
             </keys>
         </person>
-        
+
         <person xml:id="garbo">
             <role>actor</role>
             <surname>Garbo</surname>
@@ -1239,7 +1239,7 @@
                 <key>гарбо</key>
             </keys>
         </person>
-        
+
         <person xml:id="zheimo">
             <role>actor</role>
             <surname>Zheimo</surname>
@@ -1250,7 +1250,7 @@
                 <key>жеймо</key>
             </keys>
         </person>
-        
+
         <person xml:id="garin">
             <role>actor</role>
             <surname>Garin</surname>
@@ -1259,14 +1259,14 @@
             <nationality>USSR</nationality>
             <keys>
                 <key>гарин</key>
-                <key>гарина</key> 
                 <key>гарина</key>
-                <key>гарину</key> 
+                <key>гарина</key>
+                <key>гарину</key>
                 <key>гариным</key>
                 <key>гарине</key>
             </keys>
         </person>
-        
+
         <person xml:id="ranevskaia">
             <role>actor</role>
             <surname>Ranevskaia</surname>
@@ -1282,7 +1282,7 @@
                 <key>раневской</key>
             </keys>
         </person>
-        
+
         <person xml:id="strauss">
             <role>composer</role>
             <surname>Strauss</surname>
@@ -1298,7 +1298,7 @@
                 <key>штраусе</key>
             </keys>
         </person>
-        
+
         <person xml:id="rybnikov">
             <role>actor</role>
             <surname>Rybnikov</surname>
@@ -1314,7 +1314,7 @@
                 <key>рыбникове</key>
             </keys>
         </person>
-        
+
         <person xml:id="ilinskii">
             <role>actor</role>
             <surname>Il'inskii</surname>
@@ -1330,7 +1330,7 @@
                 <key>ильинском</key>
             </keys>
         </person>
-        
+
         <person xml:id="chekhov">
             <role>writer</role>
             <surname>Chekhov</surname>
@@ -1346,7 +1346,7 @@
                 <key>чехове</key>
             </keys>
         </person>
-        
+
         <person xml:id="dostoevskii">
             <role>writer</role>
             <surname>Dostoevskii</surname>
@@ -1362,7 +1362,7 @@
                 <key>достоевском</key>
             </keys>
         </person>
-        
+
         <person xml:id="tolstoi">
             <role>writer</role>
             <surname>Tolstoi</surname>
@@ -1378,8 +1378,8 @@
                 <key>толстом</key>
             </keys>
         </person>
-        
-        
+
+
         <person xml:id="tolstoi2">
             <role>writer</role>
             <surname>Tolstoi</surname>
@@ -1395,7 +1395,7 @@
                 <key>толстом</key>
             </keys>
         </person>
-        
+
         <person xml:id="turgenev">
             <role>writer</role>
             <surname>Turgenev</surname>
@@ -1411,7 +1411,7 @@
                 <key>тургеневе</key>
             </keys>
         </person>
-        
+
         <person xml:id="smoktunovskii">
             <role>actor</role>
             <surname>Smoktunovskii</surname>
@@ -1420,14 +1420,14 @@
             <nationality>USSR</nationality>
             <keys>
                 <key>смоктуновский</key>
-                <key>смоктуновского</key>                
+                <key>смоктуновского</key>
                 <key>смоктуновского</key>
                 <key>смоктуновскому</key>
                 <key>смоктуновским</key>
                 <key>смоктуновском</key>
             </keys>
         </person>
-        
+
         <person xml:id="basilashvili">
             <role>actor</role>
             <surname>Basilashvili</surname>
@@ -1438,7 +1438,7 @@
                 <key>басилашвили</key>
             </keys>
         </person>
-        
+
         <person xml:id="freindlikh">
             <role>actor</role>
             <surname>Freindlikh</surname>
@@ -1449,7 +1449,7 @@
                 <key>фрейндлих</key>
             </keys>
         </person>
-        
+
         <person xml:id="kuznetsovAl">
             <role>actor</role>
             <surname>Kuznetsov</surname>
@@ -1465,7 +1465,7 @@
                 <key>кузнецове</key>
             </keys>
         </person>
-        
+
         <person xml:id="kuznetsovAn">
             <role>actor</role>
             <surname>Kuznetsov</surname>
@@ -1481,7 +1481,7 @@
                 <key>кузнецове</key>
             </keys>
         </person>
-        
+
         <person xml:id="batalov">
             <role>actor</role>
             <surname>Batalov</surname>
@@ -1497,7 +1497,7 @@
                 <key>баталове</key>
             </keys>
         </person>
-        
+
         <person xml:id="dumas">
             <role>writer</role>
             <surname>Dumas</surname>
@@ -1508,7 +1508,7 @@
                 <key>дюма</key>
             </keys>
         </person>
-        
+
         <person xml:id="schneider">
             <role>actor</role>
             <surname>Schneider</surname>
@@ -1519,7 +1519,7 @@
                 <key>шнейдер</key>
             </keys>
         </person>
-        
+
         <person xml:id="funes">
             <role>actor</role>
             <surname>de Funes</surname>
@@ -1535,7 +1535,7 @@
                 <key>де Фюнесе</key>
             </keys>
         </person>
-        
+
         <person xml:id="brezhnev">
             <role>General Secretary of the Communist Party </role>
             <surname>Brezhnev</surname>
@@ -1551,7 +1551,7 @@
                 <key>брежневе</key>
             </keys>
         </person>
-        
+
         <person xml:id="gubenko">
             <role>director </role>
             <surname>Gubenko</surname>
@@ -1562,7 +1562,7 @@
                 <key>губенко</key>
             </keys>
         </person>
-        
+
         <person xml:id="bolotova">
             <role>actor </role>
             <surname>Bolotova</surname>
@@ -1578,7 +1578,7 @@
                 <key>болотовой</key>
             </keys>
         </person>
-        
+
         <person xml:id="gabin">
             <role>actor </role>
             <surname>Gabin</surname>
@@ -1592,7 +1592,7 @@
                 <key>blahblah</key>
             </keys>
         </person>
-        
+
         <person xml:id="monroe">
             <role>actor </role>
             <surname>Monroe</surname>
@@ -1603,7 +1603,7 @@
                 <key>монро</key>
             </keys>
         </person>
-        
+
         <person xml:id="savelyeva">
             <role>actor </role>
             <surname>Savel'eva</surname>
@@ -1619,7 +1619,7 @@
                 <key>савельевой</key>
             </keys>
         </person>
-        
+
         <person xml:id="rostova">
             <role>character</role>
             <surname>Rostova</surname>
@@ -1635,7 +1635,7 @@
                 <key>ростовой</key>
             </keys>
         </person>
-        
+
         <person xml:id="bulgakov">
             <role>writer</role>
             <surname>Bulgakov</surname>
@@ -1651,7 +1651,7 @@
                 <key>булгакове</key>
             </keys>
         </person>
-        
+
         <person xml:id="nicholson">
             <role>actor</role>
             <surname>Nicholson</surname>
@@ -1662,12 +1662,12 @@
                 <key>николсон</key>
                 <key>николсона</key>
                 <key>николсона</key>
-                <key>николсону</key>              
+                <key>николсону</key>
                 <key>николсоном</key>
                 <key>николсоне</key>
             </keys>
         </person>
-        
+
         <person xml:id="seryi">
             <role>director</role>
             <surname>Seryi</surname>
@@ -1683,7 +1683,7 @@
                 <key>сером</key>
             </keys>
         </person>
-        
+
         <person xml:id="mironov">
             <role>actor</role>
             <surname>Mironov</surname>
@@ -1699,7 +1699,7 @@
                 <key>миронове</key>
             </keys>
         </person>
-        
+
         <person xml:id="mkrtchian">
             <role>actor</role>
             <surname>Mkrtchian</surname>
@@ -1715,7 +1715,7 @@
                 <key>мкртчяне</key>
             </keys>
         </person>
-        
+
         <person xml:id="daneliia">
             <role>actor</role>
             <surname>Daneliia</surname>
@@ -1731,7 +1731,7 @@
                 <key>данелии</key>
             </keys>
         </person>
-        
+
         <person xml:id="solovyov">
             <role>director</role>
             <surname>Solovyov</surname>
@@ -1747,7 +1747,7 @@
                 <key>соловьеве</key>
             </keys>
         </person>
-        
+
         <person xml:id="drubich">
             <role>actor</role>
             <surname>Drubich</surname>
@@ -1758,7 +1758,7 @@
                 <key>друбич</key>
             </keys>
         </person>
-        
+
         <person xml:id="papanov">
             <role>actor</role>
             <surname>Papanov</surname>
@@ -1774,7 +1774,7 @@
                 <key>папанове</key>
             </keys>
         </person>
-        
+
     </persons>
 
     <titles>
@@ -1806,6 +1806,14 @@
             <genre>disney</genre>
             <year>1989</year>
             <imdb>http://www.imdb.com/title/tt0097757/</imdb>
+            <keys>
+                <key>русалочка</key>
+                <key>русалочку</key>
+                <key>русалочки</key>
+                <key>русалочке</key>
+                <key>русалочкой</key>
+                <key>русалочке</key>
+            </keys>
         </title>
 
         <title xml:id="beautyBeast">
@@ -1816,9 +1824,17 @@
             <country>USA</country>
             <genre>disney</genre>
             <year>1991</year>
-            <imdb>http://www.imdb.com/title/tt0101414/</imdb>  
+            <imdb>http://www.imdb.com/title/tt0101414/</imdb>
+            <keys>
+                <key>красавица и чудовище</key>
+                <key>красавицу и чудовище</key>
+                <key>красавицы и чудовища</key>
+                <key>красавице и чудовищу</key>
+                <key>красавицей и чудовищем</key>
+                <key>красавице и чудовище</key>
+            </keys>
         </title>
-        
+
         <title xml:id="heat">
             <fullTitleEng>Heat</fullTitleEng>
             <fullTitleRus>Схватка</fullTitleRus>
@@ -1828,6 +1844,14 @@
             <genre>crime</genre>
             <year>1995</year>
             <imdb>http://www.imdb.com/title/tt0113277/</imdb>
+            <keys>
+                <key>схватка</key>
+                <key>схватку</key>
+                <key>схватки</key>
+                <key>схватке</key>
+                <key>схваткой</key>
+                <key>схватке</key>
+            </keys>
         </title>
 
         <title xml:id="playingVictim">
@@ -1839,6 +1863,12 @@
             <genre>black comedy</genre>
             <year>2006</year>
             <imdb>http://www.imdb.com/title/tt0820096/</imdb>
+            <keys>
+                <key>изображая жертву</key>
+            </keys>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="straightStory">
@@ -1850,8 +1880,16 @@
             <genre>drama</genre>
             <year>1999</year>
             <imdb>http://www.imdb.com/title/tt0166896/</imdb>
+            <keys>
+                <key>простая история</key>
+                <key>простую историю</key>
+                <key>простой истории</key>
+                <key>простой истории</key>
+                <key>простой историей</key>
+                <key>простой истории</key>
+            </keys>
         </title>
-        
+
         <title xml:id="wildHeart">
             <fullTitleEng>Wild at Heart</fullTitleEng>
             <fullTitleRus>Дикие сердцем</fullTitleRus>
@@ -1861,6 +1899,14 @@
             <genre>crime thriller</genre>
             <year>1990</year>
             <imdb>http://www.imdb.com/title/tt0100935/</imdb>
+            <keys>
+                <key>дикие сердцем</key>
+                <key>диких сердцем</key>
+                <key>диких сердцем</key>
+                <key>диким сердцем</key>
+                <key>дикими сердцем</key>
+                <key>диких сердцем</key>
+            </keys>
         </title>
 
         <title xml:id="melancholy">
@@ -1872,6 +1918,9 @@
             <genre>artistic</genre>
             <year>2011</year>
             <imdb>http://www.imdb.com/title/tt1527186/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="moodForLove">
@@ -1883,6 +1932,14 @@
             <genre>artistic</genre>
             <year>2000</year>
             <imdb>http://www.imdb.com/title/tt0118694/</imdb>
+            <keys>
+                <key>любовное настроение</key>
+                <key>любовное настроение</key>
+                <key>любовного настроения</key>
+                <key>любовному настроению</key>
+                <key>любовным настроением</key>
+                <key>любовном настроении</key>
+            </keys>
         </title>
 
         <title xml:id="mavericks">
@@ -1894,6 +1951,14 @@
             <genre>drama</genre>
             <year>2012</year>
             <imdb>http://www.imdb.com/title/tt1629757/</imdb>
+            <keys>
+                <key>покорители волн</key>
+                <key>покорителей волн</key>
+                <key>покорителей волн</key>
+                <key>покорителям волн</key>
+                <key>покорителями волн</key>
+                <key>покорителях волн</key>
+            </keys>
         </title>
 
         <title xml:id="piratesCaribbean">
@@ -1905,8 +1970,16 @@
             <genre>fantasy</genre>
             <year>2006</year>
             <imdb>http://www.imdb.com/title/tt0383574/</imdb>
+            <keys>
+                <key>пираты Карибского моря</key>
+                <key>пиратов Карибского моря</key>
+                <key>пиратов Карибского моря</key>
+                <key>пиратам Карибского моря</key>
+                <key>пиратами Карибского моря</key>
+                <key>пиратах Карибского моря</key>
+            </keys>
         </title>
-        
+
         <title xml:id="aceVentura">
             <fullTitleEng>Ace Ventura: Pet Detective</fullTitleEng>
             <fullTitleRus>Эйс Вентура: Розыск домашних животных</fullTitleRus>
@@ -1916,6 +1989,14 @@
             <genre>comedy</genre>
             <year>1994</year>
             <imdb>http://www.imdb.com/title/tt0109040/</imdb>
+            <keys>
+                <key>Эйс Вентура: розыск домашних животных</key>
+                <key>Эйса Вентуру: розыск домашних животных</key>
+                <key>Эйса Вентуры: розыск домашних животных</key>
+                <key>Эйсу Вентуре: розыск домашних животных</key>
+                <key>Эйсом Вентурой: розыск домашних животных</key>
+                <key>Эйсе Вентуре: розыск домашних животных</key>
+            </keys>
         </title>
 
         <title xml:id="godfather">
@@ -1927,6 +2008,14 @@
             <genre>crime drama</genre>
             <year>1972</year>
             <imdb>http://www.imdb.com/title/tt0068646/</imdb>
+            <keys>
+                <key>крестный отец</key>
+                <key>крестного отца</key>
+                <key>крестного отца</key>
+                <key>крестному отцу</key>
+                <key>крестным отцом</key>
+                <key>крестном отце</key>
+            </keys>
         </title>
 
         <title xml:id="brigade">
@@ -1938,6 +2027,14 @@
             <genre>crime drama</genre>
             <year>2002</year>
             <imdb>http://www.imdb.com/title/tt0337898/</imdb>
+            <keys>
+                <key>бригада</key>
+                <key>бригаду</key>
+                <key>бригады</key>
+                <key>бригаде</key>
+                <key>бригадой</key>
+                <key>бригаде</key>
+            </keys>
         </title>
 
 
@@ -1950,6 +2047,14 @@
             <genre>crime drama</genre>
             <year>1997</year>
             <imdb>http://www.imdb.com/title/tt0118767/</imdb>
+            <keys>
+                <key>брат</key>
+                <key>брата</key>
+                <key>брата</key>
+                <key>брате</key>
+                <key>братом</key>
+                <key>брате</key>
+            </keys>
         </title>
 
         <title xml:id="brother2">
@@ -1961,6 +2066,14 @@
             <genre>crime drama</genre>
             <year>2000</year>
             <imdb>http://www.imdb.com/title/tt0238883/</imdb>
+            <keys>
+                <key>брат 2</key>
+                <key>брата 2</key>
+                <key>брата 2</key>
+                <key>брате 2</key>
+                <key>братом 2</key>
+                <key>брате 2</key>
+            </keys>
         </title>
 
         <title xml:id="lifeIsBeautiful">
@@ -1972,6 +2085,14 @@
             <genre>drama</genre>
             <year>1997</year>
             <imdb>http://www.imdb.com/title/tt0118799/</imdb>
+            <keys>
+                <key>жизнь прекрасна</key>
+                <key>жизнь прекрасна</key>
+                <key>жизни прекрасна</key>
+                <key>жизни прекрасна</key>
+                <key>жизнью прекрасна</key>
+                <key>жизни прекрасна</key>
+            </keys>
         </title>
 
         <title xml:id="mask">
@@ -1983,6 +2104,14 @@
             <genre>comedy</genre>
             <year>1994</year>
             <imdb>http://www.imdb.com/title/tt0110475/</imdb>
+            <keys>
+                <key>маска</key>
+                <key>маску</key>
+                <key>маски</key>
+                <key>маске</key>
+                <key>маской</key>
+                <key>маске</key>
+            </keys>
         </title>
 
         <title xml:id="ironman3">
@@ -1994,6 +2123,14 @@
             <genre>superhero</genre>
             <year>2013</year>
             <imdb>http://www.imdb.com/title/tt1300854/</imdb>
+            <keys>
+                <key>железный человек 3</key>
+                <key>железного человека 3</key>
+                <key>железного человека 3</key>
+                <key>железному человеку 3</key>
+                <key>железным человеком 3</key>
+                <key>железном человеке 3</key>
+            </keys>
         </title>
 
         <title xml:id="firstYearStudent">
@@ -2005,6 +2142,14 @@
             <genre>children's</genre>
             <year>1948</year>
             <imdb>http://www.imdb.com/title/tt0040689/</imdb>
+            <keys>
+                <key>первоклассница</key>
+                <key>первоклассницу</key>
+                <key>первоклассницы</key>
+                <key>первокласснице</key>
+                <key>первоклассницей</key>
+                <key>первокласснице</key>
+            </keys>
         </title>
 
         <title xml:id="romanHoliday">
@@ -2016,6 +2161,14 @@
             <genre>romantic comedy</genre>
             <year>1953</year>
             <imdb>http://www.imdb.com/title/tt0046250/</imdb>
+            <keys>
+                <key>римские каникулы<key/>
+                <key>римские каникулы<key/>
+                <key>римских каникул<key/>   
+                <key>римским каникулам<key/>
+                <key>римскими каникулами<key/>
+                 <key>римских каникулах<key/>
+            </keys>
         </title>
 
         <title xml:id="goneWithTheWind">
@@ -2027,6 +2180,9 @@
             <genre>melodrama</genre>
             <year>1953</year>
             <imdb>http://www.imdb.com/title/tt0031381/</imdb>
+            <keys>
+                <key><key/>
+            </keys>
         </title>
 
         <title xml:id="moscowDoesNotBelieveInTears">
@@ -2038,6 +2194,9 @@
             <genre>melodrama</genre>
             <year>1979</year>
             <imdb>http://www.imdb.com/title/tt0079579/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
 
@@ -2050,6 +2209,9 @@
             <genre>fairy tale</genre>
             <year>1939</year>
             <imdb>http://www.imdb.com/title/tt0167474/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
 
@@ -2062,6 +2224,9 @@
             <genre>art cinema</genre>
             <year>1969</year>
             <imdb>http://www.imdb.com/title/tt0063555/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="theIsland">
@@ -2073,6 +2238,9 @@
             <genre>drama</genre>
             <year>2006</year>
             <imdb>http://www.imdb.com/title/tt0851577/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="theAdmiral">
@@ -2084,6 +2252,9 @@
             <genre>melodrama</genre>
             <year>2008</year>
             <imdb>http://www.imdb.com/title/tt1101026/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="burntBySun2">
@@ -2095,6 +2266,9 @@
             <genre>war epic</genre>
             <year>2010</year>
             <imdb>http://www.imdb.com/title/tt1912518/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="ironyOfFate">
@@ -2110,6 +2284,9 @@
                 <key>ирония судьбы или с легким паром</key>
                 <key>иронию судьбы или с легким паром</key>
             </keys>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="piratesOfTheTwentiethCentury">
@@ -2121,6 +2298,9 @@
             <genre>action</genre>
             <year>1979</year>
             <imdb>http://www.imdb.com/title/tt0151987/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="tenLittleIndians">
@@ -2132,6 +2312,9 @@
             <genre>murder mystery</genre>
             <year>1987</year>
             <imdb>http://www.imdb.com/title/tt0092879/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="coldSummer">
@@ -2143,6 +2326,9 @@
             <genre>drama</genre>
             <year>1988</year>
             <imdb>http://www.imdb.com/title/tt0095441/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="nineAndHalfWeeks">
@@ -2154,6 +2340,9 @@
             <genre>erotic</genre>
             <year>1986</year>
             <imdb>http://www.imdb.com/title/tt0091635/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="windowOnParis">
@@ -2165,6 +2354,9 @@
             <genre>comedy</genre>
             <year>1993</year>
             <imdb>http://www.imdb.com/title/tt0110719/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="savageHuntKingStakh">
@@ -2176,6 +2368,9 @@
             <genre>thriller</genre>
             <year>1979</year>
             <imdb>http://www.imdb.com/title/tt0128164/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="pinkCloud">
@@ -2187,6 +2382,9 @@
             <genre>erotic</genre>
             <year>2005</year>
             <imdb>http://www.imdb.com/title/tt0445760/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="transformers">
@@ -2198,6 +2396,9 @@
             <genre>science fiction</genre>
             <year>2007</year>
             <imdb>http://www.imdb.com/title/tt0418279/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="worldWarZ">
@@ -2209,6 +2410,9 @@
             <genre>action thriller</genre>
             <year>2013</year>
             <imdb>http://www.imdb.com/title/tt0816711/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="hobbit">
@@ -2220,6 +2424,9 @@
             <genre>fantasy</genre>
             <year>2012</year>
             <imdb>http://www.imdb.com/title/tt0903624/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="lifeOfAdele">
@@ -2231,6 +2438,9 @@
             <genre>drama</genre>
             <year>2013</year>
             <imdb>http://www.imdb.com/title/tt2278871/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="inTheAnimalWorld">
@@ -2241,7 +2451,10 @@
             <country>USSR</country>
             <genre>TV show</genre>
             <year>1968</year>
-            <imdb></imdb>
+            <imdb/>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
 
@@ -2254,6 +2467,9 @@
             <genre>comedy</genre>
             <year>1968</year>
             <imdb>http://www.imdb.com/title/tt0062759/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="elusiveAvengers">
@@ -2265,6 +2481,9 @@
             <genre>adventure</genre>
             <year>1966</year>
             <imdb>http://www.imdb.com/title/tt0060747/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="swanLake">
@@ -2276,6 +2495,9 @@
             <genre>film-ballet</genre>
             <year>1958</year>
             <imdb>http://www.imdb.com/title/tt0165855/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="womanWhoSings">
@@ -2287,6 +2509,9 @@
             <genre>musical</genre>
             <year>1979</year>
             <imdb>http://www.imdb.com/title/tt0169403/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="troy">
@@ -2298,6 +2523,9 @@
             <genre>epic</genre>
             <year>2004</year>
             <imdb>http://www.imdb.com/title/tt0332452/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="spartacus">
@@ -2309,6 +2537,9 @@
             <genre>epic</genre>
             <year>1960</year>
             <imdb>http://www.imdb.com/title/tt0054331/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="alexander">
@@ -2320,6 +2551,9 @@
             <genre>epic</genre>
             <year>2004</year>
             <imdb>http://www.imdb.com/title/tt0346491/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
 
@@ -2332,6 +2566,9 @@
             <genre>adaptation</genre>
             <year>1983</year>
             <imdb>http://www.imdb.com/title/tt0085037/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="dumbAndDumber">
@@ -2343,6 +2580,9 @@
             <genre>comedy</genre>
             <year>1994</year>
             <imdb>http://www.imdb.com/title/tt0109686/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="pi">
@@ -2354,6 +2594,9 @@
             <genre>thriller</genre>
             <year>1998</year>
             <imdb>http://www.imdb.com/title/tt0138704/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="spokNochi">
@@ -2365,6 +2608,9 @@
             <genre>TV show</genre>
             <year>1998</year>
             <imdb>http://www.imdb.com/title/tt3994982/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="childrenOfCaptainGrant">
@@ -2376,6 +2622,9 @@
             <genre>adventure</genre>
             <year>1936</year>
             <imdb>http://www.imdb.com/title/tt0027516/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="unclеBoonmee">
@@ -2387,10 +2636,13 @@
             <genre>art cinema</genre>
             <year>2010</year>
             <imdb>http://www.imdb.com/title/tt1588895/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="ivanVasilevichChangesJobs">
-            <fullTitleEng>Ivan Vasilievich: Back to the Future</fullTitleEng> 
+            <fullTitleEng>Ivan Vasilievich: Back to the Future</fullTitleEng>
             <fullTitleRus>Иван Васильевич меняет профессию</fullTitleRus>
             <director>Leonid Gaidai</director>
             <medium>film</medium>
@@ -2398,6 +2650,9 @@
             <genre>comedy</genre>
             <year>1973</year>
             <imdb>http://www.imdb.com/title/tt0070233/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="warAndPeace">
@@ -2409,6 +2664,9 @@
             <genre>epic</genre>
             <year>1967</year>
             <imdb>http://www.imdb.com/title/tt0062456/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="juno">
@@ -2420,6 +2678,9 @@
             <genre>comedy</genre>
             <year>2007</year>
             <imdb>http://www.imdb.com/title/tt0467406/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
 
         <title xml:id="rockyBullwinkle">
@@ -2431,8 +2692,11 @@
             <genre>cartoon</genre>
             <year>1960</year>
             <imdb>http://www.imdb.com/title/tt0054524/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="irreversible">
             <fullTitleEng>Irreversible</fullTitleEng>
             <fullTitleRus>Необратимость</fullTitleRus>
@@ -2442,8 +2706,11 @@
             <genre>thriller</genre>
             <year>2002</year>
             <imdb>http://www.imdb.com/title/tt0290673/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="youngGuard">
             <fullTitleEng>The Young Guard</fullTitleEng>
             <fullTitleRus>Молодая гвардия</fullTitleRus>
@@ -2453,42 +2720,54 @@
             <genre>war film</genre>
             <year>1948</year>
             <imdb>http://www.imdb.com/title/tt0040601/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
-          <title xml:id="seventeenMoments">
+
+        <title xml:id="seventeenMoments">
             <fullTitleEng>Seventeen Moments of Spring</fullTitleEng>
-              <fullTitleRus>Семнадцать мгновений весны</fullTitleRus>
+            <fullTitleRus>Семнадцать мгновений весны</fullTitleRus>
             <director>Tat'ana Lioznova</director>
             <medium>television</medium>
             <country>USSR</country>
             <genre>spy thriller</genre>
             <year>1973</year>
             <imdb>http://www.imdb.com/title/tt0069628/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
-        
-          <title xml:id="morozko">
+
+
+        <title xml:id="morozko">
             <fullTitleEng>Morozko</fullTitleEng>
-              <fullTitleRus>Морозко</fullTitleRus>
+            <fullTitleRus>Морозко</fullTitleRus>
             <director>Aleksandr Rou</director>
             <medium>film</medium>
             <country>USSR</country>
             <genre>skazka</genre>
             <year>1964</year>
-              <imdb>http://www.imdb.com/title/tt0058374/</imdb>
+            <imdb>http://www.imdb.com/title/tt0058374/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
-           <title xml:id="ivanBrovkin">
+
+        <title xml:id="ivanBrovkin">
             <fullTitleEng>Ivan Brovkin at the Virgin Lands</fullTitleEng>
-               <fullTitleRus>Иван Бровкин на целине</fullTitleRus>
+            <fullTitleRus>Иван Бровкин на целине</fullTitleRus>
             <director>Ivan Lukinskii</director>
             <medium>film</medium>
             <country>USSR</country>
             <genre>comedy</genre>
             <year>1959</year>
-               <imdb>http://www.imdb.com/title/tt0051789/</imdb>
+            <imdb>http://www.imdb.com/title/tt0051789/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="chapaev">
             <fullTitleEng>Chapaev</fullTitleEng>
             <fullTitleRus>Чапаев</fullTitleRus>
@@ -2498,8 +2777,11 @@
             <genre>biopic</genre>
             <year>1934</year>
             <imdb>http://www.imdb.com/title/tt0024966/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="cinderella">
             <fullTitleEng>Cinderella</fullTitleEng>
             <fullTitleRus>Золушка</fullTitleRus>
@@ -2509,8 +2791,11 @@
             <genre>skazka</genre>
             <year>1947</year>
             <imdb>http://www.imdb.com/title/tt0168269/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="greatWaltz">
             <fullTitleEng>The Great Waltz</fullTitleEng>
             <fullTitleRus>Большой вальс</fullTitleRus>
@@ -2520,8 +2805,11 @@
             <genre>biopic</genre>
             <year>1938</year>
             <imdb>http://www.imdb.com/title/tt0030202/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="jorgenDay">
             <fullTitleEng>St. Jorgen's Day</fullTitleEng>
             <fullTitleRus>Праздник святого Йоргена</fullTitleRus>
@@ -2531,8 +2819,11 @@
             <genre>comedy</genre>
             <year>1930</year>
             <imdb>http://www.imdb.com/title/tt0021268/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="warAndPeaceAm">
             <fullTitleEng>War and Peace</fullTitleEng>
             <fullTitleRus>Война и мир</fullTitleRus>
@@ -2542,8 +2833,11 @@
             <genre>adaptation</genre>
             <year>1956</year>
             <imdb>http://www.imdb.com/title/tt0049934/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="admiralUshakov">
             <fullTitleEng>Admiral Ushakov</fullTitleEng>
             <fullTitleRus>Адмирал Ушаков</fullTitleRus>
@@ -2553,8 +2847,11 @@
             <genre>biopic</genre>
             <year>1953</year>
             <imdb>http://www.imdb.com/title/tt0045473/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="gladiator">
             <fullTitleEng>Gladiator</fullTitleEng>
             <fullTitleRus>Гладиатор</fullTitleRus>
@@ -2564,8 +2861,11 @@
             <genre>epic</genre>
             <year>2000</year>
             <imdb>http://www.imdb.com/title/tt0172495/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="mumu">
             <fullTitleEng>Mumu</fullTitleEng>
             <fullTitleRus>Муму</fullTitleRus>
@@ -2575,8 +2875,11 @@
             <genre>adaptation</genre>
             <year>1998</year>
             <imdb>http://www.imdb.com/title/tt0129243/</imdb>
-        </title>   
-        
+            <keys>
+                <key/>
+            </keys>
+        </title>
+
         <title xml:id="iceAge">
             <fullTitleEng>Ice Age</fullTitleEng>
             <fullTitleRus>Ледниковый период</fullTitleRus>
@@ -2586,8 +2889,11 @@
             <genre>cartoon</genre>
             <year>2002</year>
             <imdb>http://www.imdb.com/title/tt0268380/</imdb>
-        </title>  
-        
+            <keys>
+                <key/>
+            </keys>
+        </title>
+
         <title xml:id="whiteSun">
             <fullTitleEng>White Sun of the Desert</fullTitleEng>
             <fullTitleRus>Белое солнце пустыни</fullTitleRus>
@@ -2597,8 +2903,11 @@
             <genre>western</genre>
             <year>1970</year>
             <imdb>http://www.imdb.com/title/tt0066565/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="ladyWithDog">
             <fullTitleEng>The lady with the Dog</fullTitleEng>
             <fullTitleRus>Дама с собачкой</fullTitleRus>
@@ -2608,8 +2917,11 @@
             <genre>melodrama</genre>
             <year>1960</year>
             <imdb>http://www.imdb.com/title/tt0053746/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="threeMusketeers">
             <fullTitleEng>The Three Musketeers</fullTitleEng>
             <fullTitleRus>Три мушкетера</fullTitleRus>
@@ -2619,8 +2931,11 @@
             <genre>adaptation</genre>
             <year>1953</year>
             <imdb>http://www.imdb.com/title/tt0046461/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="tearsOfBlood">
             <fullTitleEng>Tears of Blood</fullTitleEng>
             <fullTitleRus>И дождь смывает все следы</fullTitleRus>
@@ -2630,8 +2945,11 @@
             <genre>melodrama</genre>
             <year>1972</year>
             <imdb>http://www.imdb.com/title/tt0069441/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="fantomas">
             <fullTitleEng>Fantomas</fullTitleEng>
             <fullTitleRus>Фантомас</fullTitleRus>
@@ -2641,8 +2959,11 @@
             <genre>crime thriller / comedy</genre>
             <year>1964</year>
             <imdb>http://www.imdb.com/title/tt0058089/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="podranki">
             <fullTitleEng>Wounded game</fullTitleEng>
             <fullTitleRus>Подранки</fullTitleRus>
@@ -2652,8 +2973,11 @@
             <genre>drama</genre>
             <year>1977</year>
             <imdb>http://www.imdb.com/title/tt0075079/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="lifeTearsLove">
             <fullTitleEng>Life, Tears, and Love</fullTitleEng>
             <fullTitleRus>И жизнь, и следы, и любовь</fullTitleRus>
@@ -2663,8 +2987,11 @@
             <genre>drama</genre>
             <year>1973</year>
             <imdb>http://www.imdb.com/title/tt0167204/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="vacationers">
             <fullTitleEng>From the Life of Vacationers</fullTitleEng>
             <fullTitleRus>Из жизни отдыхающих</fullTitleRus>
@@ -2674,8 +3001,11 @@
             <genre>romantic comedy</genre>
             <year>1980</year>
             <imdb>http://www.imdb.com/title/tt0080939/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="flight">
             <fullTitleEng>The Flight</fullTitleEng>
             <fullTitleRus>Бег</fullTitleRus>
@@ -2685,8 +3015,11 @@
             <genre>adaptation</genre>
             <year>1970</year>
             <imdb>http://www.imdb.com/title/tt0065457/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="onceUponTime">
             <fullTitleEng>Once Upon a Time in America</fullTitleEng>
             <fullTitleRus>Однажды в Америке</fullTitleRus>
@@ -2696,9 +3029,12 @@
             <genre>crime drama</genre>
             <year>1984</year>
             <imdb>http://www.imdb.com/title/tt0087843/</imdb>
-            
+
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="oneFlewCuckoo">
             <fullTitleEng>One Flew Over the Cuckoo's Nest</fullTitleEng>
             <fullTitleRus>Полет над гнездом кукушки</fullTitleRus>
@@ -2708,8 +3044,11 @@
             <genre>drama</genre>
             <year>1975</year>
             <imdb>http://www.imdb.com/title/tt0073486/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="gentelmenFortune">
             <fullTitleEng>Gentelmen of Fortune</fullTitleEng>
             <fullTitleRus>Джентельмены удачи</fullTitleRus>
@@ -2719,8 +3058,11 @@
             <genre>comedy</genre>
             <year>1971</year>
             <imdb>http://www.imdb.com/title/tt0068519/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="nuPogodi">
             <fullTitleEng>Just You Wait!</fullTitleEng>
             <fullTitleRus>Ну, погоди!</fullTitleRus>
@@ -2730,8 +3072,11 @@
             <genre>cartoon series</genre>
             <year>1969</year>
             <imdb>http://www.imdb.com/title/tt0234355/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="mimino">
             <fullTitleEng>Mimino</fullTitleEng>
             <fullTitleRus>Мимино</fullTitleRus>
@@ -2741,8 +3086,11 @@
             <genre>comedy</genre>
             <year>1977</year>
             <imdb>http://www.imdb.com/title/tt0076391/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="casablanca">
             <fullTitleEng>Casablanca</fullTitleEng>
             <fullTitleRus>Касабланка</fullTitleRus>
@@ -2752,8 +3100,11 @@
             <genre>melodrama</genre>
             <year>1942</year>
             <imdb>http://www.imdb.com/title/tt0034583/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="annaKarenina">
             <fullTitleEng>Anna Karenina</fullTitleEng>
             <fullTitleRus>Анна Каренина</fullTitleRus>
@@ -2763,8 +3114,11 @@
             <genre>melodrama</genre>
             <year>2009</year>
             <imdb>http://www.imdb.com/title/tt0403726/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="copperMountMistress">
             <fullTitleEng>Mistress of the Copper Mountain</fullTitleEng>
             <fullTitleRus>Хозяйка медной горы</fullTitleRus>
@@ -2774,8 +3128,11 @@
             <genre>skazka</genre>
             <year>1946</year>
             <imdb>http://www.imdb.com/title/tt0038666/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="kingKong_2005">
             <fullTitleEng>King Kong</fullTitleEng>
             <fullTitleRus>Кинг Конг</fullTitleRus>
@@ -2785,8 +3142,11 @@
             <genre>monster film</genre>
             <year>2005</year>
             <imdb>http://www.imdb.com/title/tt0360717/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="officeRomance">
             <fullTitleEng>Office Romance</fullTitleEng>
             <fullTitleRus>Служебный роман</fullTitleRus>
@@ -2796,8 +3156,11 @@
             <genre>comedy</genre>
             <year>1977</year>
             <imdb>http://www.imdb.com/title/tt0076727/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="pokrovskyGate">
             <fullTitleEng>Pokrov Gates</fullTitleEng>
             <fullTitleRus>Покровские ворота</fullTitleRus>
@@ -2807,8 +3170,11 @@
             <genre>comedy</genre>
             <year>1983</year>
             <imdb>http://www.imdb.com/title/tt0083465/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-        
+
         <title xml:id="mirror">
             <fullTitleEng>Mirror</fullTitleEng>
             <fullTitleRus>Зеркало</fullTitleRus>
@@ -2818,8 +3184,11 @@
             <genre>drama</genre>
             <year>1975</year>
             <imdb>http://www.imdb.com/title/tt0072443/</imdb>
+            <keys>
+                <key/>
+            </keys>
         </title>
-  
+
     </titles>
 
     <genres>
@@ -2881,7 +3250,7 @@
                 <key>санкт-петербурге</key>
             </keys>
         </place>
-        
+
         <place xml:id="russia">
             <fullName>Russia</fullName>
             <placeType>geo</placeType>
@@ -2897,7 +3266,7 @@
                 <key>россиях</key>
             </keys>
         </place>
-        
+
         <place xml:id="pskovskayaOblast">
             <fullName>Pskov Oblast </fullName>
             <placeType>geo</placeType>
@@ -2909,7 +3278,7 @@
                 <key>пскове</key>
             </keys>
         </place>
-        
+
         <place xml:id="sovietUnion">
             <fullName>Soviet Union</fullName>
             <placeType>geo</placeType>
@@ -2921,7 +3290,7 @@
                 <key>советском союзе</key>
             </keys>
         </place>
-        
+
         <place xml:id="kinoteatrRodina">
             <fullName>Rodina movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -2940,7 +3309,7 @@
                 <key>кинотеатре родине</key>
             </keys>
         </place>
-        
+
         <place xml:id="nevel">
             <fullName>Nevel</fullName>
             <placeType>geo</placeType>
@@ -2952,7 +3321,7 @@
                 <key>невелем</key>
             </keys>
         </place>
-        
+
         <place xml:id="china">
             <fullName>China</fullName>
             <placeType>geo</placeType>
@@ -2964,15 +3333,15 @@
                 <key>китае</key>
             </keys>
         </place>
-        
+
         <place xml:id="hongKong">
             <fullName>Hong Kong</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>хонг конг</key>
+                <key>гонконг</key>
             </keys>
         </place>
-        
+
         <place xml:id="urals">
             <fullName>The Urals</fullName>
             <placeType>geo</placeType>
@@ -2981,7 +3350,7 @@
                 <key>уралах</key>
             </keys>
         </place>
-        
+
         <place xml:id="ufa">
             <fullName>Ufa</fullName>
             <placeType>geo</placeType>
@@ -2994,7 +3363,7 @@
                 <key>уфою</key>
             </keys>
         </place>
-        
+
         <place xml:id="republicBashkirtostan">
             <fullName>Republic Bashkortostan</fullName>
             <placeType>geo</placeType>
@@ -3005,10 +3374,10 @@
                 <key>республике башкортостане</key>
                 <key>башкортостан</key>
                 <key>башкортостане</key>
-                <key>башкортостана</key>                
+                <key>башкортостана</key>
             </keys>
         </place>
-        
+
         <place xml:id="moscow">
             <fullName>Moscow</fullName>
             <placeType>geo</placeType>
@@ -3021,7 +3390,7 @@
                 <key>москвою</key>
             </keys>
         </place>
-        
+
         <place xml:id="kinoteatrIskra">
             <fullName>Iskra movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3035,7 +3404,7 @@
                 <key>кинотеатров</key>
             </keys>
         </place>
-        
+
         <place xml:id="sverdlovsk">
             <fullName>Sverdlovsk</fullName>
             <placeType>geo</placeType>
@@ -3047,7 +3416,7 @@
                 <key>свердловске</key>
             </keys>
         </place>
-        
+
         <place xml:id="ekaterinburg">
             <fullName>Ekaterinburg</fullName>
             <placeType>geo</placeType>
@@ -3059,7 +3428,7 @@
                 <key>екатеринбурге</key>
             </keys>
         </place>
-        
+
         <place xml:id="berlin">
             <fullName>Berlin</fullName>
             <placeType>geo</placeType>
@@ -3071,7 +3440,7 @@
                 <key>берлине</key>
             </keys>
         </place>
-        
+
         <place xml:id="domKino">
             <fullName>Dom Kino</fullName>
             <placeType>exhibition</placeType>
@@ -3079,7 +3448,7 @@
                 <key>дом кино</key>
             </keys>
         </place>
-        
+
         <place xml:id="philadelphia">
             <fullName>Philadelhia</fullName>
             <placeType>geo</placeType>
@@ -3090,7 +3459,7 @@
                 <key>филадельфией</key>
             </keys>
         </place>
-        
+
         <place xml:id="seoul">
             <fullName>Seoul</fullName>
             <placeType>geo</placeType>
@@ -3102,7 +3471,7 @@
                 <key>сеуле</key>
             </keys>
         </place>
-        
+
         <place xml:id="kinoteatrFestival">
             <fullName>Festival movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3116,7 +3485,7 @@
                 <key>кинотеатров</key>
             </keys>
         </place>
-        
+
         <place xml:id="cityCenter">
             <fullName>mall</fullName>
             <placeType>exhibition</placeType>
@@ -3125,7 +3494,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="kinoteatrAurora">
             <fullName>Aurora movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3140,7 +3509,7 @@
                 <key>кинотеатр аврора</key>
             </keys>
         </place>
-        
+
         <place xml:id="kinoteatrMaksim">
             <fullName>Maksim movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3154,7 +3523,7 @@
                 <key>кинотеатров</key>
             </keys>
         </place>
-        
+
         <place xml:id="leningrad">
             <fullName>Leningrad</fullName>
             <placeType>geo</placeType>
@@ -3166,7 +3535,7 @@
                 <key>ленинграде</key>
             </keys>
         </place>
-        
+
         <place xml:id="videoSalon">
             <fullName>Video Salon</fullName>
             <placeType>exhibition</placeType>
@@ -3175,7 +3544,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="canneFestival">
             <fullName>Cannes Film Festival</fullName>
             <placeType>exhibition</placeType>
@@ -3186,7 +3555,7 @@
                 <key>каннском кинофестивале</key>
             </keys>
         </place>
-        
+
         <place xml:id="nevskiyProspekt">
             <fullName>Nevsky Prospect</fullName>
             <placeType>geo</placeType>
@@ -3195,10 +3564,10 @@
                 <key>невского проспекта</key>
                 <key>невскому проспеку</key>
                 <key>невском проспекте</key>
-                <key>невским проспектом</key>                
+                <key>невским проспектом</key>
             </keys>
         </place>
-        
+
         <place xml:id="imperialRussia">
             <fullName>Imperial Russia</fullName>
             <placeType>geo</placeType>
@@ -3207,7 +3576,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="hotelAngleter">
             <fullName>Hotel Angleterre</fullName>
             <placeType>geo</placeType>
@@ -3216,7 +3585,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="isaacsSquare">
             <fullName>Saint Isaac's Square</fullName>
             <placeType>geo</placeType>
@@ -3225,7 +3594,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="hollywood">
             <fullName>Hollywood</fullName>
             <placeType>geo</placeType>
@@ -3237,7 +3606,7 @@
                 <key>холливуде</key>
             </keys>
         </place>
-        
+
         <place xml:id="siberia">
             <fullName>Siberia</fullName>
             <placeType>geo</placeType>
@@ -3251,7 +3620,7 @@
                 <key>сибирях</key>
             </keys>
         </place>
-        
+
         <place xml:id="volgograskayaOblast">
             <fullName>Volgograd Oblast</fullName>
             <placeType>geo</placeType>
@@ -3260,7 +3629,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="volgograd">
             <fullName>Volgograd</fullName>
             <placeType>geo</placeType>
@@ -3272,7 +3641,7 @@
                 <key>волгограде</key>
             </keys>
         </place>
-        
+
         <place xml:id="america">
             <fullName>America</fullName>
             <placeType>geo</placeType>
@@ -3285,7 +3654,7 @@
                 <key>сша</key>
             </keys>
         </place>
-        
+
         <place xml:id="vietnam">
             <fullName>Vietnam</fullName>
             <placeType>geo</placeType>
@@ -3297,7 +3666,7 @@
                 <key>вьетнаме</key>
             </keys>
         </place>
-        
+
         <place xml:id="movieTheater">
             <fullName>movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3311,7 +3680,7 @@
                 <key>кинотеатров</key>
             </keys>
         </place>
-        
+
         <place xml:id="kino">
             <fullName>movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3325,7 +3694,7 @@
                 <key>кинотеатров</key>
             </keys>
         </place>
-        
+
         <place xml:id="kinoteatrMirazh">
             <fullName>Mirazh movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3339,7 +3708,7 @@
                 <key>кинотеатров</key>
             </keys>
         </place>
-        
+
         <place xml:id="club">
             <fullName>Club</fullName>
             <placeType>exhibition</placeType>
@@ -3348,7 +3717,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="odessa">
             <fullName>Odessa</fullName>
             <placeType>geo</placeType>
@@ -3361,7 +3730,7 @@
                 <key>одессою</key>
             </keys>
         </place>
-        
+
         <place xml:id="baltika">
             <fullName>Baltika</fullName>
             <placeType>exhibition</placeType>
@@ -3370,7 +3739,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="priboi">
             <fullName>Priboi movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3379,7 +3748,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="rostovOnDon">
             <fullName>Rostov-on-Don</fullName>
             <placeType>geo</placeType>
@@ -3388,7 +3757,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="filmProjectionUnit">
             <fullName>Portable Film Projection Unit</fullName>
             <placeType>exhibition</placeType>
@@ -3397,7 +3766,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="chkalovets">
             <fullName>Chalovets movie theater</fullName>
             <placeType>exhibition</placeType>
@@ -3406,7 +3775,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="moskva">
             <fullName>Moscow</fullName>
             <placeType>geo</placeType>
@@ -3415,7 +3784,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="vancouver">
             <fullName>Vancouver</fullName>
             <placeType>geo</placeType>
@@ -3427,7 +3796,7 @@
                 <key>ванкувере</key>
             </keys>
         </place>
-        
+
         <place xml:id="knowledgePower">
             <fullName>Knowledge Is Power</fullName>
             <placeType>exhibition</placeType>
@@ -3436,7 +3805,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="volgogradskayaOblast">
             <fullName>Volgograd Oblast</fullName>
             <placeType>geo</placeType>
@@ -3445,7 +3814,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="nikolaev">
             <fullName>Nikolaev</fullName>
             <placeType>geo</placeType>
@@ -3457,7 +3826,7 @@
                 <key>николаеве</key>
             </keys>
         </place>
-        
+
         <place xml:id="ukraine">
             <fullName>Ukraine</fullName>
             <placeType>geo</placeType>
@@ -3470,7 +3839,7 @@
                 <key>украиною</key>
             </keys>
         </place>
-        
+
         <place xml:id="blackSea">
             <fullName>The Black Sea</fullName>
             <placeType>geo</placeType>
@@ -3482,7 +3851,7 @@
                 <key>черном море</key>
             </keys>
         </place>
-        
+
         <place xml:id="crimea">
             <fullName>Crimea</fullName>
             <placeType>geo</placeType>
@@ -3494,7 +3863,7 @@
                 <key>крыме</key>
             </keys>
         </place>
-        
+
         <place xml:id="feodosiia">
             <fullName>Feodosiia</fullName>
             <placeType>geo</placeType>
@@ -3503,7 +3872,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="vinbochka">
             <fullName>"kinoteatr "Vinbochka"</fullName>
             <placeType>exhibition</placeType>
@@ -3512,7 +3881,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="france">
             <fullName>France</fullName>
             <placeType>geo</placeType>
@@ -3524,7 +3893,7 @@
                 <key>франциею</key>
             </keys>
         </place>
-        
+
         <place xml:id="tashkent">
             <fullName>Tashkent</fullName>
             <placeType>geo</placeType>
@@ -3536,7 +3905,7 @@
                 <key>ташкенте</key>
             </keys>
         </place>
-        
+
         <place xml:id="shortFestival">
             <fullName>Short and Animation Film Festival Open Cinema</fullName>
             <placeType>exhibition</placeType>
@@ -3545,7 +3914,7 @@
                 <key>петербург</key>
             </keys>
         </place>
-        
+
         <place xml:id="murmansk">
             <fullName>Murmansk</fullName>
             <placeType>geo</placeType>
@@ -3557,7 +3926,7 @@
                 <key>мурманске</key>
             </keys>
         </place>
-        
+
         <place xml:id="kinoteatrMurmansk">
             <fullName>Murmansk</fullName>
             <placeType>exhibition</placeType>
@@ -3571,7 +3940,7 @@
                 <key>кинотеатров</key>
             </keys>
         </place>
-        
+
         <place xml:id="kinoteatrLadoga">
             <fullName>Ladoga</fullName>
             <placeType>exhibition</placeType>
@@ -3585,8 +3954,8 @@
                 <key>кинотеатров</key>
             </keys>
         </place>
-        
-         
+
+
     </places>
 
 
@@ -3615,7 +3984,7 @@
         <nationalCinema xml:id="coproduction"/>
         <nationalCinema xml:id="asianCinema"/>
         <nationalCinema xml:id="indianCinema"/>
-        
+
     </nationalCinemas>
     <!-- Added tags -->
     <pronouns>
@@ -3679,13 +4048,13 @@
     </pronouns>
 
     <hesitations>
-            <hesitation>
-                <unambiguous>true</unambiguous>
-                <template>hesitation</template>
-                <type>lex</type>
-                <keys>
-                    <key>ну</key>
-                </keys>
-            <hesitation>
+        <hesitation>
+            <unambiguous>true</unambiguous>
+            <template>hesitation</template>
+            <type>lex</type>
+            <keys>
+                <key>ну</key>
+            </keys>
+        </hesitation>
     </hesitations>
 </index>
