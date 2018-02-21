@@ -2181,7 +2181,12 @@
             <year>1953</year>
             <imdb>http://www.imdb.com/title/tt0031381/</imdb>
             <keys>
-                <key><key/>
+                    <key>унесенные ветром<key/>
+                    <key>унесенных ветром<key/>
+                    <key>унесенных ветром<key/>
+                    <key>унесенным ветром<key/>
+                    <key>унесенными ветром<key/>
+                    <key>унесенных ветром<key/>
             </keys>
         </title>
 
@@ -2195,7 +2200,12 @@
             <year>1979</year>
             <imdb>http://www.imdb.com/title/tt0079579/</imdb>
             <keys>
-                <key/>
+                <key>москва слезам не верит</key>
+                <key>москву слезам не верит</key>
+                <key>москвы слезам не верит</key>
+                <key>москве слезам не верит</key>
+                <key>москвою слезам не верит</key>
+                <key>москве слезам не верит</key>
             </keys>
         </title>
 
@@ -2210,7 +2220,12 @@
             <year>1939</year>
             <imdb>http://www.imdb.com/title/tt0167474/</imdb>
             <keys>
-                <key/>
+                        <key>василиса прекрасная<key/>
+                        <key>василису прекрасную<key/>
+                        <key>василисы прекрасной<key/>
+                        <key>василисе прекрасной<key/>
+                        <key>василисой прекрасной<key/>
+                        <key>василисе прекрасной<key/>      
             </keys>
         </title>
 
@@ -2225,7 +2240,12 @@
             <year>1969</year>
             <imdb>http://www.imdb.com/title/tt0063555/</imdb>
             <keys>
-                <key/>
+                <key>цвет граната<key/>
+                <key>цвет граната<key/>
+                <key>цвета граната<key/>
+                <key>цвету граната<key/>
+                 <key>цветом граната<key/>
+                 <key>цвете граната<key/>
             </keys>
         </title>
 
@@ -2239,7 +2259,8 @@
             <year>2006</year>
             <imdb>http://www.imdb.com/title/tt0851577/</imdb>
             <keys>
-                <key/>
+                <key>oстров<key/>
+                    
             </keys>
         </title>
 
