@@ -3025,7 +3025,12 @@
             <year>1956</year>
             <imdb>http://www.imdb.com/title/tt0049934/</imdb>
             <keys>
-                <key/>
+                <key>война и мир</key>
+                <key>войну и мир</key>
+                <key>войны и мира</key>
+                <key>войне и миру</key>
+                <key>войной и миром</key>
+                <key>войне и мире</key> 
             </keys>
         </title>
 
@@ -3039,7 +3044,12 @@
             <year>1953</year>
             <imdb>http://www.imdb.com/title/tt0045473/</imdb>
             <keys>
-                <key/>
+                <key>Адмирал Ушаков</key>
+                <key>Адмирала Ушакова</key>
+                <key>Адмирала Ушакова</key>
+                <key>Адмиралу Ушакову</key>
+                <key>Адмиралом Ушаковым</key>
+                <key>Адмирале Ушакове</key>               
             </keys>
         </title>
 
@@ -3053,7 +3063,12 @@
             <year>2000</year>
             <imdb>http://www.imdb.com/title/tt0172495/</imdb>
             <keys>
-                <key/>
+                <key>гладиатор</key>
+                <key>гладиатора</key>
+                <key>гладиатора</key>
+                <key>гладиатору</key>
+                <key>гладиатором</key>
+                <key>гладиаторе</key>
             </keys>
         </title>
 
@@ -3067,7 +3082,7 @@
             <year>1998</year>
             <imdb>http://www.imdb.com/title/tt0129243/</imdb>
             <keys>
-                <key/>
+                <key>муму</key>
             </keys>
         </title>
 
@@ -3081,7 +3096,12 @@
             <year>2002</year>
             <imdb>http://www.imdb.com/title/tt0268380/</imdb>
             <keys>
-                <key/>
+                <key>ледниковый период</key>
+                <key>ледниковый период</key>
+                <key>ледникового периода</key>
+                <key>ледниковому периоду</key>
+                <key>ледниковым периодом</key>
+                <key>ледниковом периоде</key>
             </keys>
         </title>
 
@@ -3095,7 +3115,12 @@
             <year>1970</year>
             <imdb>http://www.imdb.com/title/tt0066565/</imdb>
             <keys>
-                <key/>
+                <key>белое солнце пустыни</key>
+                <key>белое солнце пустыни</key>
+                <key>белого солнца пустыни</key>
+                <key>белому солнцу пустыни</key>
+                <key>белым солнцем пустыни</key>
+                <key>белом солнце пустыни</key>
             </keys>
         </title>
 
@@ -3109,7 +3134,12 @@
             <year>1960</year>
             <imdb>http://www.imdb.com/title/tt0053746/</imdb>
             <keys>
-                <key/>
+                <key>дама с собачкой</key>
+                <key>даму с собачкой</key>
+                <key>дамы с собачкой</key>
+                <key>даме с собачкой</key>
+                <key>дамой с собачкой</key>
+                <key>даме с собачкой</key>
             </keys>
         </title>
 
@@ -3123,7 +3153,12 @@
             <year>1953</year>
             <imdb>http://www.imdb.com/title/tt0046461/</imdb>
             <keys>
-                <key/>
+                <key>три мушкетера</key>
+                <key>трех мушкетеров</key>
+                <key>трех мушкетеров</key>
+                <key>трем мушкетерам</key>
+                <key>тремя мушкетерами</key>
+                <key>трех мушкетерах</key>
             </keys>
         </title>
 
@@ -3137,7 +3172,7 @@
             <year>1972</year>
             <imdb>http://www.imdb.com/title/tt0069441/</imdb>
             <keys>
-                <key/>
+                <key>и дождь смывает все следы</key>
             </keys>
         </title>
 
@@ -3151,7 +3186,12 @@
             <year>1964</year>
             <imdb>http://www.imdb.com/title/tt0058089/</imdb>
             <keys>
-                <key/>
+                <key>фантомас</key>
+                <key>фантомаса</key>
+                <key>фантомаса</key>
+                <key>фантомасу</key>
+                <key>фантомасом</key>
+                <key>фантомасе</key>
             </keys>
         </title>
 
@@ -3165,13 +3205,18 @@
             <year>1977</year>
             <imdb>http://www.imdb.com/title/tt0075079/</imdb>
             <keys>
-                <key/>
+                <key>подранки</key>
+                <key>подранков</key>
+                <key>подранков</key>
+                <key>подранкам</key>
+                <key>подранками</key>
+                <key>подранках</key>
             </keys>
         </title>
 
         <title xml:id="lifeTearsLove">
             <fullTitleEng>Life, Tears, and Love</fullTitleEng>
-            <fullTitleRus>И жизнь, и следы, и любовь</fullTitleRus>
+            <fullTitleRus>И жизнь, и слезы, и любовь</fullTitleRus>
             <director>Nikolai Gubenko</director>
             <medium>film</medium>
             <country>USSR</country>
@@ -3179,7 +3224,12 @@
             <year>1973</year>
             <imdb>http://www.imdb.com/title/tt0167204/</imdb>
             <keys>
-                <key/>
+                <key>и жизнь, и слезы, и любовь</key>
+                <key>и жизнь, и слезы, и любовь</key>
+                <key>и жизни, и слез, и любви</key>
+                <key>и жизни, и слезам, и любви</key>
+                <key>и жизнью, и слезам, и любовью</key>
+                <key>и жизни, и слезам, и любви</key>       
             </keys>
         </title>
 
@@ -3193,7 +3243,7 @@
             <year>1980</year>
             <imdb>http://www.imdb.com/title/tt0080939/</imdb>
             <keys>
-                <key/>
+                <key>Из жизни отдыхающих</key>
             </keys>
         </title>
 
@@ -3207,7 +3257,12 @@
             <year>1970</year>
             <imdb>http://www.imdb.com/title/tt0065457/</imdb>
             <keys>
-                <key/>
+                <key>бег</key>
+                <key>бег</key>
+                <key>бега</key>
+                <key>бегу</key>
+                <key>бегом</key>
+                <key>беге</key>
             </keys>
         </title>
 
@@ -3222,7 +3277,7 @@
             <imdb>http://www.imdb.com/title/tt0087843/</imdb>
 
             <keys>
-                <key/>
+                <key>oднажды в Америке</key>
             </keys>
         </title>
 
@@ -3236,7 +3291,12 @@
             <year>1975</year>
             <imdb>http://www.imdb.com/title/tt0073486/</imdb>
             <keys>
-                <key/>
+                <key>полет над гнездом кукушки</key>
+                <key>полет над гнездом кукушки</key>
+                <key>полета над гнездом кукушки</key>
+                <key>полету над гнездом кукушки</key>
+                <key>полетом над гнездом кукушки</key>
+                <key>полете над гнездом кукушки</key>
             </keys>
         </title>
 
@@ -3250,7 +3310,12 @@
             <year>1971</year>
             <imdb>http://www.imdb.com/title/tt0068519/</imdb>
             <keys>
-                <key/>
+                <key>джентельмены удачи</key>
+                <key>джентельменов удачи</key>
+                <key>джентельменов удачи</key>
+                <key>джентельменам удачи</key>
+                <key>джентельменами удачи</key>
+                <key>джентельменах удачи</key>
             </keys>
         </title>
 
