@@ -2260,7 +2260,11 @@
             <imdb>http://www.imdb.com/title/tt0851577/</imdb>
             <keys>
                 <key>oстров<key/>
-                    
+                <key>oстров<key/>
+                <key>oстрова<key/>
+                <key>oстрову<key/>
+                <key>oстровом<key/>     
+                <key>oстрове<key/>
             </keys>
         </title>
 
@@ -2274,7 +2278,12 @@
             <year>2008</year>
             <imdb>http://www.imdb.com/title/tt1101026/</imdb>
             <keys>
-                <key/>
+                <key>адмирал</key>
+                <key>адмирала</key>
+                <key>адмирала</key>
+                <key>адмиралу</key>
+                <key>адмиралом</key>
+                <key>адмирале</key>
             </keys>
         </title>
 
@@ -2288,7 +2297,12 @@
             <year>2010</year>
             <imdb>http://www.imdb.com/title/tt1912518/</imdb>
             <keys>
-                <key/>
+                <key>утомленные солнцем 2: Предстояние и Цитадель</key>
+                <key>утомленных солнцем 2: Предстояние и Цитадель</key>
+                <key>утомленных солнцем 2: Предстояние и Цитадель</key>
+                <key>утомленным солнцем 2: Предстояние и Цитадель</key>
+                <key>утомленными солнцем 2: Предстояние и Цитадель</key>
+                <key>утомленных солнцем 2: Предстояние и Цитадель</key>    
             </keys>
         </title>
 
@@ -2304,9 +2318,10 @@
             <keys>
                 <key>ирония судьбы или с легким паром</key>
                 <key>иронию судьбы или с легким паром</key>
-            </keys>
-            <keys>
-                <key/>
+                <key>иронии судьбы или с легким паром</key>
+                <key>иронии судьбы или с легким паром</key>
+                <key>иронией судьбы или с легким паром</key>
+                <key>иронии судьбы или с легким паром</key>
             </keys>
         </title>
 
@@ -2320,7 +2335,12 @@
             <year>1979</year>
             <imdb>http://www.imdb.com/title/tt0151987/</imdb>
             <keys>
-                <key/>
+                <key>пираты ХХ века</key>
+                <key>пиратов ХХ века</key>
+                <key>пиратов ХХ века</key>
+                <key>пиратам ХХ века</key>
+                <key>пиратами ХХ века</key>
+                <key>пиратах ХХ века</key>
             </keys>
         </title>
 
@@ -2334,13 +2354,18 @@
             <year>1987</year>
             <imdb>http://www.imdb.com/title/tt0092879/</imdb>
             <keys>
-                <key/>
+                <key>десять негритят</key>
+                <key>десять негритят</key>
+                <key>десяти негритят</key>
+                <key>десяти негритят</key>
+                <key>десятью негритят</key>
+                <key>десяти негритят</key>
             </keys>
         </title>
 
         <title xml:id="coldSummer">
             <fullTitleEng>Cold Summer of 1953</fullTitleEng>
-            <fullTitleRus>Холодное лето пятьдесят третьего...</fullTitleRus>
+            <fullTitleRus>Холодное лето пятьдесят третьего</fullTitleRus>
             <director>Aleksandr Proshkin</director>
             <medium>film</medium>
             <country>USSR</country>
@@ -2348,7 +2373,12 @@
             <year>1988</year>
             <imdb>http://www.imdb.com/title/tt0095441/</imdb>
             <keys>
-                <key/>
+                <key>холодное лето пятьдесят третьего</key>
+                <key>холодное лето пятьдесят третьего</key>
+                <key>холодного лета пятьдесят третьего</key>
+                <key>холодному лету пятьдесят третьего</key>
+                <key>холодным летом пятьдесят третьего</key>
+                <key>холодном лете пятьдесят третьего</key>
             </keys>
         </title>
 
@@ -2362,13 +2392,18 @@
             <year>1986</year>
             <imdb>http://www.imdb.com/title/tt0091635/</imdb>
             <keys>
-                <key/>
+                <key>девять с половиной недель</key>
+                <key>девять с половиной недель</key>
+                <key>девяти с половиной недель</key>
+                <key>девяти с половиной недель</key>
+                <key>девятью с половиной недель</key>
+                <key>девяти с половиной недель</key>
             </keys>
         </title>
 
         <title xml:id="windowOnParis">
             <fullTitleEng>Window to Paris</fullTitleEng>
-            <fullTitleRus>Окное в Парию</fullTitleRus>
+            <fullTitleRus>Окно в Париж</fullTitleRus>
             <director>Iurii Mamin</director>
             <medium>film</medium>
             <country>Russia</country>
@@ -2376,7 +2411,12 @@
             <year>1993</year>
             <imdb>http://www.imdb.com/title/tt0110719/</imdb>
             <keys>
-                <key/>
+                <key>окно в Париж</key>
+                <key>окно в Париж</key>
+                <key>окна в Париж</key>
+                <key>окну в Париж</key>
+                <key>окном в Париж</key>
+                <key>окне в Париж</key>
             </keys>
         </title>
 
@@ -2390,7 +2430,12 @@
             <year>1979</year>
             <imdb>http://www.imdb.com/title/tt0128164/</imdb>
             <keys>
-                <key/>
+                <key>дикая охота короля Стаха</key>
+                <key>дикую охоту короля Стаха</key>
+                <key>дикой охоты короля Стаха</key>
+                <key>дикую охоту короля Стаха</key>
+                <key>дикой охотой короля Стаха</key>
+                <key>дикой охоте короля Стаха</key>
             </keys>
         </title>
 
@@ -2404,7 +2449,12 @@
             <year>2005</year>
             <imdb>http://www.imdb.com/title/tt0445760/</imdb>
             <keys>
-                <key/>
+                <key>капризное облако</key>
+                <key>капризное облако</key>
+                <key>капризного облака</key>
+                <key>капризному облаку</key>
+                <key>капризным облаком</key>
+                <key>капризном облаке</key>
             </keys>
         </title>
 
@@ -2418,7 +2468,12 @@
             <year>2007</year>
             <imdb>http://www.imdb.com/title/tt0418279/</imdb>
             <keys>
-                <key/>
+                <key>трансформеры</key>
+                <key>трансформеров</key>
+                <key>трансформеров</key>
+                <key>трансформерам</key>
+                <key>трансформерами</key>
+                <key>трансформерах</key>
             </keys>
         </title>
 
@@ -2432,7 +2487,12 @@
             <year>2013</year>
             <imdb>http://www.imdb.com/title/tt0816711/</imdb>
             <keys>
-                <key/>
+                <key>война миров Z</key>
+                <key>войну миров Z</key>
+                <key>войны миров Z</key>
+                <key>войну миров Z</key>
+                <key>войной миров Z</key>
+                <key>войне миров Z</key>
             </keys>
         </title>
 
@@ -2446,7 +2506,12 @@
             <year>2012</year>
             <imdb>http://www.imdb.com/title/tt0903624/</imdb>
             <keys>
-                <key/>
+                <key>хоббит</key>
+                <key>хоббита</key>
+                <key>хоббита</key>
+                <key>хоббиту</key>
+                <key>хоббитом</key>
+                <key>хоббите</key>
             </keys>
         </title>
 
