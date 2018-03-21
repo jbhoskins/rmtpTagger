@@ -3329,7 +3329,7 @@
             <year>1969</year>
             <imdb>http://www.imdb.com/title/tt0234355/</imdb>
             <keys>
-                <key/>
+                <key>ну, погоди!</key>
             </keys>
         </title>
 
@@ -3343,7 +3343,7 @@
             <year>1977</year>
             <imdb>http://www.imdb.com/title/tt0076391/</imdb>
             <keys>
-                <key/>
+                <key>мимино</key>
             </keys>
         </title>
 
@@ -3357,7 +3357,12 @@
             <year>1942</year>
             <imdb>http://www.imdb.com/title/tt0034583/</imdb>
             <keys>
-                <key/>
+                <key>касабланка</key>
+                <key>касабланку</key>
+                <key>касабланки</key>
+                <key>касабланке</key>
+                <key>касабланкой</key>
+                <key>касабланке</key>
             </keys>
         </title>
 
@@ -3371,7 +3376,12 @@
             <year>2009</year>
             <imdb>http://www.imdb.com/title/tt0403726/</imdb>
             <keys>
-                <key/>
+                <key>анна каренина</key>
+                <key>анну каренину</key>
+                <key>анны карениной</key>
+                <key>анне карениной</key>
+                <key>анной карениной</key>
+                <key>анне карениной</key>
             </keys>
         </title>
 
@@ -3385,7 +3395,12 @@
             <year>1946</year>
             <imdb>http://www.imdb.com/title/tt0038666/</imdb>
             <keys>
-                <key/>
+                <key>xозяйка медной горы</key>
+                <key>xозяйку медной горы</key>
+                <key>xозяйки медной горы</key>
+                <key>xозяйке медной горы</key>
+                <key>xозяйкой медной горы</key>
+                <key>xозяйке медной горы</key>
             </keys>
         </title>
 
@@ -3399,7 +3414,12 @@
             <year>2005</year>
             <imdb>http://www.imdb.com/title/tt0360717/</imdb>
             <keys>
-                <key/>
+                <key>кинг конг</key>
+                <key>кинг конга</key>
+                <key>кинг конга</key>
+                <key>кинг конгу</key>
+                <key>кинг конгом</key>
+                <key>кинг конге</key>
             </keys>
         </title>
 
@@ -3413,7 +3433,12 @@
             <year>1977</year>
             <imdb>http://www.imdb.com/title/tt0076727/</imdb>
             <keys>
-                <key/>
+                <key>служебный роман</key>
+                <key>служебный роман</key>
+                <key>служебного романа</key>
+                <key>служебному роману</key>
+                <key>служебным романом</key>
+                <key>служебном романе</key>
             </keys>
         </title>
 
@@ -3427,7 +3452,12 @@
             <year>1983</year>
             <imdb>http://www.imdb.com/title/tt0083465/</imdb>
             <keys>
-                <key/>
+                <key>покровские ворота</key>
+                <key>покровские ворота</key>
+                <key>покровских ворот</key>
+                <key>покровским воротам</key>
+                <key>покровскими воротами</key>
+                <key>покровских воротах</key>
             </keys>
         </title>
 
@@ -3441,7 +3471,12 @@
             <year>1975</year>
             <imdb>http://www.imdb.com/title/tt0072443/</imdb>
             <keys>
-                <key/>
+                <key>зеркало</key>
+                <key>зеркало</key>
+                <key>зеркала</key>
+                <key>зеркалу</key>
+                <key>зеркалом</key>
+                <key>зеркале</key>
             </keys>
         </title>
 
@@ -3595,6 +3630,11 @@
             <placeType>geo</placeType>
             <keys>
                 <key>гонконг</key>
+                <key>гонконг</key>
+                <key>гонконгa</key>
+                <key>гонконгу</key>
+                <key>гонконгом</key>
+                <key>гонконге</key>
             </keys>
         </place>
 
@@ -3755,14 +3795,12 @@
             <fullName>Aurora movie theater</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>кинотеатр</key>
-                <key>кинотеатры</key>
-                <key>кинотеатра</key>
-                <key>кинотеатру</key>
-                <key>кинотеатром</key>
-                <key>кинотеатре</key>
-                <key>кинотеатров</key>
-                <key>кинотеатр аврора</key>
+                <key>аврора</key>
+                <key>аврору</key>
+                <key>авроры</key>
+                <key>авроре</key>
+                <key>авророй</key>
+                <key>авроре</key>
             </keys>
         </place>
 
@@ -3770,13 +3808,12 @@
             <fullName>Maksim movie theater</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>кинотеатр</key>
-                <key>кинотеатры</key>
-                <key>кинотеатра</key>
-                <key>кинотеатру</key>
-                <key>кинотеатром</key>
-                <key>кинотеатре</key>
-                <key>кинотеатров</key>
+                <key>максим</key>
+                <key>максима</key>
+                <key>максима</key>
+                <key>максиму</key>
+                <key>максимом</key>
+                <key>максиме</key>
             </keys>
         </place>
 
@@ -3796,8 +3833,12 @@
             <fullName>Video Salon</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key> видео салон</key>
+                <key> видео салон</key>
+                <key> видео салона</key>
+                <key> видео салону</key>
+                <key> видео салоном</key>
+                <key> видео салоне</key>
             </keys>
         </place>
 
@@ -3818,7 +3859,7 @@
             <keys>
                 <key>невский проспект</key>
                 <key>невского проспекта</key>
-                <key>невскому проспеку</key>
+                <key>невскому проспекту</key>
                 <key>невском проспекте</key>
                 <key>невским проспектом</key>
             </keys>
@@ -3828,8 +3869,12 @@
             <fullName>Imperial Russia</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>империя</key>
+                <key>империю</key>
+                <key>империи</key>
+                <key>империи</key>
+                <key>империей</key>
+                <key>империи</key>
             </keys>
         </place>
 
@@ -3837,8 +3882,12 @@
             <fullName>Hotel Angleterre</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>англетер</key>
+                <key>англетер</key>
+                <key>англетера</key>
+                <key>англетеру</key>
+                <key>англетером</key>
+                <key>англетере</key>
             </keys>
         </place>
 
@@ -3846,8 +3895,12 @@
             <fullName>Saint Isaac's Square</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>исаакиевская площадь</key>
+                <key>исаакиевскую площадь</key>
+                <key>исаакиевской площади</key>
+                <key>исаакиевской площади</key>
+                <key>исаакиевской площадью</key>
+                <key>исаакиевской площади</key>
             </keys>
         </place>
 
@@ -3855,11 +3908,11 @@
             <fullName>Hollywood</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>холливуд</key>
-                <key>холливуда</key>
-                <key>холливуду</key>
-                <key>холливудом</key>
-                <key>холливуде</key>
+                <key>голливуд</key>
+                <key>голливуда</key>
+                <key>голливуду</key>
+                <key>голливудом</key>
+                <key>голливуде</key>
             </keys>
         </place>
 
@@ -3870,10 +3923,9 @@
                 <key>сибирь</key>
                 <key>сибири</key>
                 <key>сибирью</key>
-                <key>сибирей</key>
-                <key>сибирям</key>
-                <key>сибирями</key>
-                <key>сибирях</key>
+                <key>сибири</key>
+                <key>сибирью</key>
+                <key>сибири</key>
             </keys>
         </place>
 
@@ -3881,8 +3933,10 @@
             <fullName>Volgograd Oblast</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>волгоградская область</key>
+                <key>волгоградскую область</key>
+                <key>волгоградской области</key>
+                <key>волгоградской областью</key>
             </keys>
         </place>
 
@@ -3955,13 +4009,12 @@
             <fullName>Mirazh movie theater</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>кинотеатр</key>
-                <key>кинотеатры</key>
-                <key>кинотеатра</key>
-                <key>кинотеатру</key>
-                <key>кинотеатром</key>
-                <key>кинотеатре</key>
-                <key>кинотеатров</key>
+                <key>мираж</key>
+                <key>мираж</key>
+                <key>миража</key>
+                <key>миражу</key>
+                <key>миражом</key>
+                <key>мираже</key>
             </keys>
         </place>
 
@@ -3969,8 +4022,12 @@
             <fullName>Club</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>клуб</key>
+                <key>клуб</key>
+                <key>клуба</key>
+                <key>клубу</key>
+                <key>клубом</key>
+                <key>клубе</key>   
             </keys>
         </place>
 
@@ -3991,8 +4048,12 @@
             <fullName>Baltika</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>балтика</key>
+                <key>балтику</key>
+                <key>балтики</key>
+                <key>балтике</key>
+                <key>балтикой</key>
+                <key>балтике</key>
             </keys>
         </place>
 
@@ -4000,8 +4061,12 @@
             <fullName>Priboi movie theater</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>прибой</key>
+                <key>прибою</key>
+                <key>прибоя</key>
+                <key>прибою</key>
+                <key>прибоем</key>
+                <key>прибое</key>
             </keys>
         </place>
 
@@ -4009,8 +4074,12 @@
             <fullName>Rostov-on-Don</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>ростов на дону</key>
+                <key>ростов на дону</key>
+                <key>ростова на дону</key>
+                <key>ростову на дону</key>
+                <key>ростовом на дону</key>
+                <key>ростове на дону</key>
             </keys>
         </place>
 
@@ -4018,17 +4087,24 @@
             <fullName>Portable Film Projection Unit</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>кинопередвижка</key>
+                <key>кинопередвижку</key>
+                <key>кинопередвижки</key>
+                <key>кинопередвижке</key>
+                <key>кинопередвижкой</key>
+                <key>кинопередвижке</key>
             </keys>
         </place>
 
         <place xml:id="chkalovets">
-            <fullName>Chalovets movie theater</fullName>
+            <fullName>Chкalovets movie theater</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>чкаловец</key>
+                <key>чкаловец</key>
+                <key>чкаловца</key>
+                <key>чкаловце</key>
+                <key>чкаловцем</key>
             </keys>
         </place>
 
@@ -4036,8 +4112,12 @@
             <fullName>Moscow</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>москва</key>
+                <key>москву</key>
+                <key>москвы</key>
+                <key>москве</key>
+                <key>москвою</key>
+                <key>москве</key>
             </keys>
         </place>
 
@@ -4056,15 +4136,6 @@
         <place xml:id="knowledgePower">
             <fullName>Knowledge Is Power</fullName>
             <placeType>exhibition</placeType>
-            <keys>
-                <key>питер</key>
-                <key>петербург</key>
-            </keys>
-        </place>
-
-        <place xml:id="volgogradskayaOblast">
-            <fullName>Volgograd Oblast</fullName>
-            <placeType>geo</placeType>
             <keys>
                 <key>питер</key>
                 <key>петербург</key>
@@ -4124,8 +4195,12 @@
             <fullName>Feodosiia</fullName>
             <placeType>geo</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>феодосия</key>
+                <key>феодосию</key>
+                <key>феодосии</key>
+                <key>феодосии</key>
+                <key>феодосией</key>
+                <key>феодосии</key>
             </keys>
         </place>
 
@@ -4133,8 +4208,12 @@
             <fullName>"kinoteatr "Vinbochka"</fullName>
             <placeType>exhibition</placeType>
             <keys>
-                <key>питер</key>
-                <key>петербург</key>
+                <key>винбочка</key>
+                <key>винбочку</key>
+                <key>винбочки</key>
+                <key>винбочке</key>
+                <key>винбочкой</key>
+                <key>винбочке</key>
             </keys>
         </place>
 
